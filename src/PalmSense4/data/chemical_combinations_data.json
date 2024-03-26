@@ -1,0 +1,319 @@
+{
+  "Common Gases and Liquits": [
+    {
+      "type": "Common Gases and Liquits",
+      "name": "Water (H₂O)",
+      "molarMass": 18.015
+    },
+    {
+      "type": "Common Gases and Liquits",
+      "name": "Nitrogen (N₂)",
+      "molarMass": 28.013
+    },
+    {
+      "type": "Common Gases and Liquits",
+      "name": "Oxygen (O₂)",
+      "molarMass": 31.999
+    },
+    {
+      "type": "Common Gases and Liquits",
+      "name": "Hydrogen (H₂)",
+      "molarMass": 2.016
+    },
+    {
+      "type": "Common Gases and Liquits",
+      "name": "Helium (He)",
+      "molarMass": 4.0026
+    },
+    {
+      "type": "Common Gases and Liquits",
+      "name": "Carbon dioxide (CO₂)",
+      "molarMass": 44.01
+    },
+    {
+      "type": "Common Gases and Liquits",
+      "name": "Ammonia (NH₃)",
+      "molarMass": 17.031
+    },
+    {
+      "type": "Common Gases and Liquits",
+      "name": "Hydrogen sulfide (H₂S)",
+      "molarMass": 34.082
+    },
+    {
+      "type": "Common Gases and Liquits",
+      "name": "Chloroform (CHCl₃)",
+      "molarMass": 119.378
+    }
+  ],
+  "Salts": [
+    {
+      "type": "Salts",
+      "name": "Sodium Chloride (NaCl)",
+      "molarMass": 58.443
+    },
+    {
+      "type": "Salts",
+      "name": "Potassium Chloride (KCl)",
+      "molarMass": 74.551
+    },
+    {
+      "type": "Salts",
+      "name": "Magnesium Chloride (MgCl₂)",
+      "molarMass": 95.211
+    },
+    {
+      "type": "Salts",
+      "name": "Calcium Chloride (CaCl₂)",
+      "molarMass": 110.984
+    },
+    {
+      "type": "Salts",
+      "name": "Ammonium Chloride (NH₄Cl)",
+      "molarMass": 53.491
+    },
+    {
+      "type": "Salts",
+      "name": "Sodium Nitrate (NaNO₃)",
+      "molarMass": 84.996
+    },
+    {
+      "type": "Salts",
+      "name": "Potassium Nitrate (KNO₃)",
+      "molarMass": 101.103
+    },
+    {
+      "type": "Salts",
+      "name": "Ammonium Nitrate (NH₄NO₃)",
+      "molarMass": 80.043
+    },
+    {
+      "type": "Salts",
+      "name": "Silver Nitrate (AgNO₃)",
+      "molarMass": 169.87
+    },
+    {
+      "type": "Salts",
+      "name": "Calcium Carbonate (CaCO₃)",
+      "molarMass": 100.086
+    },
+    {
+      "type": "Salts",
+      "name": "Magnesium Sulfate (MgSO₄)",
+      "molarMass": 120.366
+    },
+    {
+      "type": "Salts",
+      "name": "Calcium Sulfate (CaSO₄)",
+      "molarMass": 136.14
+    },
+    {
+      "type": "Salts",
+      "name": "Potassium Permanganate (KMnO₄)",
+      "molarMass": 158.034
+    }
+  ],
+  "Acids": [
+    {
+      "type": "Acids",
+      "name": "Hydrochloric Acid (HCl)",
+      "molarMass": 36.461
+    },
+    {
+      "type": "Acids",
+      "name": "Sulfuric Acid (H₂SO₄)",
+      "molarMass": 98.079
+    },
+    {
+      "type": "Acids",
+      "name": "Sulfurous Acid (H₂SO₃)",
+      "molarMass": 82.076
+    },
+    {
+      "type": "Acids",
+      "name": "Hydrosulfuric Acid (H₂S)",
+      "molarMass": 34.082
+    },
+    {
+      "type": "Acids",
+      "name": "Nitric Acid (HNO₃)",
+      "molarMass": 63.016
+    },
+    {
+      "type": "Acids",
+      "name": "Nitrous Acid (HNO₂)",
+      "molarMass": 47.013
+    },
+    {
+      "type": "Acids",
+      "name": "Phosphoric Acid (H₃PO₄)",
+      "molarMass": 97.994
+    },
+    {
+      "type": "Acids",
+      "name": "Phosphorous Acid (H₃PO₃)",
+      "molarMass": 81.992
+    },
+    {
+      "type": "Acids",
+      "name": "Hydrobromic Acid (HBr)",
+      "molarMass": 80.911
+    },
+    {
+      "type": "Acids",
+      "name": "Hydrofluoric Acid (HF)",
+      "molarMass": 20.006
+    },
+    {
+      "type": "Acids",
+      "name": "Formic Acid (HCOOH)",
+      "molarMass": 46.026
+    },
+    {
+      "type": "Acids",
+      "name": "Acetic Acid (CH₃COOH)",
+      "molarMass": 60.052
+    }
+  ],
+  "Alkali": [
+    {
+      "type": "Alkali",
+      "name": "Sodium Hydroxide (NaOH)",
+      "molarMass": 39.997
+    },
+    {
+      "type": "Alkali",
+      "name": "Potassium Hydroxide (KOH)",
+      "molarMass": 55.099
+    },
+    {
+      "type": "Alkali",
+      "name": "Magnesium Hydroxide (Mg(OH)₂)",
+      "molarMass": 58.3197
+    },
+    {
+      "type": "Alkali",
+      "name": "Calcium Hydroxide (Ca(OH)₂)",
+      "molarMass": 74.093
+    },
+    {
+      "type": "Alkali",
+      "name": "Aluminium Hydroxide (Al(OH)₃)",
+      "molarMass": 77.998
+    },
+    {
+      "type": "Alkali",
+      "name": "Lithium Hydroxide (LiOH)",
+      "molarMass": 23.95
+    }
+  ],
+  "Organic": [
+    {
+      "type": "Organic",
+      "name": "Methane (CH₄)",
+      "molarMass": 16.043
+    },
+    {
+      "type": "Organic",
+      "name": "Ethane (C₂H₆)",
+      "molarMass": 30.070
+    },
+    {
+      "type": "Organic",
+      "name": "Propane (C₃H₈)",
+      "molarMass": 44.097
+    },
+    {
+      "type": "Organic",
+      "name": "Butane (C₄H₁₀)",
+      "molarMass": 58.124
+    },
+    {
+      "type": "Organic",
+      "name": "Methanol (CH₃OH)",
+      "molarMass": 32.042
+    },
+    {
+      "type": "Organic",
+      "name": "Benzene (C₆H₆)",
+      "molarMass": 78.114
+    },
+    {
+      "type": "Organic",
+      "name": "Glucose (C₆H₁₂O₆)",
+      "molarMass": 180.156
+    },
+    {
+      "type": "Organic",
+      "name": "Vitamin C (C₆H₆O₆)",
+      "molarMass": 176.124
+    }
+  ],
+  "Pure Metals": [
+    {
+      "type": "Pure Metals",
+      "name": "Iron (Fe)",
+      "molarMass": 55.845
+    },
+    {
+      "type": "Pure Metals",
+      "name": "Aluminium (Al)",
+      "molarMass": 26.982
+    },
+    {
+      "type": "Pure Metals",
+      "name": "Copper (Cu)",
+      "molarMass": 63.546
+    },
+    {
+      "type": "Pure Metals",
+      "name": "Titanium (Ti)",
+      "molarMass": 47.867
+    },
+    {
+      "type": "Pure Metals",
+      "name": "Silver (Ag)",
+      "molarMass": 107.868
+    },
+    {
+      "type": "Pure Metals",
+      "name": "Gold (Au)",
+      "molarMass": 196.967
+    },
+    {
+      "type": "Pure Metals",
+      "name": "Nickel (Ni)",
+      "molarMass": 58.693
+    },
+    {
+      "type": "Pure Metals",
+      "name": "Chromium (Cr)",
+      "molarMass": 51.996
+    },
+    {
+      "type": "Pure Metals",
+      "name": "Cobalt (Co)",
+      "molarMass": 58.933
+    },
+    {
+      "type": "Pure Metals",
+      "name": "Manganese (Mn)",
+      "molarMass": 54.938
+    },
+    {
+      "type": "Pure Metals",
+      "name": "Mercury (Hg)",
+      "molarMass": 200.592
+    },
+    {
+      "type": "Pure Metals",
+      "name": "Lead (Pb)",
+      "molarMass": 207.2
+    },
+    {
+      "type": "Pure Metals",
+      "name": "Uranium (U)",
+      "molarMass": 238.029
+    }
+  ]
+}
