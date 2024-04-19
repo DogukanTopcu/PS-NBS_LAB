@@ -878,21 +878,6 @@ namespace PalmSense4
             plot.AddData("", new double[0], new double[0]); //Add a empty data array to draw an empty plot
         }
 
-        private void panel9_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel10_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void saveFileDialog1_FileOk(object sender, CancelEventArgs e)
-        {
-
-        }
-
         private void clearPlotToolStripMenuItem_Click(object sender, EventArgs e)
         {
             plot.ClearAll();
@@ -953,6 +938,7 @@ namespace PalmSense4
                 Console.WriteLine("Done");
             }
         }
+
 
 
         // *************************
