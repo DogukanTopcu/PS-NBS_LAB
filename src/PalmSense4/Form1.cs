@@ -1,4 +1,5 @@
-﻿using MathNet.Numerics.LinearAlgebra.Factorization;
+﻿using MathNet.Numerics;
+using MathNet.Numerics.LinearAlgebra.Factorization;
 using PalmSens;
 using PalmSens.Comm;
 using PalmSens.Core.Simplified.Data;
@@ -45,7 +46,7 @@ namespace PalmSense4
         private SimpleMeasurement _activeMeasurement;
 
         private FileIO _fileIO;
-
+        private List<List<double>> _measurementData;
 
         public Form1(List<Chemical_Combinations> _cc)
         {
@@ -68,6 +69,7 @@ namespace PalmSense4
             _measurementSettings = new Measurement_Settings(_cvSettings, _dpSettings, _impSettings);
 
             _fileIO = new FileIO();
+            _measurementData = new List<List<double>>();
 
         }
 
@@ -803,6 +805,9 @@ namespace PalmSense4
                 dgvMeasurement.Rows[i].Cells[0].Value = (i + 1).ToString();
                 dgvMeasurement.Rows[i].Cells[1].Value = xValue.ToString("F2");
                 dgvMeasurement.Rows[i].Cells[2].Value = yValue.ToString("E3");
+
+
+                _measurementData.Add(new List<double> { (i + 1), xValue, yValue });
             }
 
             //tbPotential.Text = activeSimpleCurve.XAxisValue(startIndex + count - 1).ToString("F3");
@@ -902,24 +907,45 @@ namespace PalmSense4
         string folderName = null;
         private void btnDataViewSave_Click(object sender, EventArgs e)
         {
+            // For .pssession file********************************************************************
+            //FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
 
-            //SaveFileDialog saveFileDialog = new SaveFileDialog();
+            //folderBrowserDialog.RootFolder = Environment.SpecialFolder.Desktop;
+            //folderBrowserDialog.Description = "Save PowerShell Session File";
+
+            //if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+            //{
+            //    folderName = folderBrowserDialog.SelectedPath;
+            //    string fileName = "PalmSens4 Measurement (" + DateTime.Now.ToString("MM-dd-yyyy-h-mm-tt") + ").pssession";
+            //    Console.WriteLine(fileName);
+            //    string filePathName = Path.Combine(folderName, fileName);
+            //    File.Create(Path.Combine(filePathName)).Close();
+
+            //    SimpleLoadSaveFunctions.SaveMeasurement(_activeMeasurement, filePathName);
+            //}
+
+
+            // For Excel Table
             FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
 
             folderBrowserDialog.RootFolder = Environment.SpecialFolder.Desktop;
             folderBrowserDialog.Description = "Save PowerShell Session File";
-            //folderBrowserDialog.Filter = "PowerShell Session Files (*.pssession)|*.pssession";
-            //saveFileDialog.Filter = "Excel Files(.xls)|*.xls| Excel Files(.xlsx)|*.xlsx| Excel Files(*.xlsm)|*.xlsm";
 
             if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
             {
                 folderName = folderBrowserDialog.SelectedPath;
-                string filePathName = Path.Combine(folderName, "name.pssession");
-                File.Create(Path.Combine(filePathName)).Close();
+                string fileName = "PalmSens4 Measurement (" + DateTime.Now.ToString("MM-dd-yyyy-h-mm-tt") + ").xlsx";
+                string filePathName = Path.Combine(folderName, fileName);
+                //File.Create(Path.Combine(filePathName)).Close();
 
-                //_fileIO.SaveDataToExcel(filePathName, dgvMeasurement);
-
-                SimpleLoadSaveFunctions.SaveMeasurement(_activeMeasurement, filePathName);
+                if(_fileIO.SaveDataToExcel(filePathName, _measurementData))
+                {
+                    lbConsole.Items.Add($"Measurements successfuly saved to {filePathName}");
+                }
+                else
+                {
+                    lbConsole.Items.Add("An error occured when saving measurements");
+                }
             }
         }
 
@@ -934,6 +960,8 @@ namespace PalmSense4
             {
                 string filePathName = openFileDialog.FileName;
                 SimpleLoadSaveFunctions.SaveMeasurement(_activeMeasurement, filePathName);
+
+                _activeMeasurement = psCommSimpleWinForms1.Measure(_selectedMethod);
 
                 Console.WriteLine("Done");
             }

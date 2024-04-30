@@ -94,6 +94,7 @@ namespace PalmSense4
             this.TSMIdrawHas = new System.Windows.Forms.ToolStripMenuItem();
             this.exportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.textToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMILoadPeakLOD = new System.Windows.Forms.ToolStripMenuItem();
             this.plot = new SDKPlot.WinForms.Plot();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -155,7 +156,6 @@ namespace PalmSense4
             this.panel15 = new System.Windows.Forms.Panel();
             this.panel16 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
-            this.textToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -857,8 +857,14 @@ namespace PalmSense4
             // imageToolStripMenuItem
             // 
             this.imageToolStripMenuItem.Name = "imageToolStripMenuItem";
-            this.imageToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
+            this.imageToolStripMenuItem.Size = new System.Drawing.Size(142, 28);
             this.imageToolStripMenuItem.Text = "Image";
+            // 
+            // textToolStripMenuItem
+            // 
+            this.textToolStripMenuItem.Name = "textToolStripMenuItem";
+            this.textToolStripMenuItem.Size = new System.Drawing.Size(142, 28);
+            this.textToolStripMenuItem.Text = "Text";
             // 
             // TSMILoadPeakLOD
             // 
@@ -1527,12 +1533,6 @@ namespace PalmSense4
             this.label7.Size = new System.Drawing.Size(94, 20);
             this.label7.TabIndex = 0;
             this.label7.Text = "Calculators";
-            // 
-            // textToolStripMenuItem
-            // 
-            this.textToolStripMenuItem.Name = "textToolStripMenuItem";
-            this.textToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
-            this.textToolStripMenuItem.Text = "Text";
             // 
             // Form1
             // 
