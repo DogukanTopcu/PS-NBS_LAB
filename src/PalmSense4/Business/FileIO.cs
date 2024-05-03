@@ -11,14 +11,16 @@ namespace PalmSense4.Business
 {
     public class FileIO
     {
-        Microsoft.Office.Interop.Excel.Application excelApp;
+        
         public FileIO()
         {
-            excelApp = new Microsoft.Office.Interop.Excel.Application();
+
         }
 
         public bool SaveDataToExcel(string filePath, List<List<double>> measurementData)
         {
+            Microsoft.Office.Interop.Excel.Application excelApp = new Microsoft.Office.Interop.Excel.Application();
+
             try
             {
             Workbook wb = excelApp.Workbooks.Add();
@@ -38,22 +40,48 @@ namespace PalmSense4.Business
 
             wb.SaveAs(filePath);
 
-            wb.Save();
             wb.Close();
             excelApp.Quit();
             System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
 
             }
-            catch
+            catch (Exception e)
             {
+                Console.WriteLine(e.ToString());
                 return false;
             }
             return true;
         }
 
-        public void LoadDataFromExcel(string filePath, DataView data, Form1 view)
+        public List<List<double>> LoadDataFromExcel(string filePath)
         {
-            // TODO: Excel dosyasındaki verileri dataview ile oluştur ve form1 arayüzünde plot ile birlikte göster
+            
+            try
+            {
+                Microsoft.Office.Interop.Excel.Application excelApp = new Microsoft.Office.Interop.Excel.Application();
+
+                List<List<double>> data = new List<List<double>>();
+                Workbook wb = excelApp.Workbooks.Open(filePath);
+                Worksheet ws = wb.ActiveSheet;
+
+                int i = 1;
+                while (ws.Cells[i + 1, 1].Value != null)
+                {
+                    data.Add(new List<double> { 
+                        ws.Cells[i + 1, 1].Value, 
+                        ws.Cells[i + 1, 2].Value, 
+                        ws.Cells[i + 1, 3].Value });
+                    i++;
+                }
+            
+                wb.Close();
+                excelApp.Quit();
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
+
+                return data;
+
+            }
+            catch { return null; }
         }
 
         public void SaveImageOfPlot(string filePath, DataView data) 

@@ -1,5 +1,6 @@
 ﻿using MathNet.Numerics;
 using MathNet.Numerics.LinearAlgebra.Factorization;
+using Newtonsoft.Json.Linq;
 using PalmSens;
 using PalmSens.Comm;
 using PalmSens.Core.Simplified.Data;
@@ -737,6 +738,7 @@ namespace PalmSense4
         {
             if (psCommSimpleWinForms1.DeviceState == PalmSens.Comm.CommManager.DeviceState.Idle)
             {
+                _measurementData.Clear();
                 InitDataGridView();
                 try
                 {
@@ -907,22 +909,6 @@ namespace PalmSense4
         string folderName = null;
         private void btnDataViewSave_Click(object sender, EventArgs e)
         {
-            // For .pssession file********************************************************************
-            //FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
-
-            //folderBrowserDialog.RootFolder = Environment.SpecialFolder.Desktop;
-            //folderBrowserDialog.Description = "Save PowerShell Session File";
-
-            //if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
-            //{
-            //    folderName = folderBrowserDialog.SelectedPath;
-            //    string fileName = "PalmSens4 Measurement (" + DateTime.Now.ToString("MM-dd-yyyy-h-mm-tt") + ").pssession";
-            //    Console.WriteLine(fileName);
-            //    string filePathName = Path.Combine(folderName, fileName);
-            //    File.Create(Path.Combine(filePathName)).Close();
-
-            //    SimpleLoadSaveFunctions.SaveMeasurement(_activeMeasurement, filePathName);
-            //}
 
 
             // For Excel Table
@@ -952,19 +938,45 @@ namespace PalmSense4
         private void btnLoad_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "PowerShell Session Files (*.pssession)|*.pssession";
-            openFileDialog.Title = "Load PowerShell Session File";
+            openFileDialog.Filter = "Excel Files (*.xlsx)|*.xlsx|Excel Files (*.xls)|*.xls";
+            openFileDialog.Title = "Load Excel File";
             openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 string filePathName = openFileDialog.FileName;
-                SimpleLoadSaveFunctions.SaveMeasurement(_activeMeasurement, filePathName);
+                _measurementData = _fileIO.LoadDataFromExcel(filePathName);
 
-                _activeMeasurement = psCommSimpleWinForms1.Measure(_selectedMethod);
+                if (_measurementData == null)
+                {
+                    _measurementData = new List<List<double>>();
+                    lbConsole.Items.Add("An error occured while the file loading.");
+                }
+                else
+                {
+                    lbConsole.Items.Add("File loaded successfully.");
+                    DisplayLoadedData();
+                    lbConsole.Items.Add("Data table created.");
+                }
 
-                Console.WriteLine("Done");
             }
+        }
+        private void DisplayLoadedData()
+        {
+            InitDataGridView();
+            List<double> potentials = new List<double>();
+            List<double> currents = new List<double>();
+            for (int i = 0; i < _measurementData.Count; i++)
+            {
+                dgvMeasurement.Rows.Add(1);
+                dgvMeasurement.Rows[i].Cells[0].Value = _measurementData[i][0].ToString();
+                dgvMeasurement.Rows[i].Cells[1].Value = _measurementData[i][1].ToString("F2");
+                dgvMeasurement.Rows[i].Cells[2].Value = _measurementData[i][2].ToString("E3");
+
+                potentials.Add(_measurementData[i][1]);
+                currents.Add(_measurementData[i][2]);
+            }
+            plot.AddData("Plot1", potentials.ToArray(), currents.ToArray());
         }
 
 
