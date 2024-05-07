@@ -60,10 +60,10 @@ namespace PalmSense4
             this.label24 = new System.Windows.Forms.Label();
             this.panel21 = new System.Windows.Forms.Panel();
             this.label22 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.regenerationStartButton = new System.Windows.Forms.Button();
             this.label21 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.timeRegeneration = new System.Windows.Forms.TextBox();
+            this.potantialRegeneration = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.panel17 = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
@@ -462,10 +462,10 @@ namespace PalmSense4
             this.panel20.Controls.Add(this.label23);
             this.panel20.Controls.Add(this.label24);
             this.panel20.Controls.Add(this.panel21);
-            this.panel20.Controls.Add(this.button1);
+            this.panel20.Controls.Add(this.regenerationStartButton);
             this.panel20.Controls.Add(this.label21);
-            this.panel20.Controls.Add(this.textBox3);
-            this.panel20.Controls.Add(this.textBox1);
+            this.panel20.Controls.Add(this.timeRegeneration);
+            this.panel20.Controls.Add(this.potantialRegeneration);
             this.panel20.Controls.Add(this.label20);
             this.panel20.Location = new System.Drawing.Point(3, 711);
             this.panel20.Name = "panel20";
@@ -516,17 +516,18 @@ namespace PalmSense4
             this.label22.TabIndex = 0;
             this.label22.Text = "Regeneration Process";
             // 
-            // button1
+            // regenerationStartButton
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.regenerationStartButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(126, 107);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(168, 35);
-            this.button1.TabIndex = 22;
-            this.button1.Text = "Start";
-            this.button1.UseVisualStyleBackColor = true;
+            this.regenerationStartButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.regenerationStartButton.Location = new System.Drawing.Point(126, 107);
+            this.regenerationStartButton.Name = "regenerationStartButton";
+            this.regenerationStartButton.Size = new System.Drawing.Size(168, 35);
+            this.regenerationStartButton.TabIndex = 22;
+            this.regenerationStartButton.Text = "Start";
+            this.regenerationStartButton.UseVisualStyleBackColor = true;
+            this.regenerationStartButton.Click += new System.EventHandler(this.regenerationStartButton_Click);
             // 
             // label21
             // 
@@ -540,27 +541,25 @@ namespace PalmSense4
             this.label21.TabIndex = 7;
             this.label21.Text = "Time:";
             // 
-            // textBox3
+            // timeRegeneration
             // 
-            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.timeRegeneration.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(126, 72);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(168, 26);
-            this.textBox3.TabIndex = 6;
+            this.timeRegeneration.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeRegeneration.Location = new System.Drawing.Point(126, 72);
+            this.timeRegeneration.Name = "timeRegeneration";
+            this.timeRegeneration.Size = new System.Drawing.Size(168, 26);
+            this.timeRegeneration.TabIndex = 6;
             // 
-            // textBox1
+            // potantialRegeneration
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.potantialRegeneration.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(126, 40);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(168, 26);
-            this.textBox1.TabIndex = 5;
+            this.potantialRegeneration.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.potantialRegeneration.Location = new System.Drawing.Point(126, 40);
+            this.potantialRegeneration.Name = "potantialRegeneration";
+            this.potantialRegeneration.Size = new System.Drawing.Size(168, 26);
+            this.potantialRegeneration.TabIndex = 5;
             // 
             // label20
             // 
@@ -860,14 +859,14 @@ namespace PalmSense4
             // imageGraphExport
             // 
             this.imageGraphExport.Name = "imageGraphExport";
-            this.imageGraphExport.Size = new System.Drawing.Size(224, 28);
+            this.imageGraphExport.Size = new System.Drawing.Size(142, 28);
             this.imageGraphExport.Text = "Image";
             this.imageGraphExport.Click += new System.EventHandler(this.imageGraphExport_Click);
             // 
             // graphTxtExport
             // 
             this.graphTxtExport.Name = "graphTxtExport";
-            this.graphTxtExport.Size = new System.Drawing.Size(224, 28);
+            this.graphTxtExport.Size = new System.Drawing.Size(142, 28);
             this.graphTxtExport.Text = "Text";
             this.graphTxtExport.Click += new System.EventHandler(this.graphTxtExport_Click);
             // 
@@ -1724,10 +1723,10 @@ namespace PalmSense4
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel20;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox timeRegeneration;
+        private System.Windows.Forms.TextBox potantialRegeneration;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button regenerationStartButton;
         private System.Windows.Forms.Panel panel21;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;

@@ -51,8 +51,6 @@ namespace PalmSense4
         private List<List<double>> _measurementData;
 
         private Dictionary<string, List<List<double>>> _allMeasurements;
-        private Dictionary<string, System.Windows.Forms.DataGridView> _allMeasurementTable;
-
         private int plotNumber;
 
         public Form1(List<Chemical_Combinations> _cc)
@@ -79,7 +77,6 @@ namespace PalmSense4
             _measurementData = new List<List<double>>();
 
             _allMeasurements = new Dictionary<string, List<List<double>>>();
-            _allMeasurementTable = new Dictionary<string, DataGridView>();
             plotNumber = 1;
 
         }
@@ -780,6 +777,8 @@ namespace PalmSense4
             tbDeviceStatus.Text = CurrentState.ToString(); 
             btnConnect.Enabled = CurrentState == PalmSens.Comm.CommManager.DeviceState.Idle;
             btnMeasure.Text = CurrentState == PalmSens.Comm.CommManager.DeviceState.Idle ? "Measure" : "Abort";
+            
+            regenerationStartButton.Text = CurrentState == PalmSens.Comm.CommManager.DeviceState.Idle ? "Start" : "Abort";
         }
 
 
@@ -1022,6 +1021,8 @@ namespace PalmSense4
 
         }
 
+        // *************************
+
 
         // Export Options :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
         private void imageGraphExport_Click(object sender, EventArgs e)
@@ -1098,11 +1099,71 @@ namespace PalmSense4
         // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 
+        // Regeneration Process
+        private void regenerationStartButton_Click(object sender, EventArgs e)
+        {
+            if (potantialRegeneration.Text == "" || timeRegeneration.Text == "")
+            {
+                lbConsole.Items.Add("Regeneration Process couldn't start");
+            }
+            else
+            {
+                try
+                {
+                    double potantial = Double.Parse(potantialRegeneration.Text);
+                    double time = Double.Parse(timeRegeneration.Text);
+
+                    float tempECondition = _dpSettings.ECondition.Method.ConditioningPotential;
+                    float tempTCondition = _dpSettings.TCondition.Method.ConditioningTime;
+
+                    _dpSettings.ECondition.Method.ConditioningPotential = (float) potantial;
+                    _dpSettings.TCondition.Method.ConditioningTime = (float) time;
 
 
+                    if (psCommSimpleWinForms1.DeviceState == PalmSens.Comm.CommManager.DeviceState.Idle)
+                    {
+                        _measurementData.Clear();
+                        InitDataGridView();
+                        try
+                        {
+                            _activeMeasurement = psCommSimpleWinForms1.Measure(_methodDLP);
+                        }
+                        catch (Exception ex)
+                        {
+                            lbConsole.Items.Add(ex.Message);
+                        }
+                    }
+                    else
+                    {
+                        try
+                        {
+                            if (psCommSimpleWinForms1.EnableBluetooth)
+                                psCommSimpleWinForms1.AbortMeasurementAsync();
+                            else
+                                psCommSimpleWinForms1.AbortMeasurement(); //Abort the active measurement
+                        }
+                        catch (Exception ex)
+                        {
+                            lbConsole.Items.Add(ex.Message);
+                        }
+                    }
+                    
+
+                    _dpSettings.ECondition.Method.ConditioningPotential = tempECondition;
+                    _dpSettings.TCondition.Method.ConditioningTime = tempTCondition;
+
+                }
+                catch
+                {
+                    lbConsole.Items.Add("Regeneration Process is not done");
+                }
 
 
-        // *************************
+                lbConsole.Items.Add("Regeneration Process is done successfully");
+                
+            }
+        }
+
 
     }
 
