@@ -926,22 +926,6 @@ namespace PalmSense4
             folderBrowserDialog.RootFolder = Environment.SpecialFolder.Desktop;
             folderBrowserDialog.Description = "Save PowerShell Session File";
 
-            //if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
-            //{
-            //    folderName = folderBrowserDialog.SelectedPath;
-            //    string fileName = "PalmSens4 Measurement (" + DateTime.Now.ToString("MM-dd-yyyy-h-mm-tt") + ").xlsx";
-            //    string filePathName = Path.Combine(folderName, fileName);
-
-            //    if(_fileIO.SaveDataToExcel(filePathName, _measurementData))
-            //    {
-            //        lbConsole.Items.Add($"Measurements successfuly saved to {filePathName}");
-            //    }
-            //    else
-            //    {
-            //        lbConsole.Items.Add("An error occured when saving measurements");
-            //    }
-            //}
-
 
             if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
             {
@@ -988,25 +972,6 @@ namespace PalmSense4
 
             }
         }
-        //private void DisplayLoadedData()
-        //{
-        //    InitDataGridView();
-        //    List<double> potentials = new List<double>();
-        //    List<double> currents = new List<double>();
-        //    for (int i = 0; i < _measurementData.Count; i++)
-        //    {
-        //        dgvMeasurement.Rows.Add(1);
-        //        dgvMeasurement.Rows[i].Cells[0].Value = _measurementData[i][0].ToString();
-        //        dgvMeasurement.Rows[i].Cells[1].Value = _measurementData[i][1].ToString("F2");
-        //        dgvMeasurement.Rows[i].Cells[2].Value = _measurementData[i][2].ToString("E3");
-
-        //        potentials.Add(_measurementData[i][1]);
-        //        currents.Add(_measurementData[i][2]);
-        //    }
-        //    plot.AddData("Plot1", potentials.ToArray(), currents.ToArray());
-
-
-        //}
 
         private void DisplayLoadedData()
         {

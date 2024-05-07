@@ -153,7 +153,7 @@ namespace PalmSense4.Business
                             i++;
                         }
                         allData.Add(sheet.Name, new List<List<double>>(data));
-                        data.Clear(); // ERROR WAS HERE
+                        data.Clear();
                     }
                 }
 
@@ -161,10 +161,6 @@ namespace PalmSense4.Business
                 excelApp.Quit();
                 System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
 
-
-                Console.WriteLine(allData["plot2"].Count);
-                Console.WriteLine(allData["plot3"].Count);
-                Console.WriteLine(allData["plot1"].Count);
                 return allData;
 
             }
