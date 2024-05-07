@@ -94,7 +94,7 @@ namespace PalmSense4
             this.TSMIdrawHas = new System.Windows.Forms.ToolStripMenuItem();
             this.exportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imageGraphExport = new System.Windows.Forms.ToolStripMenuItem();
-            this.textToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.graphTxtExport = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMILoadPeakLOD = new System.Windows.Forms.ToolStripMenuItem();
             this.plot = new SDKPlot.WinForms.Plot();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -852,7 +852,7 @@ namespace PalmSense4
             // 
             this.exportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.imageGraphExport,
-            this.textToolStripMenuItem});
+            this.graphTxtExport});
             this.exportsToolStripMenuItem.Name = "exportsToolStripMenuItem";
             this.exportsToolStripMenuItem.Size = new System.Drawing.Size(80, 27);
             this.exportsToolStripMenuItem.Text = "Exports";
@@ -864,11 +864,12 @@ namespace PalmSense4
             this.imageGraphExport.Text = "Image";
             this.imageGraphExport.Click += new System.EventHandler(this.imageGraphExport_Click);
             // 
-            // textToolStripMenuItem
+            // graphTxtExport
             // 
-            this.textToolStripMenuItem.Name = "textToolStripMenuItem";
-            this.textToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
-            this.textToolStripMenuItem.Text = "Text";
+            this.graphTxtExport.Name = "graphTxtExport";
+            this.graphTxtExport.Size = new System.Drawing.Size(224, 28);
+            this.graphTxtExport.Text = "Text";
+            this.graphTxtExport.Click += new System.EventHandler(this.graphTxtExport_Click);
             // 
             // TSMILoadPeakLOD
             // 
@@ -1731,7 +1732,7 @@ namespace PalmSense4
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.ToolStripMenuItem textToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem graphTxtExport;
     }
 }
 

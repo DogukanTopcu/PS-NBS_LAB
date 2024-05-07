@@ -1022,7 +1022,38 @@ namespace PalmSense4
 
         }
 
+
+        // Export Options :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
         private void imageGraphExport_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+
+            folderBrowserDialog.RootFolder = Environment.SpecialFolder.Desktop;
+            folderBrowserDialog.Description = "Save Excel File";
+
+
+            try
+            {
+                if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+                {
+                    folderName = folderBrowserDialog.SelectedPath;
+                    string fn = "Graph (" + DateTime.Now.ToString("MM-dd-yyyy-h-mm-tt") + ").png";
+                    string filePathName = Path.Combine(folderName, fn);
+
+                    Bitmap bitmap = new Bitmap(plot.Width, plot.Height);
+                    plot.DrawToBitmap(bitmap, new Rectangle(0, 0, plot.Width, plot.Height));
+                    bitmap.Save(filePathName, System.Drawing.Imaging.ImageFormat.Png);
+                    bitmap.Dispose();
+                    lbConsole.Items.Add($"Graph exported as {filePathName}");
+                }
+            }
+            catch
+            {
+                lbConsole.Items.Add($"Graph couldn't export as .png format");
+            }
+        }
+
+        private void graphTxtExport_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
 
@@ -1032,19 +1063,39 @@ namespace PalmSense4
 
             if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
             {
-                folderName = folderBrowserDialog.SelectedPath;
-                string fn = "Graph (" + DateTime.Now.ToString("MM-dd-yyyy-h-mm-tt") + ").png";
-                string filePathName = Path.Combine(folderName, fn);
+                try
+                {
+                    folderName = folderBrowserDialog.SelectedPath;
+                    string fn = "Graph (" + DateTime.Now.ToString("MM-dd-yyyy-h-mm-tt") + ").txt";
+                    string filePathName = Path.Combine(folderName, fn);
 
-                Bitmap bitmap = new Bitmap(plot.Width, plot.Height);
-                plot.DrawToBitmap(bitmap, new Rectangle(0, 0, plot.Width, plot.Height));
-                bitmap.Save(filePathName, System.Drawing.Imaging.ImageFormat.Png);
-                bitmap.Dispose();
-                lbConsole.Items.Add($"Graph exported as {filePathName}");
+                    using (StreamWriter writer = new StreamWriter(filePathName))
+                    {
+                        foreach (var item in _allMeasurements)
+                        {
+                            writer.WriteLine(item.Key);
+
+                            for (int i = 0; i < item.Value.Count; i++)
+                            {
+                                writer.WriteLine(item.Value[i][0].ToString() + "\t" + item.Value[i][1].ToString() + "\t" + item.Value[i][2].ToString());
+                            }
+
+                            writer.WriteLine();
+                            writer.WriteLine();
+                        }
+                    }
+
+                    lbConsole.Items.Add($"Graph exported as {filePathName}");
+                }
+                catch
+                {
+                    lbConsole.Items.Add($"Graph couldn't export as .txt format");
+                }
 
             }
-            
         }
+
+        // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 
 
