@@ -98,32 +98,74 @@ namespace PalmSense4.Business
             return true;
         }
 
-        public List<List<double>> LoadDataFromExcel(string filePath)
+        //public List<List<double>> LoadDataFromExcel(string filePath)
+        //{
+        //    try
+        //    {
+        //        Microsoft.Office.Interop.Excel.Application excelApp = new Microsoft.Office.Interop.Excel.Application();
+
+        //        List<List<double>> data = new List<List<double>>();
+        //        Workbook wb = excelApp.Workbooks.Open(filePath);
+        //        Worksheet ws = wb.ActiveSheet;
+
+        //        int i = 1;
+        //        while (ws.Cells[i + 1, 1].Value != null)
+        //        {
+        //            data.Add(new List<double> { 
+        //                ws.Cells[i + 1, 1].Value, 
+        //                ws.Cells[i + 1, 2].Value, 
+        //                ws.Cells[i + 1, 3].Value });
+        //            i++;
+        //        }
+
+        //        wb.Close();
+        //        excelApp.Quit();
+        //        System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
+
+        //        return data;
+
+        //    }
+        //    catch { return null; }
+        //}
+
+        public Dictionary<string, List<List<double>>> LoadDataFromExcel(string filePath)
         {
-            
             try
             {
                 Microsoft.Office.Interop.Excel.Application excelApp = new Microsoft.Office.Interop.Excel.Application();
 
                 List<List<double>> data = new List<List<double>>();
-                Workbook wb = excelApp.Workbooks.Open(filePath);
-                Worksheet ws = wb.ActiveSheet;
+                Dictionary<string, List<List<double>>> allData = new Dictionary<string, List<List<double>>>();
 
-                int i = 1;
-                while (ws.Cells[i + 1, 1].Value != null)
+                Workbook wb = excelApp.Workbooks.Open(filePath);
+
+                foreach (Worksheet sheet in wb.Worksheets)
                 {
-                    data.Add(new List<double> { 
-                        ws.Cells[i + 1, 1].Value, 
-                        ws.Cells[i + 1, 2].Value, 
-                        ws.Cells[i + 1, 3].Value });
-                    i++;
+                    if (sheet.Cells[1, 1].Value != null)
+                    {
+                        int i = 1;
+                        while (sheet.Cells[i + 1, 1].Value != null)
+                        {
+                            data.Add(new List<double> {
+                                sheet.Cells[i + 1, 1].Value,
+                                sheet.Cells[i + 1, 2].Value,
+                                sheet.Cells[i + 1, 3].Value });
+                            i++;
+                        }
+                        allData.Add(sheet.Name, new List<List<double>>(data));
+                        data.Clear(); // ERROR WAS HERE
+                    }
                 }
-            
+
                 wb.Close();
                 excelApp.Quit();
                 System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
 
-                return data;
+
+                Console.WriteLine(allData["plot2"].Count);
+                Console.WriteLine(allData["plot3"].Count);
+                Console.WriteLine(allData["plot1"].Count);
+                return allData;
 
             }
             catch { return null; }

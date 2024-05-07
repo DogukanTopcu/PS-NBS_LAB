@@ -970,11 +970,13 @@ namespace PalmSense4
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 string filePathName = openFileDialog.FileName;
-                _measurementData = _fileIO.LoadDataFromExcel(filePathName);
+                
+                _allMeasurements.Clear();
+                _allMeasurements = _fileIO.LoadDataFromExcel(filePathName);
 
-                if (_measurementData == null)
+                if (_allMeasurements == null)
                 {
-                    _measurementData = new List<List<double>>();
+                    _allMeasurements = new Dictionary<string, List<List<double>>>();
                     lbConsole.Items.Add("An error occured while the file loading.");
                 }
                 else
@@ -986,23 +988,54 @@ namespace PalmSense4
 
             }
         }
+        //private void DisplayLoadedData()
+        //{
+        //    InitDataGridView();
+        //    List<double> potentials = new List<double>();
+        //    List<double> currents = new List<double>();
+        //    for (int i = 0; i < _measurementData.Count; i++)
+        //    {
+        //        dgvMeasurement.Rows.Add(1);
+        //        dgvMeasurement.Rows[i].Cells[0].Value = _measurementData[i][0].ToString();
+        //        dgvMeasurement.Rows[i].Cells[1].Value = _measurementData[i][1].ToString("F2");
+        //        dgvMeasurement.Rows[i].Cells[2].Value = _measurementData[i][2].ToString("E3");
+
+        //        potentials.Add(_measurementData[i][1]);
+        //        currents.Add(_measurementData[i][2]);
+        //    }
+        //    plot.AddData("Plot1", potentials.ToArray(), currents.ToArray());
+
+
+        //}
+
         private void DisplayLoadedData()
         {
             InitDataGridView();
             List<double> potentials = new List<double>();
             List<double> currents = new List<double>();
-            for (int i = 0; i < _measurementData.Count; i++)
+
+            bool isFirst = true;
+            foreach (var item in _allMeasurements)
             {
-                dgvMeasurement.Rows.Add(1);
-                dgvMeasurement.Rows[i].Cells[0].Value = _measurementData[i][0].ToString();
-                dgvMeasurement.Rows[i].Cells[1].Value = _measurementData[i][1].ToString("F2");
-                dgvMeasurement.Rows[i].Cells[2].Value = _measurementData[i][2].ToString("E3");
+                for (int i = 0; i < item.Value.Count; i++)
+                {
+                    if (isFirst)
+                    {
+                        dgvMeasurement.Rows.Add(1);
+                        dgvMeasurement.Rows[i].Cells[0].Value = item.Value[i][0].ToString();
+                        dgvMeasurement.Rows[i].Cells[1].Value = item.Value[i][1].ToString("F2");
+                        dgvMeasurement.Rows[i].Cells[2].Value = item.Value[i][2].ToString("E3");
+                    }
 
-                potentials.Add(_measurementData[i][1]);
-                currents.Add(_measurementData[i][2]);
+                    potentials.Add(item.Value[i][1]);
+                    currents.Add(item.Value[i][2]);
+                }
+
+                plot.AddData(item.Key, new List<double>(potentials).ToArray(), new List<double>(currents).ToArray());
+                isFirst = false;
+                potentials.Clear();
+                currents.Clear();
             }
-            plot.AddData("Plot1", potentials.ToArray(), currents.ToArray());
-
 
         }
 
