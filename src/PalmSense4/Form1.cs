@@ -924,7 +924,7 @@ namespace PalmSense4
             FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
 
             folderBrowserDialog.RootFolder = Environment.SpecialFolder.Desktop;
-            folderBrowserDialog.Description = "Save PowerShell Session File";
+            folderBrowserDialog.Description = "Save Excel File";
 
 
             if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
@@ -976,6 +976,7 @@ namespace PalmSense4
         private void DisplayLoadedData()
         {
             InitDataGridView();
+            plot.ClearAll();
             List<double> potentials = new List<double>();
             List<double> currents = new List<double>();
 
@@ -1020,6 +1021,32 @@ namespace PalmSense4
             InitDataGridView();
 
         }
+
+        private void imageGraphExport_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+
+            folderBrowserDialog.RootFolder = Environment.SpecialFolder.Desktop;
+            folderBrowserDialog.Description = "Save Excel File";
+
+
+            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+            {
+                folderName = folderBrowserDialog.SelectedPath;
+                string fn = "Graph (" + DateTime.Now.ToString("MM-dd-yyyy-h-mm-tt") + ").png";
+                string filePathName = Path.Combine(folderName, fn);
+
+                Bitmap bitmap = new Bitmap(plot.Width, plot.Height);
+                plot.DrawToBitmap(bitmap, new Rectangle(0, 0, plot.Width, plot.Height));
+                bitmap.Save(filePathName, System.Drawing.Imaging.ImageFormat.Png);
+                bitmap.Dispose();
+                lbConsole.Items.Add($"Graph exported as {filePathName}");
+
+            }
+            
+        }
+
+
 
 
 

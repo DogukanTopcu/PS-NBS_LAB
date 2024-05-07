@@ -93,7 +93,7 @@ namespace PalmSense4
             this.lODLOQCalculationTSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMIdrawHas = new System.Windows.Forms.ToolStripMenuItem();
             this.exportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.imageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.imageGraphExport = new System.Windows.Forms.ToolStripMenuItem();
             this.textToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMILoadPeakLOD = new System.Windows.Forms.ToolStripMenuItem();
             this.plot = new SDKPlot.WinForms.Plot();
@@ -851,22 +851,23 @@ namespace PalmSense4
             // exportsToolStripMenuItem
             // 
             this.exportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.imageToolStripMenuItem,
+            this.imageGraphExport,
             this.textToolStripMenuItem});
             this.exportsToolStripMenuItem.Name = "exportsToolStripMenuItem";
             this.exportsToolStripMenuItem.Size = new System.Drawing.Size(80, 27);
             this.exportsToolStripMenuItem.Text = "Exports";
             // 
-            // imageToolStripMenuItem
+            // imageGraphExport
             // 
-            this.imageToolStripMenuItem.Name = "imageToolStripMenuItem";
-            this.imageToolStripMenuItem.Size = new System.Drawing.Size(142, 28);
-            this.imageToolStripMenuItem.Text = "Image";
+            this.imageGraphExport.Name = "imageGraphExport";
+            this.imageGraphExport.Size = new System.Drawing.Size(224, 28);
+            this.imageGraphExport.Text = "Image";
+            this.imageGraphExport.Click += new System.EventHandler(this.imageGraphExport_Click);
             // 
             // textToolStripMenuItem
             // 
             this.textToolStripMenuItem.Name = "textToolStripMenuItem";
-            this.textToolStripMenuItem.Size = new System.Drawing.Size(142, 28);
+            this.textToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
             this.textToolStripMenuItem.Text = "Text";
             // 
             // TSMILoadPeakLOD
@@ -1705,7 +1706,7 @@ namespace PalmSense4
         private System.Windows.Forms.ToolStripMenuItem lODLOQCalculationTSMI;
         private System.Windows.Forms.ToolStripMenuItem TSMIdrawHas;
         private System.Windows.Forms.ToolStripMenuItem exportsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem imageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem imageGraphExport;
         private System.Windows.Forms.ToolStripMenuItem TSMILoadPeakLOD;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel8;
