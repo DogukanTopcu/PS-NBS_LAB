@@ -1,6 +1,7 @@
 ﻿using MathNet.Numerics;
 using MathNet.Numerics.LinearAlgebra.Factorization;
 using Newtonsoft.Json.Linq;
+using OxyPlot;
 using PalmSens;
 using PalmSens.Comm;
 using PalmSens.Core.Simplified.Data;
@@ -49,6 +50,11 @@ namespace PalmSense4
         private FileIO _fileIO;
         private List<List<double>> _measurementData;
 
+        private Dictionary<string, List<List<double>>> _allMeasurements;
+        private Dictionary<string, System.Windows.Forms.DataGridView> _allMeasurementTable;
+
+        private int plotNumber;
+
         public Form1(List<Chemical_Combinations> _cc)
         {
             InitializeComponent();
@@ -71,6 +77,10 @@ namespace PalmSense4
 
             _fileIO = new FileIO();
             _measurementData = new List<List<double>>();
+
+            _allMeasurements = new Dictionary<string, List<List<double>>>();
+            _allMeasurementTable = new Dictionary<string, DataGridView>();
+            plotNumber = 1;
 
         }
 
@@ -742,7 +752,6 @@ namespace PalmSense4
                 InitDataGridView();
                 try
                 {
-                    plot.ClearAll(); //Clears data from previous measurements from the plot
                     _activeMeasurement = psCommSimpleWinForms1.Measure(_selectedMethod);
                 }
                 catch (Exception ex)
@@ -781,6 +790,10 @@ namespace PalmSense4
         private void psCommSimpleWinForms1_MeasurementEnded(object sender, Exception e)
         {
             lbConsole.Items.Add("Measurement ended.");
+
+
+            _allMeasurements.Add($"plot{plotNumber}", new List<List<double>>(_measurementData));
+            plotNumber++;
         }
 
         private void psCommSimpleWinForms1_SimpleCurveStartReceivingData(object sender, SimpleCurve activeSimpleCurve)
@@ -807,7 +820,6 @@ namespace PalmSense4
                 dgvMeasurement.Rows[i].Cells[0].Value = (i + 1).ToString();
                 dgvMeasurement.Rows[i].Cells[1].Value = xValue.ToString("F2");
                 dgvMeasurement.Rows[i].Cells[2].Value = yValue.ToString("E3");
-
 
                 _measurementData.Add(new List<double> { (i + 1), xValue, yValue });
             }
@@ -909,22 +921,35 @@ namespace PalmSense4
         string folderName = null;
         private void btnDataViewSave_Click(object sender, EventArgs e)
         {
-
-
-            // For Excel Table
             FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
 
             folderBrowserDialog.RootFolder = Environment.SpecialFolder.Desktop;
             folderBrowserDialog.Description = "Save PowerShell Session File";
+
+            //if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+            //{
+            //    folderName = folderBrowserDialog.SelectedPath;
+            //    string fileName = "PalmSens4 Measurement (" + DateTime.Now.ToString("MM-dd-yyyy-h-mm-tt") + ").xlsx";
+            //    string filePathName = Path.Combine(folderName, fileName);
+
+            //    if(_fileIO.SaveDataToExcel(filePathName, _measurementData))
+            //    {
+            //        lbConsole.Items.Add($"Measurements successfuly saved to {filePathName}");
+            //    }
+            //    else
+            //    {
+            //        lbConsole.Items.Add("An error occured when saving measurements");
+            //    }
+            //}
+
 
             if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
             {
                 folderName = folderBrowserDialog.SelectedPath;
                 string fileName = "PalmSens4 Measurement (" + DateTime.Now.ToString("MM-dd-yyyy-h-mm-tt") + ").xlsx";
                 string filePathName = Path.Combine(folderName, fileName);
-                //File.Create(Path.Combine(filePathName)).Close();
 
-                if(_fileIO.SaveDataToExcel(filePathName, _measurementData))
+                if (_fileIO.SaveDataToExcel(filePathName, _allMeasurements))
                 {
                     lbConsole.Items.Add($"Measurements successfuly saved to {filePathName}");
                 }
@@ -977,7 +1002,27 @@ namespace PalmSense4
                 currents.Add(_measurementData[i][2]);
             }
             plot.AddData("Plot1", potentials.ToArray(), currents.ToArray());
+
+
         }
+
+        private void clearPlotToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            plot.ClearAll();
+        }
+
+        private void clearMeasureToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            InitDataGridView();
+        }
+
+        private void clearAllToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            plot.ClearAll();
+            InitDataGridView();
+
+        }
+
 
 
 

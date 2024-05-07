@@ -803,18 +803,21 @@ namespace PalmSense4
             this.clearPlotToolStripMenuItem.Name = "clearPlotToolStripMenuItem";
             this.clearPlotToolStripMenuItem.Size = new System.Drawing.Size(208, 28);
             this.clearPlotToolStripMenuItem.Text = "Clear Plot";
+            this.clearPlotToolStripMenuItem.Click += new System.EventHandler(this.clearPlotToolStripMenuItem_Click_1);
             // 
             // clearMeasureToolStripMenuItem
             // 
             this.clearMeasureToolStripMenuItem.Name = "clearMeasureToolStripMenuItem";
             this.clearMeasureToolStripMenuItem.Size = new System.Drawing.Size(208, 28);
             this.clearMeasureToolStripMenuItem.Text = "Clear  Measure";
+            this.clearMeasureToolStripMenuItem.Click += new System.EventHandler(this.clearMeasureToolStripMenuItem_Click_1);
             // 
             // clearAllToolStripMenuItem
             // 
             this.clearAllToolStripMenuItem.Name = "clearAllToolStripMenuItem";
             this.clearAllToolStripMenuItem.Size = new System.Drawing.Size(208, 28);
             this.clearAllToolStripMenuItem.Text = "Clear All";
+            this.clearAllToolStripMenuItem.Click += new System.EventHandler(this.clearAllToolStripMenuItem_Click_1);
             // 
             // zoomSettingsToolStripMenuItem
             // 

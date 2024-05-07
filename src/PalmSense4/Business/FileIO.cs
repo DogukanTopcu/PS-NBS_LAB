@@ -17,32 +17,77 @@ namespace PalmSense4.Business
 
         }
 
-        public bool SaveDataToExcel(string filePath, List<List<double>> measurementData)
+        //public bool SaveDataToExcel(string filePath, List<List<double>> measurementData)
+        //{
+        //    Microsoft.Office.Interop.Excel.Application excelApp = new Microsoft.Office.Interop.Excel.Application();
+
+        //    try
+        //    {
+        //    Workbook wb = excelApp.Workbooks.Add();
+        //    Worksheet ws = wb.ActiveSheet;
+
+        //    ws.Cells[1, 1].Value = "ID";
+        //    ws.Cells[1, 2].Value = "Potential (V)";
+        //    ws.Cells[1, 3].Value = "Current";
+
+        //    for (int i = 0; i < measurementData.Count; i++)
+        //    {
+        //        for (int j = 0; j < measurementData[i].Count; j++)
+        //        {
+        //            ws.Cells[i + 2, j + 1].Value = measurementData[i][j];
+        //        }
+        //    }
+
+        //    wb.SaveAs(filePath);
+
+        //    wb.Close();
+        //    excelApp.Quit();
+        //    System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
+
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        Console.WriteLine(e.ToString());
+        //        return false;
+        //    }
+        //    return true;
+        //}
+
+        public bool SaveDataToExcel(string filePath, Dictionary<string, List<List<double>>> measurementData)
         {
             Microsoft.Office.Interop.Excel.Application excelApp = new Microsoft.Office.Interop.Excel.Application();
 
             try
             {
-            Workbook wb = excelApp.Workbooks.Add();
-            Worksheet ws = wb.ActiveSheet;
+                Workbook wb = excelApp.Workbooks.Add();
 
-            ws.Cells[1, 1].Value = "ID";
-            ws.Cells[1, 2].Value = "Potential (V)";
-            ws.Cells[1, 3].Value = "Current";
+                List<List<double>> measurement = new List<List<double>>();
 
-            for (int i = 0; i < measurementData.Count; i++)
-            {
-                for (int j = 0; j < measurementData[i].Count; j++)
+
+                foreach (var item in measurementData)
                 {
-                    ws.Cells[i + 2, j + 1].Value = measurementData[i][j];
+                    Worksheet ws = wb.Worksheets.Add();
+                    ws.Name = item.Key;
+                    measurement = item.Value;
+
+                    ws.Cells[1, 1].Value = "ID";
+                    ws.Cells[1, 2].Value = "Potential (V)";
+                    ws.Cells[1, 3].Value = "Current";
+
+                    for (int i = 0; i < measurement.Count; i++)
+                    {
+                        for (int j = 0; j < measurement[i].Count; j++)
+                        {
+                            ws.Cells[i + 2, j + 1].Value = measurement[i][j];
+                        }
+                    }
                 }
-            }
 
-            wb.SaveAs(filePath);
+                wb.SaveAs(filePath);
 
-            wb.Close();
-            excelApp.Quit();
-            System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
+                wb.Close();
+                excelApp.Quit();
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
 
             }
             catch (Exception e)
