@@ -1012,13 +1012,14 @@ namespace PalmSense4
         private void clearMeasureToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             InitDataGridView();
+            _allMeasurements.Clear();
         }
 
         private void clearAllToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             plot.ClearAll();
             InitDataGridView();
-
+            _allMeasurements.Clear();
         }
 
         // *************************
