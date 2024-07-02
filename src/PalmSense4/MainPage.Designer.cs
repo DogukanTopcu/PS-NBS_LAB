@@ -97,7 +97,7 @@
             this.comboBox_ppm_unit = new System.Windows.Forms.ComboBox();
             this.button_reset_ppm = new System.Windows.Forms.Button();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.button6 = new System.Windows.Forms.Button();
+            this.soldiluationResetBtn = new System.Windows.Forms.Button();
             this.panel13 = new System.Windows.Forms.Panel();
             this.tbFinVol = new RJCodeAdvance.RJControls.RJTextBox();
             this.tbFinConc = new RJCodeAdvance.RJControls.RJTextBox();
@@ -1143,7 +1143,7 @@
             // tabPage5
             // 
             this.tabPage5.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.tabPage5.Controls.Add(this.button6);
+            this.tabPage5.Controls.Add(this.soldiluationResetBtn);
             this.tabPage5.Controls.Add(this.panel13);
             this.tabPage5.Location = new System.Drawing.Point(4, 29);
             this.tabPage5.Name = "tabPage5";
@@ -1152,16 +1152,17 @@
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Solution Diluation Calculator";
             // 
-            // button6
+            // soldiluationResetBtn
             // 
-            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(6, 293);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(104, 39);
-            this.button6.TabIndex = 29;
-            this.button6.Text = "Reset";
-            this.button6.UseVisualStyleBackColor = true;
+            this.soldiluationResetBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.soldiluationResetBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.soldiluationResetBtn.Location = new System.Drawing.Point(6, 293);
+            this.soldiluationResetBtn.Name = "soldiluationResetBtn";
+            this.soldiluationResetBtn.Size = new System.Drawing.Size(104, 39);
+            this.soldiluationResetBtn.TabIndex = 29;
+            this.soldiluationResetBtn.Text = "Reset";
+            this.soldiluationResetBtn.UseVisualStyleBackColor = true;
+            this.soldiluationResetBtn.Click += new System.EventHandler(this.soldiluationResetBtn_Click);
             // 
             // panel13
             // 
@@ -1200,6 +1201,7 @@
             this.tbFinVol.TabIndex = 30;
             this.tbFinVol.Texts = "";
             this.tbFinVol.UnderlinedStyle = false;
+            this.tbFinVol._TextChanged += new System.EventHandler(this.tbFinVol__TextChanged);
             // 
             // tbFinConc
             // 
@@ -1223,6 +1225,7 @@
             this.tbFinConc.TabIndex = 29;
             this.tbFinConc.Texts = "";
             this.tbFinConc.UnderlinedStyle = false;
+            this.tbFinConc._TextChanged += new System.EventHandler(this.tbFinConc__TextChanged);
             // 
             // tbInitVol
             // 
@@ -1246,6 +1249,7 @@
             this.tbInitVol.TabIndex = 28;
             this.tbInitVol.Texts = "";
             this.tbInitVol.UnderlinedStyle = false;
+            this.tbInitVol._TextChanged += new System.EventHandler(this.tbInitVol__TextChanged);
             // 
             // tbInitConc
             // 
@@ -1269,6 +1273,7 @@
             this.tbInitConc.TabIndex = 11;
             this.tbInitConc.Texts = "";
             this.tbInitConc.UnderlinedStyle = false;
+            this.tbInitConc._TextChanged += new System.EventHandler(this.tbInitConc__TextChanged);
             // 
             // rbFinVol
             // 
@@ -1281,6 +1286,7 @@
             this.rbFinVol.TabStop = true;
             this.rbFinVol.Text = "Final Volume             :";
             this.rbFinVol.UseVisualStyleBackColor = true;
+            this.rbFinVol.CheckedChanged += new System.EventHandler(this.rbFinVol_CheckedChanged);
             // 
             // rbFinConc
             // 
@@ -1293,6 +1299,7 @@
             this.rbFinConc.TabStop = true;
             this.rbFinConc.Text = "Final Concentration   :";
             this.rbFinConc.UseVisualStyleBackColor = true;
+            this.rbFinConc.CheckedChanged += new System.EventHandler(this.rbFinConc_CheckedChanged);
             // 
             // rbInitVol
             // 
@@ -1305,6 +1312,7 @@
             this.rbInitVol.TabStop = true;
             this.rbInitVol.Text = "Initial Volume            :";
             this.rbInitVol.UseVisualStyleBackColor = true;
+            this.rbInitVol.CheckedChanged += new System.EventHandler(this.rbInitVol_CheckedChanged);
             // 
             // rbInitConc
             // 
@@ -1317,6 +1325,7 @@
             this.rbInitConc.TabStop = true;
             this.rbInitConc.Text = "Initial Concentration  :";
             this.rbInitConc.UseVisualStyleBackColor = true;
+            this.rbInitConc.CheckedChanged += new System.EventHandler(this.rbInitConc_CheckedChanged);
             // 
             // panel2
             // 
@@ -1686,7 +1695,7 @@
             this.eisPlotArea.Location = new System.Drawing.Point(4, 25);
             this.eisPlotArea.Name = "eisPlotArea";
             this.eisPlotArea.Padding = new System.Windows.Forms.Padding(3);
-            this.eisPlotArea.Size = new System.Drawing.Size(633, 830);
+            this.eisPlotArea.Size = new System.Drawing.Size(633, 832);
             this.eisPlotArea.TabIndex = 1;
             this.eisPlotArea.Text = "EIS Plot";
             this.eisPlotArea.UseVisualStyleBackColor = true;
@@ -1700,7 +1709,7 @@
             this.dataArea.Location = new System.Drawing.Point(4, 25);
             this.dataArea.Name = "dataArea";
             this.dataArea.Padding = new System.Windows.Forms.Padding(3);
-            this.dataArea.Size = new System.Drawing.Size(633, 830);
+            this.dataArea.Size = new System.Drawing.Size(633, 832);
             this.dataArea.TabIndex = 2;
             this.dataArea.Text = "Data";
             this.dataArea.UseVisualStyleBackColor = true;
@@ -1725,7 +1734,7 @@
             // 
             this.btnDataViewSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDataViewSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDataViewSave.Location = new System.Drawing.Point(165, 766);
+            this.btnDataViewSave.Location = new System.Drawing.Point(165, 768);
             this.btnDataViewSave.Name = "btnDataViewSave";
             this.btnDataViewSave.Size = new System.Drawing.Size(191, 49);
             this.btnDataViewSave.TabIndex = 10;
@@ -1736,7 +1745,7 @@
             // 
             this.btnLoad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnLoad.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLoad.Location = new System.Drawing.Point(6, 766);
+            this.btnLoad.Location = new System.Drawing.Point(6, 768);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(192, 49);
             this.btnLoad.TabIndex = 9;
@@ -2704,7 +2713,7 @@
         public System.Windows.Forms.ComboBox comboBox_ppm_unit;
         private System.Windows.Forms.Button button_reset_ppm;
         private System.Windows.Forms.TabPage tabPage5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button soldiluationResetBtn;
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.RadioButton rbFinVol;
         private System.Windows.Forms.RadioButton rbFinConc;

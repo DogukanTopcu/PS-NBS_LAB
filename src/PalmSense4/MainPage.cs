@@ -39,6 +39,7 @@ namespace PalmSense4
         private GramsToMoleCalc gtmCalc;
         private PH_POH_Calculator pH_pOH;
         private PpmCalculator ppmCalc;
+        private SolutionDiluationCalc solDiluationCalc;
 
         // CONSTRUCTORS *************************************************************************
         public MainPage()
@@ -90,6 +91,17 @@ namespace PalmSense4
                 textBox_Molarity,
                 comboBox_ppm_unit,
                 comboBox_molarity_unit
+            );
+
+            solDiluationCalc = new SolutionDiluationCalc(
+                rbInitConc,
+                rbInitVol,
+                rbFinConc,
+                rbFinVol,
+                tbInitConc,
+                tbInitVol,
+                tbFinConc,
+                tbFinVol
             );
         }
 
@@ -273,6 +285,18 @@ namespace PalmSense4
         private void textBox_Molarity__TextChanged(object sender, EventArgs e) => ppmCalc.PpmCalculate();
         private void button_reset_ppm_Click(object sender, EventArgs e) => ppmCalc.button_reset_ppm_Click();
 
+        // SOLUTION DILUATION CALCULATOR
+        private void rbInitConc_CheckedChanged(object sender, EventArgs e) => solDiluationCalc.rbInitConc_CheckedChanged();
+        private void rbInitVol_CheckedChanged(object sender, EventArgs e) => solDiluationCalc.rbInitVol_CheckedChanged();
+        private void rbFinConc_CheckedChanged(object sender, EventArgs e) => solDiluationCalc.rbFinConc_CheckedChanged();
+        private void rbFinVol_CheckedChanged(object sender, EventArgs e) => solDiluationCalc.rbFinVol_CheckedChanged();
+        private void tbInitConc__TextChanged(object sender, EventArgs e) => solDiluationCalc.SolDilCalc();
+        private void tbInitVol__TextChanged(object sender, EventArgs e) => solDiluationCalc.SolDilCalc();
+        private void tbFinConc__TextChanged(object sender, EventArgs e) => solDiluationCalc.SolDilCalc();
+        private void tbFinVol__TextChanged(object sender, EventArgs e) => solDiluationCalc.SolDilCalc();
+        private void soldiluationResetBtn_Click(object sender, EventArgs e) => solDiluationCalc.soldiluationResetBtn_Click();
+
+        //END CALCULATORS ----------------------------------------------------------------------------------
 
 
         private void section1_btn_Click(object sender, EventArgs e)
