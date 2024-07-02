@@ -56,5 +56,10 @@ namespace PalmSense4
         {
 
         }
+
+        private void toolStripContainer1_LeftToolStripPanel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

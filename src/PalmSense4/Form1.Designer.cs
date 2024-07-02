@@ -31,51 +31,41 @@ namespace PalmSense4
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.lblCurrentRange = new System.Windows.Forms.Label();
-            this.tbCurrent = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.tbPotential = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.tbDeviceStatus = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.connectBtn = new RJCodeAdvance.RJControls.RJButton();
+            this.rjButton2 = new RJCodeAdvance.RJControls.RJButton();
+            this.btnRefresh = new RJCodeAdvance.RJControls.RJButton();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnRefresh = new System.Windows.Forms.Button();
-            this.btnConnect = new System.Windows.Forms.Button();
             this.cmbDevices = new System.Windows.Forms.ComboBox();
+            this.cmbDevices2 = new RJCodeAdvance.RJControls.RJComboBox();
+            this.btnRefresh1 = new System.Windows.Forms.Button();
             this.lbConsole = new System.Windows.Forms.ListBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.panel20 = new System.Windows.Forms.Panel();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.panel21 = new System.Windows.Forms.Panel();
-            this.label22 = new System.Windows.Forms.Label();
-            this.regenerationStartButton = new System.Windows.Forms.Button();
-            this.label21 = new System.Windows.Forms.Label();
-            this.timeRegeneration = new System.Windows.Forms.TextBox();
-            this.potantialRegeneration = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
+            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.overrideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.blankToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.rjButton3 = new RJCodeAdvance.RJControls.RJButton();
+            this.measurement_type2 = new RJCodeAdvance.RJControls.RJComboBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnMeasure = new System.Windows.Forms.Button();
+            this.measurement_type = new System.Windows.Forms.ComboBox();
+            this.btnSaveSetting = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel17 = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
-            this.btnDataViewSave = new System.Windows.Forms.Button();
-            this.btnLoad = new System.Windows.Forms.Button();
-            this.dgvMeasurement = new System.Windows.Forms.DataGridView();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.btnMeasure = new System.Windows.Forms.Button();
-            this.btnSaveSetting = new System.Windows.Forms.Button();
-            this.measurement_type = new System.Windows.Forms.ComboBox();
-            this.panel19 = new System.Windows.Forms.Panel();
-            this.label19 = new System.Windows.Forms.Label();
+            this.btnConnect = new System.Windows.Forms.Button();
+            this.tabControl2 = new System.Windows.Forms.TabControl();
+            this.PlotArea = new System.Windows.Forms.TabPage();
             this.panel18 = new System.Windows.Forms.Panel();
             this.PlotSettings = new System.Windows.Forms.MenuStrip();
             this.plotToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -96,9 +86,24 @@ namespace PalmSense4
             this.imageGraphExport = new System.Windows.Forms.ToolStripMenuItem();
             this.graphTxtExport = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMILoadPeakLOD = new System.Windows.Forms.ToolStripMenuItem();
-            this.plot = new SDKPlot.WinForms.Plot();
+            this.eisPlotArea = new System.Windows.Forms.TabPage();
+            this.dataArea = new System.Windows.Forms.TabPage();
+            this.dgvMeasurement = new System.Windows.Forms.DataGridView();
+            this.btnDataViewSave = new System.Windows.Forms.Button();
+            this.btnLoad = new System.Windows.Forms.Button();
+            this.panel19 = new System.Windows.Forms.Panel();
+            this.label19 = new System.Windows.Forms.Label();
+            this.panel20 = new System.Windows.Forms.Panel();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.label22 = new System.Windows.Forms.Label();
+            this.regenerationStartButton = new System.Windows.Forms.Button();
+            this.label21 = new System.Windows.Forms.Label();
+            this.timeRegeneration = new System.Windows.Forms.TextBox();
+            this.potantialRegeneration = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnReset_GramsToMoleCalc = new System.Windows.Forms.Button();
             this.panel10 = new System.Windows.Forms.Panel();
@@ -156,11 +161,17 @@ namespace PalmSense4
             this.panel15 = new System.Windows.Forms.Panel();
             this.panel16 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.methodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.measurementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.plotToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.eISPlotToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.status_statusbar = new System.Windows.Forms.ToolStripStatusLabel();
+            this.potential_statusbar = new System.Windows.Forms.ToolStripStatusLabel();
+            this.current_statusbar = new System.Windows.Forms.ToolStripStatusLabel();
             this.panel1.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel8.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -168,14 +179,17 @@ namespace PalmSense4
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.panel20.SuspendLayout();
-            this.panel21.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.panel17.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMeasurement)).BeginInit();
-            this.panel14.SuspendLayout();
-            this.panel19.SuspendLayout();
+            this.tabControl2.SuspendLayout();
+            this.PlotArea.SuspendLayout();
             this.panel18.SuspendLayout();
             this.PlotSettings.SuspendLayout();
+            this.dataArea.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMeasurement)).BeginInit();
+            this.panel19.SuspendLayout();
+            this.panel20.SuspendLayout();
+            this.panel21.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -188,145 +202,92 @@ namespace PalmSense4
             this.panel13.SuspendLayout();
             this.panel15.SuspendLayout();
             this.panel16.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel1.Controls.Add(this.panel5);
-            this.panel1.Controls.Add(this.panel4);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.connectBtn);
+            this.panel1.Controls.Add(this.rjButton2);
             this.panel1.Controls.Add(this.btnRefresh);
-            this.panel1.Controls.Add(this.btnConnect);
+            this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.cmbDevices);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Location = new System.Drawing.Point(12, 31);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(417, 282);
+            this.panel1.Size = new System.Drawing.Size(417, 115);
             this.panel1.TabIndex = 0;
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.panel8);
-            this.panel5.Controls.Add(this.panel7);
-            this.panel5.Controls.Add(this.panel6);
-            this.panel5.Location = new System.Drawing.Point(20, 130);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(377, 117);
-            this.panel5.TabIndex = 7;
-            // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.lblCurrentRange);
-            this.panel8.Controls.Add(this.tbCurrent);
-            this.panel8.Controls.Add(this.label8);
-            this.panel8.Location = new System.Drawing.Point(3, 72);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(371, 33);
-            this.panel8.TabIndex = 4;
-            // 
-            // lblCurrentRange
-            // 
-            this.lblCurrentRange.AutoSize = true;
-            this.lblCurrentRange.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCurrentRange.Location = new System.Drawing.Point(298, 8);
-            this.lblCurrentRange.Name = "lblCurrentRange";
-            this.lblCurrentRange.Size = new System.Drawing.Size(68, 20);
-            this.lblCurrentRange.TabIndex = 2;
-            this.lblCurrentRange.Text = "* 10 mA";
-            // 
-            // tbCurrent
-            // 
-            this.tbCurrent.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbCurrent.Location = new System.Drawing.Point(86, 6);
-            this.tbCurrent.Name = "tbCurrent";
-            this.tbCurrent.ReadOnly = true;
-            this.tbCurrent.Size = new System.Drawing.Size(206, 24);
-            this.tbCurrent.TabIndex = 1;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(3, 8);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(70, 20);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Current:";
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.label5);
-            this.panel7.Controls.Add(this.tbPotential);
-            this.panel7.Controls.Add(this.label6);
-            this.panel7.Location = new System.Drawing.Point(3, 39);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(371, 33);
-            this.panel7.TabIndex = 3;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(298, 7);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(20, 20);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "V";
-            // 
-            // tbPotential
-            // 
-            this.tbPotential.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPotential.Location = new System.Drawing.Point(86, 5);
-            this.tbPotential.Name = "tbPotential";
-            this.tbPotential.ReadOnly = true;
-            this.tbPotential.Size = new System.Drawing.Size(206, 24);
-            this.tbPotential.TabIndex = 1;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(3, 8);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(79, 20);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Potential:";
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.label4);
-            this.panel6.Controls.Add(this.tbDeviceStatus);
-            this.panel6.Controls.Add(this.label3);
-            this.panel6.Location = new System.Drawing.Point(3, 5);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(371, 33);
-            this.panel6.TabIndex = 0;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(209, 8);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(0, 16);
-            this.label4.TabIndex = 2;
-            // 
-            // tbDeviceStatus
-            // 
-            this.tbDeviceStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbDeviceStatus.Location = new System.Drawing.Point(86, 6);
-            this.tbDeviceStatus.Name = "tbDeviceStatus";
-            this.tbDeviceStatus.ReadOnly = true;
-            this.tbDeviceStatus.Size = new System.Drawing.Size(206, 24);
-            this.tbDeviceStatus.TabIndex = 1;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 8);
+            this.label3.Location = new System.Drawing.Point(5, 87);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 20);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Status:";
+            this.label3.Size = new System.Drawing.Size(119, 20);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "No Connection";
+            // 
+            // connectBtn
+            // 
+            this.connectBtn.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.connectBtn.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.connectBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.connectBtn.BorderRadius = 0;
+            this.connectBtn.BorderSize = 0;
+            this.connectBtn.FlatAppearance.BorderSize = 0;
+            this.connectBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.connectBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.connectBtn.ForeColor = System.Drawing.Color.Black;
+            this.connectBtn.Location = new System.Drawing.Point(300, 42);
+            this.connectBtn.Name = "connectBtn";
+            this.connectBtn.Size = new System.Drawing.Size(105, 32);
+            this.connectBtn.TabIndex = 13;
+            this.connectBtn.Text = "Connect";
+            this.connectBtn.TextColor = System.Drawing.Color.Black;
+            this.connectBtn.UseVisualStyleBackColor = false;
+            this.connectBtn.Click += new System.EventHandler(this.connectBtn_Click);
+            // 
+            // rjButton2
+            // 
+            this.rjButton2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.rjButton2.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.rjButton2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("rjButton2.BackgroundImage")));
+            this.rjButton2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.rjButton2.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjButton2.BorderRadius = 0;
+            this.rjButton2.BorderSize = 0;
+            this.rjButton2.FlatAppearance.BorderSize = 0;
+            this.rjButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton2.ForeColor = System.Drawing.Color.White;
+            this.rjButton2.Location = new System.Drawing.Point(47, 42);
+            this.rjButton2.Name = "rjButton2";
+            this.rjButton2.Size = new System.Drawing.Size(32, 32);
+            this.rjButton2.TabIndex = 13;
+            this.rjButton2.TextColor = System.Drawing.Color.White;
+            this.rjButton2.UseVisualStyleBackColor = false;
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnRefresh.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnRefresh.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnRefresh.BackgroundImage")));
+            this.btnRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnRefresh.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnRefresh.BorderRadius = 0;
+            this.btnRefresh.BorderSize = 0;
+            this.btnRefresh.FlatAppearance.BorderSize = 0;
+            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefresh.ForeColor = System.Drawing.Color.White;
+            this.btnRefresh.Location = new System.Drawing.Point(9, 42);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(32, 32);
+            this.btnRefresh.TabIndex = 12;
+            this.btnRefresh.TextColor = System.Drawing.Color.White;
+            this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click_1);
             // 
             // panel4
             // 
@@ -350,36 +311,45 @@ namespace PalmSense4
             this.label2.TabIndex = 0;
             this.label2.Text = "Connect Device";
             // 
-            // btnRefresh
-            // 
-            this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefresh.Location = new System.Drawing.Point(65, 77);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(135, 34);
-            this.btnRefresh.TabIndex = 6;
-            this.btnRefresh.Text = "Refresh";
-            this.btnRefresh.UseVisualStyleBackColor = true;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-            // 
-            // btnConnect
-            // 
-            this.btnConnect.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConnect.Location = new System.Drawing.Point(206, 77);
-            this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(135, 34);
-            this.btnConnect.TabIndex = 5;
-            this.btnConnect.Text = "Connect";
-            this.btnConnect.UseVisualStyleBackColor = true;
-            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
-            // 
             // cmbDevices
             // 
-            this.cmbDevices.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbDevices.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbDevices.FormattingEnabled = true;
-            this.cmbDevices.Location = new System.Drawing.Point(65, 43);
+            this.cmbDevices.Location = new System.Drawing.Point(85, 42);
             this.cmbDevices.Name = "cmbDevices";
-            this.cmbDevices.Size = new System.Drawing.Size(276, 28);
+            this.cmbDevices.Size = new System.Drawing.Size(209, 33);
             this.cmbDevices.TabIndex = 4;
+            this.cmbDevices.SelectedIndexChanged += new System.EventHandler(this.cmbDevices_SelectedIndexChanged);
+            // 
+            // cmbDevices2
+            // 
+            this.cmbDevices2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.cmbDevices2.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.cmbDevices2.BorderSize = 1;
+            this.cmbDevices2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.cmbDevices2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.cmbDevices2.ForeColor = System.Drawing.Color.DimGray;
+            this.cmbDevices2.IconColor = System.Drawing.Color.MediumSlateBlue;
+            this.cmbDevices2.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
+            this.cmbDevices2.ListTextColor = System.Drawing.Color.DimGray;
+            this.cmbDevices2.Location = new System.Drawing.Point(170, 608);
+            this.cmbDevices2.MinimumSize = new System.Drawing.Size(200, 30);
+            this.cmbDevices2.Name = "cmbDevices2";
+            this.cmbDevices2.Padding = new System.Windows.Forms.Padding(1);
+            this.cmbDevices2.Size = new System.Drawing.Size(209, 32);
+            this.cmbDevices2.TabIndex = 13;
+            this.cmbDevices2.Texts = "";
+            // 
+            // btnRefresh1
+            // 
+            this.btnRefresh1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefresh1.Location = new System.Drawing.Point(230, 658);
+            this.btnRefresh1.Name = "btnRefresh1";
+            this.btnRefresh1.Size = new System.Drawing.Size(135, 34);
+            this.btnRefresh1.TabIndex = 6;
+            this.btnRefresh1.Text = "Refresh";
+            this.btnRefresh1.UseVisualStyleBackColor = true;
+            this.btnRefresh1.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // lbConsole
             // 
@@ -389,9 +359,9 @@ namespace PalmSense4
             this.lbConsole.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lbConsole.FormattingEnabled = true;
             this.lbConsole.ItemHeight = 16;
-            this.lbConsole.Location = new System.Drawing.Point(3, 29);
+            this.lbConsole.Location = new System.Drawing.Point(3, 31);
             this.lbConsole.Name = "lbConsole";
-            this.lbConsole.Size = new System.Drawing.Size(411, 128);
+            this.lbConsole.Size = new System.Drawing.Size(411, 144);
             this.lbConsole.TabIndex = 1;
             // 
             // panel2
@@ -400,9 +370,9 @@ namespace PalmSense4
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.lbConsole);
-            this.panel2.Location = new System.Drawing.Point(12, 718);
+            this.panel2.Location = new System.Drawing.Point(12, 678);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(417, 155);
+            this.panel2.Size = new System.Drawing.Size(417, 178);
             this.panel2.TabIndex = 1;
             // 
             // panel3
@@ -432,146 +402,204 @@ namespace PalmSense4
             this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitContainer1.Location = new System.Drawing.Point(435, 12);
+            this.splitContainer1.Location = new System.Drawing.Point(435, 31);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.splitContainer1.Panel1.Controls.Add(this.panel20);
+            this.splitContainer1.Panel1.Controls.Add(this.toolStrip1);
+            this.splitContainer1.Panel1.Controls.Add(this.comboBox2);
+            this.splitContainer1.Panel1.Controls.Add(this.comboBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.cmbDevices2);
+            this.splitContainer1.Panel1.Controls.Add(this.rjButton3);
+            this.splitContainer1.Panel1.Controls.Add(this.measurement_type2);
+            this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.btnMeasure);
+            this.splitContainer1.Panel1.Controls.Add(this.measurement_type);
+            this.splitContainer1.Panel1.Controls.Add(this.btnSaveSetting);
+            this.splitContainer1.Panel1.Controls.Add(this.button1);
             this.splitContainer1.Panel1.Controls.Add(this.panel17);
-            this.splitContainer1.Panel1.Controls.Add(this.btnDataViewSave);
-            this.splitContainer1.Panel1.Controls.Add(this.btnLoad);
-            this.splitContainer1.Panel1.Controls.Add(this.dgvMeasurement);
-            this.splitContainer1.Panel1.Controls.Add(this.panel14);
+            this.splitContainer1.Panel1.Controls.Add(this.btnRefresh1);
+            this.splitContainer1.Panel1.Controls.Add(this.btnConnect);
+            this.splitContainer1.Panel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.splitContainer1.Panel2.Controls.Add(this.tabControl2);
             this.splitContainer1.Panel2.Controls.Add(this.panel19);
-            this.splitContainer1.Panel2.Controls.Add(this.panel18);
-            this.splitContainer1.Size = new System.Drawing.Size(1041, 861);
-            this.splitContainer1.SplitterDistance = 396;
+            this.splitContainer1.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.splitContainer1.Size = new System.Drawing.Size(1062, 825);
+            this.splitContainer1.SplitterDistance = 410;
             this.splitContainer1.TabIndex = 2;
+            this.splitContainer1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer1_SplitterMoved);
             // 
-            // panel20
+            // toolStrip1
             // 
-            this.panel20.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSplitButton1});
+            this.toolStrip1.Location = new System.Drawing.Point(311, 43);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.toolStrip1.Size = new System.Drawing.Size(87, 32);
+            this.toolStrip1.TabIndex = 18;
+            this.toolStrip1.Text = "toolStrip1";
+            this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
+            // 
+            // toolStripSplitButton1
+            // 
+            this.toolStripSplitButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newToolStripMenuItem,
+            this.overrideToolStripMenuItem,
+            this.blankToolStripMenuItem});
+            this.toolStripSplitButton1.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.toolStripSplitButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton1.Image")));
+            this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripSplitButton1.Name = "toolStripSplitButton1";
+            this.toolStripSplitButton1.Size = new System.Drawing.Size(84, 29);
+            this.toolStripSplitButton1.Text = "Run";
+            this.toolStripSplitButton1.ButtonClick += new System.EventHandler(this.toolStripSplitButton1_ButtonClick);
+            // 
+            // newToolStripMenuItem
+            // 
+            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(162, 30);
+            this.newToolStripMenuItem.Text = "New";
+            // 
+            // overrideToolStripMenuItem
+            // 
+            this.overrideToolStripMenuItem.Name = "overrideToolStripMenuItem";
+            this.overrideToolStripMenuItem.Size = new System.Drawing.Size(162, 30);
+            this.overrideToolStripMenuItem.Text = "Overlay";
+            this.overrideToolStripMenuItem.Click += new System.EventHandler(this.overrideToolStripMenuItem_Click);
+            // 
+            // blankToolStripMenuItem
+            // 
+            this.blankToolStripMenuItem.Name = "blankToolStripMenuItem";
+            this.blankToolStripMenuItem.Size = new System.Drawing.Size(162, 30);
+            this.blankToolStripMenuItem.Text = "Blank";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(33, 771);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(93, 33);
+            this.comboBox2.TabIndex = 17;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(170, 775);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(144, 24);
+            this.comboBox1.TabIndex = 15;
+            // 
+            // rjButton3
+            // 
+            this.rjButton3.BackColor = System.Drawing.Color.Lavender;
+            this.rjButton3.BackgroundColor = System.Drawing.Color.Lavender;
+            this.rjButton3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("rjButton3.BackgroundImage")));
+            this.rjButton3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.rjButton3.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjButton3.BorderRadius = 0;
+            this.rjButton3.BorderSize = 0;
+            this.rjButton3.FlatAppearance.BorderSize = 0;
+            this.rjButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton3.ForeColor = System.Drawing.Color.White;
+            this.rjButton3.Location = new System.Drawing.Point(58, 702);
+            this.rjButton3.Name = "rjButton3";
+            this.rjButton3.Size = new System.Drawing.Size(32, 32);
+            this.rjButton3.TabIndex = 14;
+            this.rjButton3.TextColor = System.Drawing.Color.White;
+            this.rjButton3.UseVisualStyleBackColor = false;
+            // 
+            // measurement_type2
+            // 
+            this.measurement_type2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.measurement_type2.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.measurement_type2.BorderSize = 1;
+            this.measurement_type2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.measurement_type2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.measurement_type2.ForeColor = System.Drawing.Color.DimGray;
+            this.measurement_type2.IconColor = System.Drawing.Color.MediumSlateBlue;
+            this.measurement_type2.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
+            this.measurement_type2.ListTextColor = System.Drawing.Color.DimGray;
+            this.measurement_type2.Location = new System.Drawing.Point(87, 548);
+            this.measurement_type2.MinimumSize = new System.Drawing.Size(200, 30);
+            this.measurement_type2.Name = "measurement_type2";
+            this.measurement_type2.Padding = new System.Windows.Forms.Padding(1);
+            this.measurement_type2.Size = new System.Drawing.Size(255, 32);
+            this.measurement_type2.TabIndex = 14;
+            this.measurement_type2.Texts = "";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Location = new System.Drawing.Point(11, 87);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(387, 157);
+            this.groupBox1.TabIndex = 13;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Pretreatment Settings";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // btnMeasure
+            // 
+            this.btnMeasure.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel20.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.panel20.Controls.Add(this.label23);
-            this.panel20.Controls.Add(this.label24);
-            this.panel20.Controls.Add(this.panel21);
-            this.panel20.Controls.Add(this.regenerationStartButton);
-            this.panel20.Controls.Add(this.label21);
-            this.panel20.Controls.Add(this.timeRegeneration);
-            this.panel20.Controls.Add(this.potantialRegeneration);
-            this.panel20.Controls.Add(this.label20);
-            this.panel20.Location = new System.Drawing.Point(3, 711);
-            this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(390, 146);
-            this.panel20.TabIndex = 11;
+            this.btnMeasure.Enabled = false;
+            this.btnMeasure.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMeasure.Location = new System.Drawing.Point(108, 699);
+            this.btnMeasure.Name = "btnMeasure";
+            this.btnMeasure.Size = new System.Drawing.Size(163, 33);
+            this.btnMeasure.TabIndex = 8;
+            this.btnMeasure.Text = "Measure";
+            this.btnMeasure.UseVisualStyleBackColor = true;
+            this.btnMeasure.Click += new System.EventHandler(this.btnMeasure_Click);
             // 
-            // label23
+            // measurement_type
             // 
-            this.label23.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(309, 76);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(23, 20);
-            this.label23.TabIndex = 24;
-            this.label23.Text = "m";
+            this.measurement_type.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.measurement_type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.measurement_type.Enabled = false;
+            this.measurement_type.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.measurement_type.FormattingEnabled = true;
+            this.measurement_type.Location = new System.Drawing.Point(11, 42);
+            this.measurement_type.Name = "measurement_type";
+            this.measurement_type.Size = new System.Drawing.Size(297, 33);
+            this.measurement_type.TabIndex = 6;
+            this.measurement_type.SelectedIndexChanged += new System.EventHandler(this.measurement_type_SelectedIndexChanged);
             // 
-            // label24
+            // btnSaveSetting
             // 
-            this.label24.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(309, 43);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(20, 20);
-            this.label24.TabIndex = 23;
-            this.label24.Text = "V";
+            this.btnSaveSetting.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSaveSetting.Enabled = false;
+            this.btnSaveSetting.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveSetting.Location = new System.Drawing.Point(272, 699);
+            this.btnSaveSetting.Name = "btnSaveSetting";
+            this.btnSaveSetting.Size = new System.Drawing.Size(89, 35);
+            this.btnSaveSetting.TabIndex = 7;
+            this.btnSaveSetting.Text = "Settings";
+            this.btnSaveSetting.UseVisualStyleBackColor = true;
+            this.btnSaveSetting.Click += new System.EventHandler(this.btnSaveSetting_Click);
             // 
-            // panel21
+            // button1
             // 
-            this.panel21.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel21.Controls.Add(this.label22);
-            this.panel21.Location = new System.Drawing.Point(3, 3);
-            this.panel21.Name = "panel21";
-            this.panel21.Size = new System.Drawing.Size(384, 25);
-            this.panel21.TabIndex = 3;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label22.Location = new System.Drawing.Point(7, 2);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(175, 20);
-            this.label22.TabIndex = 0;
-            this.label22.Text = "Regeneration Process";
-            // 
-            // regenerationStartButton
-            // 
-            this.regenerationStartButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.regenerationStartButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.regenerationStartButton.Location = new System.Drawing.Point(126, 107);
-            this.regenerationStartButton.Name = "regenerationStartButton";
-            this.regenerationStartButton.Size = new System.Drawing.Size(168, 35);
-            this.regenerationStartButton.TabIndex = 22;
-            this.regenerationStartButton.Text = "Start";
-            this.regenerationStartButton.UseVisualStyleBackColor = true;
-            this.regenerationStartButton.Click += new System.EventHandler(this.regenerationStartButton_Click);
-            // 
-            // label21
-            // 
-            this.label21.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(54, 76);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(51, 20);
-            this.label21.TabIndex = 7;
-            this.label21.Text = "Time:";
-            // 
-            // timeRegeneration
-            // 
-            this.timeRegeneration.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.timeRegeneration.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timeRegeneration.Location = new System.Drawing.Point(126, 72);
-            this.timeRegeneration.Name = "timeRegeneration";
-            this.timeRegeneration.Size = new System.Drawing.Size(168, 26);
-            this.timeRegeneration.TabIndex = 6;
-            // 
-            // potantialRegeneration
-            // 
-            this.potantialRegeneration.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.potantialRegeneration.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.potantialRegeneration.Location = new System.Drawing.Point(126, 40);
-            this.potantialRegeneration.Name = "potantialRegeneration";
-            this.potantialRegeneration.Size = new System.Drawing.Size(168, 26);
-            this.potantialRegeneration.TabIndex = 5;
-            // 
-            // label20
-            // 
-            this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(26, 43);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(79, 20);
-            this.label20.TabIndex = 3;
-            this.label20.Text = "Potantial:";
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button1.Location = new System.Drawing.Point(33, 660);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(32, 32);
+            this.button1.TabIndex = 12;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel17
             // 
@@ -581,7 +609,7 @@ namespace PalmSense4
             this.panel17.Controls.Add(this.label18);
             this.panel17.Location = new System.Drawing.Point(3, 3);
             this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(390, 28);
+            this.panel17.Size = new System.Drawing.Size(404, 28);
             this.panel17.TabIndex = 4;
             // 
             // label18
@@ -595,122 +623,42 @@ namespace PalmSense4
             this.label18.TabIndex = 0;
             this.label18.Text = "Measurement";
             // 
-            // btnDataViewSave
+            // btnConnect
             // 
-            this.btnDataViewSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDataViewSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDataViewSave.Location = new System.Drawing.Point(202, 656);
-            this.btnDataViewSave.Name = "btnDataViewSave";
-            this.btnDataViewSave.Size = new System.Drawing.Size(191, 49);
-            this.btnDataViewSave.TabIndex = 10;
-            this.btnDataViewSave.Text = "Save";
-            this.btnDataViewSave.UseVisualStyleBackColor = true;
-            this.btnDataViewSave.Click += new System.EventHandler(this.btnDataViewSave_Click);
+            this.btnConnect.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConnect.Location = new System.Drawing.Point(108, 658);
+            this.btnConnect.Name = "btnConnect";
+            this.btnConnect.Size = new System.Drawing.Size(105, 34);
+            this.btnConnect.TabIndex = 5;
+            this.btnConnect.Text = "Connect";
+            this.btnConnect.UseVisualStyleBackColor = true;
+            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
             // 
-            // btnLoad
+            // tabControl2
             // 
-            this.btnLoad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnLoad.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLoad.Location = new System.Drawing.Point(4, 656);
-            this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(192, 49);
-            this.btnLoad.TabIndex = 9;
-            this.btnLoad.Text = "Load";
-            this.btnLoad.UseVisualStyleBackColor = true;
-            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
-            // 
-            // dgvMeasurement
-            // 
-            this.dgvMeasurement.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tabControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvMeasurement.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dgvMeasurement.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMeasurement.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvMeasurement.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dgvMeasurement.Location = new System.Drawing.Point(3, 114);
-            this.dgvMeasurement.Margin = new System.Windows.Forms.Padding(4);
-            this.dgvMeasurement.Name = "dgvMeasurement";
-            this.dgvMeasurement.RowHeadersVisible = false;
-            this.dgvMeasurement.RowHeadersWidth = 51;
-            this.dgvMeasurement.Size = new System.Drawing.Size(390, 535);
-            this.dgvMeasurement.TabIndex = 8;
+            this.tabControl2.Controls.Add(this.PlotArea);
+            this.tabControl2.Controls.Add(this.eisPlotArea);
+            this.tabControl2.Controls.Add(this.dataArea);
+            this.tabControl2.Location = new System.Drawing.Point(3, 32);
+            this.tabControl2.Name = "tabControl2";
+            this.tabControl2.SelectedIndex = 0;
+            this.tabControl2.Size = new System.Drawing.Size(641, 789);
+            this.tabControl2.TabIndex = 12;
             // 
-            // panel14
+            // PlotArea
             // 
-            this.panel14.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel14.Controls.Add(this.btnMeasure);
-            this.panel14.Controls.Add(this.btnSaveSetting);
-            this.panel14.Controls.Add(this.measurement_type);
-            this.panel14.Location = new System.Drawing.Point(3, 32);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(390, 83);
-            this.panel14.TabIndex = 7;
-            // 
-            // btnMeasure
-            // 
-            this.btnMeasure.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMeasure.Enabled = false;
-            this.btnMeasure.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMeasure.Location = new System.Drawing.Point(3, 42);
-            this.btnMeasure.Name = "btnMeasure";
-            this.btnMeasure.Size = new System.Drawing.Size(386, 33);
-            this.btnMeasure.TabIndex = 8;
-            this.btnMeasure.Text = "Measure";
-            this.btnMeasure.UseVisualStyleBackColor = true;
-            this.btnMeasure.Click += new System.EventHandler(this.btnMeasure_Click);
-            // 
-            // btnSaveSetting
-            // 
-            this.btnSaveSetting.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSaveSetting.Enabled = false;
-            this.btnSaveSetting.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveSetting.Location = new System.Drawing.Point(300, 4);
-            this.btnSaveSetting.Name = "btnSaveSetting";
-            this.btnSaveSetting.Size = new System.Drawing.Size(89, 35);
-            this.btnSaveSetting.TabIndex = 7;
-            this.btnSaveSetting.Text = "Settings";
-            this.btnSaveSetting.UseVisualStyleBackColor = true;
-            this.btnSaveSetting.Click += new System.EventHandler(this.btnSaveSetting_Click);
-            // 
-            // measurement_type
-            // 
-            this.measurement_type.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.measurement_type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.measurement_type.Enabled = false;
-            this.measurement_type.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.measurement_type.FormattingEnabled = true;
-            this.measurement_type.Location = new System.Drawing.Point(3, 8);
-            this.measurement_type.Name = "measurement_type";
-            this.measurement_type.Size = new System.Drawing.Size(291, 28);
-            this.measurement_type.TabIndex = 6;
-            this.measurement_type.SelectedIndexChanged += new System.EventHandler(this.measurement_type_SelectedIndexChanged);
-            // 
-            // panel19
-            // 
-            this.panel19.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel19.Controls.Add(this.label19);
-            this.panel19.Location = new System.Drawing.Point(3, 3);
-            this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(637, 28);
-            this.panel19.TabIndex = 5;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label19.Location = new System.Drawing.Point(6, 5);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(55, 20);
-            this.label19.TabIndex = 0;
-            this.label19.Text = "Grafic";
+            this.PlotArea.Controls.Add(this.panel18);
+            this.PlotArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PlotArea.Location = new System.Drawing.Point(4, 25);
+            this.PlotArea.Name = "PlotArea";
+            this.PlotArea.Padding = new System.Windows.Forms.Padding(3);
+            this.PlotArea.Size = new System.Drawing.Size(633, 760);
+            this.PlotArea.TabIndex = 0;
+            this.PlotArea.Text = "Plot";
+            this.PlotArea.UseVisualStyleBackColor = true;
             // 
             // panel18
             // 
@@ -719,10 +667,9 @@ namespace PalmSense4
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel18.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel18.Controls.Add(this.PlotSettings);
-            this.panel18.Controls.Add(this.plot);
-            this.panel18.Location = new System.Drawing.Point(3, 32);
+            this.panel18.Location = new System.Drawing.Point(3, 3);
             this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(635, 825);
+            this.panel18.Size = new System.Drawing.Size(638, 754);
             this.panel18.TabIndex = 1;
             // 
             // PlotSettings
@@ -740,7 +687,7 @@ namespace PalmSense4
             this.PlotSettings.Name = "PlotSettings";
             this.PlotSettings.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.PlotSettings.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.PlotSettings.Size = new System.Drawing.Size(635, 31);
+            this.PlotSettings.Size = new System.Drawing.Size(638, 31);
             this.PlotSettings.TabIndex = 9;
             this.PlotSettings.Text = "menuStrip2";
             // 
@@ -876,33 +823,219 @@ namespace PalmSense4
             this.TSMILoadPeakLOD.Size = new System.Drawing.Size(207, 27);
             this.TSMILoadPeakLOD.Text = "Load Peaks For LOD&LOQ";
             // 
-            // plot
+            // eisPlotArea
             // 
-            this.plot.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.eisPlotArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eisPlotArea.Location = new System.Drawing.Point(4, 25);
+            this.eisPlotArea.Name = "eisPlotArea";
+            this.eisPlotArea.Padding = new System.Windows.Forms.Padding(3);
+            this.eisPlotArea.Size = new System.Drawing.Size(633, 760);
+            this.eisPlotArea.TabIndex = 1;
+            this.eisPlotArea.Text = "EIS Plot";
+            this.eisPlotArea.UseVisualStyleBackColor = true;
+            // 
+            // dataArea
+            // 
+            this.dataArea.Controls.Add(this.dgvMeasurement);
+            this.dataArea.Controls.Add(this.btnDataViewSave);
+            this.dataArea.Controls.Add(this.btnLoad);
+            this.dataArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataArea.Location = new System.Drawing.Point(4, 25);
+            this.dataArea.Name = "dataArea";
+            this.dataArea.Padding = new System.Windows.Forms.Padding(3);
+            this.dataArea.Size = new System.Drawing.Size(633, 760);
+            this.dataArea.TabIndex = 2;
+            this.dataArea.Text = "Data";
+            this.dataArea.UseVisualStyleBackColor = true;
+            // 
+            // dgvMeasurement
+            // 
+            this.dgvMeasurement.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.plot.BackColor = System.Drawing.Color.White;
-            this.plot.Location = new System.Drawing.Point(4, 35);
-            this.plot.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.plot.MarkerSize = 5;
-            this.plot.MarkerType = OxyPlot.MarkerType.Circle;
-            this.plot.Name = "plot";
-            this.plot.Size = new System.Drawing.Size(627, 786);
-            this.plot.TabIndex = 0;
-            this.plot.Title = null;
-            this.plot.XAxisLabel = null;
-            this.plot.XAxisType = SDKPlot.AxisType.Linear;
-            this.plot.YAxisLabel = null;
-            this.plot.YAxisSecondaryLabel = null;
-            this.plot.YAxisSecondaryType = SDKPlot.AxisType.Linear;
-            this.plot.YAxisType = SDKPlot.AxisType.Linear;
+            this.dgvMeasurement.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvMeasurement.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMeasurement.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvMeasurement.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dgvMeasurement.Location = new System.Drawing.Point(4, 73);
+            this.dgvMeasurement.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvMeasurement.Name = "dgvMeasurement";
+            this.dgvMeasurement.RowHeadersVisible = false;
+            this.dgvMeasurement.RowHeadersWidth = 51;
+            this.dgvMeasurement.Size = new System.Drawing.Size(577, 599);
+            this.dgvMeasurement.TabIndex = 8;
+            // 
+            // btnDataViewSave
+            // 
+            this.btnDataViewSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDataViewSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDataViewSave.Location = new System.Drawing.Point(165, 696);
+            this.btnDataViewSave.Name = "btnDataViewSave";
+            this.btnDataViewSave.Size = new System.Drawing.Size(191, 49);
+            this.btnDataViewSave.TabIndex = 10;
+            this.btnDataViewSave.Text = "Save";
+            this.btnDataViewSave.UseVisualStyleBackColor = true;
+            this.btnDataViewSave.Click += new System.EventHandler(this.btnDataViewSave_Click);
+            // 
+            // btnLoad
+            // 
+            this.btnLoad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnLoad.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLoad.Location = new System.Drawing.Point(6, 696);
+            this.btnLoad.Name = "btnLoad";
+            this.btnLoad.Size = new System.Drawing.Size(192, 49);
+            this.btnLoad.TabIndex = 9;
+            this.btnLoad.Text = "Load";
+            this.btnLoad.UseVisualStyleBackColor = true;
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
+            // 
+            // panel19
+            // 
+            this.panel19.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel19.Controls.Add(this.label19);
+            this.panel19.Location = new System.Drawing.Point(3, 3);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(646, 28);
+            this.panel19.TabIndex = 5;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label19.Location = new System.Drawing.Point(6, 5);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(55, 20);
+            this.label19.TabIndex = 0;
+            this.label19.Text = "Grafic";
+            // 
+            // panel20
+            // 
+            this.panel20.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel20.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panel20.Controls.Add(this.label23);
+            this.panel20.Controls.Add(this.label24);
+            this.panel20.Controls.Add(this.panel21);
+            this.panel20.Controls.Add(this.regenerationStartButton);
+            this.panel20.Controls.Add(this.label21);
+            this.panel20.Controls.Add(this.timeRegeneration);
+            this.panel20.Controls.Add(this.potantialRegeneration);
+            this.panel20.Controls.Add(this.label20);
+            this.panel20.Location = new System.Drawing.Point(12, 567);
+            this.panel20.Name = "panel20";
+            this.panel20.Size = new System.Drawing.Size(417, 108);
+            this.panel20.TabIndex = 11;
+            // 
+            // label23
+            // 
+            this.label23.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(336, 76);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(18, 20);
+            this.label23.TabIndex = 24;
+            this.label23.Text = "s";
+            this.label23.Click += new System.EventHandler(this.label23_Click);
+            // 
+            // label24
+            // 
+            this.label24.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(336, 43);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(20, 20);
+            this.label24.TabIndex = 23;
+            this.label24.Text = "V";
+            // 
+            // panel21
+            // 
+            this.panel21.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel21.Controls.Add(this.label22);
+            this.panel21.Location = new System.Drawing.Point(3, 3);
+            this.panel21.Name = "panel21";
+            this.panel21.Size = new System.Drawing.Size(411, 25);
+            this.panel21.TabIndex = 3;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label22.Location = new System.Drawing.Point(7, 2);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(175, 20);
+            this.label22.TabIndex = 0;
+            this.label22.Text = "Regeneration Process";
+            // 
+            // regenerationStartButton
+            // 
+            this.regenerationStartButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.regenerationStartButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.regenerationStartButton.Location = new System.Drawing.Point(126, 69);
+            this.regenerationStartButton.Name = "regenerationStartButton";
+            this.regenerationStartButton.Size = new System.Drawing.Size(195, 35);
+            this.regenerationStartButton.TabIndex = 22;
+            this.regenerationStartButton.Text = "Start";
+            this.regenerationStartButton.UseVisualStyleBackColor = true;
+            this.regenerationStartButton.Click += new System.EventHandler(this.regenerationStartButton_Click);
+            // 
+            // label21
+            // 
+            this.label21.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(54, 76);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(51, 20);
+            this.label21.TabIndex = 7;
+            this.label21.Text = "Time:";
+            // 
+            // timeRegeneration
+            // 
+            this.timeRegeneration.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.timeRegeneration.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeRegeneration.Location = new System.Drawing.Point(126, 72);
+            this.timeRegeneration.Name = "timeRegeneration";
+            this.timeRegeneration.Size = new System.Drawing.Size(195, 26);
+            this.timeRegeneration.TabIndex = 6;
+            // 
+            // potantialRegeneration
+            // 
+            this.potantialRegeneration.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.potantialRegeneration.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.potantialRegeneration.Location = new System.Drawing.Point(126, 40);
+            this.potantialRegeneration.Name = "potantialRegeneration";
+            this.potantialRegeneration.Size = new System.Drawing.Size(195, 26);
+            this.potantialRegeneration.TabIndex = 5;
+            // 
+            // label20
+            // 
+            this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(26, 43);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(79, 20);
+            this.label20.TabIndex = 3;
+            this.label20.Text = "Potantial:";
             // 
             // tabControl1
             // 
             this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.tabControl1.Appearance = System.Windows.Forms.TabAppearance.Buttons;
-            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
@@ -913,16 +1046,6 @@ namespace PalmSense4
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(411, 381);
             this.tabControl1.TabIndex = 3;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 32);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(403, 345);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "LOD - LOQ Calculator";
-            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
@@ -1511,7 +1634,7 @@ namespace PalmSense4
             this.panel15.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel15.Controls.Add(this.panel16);
             this.panel15.Controls.Add(this.tabControl1);
-            this.panel15.Location = new System.Drawing.Point(12, 300);
+            this.panel15.Location = new System.Drawing.Point(12, 152);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(417, 412);
             this.panel15.TabIndex = 3;
@@ -1538,51 +1661,134 @@ namespace PalmSense4
             this.label7.TabIndex = 0;
             this.label7.Text = "Calculators";
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.methodToolStripMenuItem,
+            this.dataToolStripMenuItem,
+            this.measurementToolStripMenuItem,
+            this.plotToolStripMenuItem1,
+            this.eISPlotToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1503, 28);
+            this.menuStrip1.TabIndex = 4;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // methodToolStripMenuItem
+            // 
+            this.methodToolStripMenuItem.Name = "methodToolStripMenuItem";
+            this.methodToolStripMenuItem.Size = new System.Drawing.Size(75, 24);
+            this.methodToolStripMenuItem.Text = "Method";
+            // 
+            // dataToolStripMenuItem
+            // 
+            this.dataToolStripMenuItem.Name = "dataToolStripMenuItem";
+            this.dataToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
+            this.dataToolStripMenuItem.Text = "Data";
+            // 
+            // measurementToolStripMenuItem
+            // 
+            this.measurementToolStripMenuItem.Name = "measurementToolStripMenuItem";
+            this.measurementToolStripMenuItem.Size = new System.Drawing.Size(113, 24);
+            this.measurementToolStripMenuItem.Text = "Measurement";
+            // 
+            // plotToolStripMenuItem1
+            // 
+            this.plotToolStripMenuItem1.Name = "plotToolStripMenuItem1";
+            this.plotToolStripMenuItem1.Size = new System.Drawing.Size(49, 24);
+            this.plotToolStripMenuItem1.Text = "Plot";
+            // 
+            // eISPlotToolStripMenuItem
+            // 
+            this.eISPlotToolStripMenuItem.Name = "eISPlotToolStripMenuItem";
+            this.eISPlotToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
+            this.eISPlotToolStripMenuItem.Text = "EIS Plot";
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.status_statusbar,
+            this.potential_statusbar,
+            this.current_statusbar});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 859);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1503, 26);
+            this.statusStrip1.TabIndex = 5;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // status_statusbar
+            // 
+            this.status_statusbar.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.status_statusbar.Name = "status_statusbar";
+            this.status_statusbar.Size = new System.Drawing.Size(52, 20);
+            this.status_statusbar.Text = "Status:";
+            this.status_statusbar.Click += new System.EventHandler(this.toolStripStatusLabel1_Click);
+            // 
+            // potential_statusbar
+            // 
+            this.potential_statusbar.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.potential_statusbar.Name = "potential_statusbar";
+            this.potential_statusbar.Size = new System.Drawing.Size(70, 20);
+            this.potential_statusbar.Text = "Potential:";
+            // 
+            // current_statusbar
+            // 
+            this.current_statusbar.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.current_statusbar.Name = "current_statusbar";
+            this.current_statusbar.Size = new System.Drawing.Size(60, 20);
+            this.current_statusbar.Text = "Current:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(1482, 885);
+            this.ClientSize = new System.Drawing.Size(1503, 885);
+            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.panel20);
             this.Controls.Add(this.panel15);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "PalmSense4";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
+            this.panel1.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            this.panel20.ResumeLayout(false);
-            this.panel20.PerformLayout();
-            this.panel21.ResumeLayout(false);
-            this.panel21.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.panel17.ResumeLayout(false);
             this.panel17.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMeasurement)).EndInit();
-            this.panel14.ResumeLayout(false);
-            this.panel19.ResumeLayout(false);
-            this.panel19.PerformLayout();
+            this.tabControl2.ResumeLayout(false);
+            this.PlotArea.ResumeLayout(false);
             this.panel18.ResumeLayout(false);
             this.panel18.PerformLayout();
             this.PlotSettings.ResumeLayout(false);
             this.PlotSettings.PerformLayout();
+            this.dataArea.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMeasurement)).EndInit();
+            this.panel19.ResumeLayout(false);
+            this.panel19.PerformLayout();
+            this.panel20.ResumeLayout(false);
+            this.panel20.PerformLayout();
+            this.panel21.ResumeLayout(false);
+            this.panel21.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
@@ -1601,7 +1807,12 @@ namespace PalmSense4
             this.panel15.ResumeLayout(false);
             this.panel16.ResumeLayout(false);
             this.panel16.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1615,11 +1826,9 @@ namespace PalmSense4
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbDevices;
-        private System.Windows.Forms.Button btnRefresh;
-        private System.Windows.Forms.Button btnConnect;
+        private System.Windows.Forms.Button btnRefresh1;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
@@ -1674,7 +1883,6 @@ namespace PalmSense4
         public System.Windows.Forms.ComboBox comboBox_ppm_unit;
         private System.Windows.Forms.TextBox textBox_Molarity;
         private System.Windows.Forms.TextBox textBox_ppm;
-        private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Button btnMeasure;
         private System.Windows.Forms.Button btnSaveSetting;
         public System.Windows.Forms.ComboBox measurement_type;
@@ -1708,19 +1916,6 @@ namespace PalmSense4
         private System.Windows.Forms.ToolStripMenuItem exportsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem imageGraphExport;
         private System.Windows.Forms.ToolStripMenuItem TSMILoadPeakLOD;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Label lblCurrentRange;
-        private System.Windows.Forms.TextBox tbCurrent;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox tbPotential;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox tbDeviceStatus;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel20;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox timeRegeneration;
@@ -1732,6 +1927,37 @@ namespace PalmSense4
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.ToolStripMenuItem graphTxtExport;
+        private System.Windows.Forms.TabControl tabControl2;
+        private System.Windows.Forms.TabPage PlotArea;
+        private System.Windows.Forms.TabPage eisPlotArea;
+        private System.Windows.Forms.TabPage dataArea;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem methodToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dataToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem measurementToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem plotToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem eISPlotToolStripMenuItem;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel status_statusbar;
+        private System.Windows.Forms.ToolStripStatusLabel potential_statusbar;
+        private System.Windows.Forms.ToolStripStatusLabel current_statusbar;
+        private RJCodeAdvance.RJControls.RJButton btnRefresh;
+        private RJCodeAdvance.RJControls.RJComboBox cmbDevices2;
+        private RJCodeAdvance.RJControls.RJButton rjButton2;
+        private RJCodeAdvance.RJControls.RJButton connectBtn;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnConnect;
+        private RJCodeAdvance.RJControls.RJComboBox measurement_type2;
+        private RJCodeAdvance.RJControls.RJButton rjButton3;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripSplitButton toolStripSplitButton1;
+        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem overrideToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem blankToolStripMenuItem;
     }
 }
 

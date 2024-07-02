@@ -105,7 +105,9 @@
             this.rbFinConc = new System.Windows.Forms.RadioButton();
             this.rbInitVol = new System.Windows.Forms.RadioButton();
             this.rbInitConc = new System.Windows.Forms.RadioButton();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
+            this.rjButton1 = new RJCodeAdvance.RJControls.RJButton();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -124,8 +126,8 @@
             this.panel12.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.panel13.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.SuspendLayout();
+            this.toolStripContainer1.ContentPanel.SuspendLayout();
+            this.toolStripContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -376,7 +378,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(409, 435);
+            this.tabPage1.Size = new System.Drawing.Size(409, 414);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "LOD - LOQ Calculator";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -389,7 +391,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(409, 406);
+            this.tabPage2.Size = new System.Drawing.Size(409, 414);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Grams to Mole Calculator";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -554,7 +556,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(409, 406);
+            this.tabPage3.Size = new System.Drawing.Size(409, 414);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "pH - pOH Calculator";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -688,7 +690,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 25);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(409, 406);
+            this.tabPage4.Size = new System.Drawing.Size(409, 414);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "ppm Calculator";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -916,31 +918,59 @@
             this.rbInitConc.Text = "Initial Concentration  :";
             this.rbInitConc.UseVisualStyleBackColor = true;
             // 
-            // splitContainer1
+            // toolStripContainer1
             // 
-            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitContainer1.Location = new System.Drawing.Point(437, 12);
-            this.splitContainer1.Name = "splitContainer1";
+            this.toolStripContainer1.BottomToolStripPanelVisible = false;
             // 
-            // splitContainer1.Panel1
+            // toolStripContainer1.ContentPanel
             // 
-            this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.toolStripContainer1.ContentPanel.Controls.Add(this.flowLayoutPanel1);
+            this.toolStripContainer1.ContentPanel.Controls.Add(this.rjButton1);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(930, 889);
             // 
-            // splitContainer1.Panel2
+            // toolStripContainer1.LeftToolStripPanel
             // 
-            this.splitContainer1.Panel2.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.splitContainer1.Size = new System.Drawing.Size(952, 892);
-            this.splitContainer1.SplitterDistance = 317;
-            this.splitContainer1.TabIndex = 5;
+            this.toolStripContainer1.LeftToolStripPanel.MaximumSize = new System.Drawing.Size(120, 0);
+            this.toolStripContainer1.LeftToolStripPanel.Click += new System.EventHandler(this.toolStripContainer1_LeftToolStripPanel_Click);
+            this.toolStripContainer1.Location = new System.Drawing.Point(434, 15);
+            this.toolStripContainer1.Name = "toolStripContainer1";
+            this.toolStripContainer1.RightToolStripPanelVisible = false;
+            this.toolStripContainer1.Size = new System.Drawing.Size(955, 889);
+            this.toolStripContainer1.TabIndex = 5;
+            this.toolStripContainer1.Text = "toolStripContainer1";
+            this.toolStripContainer1.TopToolStripPanelVisible = false;
+            // 
+            // rjButton1
+            // 
+            this.rjButton1.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.rjButton1.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.rjButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjButton1.BorderRadius = 0;
+            this.rjButton1.BorderSize = 0;
+            this.rjButton1.FlatAppearance.BorderSize = 0;
+            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton1.ForeColor = System.Drawing.Color.White;
+            this.rjButton1.Location = new System.Drawing.Point(91, 14);
+            this.rjButton1.Name = "rjButton1";
+            this.rjButton1.Size = new System.Drawing.Size(95, 40);
+            this.rjButton1.TabIndex = 0;
+            this.rjButton1.Text = "rjButton1";
+            this.rjButton1.TextColor = System.Drawing.Color.White;
+            this.rjButton1.UseVisualStyleBackColor = false;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(76, 90);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 100);
+            this.flowLayoutPanel1.TabIndex = 1;
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1401, 916);
-            this.Controls.Add(this.splitContainer1);
+            this.Controls.Add(this.toolStripContainer1);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
@@ -978,8 +1008,9 @@
             this.tabPage5.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
+            this.toolStripContainer1.ContentPanel.ResumeLayout(false);
+            this.toolStripContainer1.ResumeLayout(false);
+            this.toolStripContainer1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1063,6 +1094,8 @@
         private System.Windows.Forms.RadioButton rbFinConc;
         private System.Windows.Forms.RadioButton rbInitVol;
         private System.Windows.Forms.RadioButton rbInitConc;
-        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.ToolStripContainer toolStripContainer1;
+        private RJCodeAdvance.RJControls.RJButton rjButton1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

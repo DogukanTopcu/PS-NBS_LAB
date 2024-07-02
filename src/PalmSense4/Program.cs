@@ -21,7 +21,8 @@ namespace PalmSense4
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1(_cc));
+            Application.Run(new MainPage());
+            //Application.Run(new Form1(_cc));
             //Application.Run(new Main());
         }
     }

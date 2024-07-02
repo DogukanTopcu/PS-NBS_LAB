@@ -120,6 +120,8 @@ namespace PalmSense4
                 psCommSimpleWinForms1.Disconnect(); //Disconnect from the connected device
             }
 
+
+            
             //Update UI based on connection status
             cmbDevices.Enabled = !psCommSimpleWinForms1.Connected;
             btnRefresh.Enabled = !psCommSimpleWinForms1.Connected;
@@ -774,7 +776,9 @@ namespace PalmSense4
 
         private void psCommSimpleWinForms1_StateChanged(object sender, PalmSens.Comm.CommManager.DeviceState CurrentState)
         {
-            tbDeviceStatus.Text = CurrentState.ToString(); 
+            status_statusbar.Text = "Status: " + CurrentState.ToString();
+
+            //tbDeviceStatus.Text = CurrentState.ToString(); 
             btnConnect.Enabled = CurrentState == PalmSens.Comm.CommManager.DeviceState.Idle;
             btnMeasure.Text = CurrentState == PalmSens.Comm.CommManager.DeviceState.Idle ? "Measure" : "Abort";
             
@@ -850,22 +854,28 @@ namespace PalmSense4
             PalmSens.Comm.ReadingStatus currentStatus = status.CurrentReading.ReadingStatus; //Get the status of the current reading
             CurrentRange cr = status.CurrentReading.CurrentRange; //Get the active current range
 
-            tbPotential.Text = potential.ToString("F3");
-            tbCurrent.Text = currentInRange.ToString("F3");
 
-            switch (currentStatus)
-            {
-                case PalmSens.Comm.ReadingStatus.OK:
-                    tbCurrent.ForeColor = Color.Black;
-                    break;
-                case PalmSens.Comm.ReadingStatus.Overload:
-                    tbCurrent.ForeColor = Color.Red;
-                    break;
-                case PalmSens.Comm.ReadingStatus.Underload:
-                    tbCurrent.ForeColor = Color.Yellow;
-                    break;
-            }
-            lblCurrentRange.Text = $"* {cr.ToString()}";
+            
+            status_statusbar.Text = "Status: Idle";
+            potential_statusbar.Text = "Potential: " + potential.ToString("F3");
+            current_statusbar.Text = "Current: " + currentInRange.ToString("F3");
+            //tbPotential.Text = potential.ToString("F3");
+            //tbCurrent.Text = currentInRange.ToString("F3");
+
+
+            //switch (currentStatus)
+            //{
+            //    case PalmSens.Comm.ReadingStatus.OK:
+            //        tbCurrent.ForeColor = Color.Black;
+            //        break;
+            //    case PalmSens.Comm.ReadingStatus.Overload:
+            //        tbCurrent.ForeColor = Color.Red;
+            //        break;
+            //    case PalmSens.Comm.ReadingStatus.Underload:
+            //        tbCurrent.ForeColor = Color.Yellow;
+            //        break;
+            //}
+            //lblCurrentRange.Text = $"* {cr.ToString()}";
 
         }
 
@@ -1165,7 +1175,60 @@ namespace PalmSense4
             }
         }
 
+        private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
+        {
 
+        }
+
+        private void label23_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbDevices_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void connectBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void toolStripSplitButton1_ButtonClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void overrideToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRefresh_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }
