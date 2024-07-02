@@ -84,7 +84,7 @@
             this.radioButton_OH = new System.Windows.Forms.RadioButton();
             this.label14 = new System.Windows.Forms.Label();
             this.radioButton_H = new System.Windows.Forms.RadioButton();
-            this.button4 = new System.Windows.Forms.Button();
+            this.pHpOHResetBtn = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.panel12 = new System.Windows.Forms.Panel();
             this.textBox_Molarity = new RJCodeAdvance.RJControls.RJTextBox();
@@ -253,7 +253,7 @@
             this.eISPlotToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1632, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1632, 28);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -339,7 +339,7 @@
             this.splitContainer2.Panel2.Controls.Add(this.tabControl2);
             this.splitContainer2.Panel2.Controls.Add(this.section2_btn);
             this.splitContainer2.Panel2.Controls.Add(this.section1_btn);
-            this.splitContainer2.Size = new System.Drawing.Size(1155, 897);
+            this.splitContainer2.Size = new System.Drawing.Size(1155, 899);
             this.splitContainer2.SplitterDistance = 425;
             this.splitContainer2.TabIndex = 0;
             // 
@@ -350,7 +350,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 115);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(425, 577);
+            this.panel5.Size = new System.Drawing.Size(425, 579);
             this.panel5.TabIndex = 14;
             // 
             // panel20
@@ -367,7 +367,7 @@
             this.panel20.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel20.Location = new System.Drawing.Point(0, 401);
             this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(425, 176);
+            this.panel20.Size = new System.Drawing.Size(425, 178);
             this.panel20.TabIndex = 12;
             // 
             // timeRegeneration
@@ -464,7 +464,7 @@
             this.regenerationStartButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.regenerationStartButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.regenerationStartButton.Location = new System.Drawing.Point(126, 124);
+            this.regenerationStartButton.Location = new System.Drawing.Point(126, 126);
             this.regenerationStartButton.Name = "regenerationStartButton";
             this.regenerationStartButton.Size = new System.Drawing.Size(203, 35);
             this.regenerationStartButton.TabIndex = 22;
@@ -771,7 +771,7 @@
             // 
             this.tabPage3.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.tabPage3.Controls.Add(this.panel11);
-            this.tabPage3.Controls.Add(this.button4);
+            this.tabPage3.Controls.Add(this.pHpOHResetBtn);
             this.tabPage3.Location = new System.Drawing.Point(4, 29);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -841,6 +841,7 @@
             this.textBox_OH.TabIndex = 37;
             this.textBox_OH.Texts = "";
             this.textBox_OH.UnderlinedStyle = false;
+            this.textBox_OH._TextChanged += new System.EventHandler(this.textBox_OH__TextChanged);
             // 
             // textBox_pH
             // 
@@ -887,6 +888,7 @@
             this.textBox_H.TabIndex = 35;
             this.textBox_H.Texts = "";
             this.textBox_H.UnderlinedStyle = false;
+            this.textBox_H._TextChanged += new System.EventHandler(this.textBox_H__TextChanged);
             // 
             // label17
             // 
@@ -929,6 +931,7 @@
             this.radioButton_OH.TabStop = true;
             this.radioButton_OH.Text = "[OH-]";
             this.radioButton_OH.UseVisualStyleBackColor = true;
+            this.radioButton_OH.CheckedChanged += new System.EventHandler(this.radioButton_OH_CheckedChanged);
             // 
             // label14
             // 
@@ -951,17 +954,19 @@
             this.radioButton_H.TabStop = true;
             this.radioButton_H.Text = "[H+]";
             this.radioButton_H.UseVisualStyleBackColor = true;
+            this.radioButton_H.CheckedChanged += new System.EventHandler(this.radioButton_H_CheckedChanged);
             // 
-            // button4
+            // pHpOHResetBtn
             // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(6, 293);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(104, 39);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Reset";
-            this.button4.UseVisualStyleBackColor = true;
+            this.pHpOHResetBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pHpOHResetBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pHpOHResetBtn.Location = new System.Drawing.Point(6, 293);
+            this.pHpOHResetBtn.Name = "pHpOHResetBtn";
+            this.pHpOHResetBtn.Size = new System.Drawing.Size(104, 39);
+            this.pHpOHResetBtn.TabIndex = 3;
+            this.pHpOHResetBtn.Text = "Reset";
+            this.pHpOHResetBtn.UseVisualStyleBackColor = true;
+            this.pHpOHResetBtn.Click += new System.EventHandler(this.pHpOHResetBtn_Click);
             // 
             // tabPage4
             // 
@@ -1012,6 +1017,7 @@
             this.textBox_Molarity.TabIndex = 36;
             this.textBox_Molarity.Texts = "";
             this.textBox_Molarity.UnderlinedStyle = false;
+            this.textBox_Molarity._TextChanged += new System.EventHandler(this.textBox_Molarity__TextChanged);
             // 
             // textBox_MolarMass_ppm
             // 
@@ -1035,6 +1041,7 @@
             this.textBox_MolarMass_ppm.TabIndex = 35;
             this.textBox_MolarMass_ppm.Texts = "";
             this.textBox_MolarMass_ppm.UnderlinedStyle = false;
+            this.textBox_MolarMass_ppm._TextChanged += new System.EventHandler(this.textBox_MolarMass_ppm__TextChanged);
             // 
             // textBox_ppm
             // 
@@ -1058,6 +1065,7 @@
             this.textBox_ppm.TabIndex = 34;
             this.textBox_ppm.Texts = "";
             this.textBox_ppm.UnderlinedStyle = false;
+            this.textBox_ppm._TextChanged += new System.EventHandler(this.textBox_ppm__TextChanged);
             // 
             // radioButton_molarity
             // 
@@ -1070,6 +1078,7 @@
             this.radioButton_molarity.TabStop = true;
             this.radioButton_molarity.Text = "Molarity  :";
             this.radioButton_molarity.UseVisualStyleBackColor = true;
+            this.radioButton_molarity.CheckedChanged += new System.EventHandler(this.radioButton_molarity_CheckedChanged);
             // 
             // radioButton_molarmass
             // 
@@ -1082,6 +1091,7 @@
             this.radioButton_molarmass.TabStop = true;
             this.radioButton_molarmass.Text = "Molar Mass  :";
             this.radioButton_molarmass.UseVisualStyleBackColor = true;
+            this.radioButton_molarmass.CheckedChanged += new System.EventHandler(this.radioButton_molarmass_CheckedChanged);
             // 
             // radioButton_ppm
             // 
@@ -1094,6 +1104,7 @@
             this.radioButton_ppm.TabStop = true;
             this.radioButton_ppm.Text = "ppm  :";
             this.radioButton_ppm.UseVisualStyleBackColor = true;
+            this.radioButton_ppm.CheckedChanged += new System.EventHandler(this.radioButton_ppm_CheckedChanged);
             // 
             // comboBox_molarity_unit
             // 
@@ -1104,6 +1115,7 @@
             this.comboBox_molarity_unit.Name = "comboBox_molarity_unit";
             this.comboBox_molarity_unit.Size = new System.Drawing.Size(69, 33);
             this.comboBox_molarity_unit.TabIndex = 28;
+            this.comboBox_molarity_unit.SelectedIndexChanged += new System.EventHandler(this.comboBox_molarity_unit_SelectedIndexChanged);
             // 
             // comboBox_ppm_unit
             // 
@@ -1114,6 +1126,7 @@
             this.comboBox_ppm_unit.Name = "comboBox_ppm_unit";
             this.comboBox_ppm_unit.Size = new System.Drawing.Size(69, 33);
             this.comboBox_ppm_unit.TabIndex = 27;
+            this.comboBox_ppm_unit.SelectedIndexChanged += new System.EventHandler(this.comboBox_ppm_unit_SelectedIndexChanged);
             // 
             // button_reset_ppm
             // 
@@ -1125,6 +1138,7 @@
             this.button_reset_ppm.TabIndex = 4;
             this.button_reset_ppm.Text = "Reset";
             this.button_reset_ppm.UseVisualStyleBackColor = true;
+            this.button_reset_ppm.Click += new System.EventHandler(this.button_reset_ppm_Click);
             // 
             // tabPage5
             // 
@@ -1310,7 +1324,7 @@
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.lbConsole);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 692);
+            this.panel2.Location = new System.Drawing.Point(0, 694);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(425, 205);
             this.panel2.TabIndex = 13;
@@ -1475,7 +1489,7 @@
             this.tabControl2.Location = new System.Drawing.Point(43, 5);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(641, 859);
+            this.tabControl2.Size = new System.Drawing.Size(641, 861);
             this.tabControl2.TabIndex = 18;
             // 
             // PlotArea
@@ -1485,7 +1499,7 @@
             this.PlotArea.Location = new System.Drawing.Point(4, 25);
             this.PlotArea.Name = "PlotArea";
             this.PlotArea.Padding = new System.Windows.Forms.Padding(3);
-            this.PlotArea.Size = new System.Drawing.Size(633, 830);
+            this.PlotArea.Size = new System.Drawing.Size(633, 832);
             this.PlotArea.TabIndex = 0;
             this.PlotArea.Text = "Plot";
             this.PlotArea.UseVisualStyleBackColor = true;
@@ -1498,7 +1512,7 @@
             this.panel18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel18.Location = new System.Drawing.Point(3, 3);
             this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(627, 824);
+            this.panel18.Size = new System.Drawing.Size(627, 826);
             this.panel18.TabIndex = 1;
             // 
             // plot1
@@ -1510,7 +1524,7 @@
             this.plot1.MarkerSize = 5;
             this.plot1.MarkerType = OxyPlot.MarkerType.Circle;
             this.plot1.Name = "plot1";
-            this.plot1.Size = new System.Drawing.Size(627, 793);
+            this.plot1.Size = new System.Drawing.Size(627, 795);
             this.plot1.TabIndex = 10;
             this.plot1.Title = null;
             this.plot1.XAxisLabel = null;
@@ -1672,7 +1686,7 @@
             this.eisPlotArea.Location = new System.Drawing.Point(4, 25);
             this.eisPlotArea.Name = "eisPlotArea";
             this.eisPlotArea.Padding = new System.Windows.Forms.Padding(3);
-            this.eisPlotArea.Size = new System.Drawing.Size(633, 832);
+            this.eisPlotArea.Size = new System.Drawing.Size(633, 830);
             this.eisPlotArea.TabIndex = 1;
             this.eisPlotArea.Text = "EIS Plot";
             this.eisPlotArea.UseVisualStyleBackColor = true;
@@ -1686,7 +1700,7 @@
             this.dataArea.Location = new System.Drawing.Point(4, 25);
             this.dataArea.Name = "dataArea";
             this.dataArea.Padding = new System.Windows.Forms.Padding(3);
-            this.dataArea.Size = new System.Drawing.Size(633, 832);
+            this.dataArea.Size = new System.Drawing.Size(633, 830);
             this.dataArea.TabIndex = 2;
             this.dataArea.Text = "Data";
             this.dataArea.UseVisualStyleBackColor = true;
@@ -1711,7 +1725,7 @@
             // 
             this.btnDataViewSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDataViewSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDataViewSave.Location = new System.Drawing.Point(165, 768);
+            this.btnDataViewSave.Location = new System.Drawing.Point(165, 766);
             this.btnDataViewSave.Name = "btnDataViewSave";
             this.btnDataViewSave.Size = new System.Drawing.Size(191, 49);
             this.btnDataViewSave.TabIndex = 10;
@@ -1722,7 +1736,7 @@
             // 
             this.btnLoad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnLoad.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLoad.Location = new System.Drawing.Point(6, 768);
+            this.btnLoad.Location = new System.Drawing.Point(6, 766);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(192, 49);
             this.btnLoad.TabIndex = 9;
@@ -1744,7 +1758,7 @@
             this.section2_btn.ForeColor = System.Drawing.Color.White;
             this.section2_btn.Location = new System.Drawing.Point(694, 0);
             this.section2_btn.Name = "section2_btn";
-            this.section2_btn.Size = new System.Drawing.Size(32, 897);
+            this.section2_btn.Size = new System.Drawing.Size(32, 899);
             this.section2_btn.TabIndex = 17;
             this.section2_btn.TextColor = System.Drawing.Color.White;
             this.section2_btn.UseVisualStyleBackColor = false;
@@ -1765,7 +1779,7 @@
             this.section1_btn.ForeColor = System.Drawing.Color.White;
             this.section1_btn.Location = new System.Drawing.Point(0, 0);
             this.section1_btn.Name = "section1_btn";
-            this.section1_btn.Size = new System.Drawing.Size(32, 897);
+            this.section1_btn.Size = new System.Drawing.Size(32, 899);
             this.section1_btn.TabIndex = 14;
             this.section1_btn.TextColor = System.Drawing.Color.White;
             this.section1_btn.UseVisualStyleBackColor = false;
@@ -1775,7 +1789,7 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 30);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 28);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -1791,7 +1805,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.label4);
             this.splitContainer1.Panel2.Controls.Add(this.toolStrip1);
             this.splitContainer1.Panel2.Controls.Add(this.measurement_type);
-            this.splitContainer1.Size = new System.Drawing.Size(1632, 897);
+            this.splitContainer1.Size = new System.Drawing.Size(1632, 899);
             this.splitContainer1.SplitterDistance = 1155;
             this.splitContainer1.TabIndex = 14;
             // 
@@ -1804,7 +1818,7 @@
             this.flowLayoutPanel3.Controls.Add(this.techniqueSettingsPanel);
             this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 262);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(467, 604);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(467, 606);
             this.flowLayoutPanel3.TabIndex = 27;
             // 
             // pretreatmentSettingsPanel
@@ -2680,7 +2694,7 @@
         private System.Windows.Forms.RadioButton radioButton_OH;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.RadioButton radioButton_H;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button pHpOHResetBtn;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.RadioButton radioButton_molarity;

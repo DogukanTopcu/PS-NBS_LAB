@@ -1276,6 +1276,7 @@ namespace PalmSense4
             this.textBox_pH.ReadOnly = true;
             this.textBox_pH.Size = new System.Drawing.Size(138, 26);
             this.textBox_pH.TabIndex = 18;
+            this.textBox_pH.TextChanged += new System.EventHandler(this.textBox_pH_TextChanged);
             // 
             // textBox_pOH
             // 
@@ -1672,38 +1673,38 @@ namespace PalmSense4
             this.eISPlotToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1503, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1503, 30);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // methodToolStripMenuItem
             // 
             this.methodToolStripMenuItem.Name = "methodToolStripMenuItem";
-            this.methodToolStripMenuItem.Size = new System.Drawing.Size(75, 24);
+            this.methodToolStripMenuItem.Size = new System.Drawing.Size(75, 26);
             this.methodToolStripMenuItem.Text = "Method";
             // 
             // dataToolStripMenuItem
             // 
             this.dataToolStripMenuItem.Name = "dataToolStripMenuItem";
-            this.dataToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
+            this.dataToolStripMenuItem.Size = new System.Drawing.Size(55, 26);
             this.dataToolStripMenuItem.Text = "Data";
             // 
             // measurementToolStripMenuItem
             // 
             this.measurementToolStripMenuItem.Name = "measurementToolStripMenuItem";
-            this.measurementToolStripMenuItem.Size = new System.Drawing.Size(113, 24);
+            this.measurementToolStripMenuItem.Size = new System.Drawing.Size(113, 26);
             this.measurementToolStripMenuItem.Text = "Measurement";
             // 
             // plotToolStripMenuItem1
             // 
             this.plotToolStripMenuItem1.Name = "plotToolStripMenuItem1";
-            this.plotToolStripMenuItem1.Size = new System.Drawing.Size(49, 24);
+            this.plotToolStripMenuItem1.Size = new System.Drawing.Size(49, 26);
             this.plotToolStripMenuItem1.Text = "Plot";
             // 
             // eISPlotToolStripMenuItem
             // 
             this.eISPlotToolStripMenuItem.Name = "eISPlotToolStripMenuItem";
-            this.eISPlotToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
+            this.eISPlotToolStripMenuItem.Size = new System.Drawing.Size(73, 26);
             this.eISPlotToolStripMenuItem.Text = "EIS Plot";
             // 
             // statusStrip1

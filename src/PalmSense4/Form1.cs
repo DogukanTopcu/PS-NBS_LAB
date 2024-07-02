@@ -1229,6 +1229,11 @@ namespace PalmSense4
         {
 
         }
+
+        private void textBox_pH_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }
