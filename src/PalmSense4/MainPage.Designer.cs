@@ -253,7 +253,7 @@
             this.eISPlotToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1632, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1632, 30);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -339,7 +339,7 @@
             this.splitContainer2.Panel2.Controls.Add(this.tabControl2);
             this.splitContainer2.Panel2.Controls.Add(this.section2_btn);
             this.splitContainer2.Panel2.Controls.Add(this.section1_btn);
-            this.splitContainer2.Size = new System.Drawing.Size(1155, 899);
+            this.splitContainer2.Size = new System.Drawing.Size(1155, 897);
             this.splitContainer2.SplitterDistance = 425;
             this.splitContainer2.TabIndex = 0;
             // 
@@ -350,7 +350,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 115);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(425, 579);
+            this.panel5.Size = new System.Drawing.Size(425, 577);
             this.panel5.TabIndex = 14;
             // 
             // panel20
@@ -367,7 +367,7 @@
             this.panel20.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel20.Location = new System.Drawing.Point(0, 401);
             this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(425, 178);
+            this.panel20.Size = new System.Drawing.Size(425, 176);
             this.panel20.TabIndex = 12;
             // 
             // timeRegeneration
@@ -464,7 +464,7 @@
             this.regenerationStartButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.regenerationStartButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.regenerationStartButton.Location = new System.Drawing.Point(126, 126);
+            this.regenerationStartButton.Location = new System.Drawing.Point(126, 124);
             this.regenerationStartButton.Name = "regenerationStartButton";
             this.regenerationStartButton.Size = new System.Drawing.Size(203, 35);
             this.regenerationStartButton.TabIndex = 22;
@@ -564,6 +564,7 @@
             this.btnReset_GramsToMoleCalc.TabIndex = 2;
             this.btnReset_GramsToMoleCalc.Text = "Reset";
             this.btnReset_GramsToMoleCalc.UseVisualStyleBackColor = true;
+            this.btnReset_GramsToMoleCalc.Click += new System.EventHandler(this.btnReset_GramsToMoleCalc_Click);
             // 
             // panel10
             // 
@@ -600,6 +601,7 @@
             this.textBox_NumberofMoles.TabIndex = 40;
             this.textBox_NumberofMoles.Texts = "";
             this.textBox_NumberofMoles.UnderlinedStyle = false;
+            this.textBox_NumberofMoles._TextChanged += new System.EventHandler(this.textBox_NumberofMoles__TextChanged);
             // 
             // textBox_Mass
             // 
@@ -623,6 +625,7 @@
             this.textBox_Mass.TabIndex = 39;
             this.textBox_Mass.Texts = "";
             this.textBox_Mass.UnderlinedStyle = false;
+            this.textBox_Mass._TextChanged += new System.EventHandler(this.textBox_Mass__TextChanged);
             // 
             // label13
             // 
@@ -655,6 +658,7 @@
             this.radioButton_NumberofMoles.TabStop = true;
             this.radioButton_NumberofMoles.Text = "Number of Moles:";
             this.radioButton_NumberofMoles.UseVisualStyleBackColor = true;
+            this.radioButton_NumberofMoles.CheckedChanged += new System.EventHandler(this.radioButton_NumberofMoles_CheckedChanged);
             // 
             // radioButton_Mass
             // 
@@ -667,6 +671,7 @@
             this.radioButton_Mass.TabStop = true;
             this.radioButton_Mass.Text = "Mass:";
             this.radioButton_Mass.UseVisualStyleBackColor = true;
+            this.radioButton_Mass.CheckedChanged += new System.EventHandler(this.radioButton_Mass_CheckedChanged);
             // 
             // panel9
             // 
@@ -713,6 +718,7 @@
             this.comboBox_Chemical_Select.Name = "comboBox_Chemical_Select";
             this.comboBox_Chemical_Select.Size = new System.Drawing.Size(245, 33);
             this.comboBox_Chemical_Select.TabIndex = 7;
+            this.comboBox_Chemical_Select.SelectedIndexChanged += new System.EventHandler(this.comboBox_Chemical_Select_SelectedIndexChanged);
             // 
             // label11
             // 
@@ -739,17 +745,17 @@
             this.comboBox_Chemical.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_Chemical.FormattingEnabled = true;
             this.comboBox_Chemical.Items.AddRange(new object[] {
-            "Common Gases and Liquids",
+            "Common Gases and Liquits",
             "Salts",
             "Acids",
             "Alkali",
             "Organic",
-            "Pure Metals",
-            "Other"});
+            "Pure Metals"});
             this.comboBox_Chemical.Location = new System.Drawing.Point(127, 16);
             this.comboBox_Chemical.Name = "comboBox_Chemical";
             this.comboBox_Chemical.Size = new System.Drawing.Size(246, 33);
             this.comboBox_Chemical.TabIndex = 1;
+            this.comboBox_Chemical.SelectedIndexChanged += new System.EventHandler(this.comboBox_Chemical_SelectedIndexChanged);
             // 
             // label9
             // 
@@ -1304,7 +1310,7 @@
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.lbConsole);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 694);
+            this.panel2.Location = new System.Drawing.Point(0, 692);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(425, 205);
             this.panel2.TabIndex = 13;
@@ -1469,7 +1475,7 @@
             this.tabControl2.Location = new System.Drawing.Point(43, 5);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(641, 861);
+            this.tabControl2.Size = new System.Drawing.Size(641, 859);
             this.tabControl2.TabIndex = 18;
             // 
             // PlotArea
@@ -1479,7 +1485,7 @@
             this.PlotArea.Location = new System.Drawing.Point(4, 25);
             this.PlotArea.Name = "PlotArea";
             this.PlotArea.Padding = new System.Windows.Forms.Padding(3);
-            this.PlotArea.Size = new System.Drawing.Size(633, 832);
+            this.PlotArea.Size = new System.Drawing.Size(633, 830);
             this.PlotArea.TabIndex = 0;
             this.PlotArea.Text = "Plot";
             this.PlotArea.UseVisualStyleBackColor = true;
@@ -1492,7 +1498,7 @@
             this.panel18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel18.Location = new System.Drawing.Point(3, 3);
             this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(627, 826);
+            this.panel18.Size = new System.Drawing.Size(627, 824);
             this.panel18.TabIndex = 1;
             // 
             // plot1
@@ -1504,7 +1510,7 @@
             this.plot1.MarkerSize = 5;
             this.plot1.MarkerType = OxyPlot.MarkerType.Circle;
             this.plot1.Name = "plot1";
-            this.plot1.Size = new System.Drawing.Size(627, 795);
+            this.plot1.Size = new System.Drawing.Size(627, 793);
             this.plot1.TabIndex = 10;
             this.plot1.Title = null;
             this.plot1.XAxisLabel = null;
@@ -1738,7 +1744,7 @@
             this.section2_btn.ForeColor = System.Drawing.Color.White;
             this.section2_btn.Location = new System.Drawing.Point(694, 0);
             this.section2_btn.Name = "section2_btn";
-            this.section2_btn.Size = new System.Drawing.Size(32, 899);
+            this.section2_btn.Size = new System.Drawing.Size(32, 897);
             this.section2_btn.TabIndex = 17;
             this.section2_btn.TextColor = System.Drawing.Color.White;
             this.section2_btn.UseVisualStyleBackColor = false;
@@ -1759,7 +1765,7 @@
             this.section1_btn.ForeColor = System.Drawing.Color.White;
             this.section1_btn.Location = new System.Drawing.Point(0, 0);
             this.section1_btn.Name = "section1_btn";
-            this.section1_btn.Size = new System.Drawing.Size(32, 899);
+            this.section1_btn.Size = new System.Drawing.Size(32, 897);
             this.section1_btn.TabIndex = 14;
             this.section1_btn.TextColor = System.Drawing.Color.White;
             this.section1_btn.UseVisualStyleBackColor = false;
@@ -1769,7 +1775,7 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 28);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 30);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -1785,7 +1791,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.label4);
             this.splitContainer1.Panel2.Controls.Add(this.toolStrip1);
             this.splitContainer1.Panel2.Controls.Add(this.measurement_type);
-            this.splitContainer1.Size = new System.Drawing.Size(1632, 899);
+            this.splitContainer1.Size = new System.Drawing.Size(1632, 897);
             this.splitContainer1.SplitterDistance = 1155;
             this.splitContainer1.TabIndex = 14;
             // 
@@ -1798,7 +1804,7 @@
             this.flowLayoutPanel3.Controls.Add(this.techniqueSettingsPanel);
             this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 262);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(467, 606);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(467, 604);
             this.flowLayoutPanel3.TabIndex = 27;
             // 
             // pretreatmentSettingsPanel
@@ -2480,7 +2486,7 @@
             this.toolStrip1.Location = new System.Drawing.Point(359, 26);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip1.Size = new System.Drawing.Size(126, 32);
+            this.toolStrip1.Size = new System.Drawing.Size(87, 32);
             this.toolStrip1.TabIndex = 19;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -2500,19 +2506,19 @@
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(162, 30);
             this.newToolStripMenuItem.Text = "New";
             // 
             // overrideToolStripMenuItem
             // 
             this.overrideToolStripMenuItem.Name = "overrideToolStripMenuItem";
-            this.overrideToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
+            this.overrideToolStripMenuItem.Size = new System.Drawing.Size(162, 30);
             this.overrideToolStripMenuItem.Text = "Overlay";
             // 
             // blankToolStripMenuItem
             // 
             this.blankToolStripMenuItem.Name = "blankToolStripMenuItem";
-            this.blankToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
+            this.blankToolStripMenuItem.Size = new System.Drawing.Size(162, 30);
             this.blankToolStripMenuItem.Text = "Blank";
             // 
             // measurement_type
@@ -2527,6 +2533,7 @@
             this.measurement_type.Name = "measurement_type";
             this.measurement_type.Size = new System.Drawing.Size(255, 33);
             this.measurement_type.TabIndex = 7;
+            this.measurement_type.SelectedIndexChanged += new System.EventHandler(this.measurement_type_SelectedIndexChanged);
             // 
             // rjDropdownMenu1
             // 
@@ -2543,6 +2550,9 @@
             this.psCommSimpleWinForms.EnableBluetooth = false;
             this.psCommSimpleWinForms.EnableSerialPort = false;
             this.psCommSimpleWinForms.Parent = this;
+            this.psCommSimpleWinForms.ReceiveStatus += new PalmSens.Comm.StatusEventHandler(this.psCommSimpleWinForms_ReceiveStatus);
+            this.psCommSimpleWinForms.StateChanged += new PalmSens.Comm.CommManager.StatusChangedEventHandler(this.psCommSimpleWinForms_StateChanged);
+            this.psCommSimpleWinForms.Disconnected += new PalmSens.Core.Simplified.DisconnectedEventHandler(this.psCommSimpleWinForms_Disconnected);
             // 
             // MainPage
             // 

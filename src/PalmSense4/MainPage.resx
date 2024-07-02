@@ -183,18 +183,6 @@
   <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>1113, 18</value>
   </metadata>
-  <data name="measurementBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAFPSURBVEhLtZUhSwRBGIY/xCBGkUsi4i8QMRgPg8kgJjEa
-        xWA0CDciIof4C4wGk0mMZvEXiBjEJGIUETnEez79FmaXZXd2Z+6FB46dmfeB2ZtZ+UtPlsTJC9zyuwtj
-        /wOp0pMDyn+NL7jg2ZyNJoiTI0+Q8YZkHyZtVkScHBfKfZ6QrMO4zW4RJyeF0iIDuEGyaCsaxknfK6vi
-        E84QTdnKwIQLMl6R7MCENdSkuUD5gTskK1DzftoJMr7hEsmstZUkTpDxAYeISt6Pk1NvYiyPSDby25ZW
-        oAwQbFk7GY1g29pJWsEz5Zuj2CI9hH2KO9bqJU6gf9MriuetrSTtBHrQ7ilezW9HWZoL9CrfheCrIlSg
-        h0kvu2lbGZh6ge7zNcULtqJhqq+KB4rXIOqDUybQK3kPAve5Kvlvsu7zOcUzNpogeqc7eQf9LC7b0wQR
-        GQJa4MNdfPiQsgAAAABJRU5ErkJggg==
-</value>
-  </data>
   <data name="pretreatment_settings_btn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -337,6 +325,18 @@
         8NFHmtVH5aHGkQd0ao4qAw17hmk4QfxSr+aIOtQYyoBm1VEdoIFv0CzAh99rVx01gGqnDgBmTzOgwZ/Q
         LMKGv2jXHreGaqMuABkMtgC7xSD8DZjdHKDKaQOAacINaBG2SusXsPzwgSqjLQD6Mgho4R8ky/8CoygS
         Kk0foF17NAJo8XMgfgZiQ4VHwSgYBaOARMDAAAAjl6hDqZ2OhwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="measurementBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAFPSURBVEhLtZUhSwRBGIY/xCBGkUsi4i8QMRgPg8kgJjEa
+        xWA0CDciIof4C4wGk0mMZvEXiBjEJGIUETnEez79FmaXZXd2Z+6FB46dmfeB2ZtZ+UtPlsTJC9zyuwtj
+        /wOp0pMDyn+NL7jg2ZyNJoiTI0+Q8YZkHyZtVkScHBfKfZ6QrMO4zW4RJyeF0iIDuEGyaCsaxknfK6vi
+        E84QTdnKwIQLMl6R7MCENdSkuUD5gTskK1DzftoJMr7hEsmstZUkTpDxAYeISt6Pk1NvYiyPSDby25ZW
+        oAwQbFk7GY1g29pJWsEz5Zuj2CI9hH2KO9bqJU6gf9MriuetrSTtBHrQ7ilezW9HWZoL9CrfheCrIlSg
+        h0kvu2lbGZh6ge7zNcULtqJhqq+KB4rXIOqDUybQK3kPAve5Kvlvsu7zOcUzNpogeqc7eQf9LC7b0wQR
+        GQJa4MNdfPiQsgAAAABJRU5ErkJggg==
 </value>
   </data>
   <metadata name="rjDropdownMenu1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
