@@ -129,6 +129,18 @@
     <Compile Include="Business\PH_POH_Calculator.cs" />
     <Compile Include="Business\PpmCalculator.cs" />
     <Compile Include="Business\SolutionDiluationCalc.cs" />
+    <Compile Include="components\calculators.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="components\calculators.Designer.cs">
+      <DependentUpon>calculators.cs</DependentUpon>
+    </Compile>
+    <Compile Include="components\currentRangeSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="components\currentRangeSettings.Designer.cs">
+      <DependentUpon>currentRangeSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="components\cvSettings.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -146,6 +158,12 @@
     </Compile>
     <Compile Include="components\isSettings.Designer.cs">
       <DependentUpon>isSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="components\pretreatmentSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="components\pretreatmentSettings.Designer.cs">
+      <DependentUpon>pretreatmentSettings.cs</DependentUpon>
     </Compile>
     <Compile Include="data\Chemical_Combinations.cs" />
     <Compile Include="data\Measurement_Settings\CV_Setting.cs" />
@@ -193,6 +211,12 @@
     <Compile Include="Regeneration.Designer.cs">
       <DependentUpon>Regeneration.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="components\calculators.resx">
+      <DependentUpon>calculators.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="components\currentRangeSettings.resx">
+      <DependentUpon>currentRangeSettings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="components\cvSettings.resx">
       <DependentUpon>cvSettings.cs</DependentUpon>
     </EmbeddedResource>
@@ -201,6 +225,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="components\isSettings.resx">
       <DependentUpon>isSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="components\pretreatmentSettings.resx">
+      <DependentUpon>pretreatmentSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ExportGraph.resx">
       <DependentUpon>ExportGraph.cs</DependentUpon>

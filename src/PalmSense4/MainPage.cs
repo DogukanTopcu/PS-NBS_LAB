@@ -5,6 +5,7 @@ using PalmSens.Core.Simplified.WinForms;
 using PalmSens.Devices;
 using PalmSens.Techniques;
 using PalmSense4.Business;
+using PalmSense4.components;
 using PalmSense4.data.Measurement_Settings;
 using System;
 using System.Collections.Generic;
@@ -24,10 +25,10 @@ namespace PalmSense4
         private Device[] _connectedDevices;
         private SimpleMeasurement _activeMeasurement;
 
-        private CyclicVoltammetry _methodCLV;
-        private DifferentialPulse _methodDLP;
-        private ImpedimetricMethod _methodIMM;
-        private Method _selectedMethod;
+        public static CyclicVoltammetry _methodCLV;
+        public static DifferentialPulse _methodDLP;
+        public static ImpedimetricMethod _methodIMM;
+        public static Method _selectedMethod;
 
         private Measurement_Settings _measurementSettings;
         private CyclicVoltammetry_Settings _cvSettings;
@@ -60,46 +61,7 @@ namespace PalmSense4
             _measurementSettings = new Measurement_Settings(_cvSettings, _dpSettings, _impSettings);
 
 
-            // Calculators
-            gtmCalc = new GramsToMoleCalc(
-                comboBox_Chemical, 
-                comboBox_Chemical_Select, 
-                textBox_MolarMass,
-                textBox_Mass,
-                textBox_NumberofMoles,
-                radioButton_Mass,
-                radioButton_NumberofMoles,
-                btnReset_GramsToMoleCalc
-            );
-            pH_pOH = new PH_POH_Calculator(
-                radioButton_H,
-                textBox_H,
-                textBox_pH,
-                radioButton_OH,
-                textBox_OH,
-                textBox_pOH,
-                pHpOHResetBtn
-            );
-            ppmCalc = new PpmCalculator(
-                radioButton_ppm,
-                radioButton_molarmass,
-                radioButton_molarity,
-                textBox_ppm,
-                textBox_MolarMass_ppm,
-                textBox_Molarity,
-                comboBox_ppm_unit,
-                comboBox_molarity_unit
-            );
-            solDiluationCalc = new SolutionDiluationCalc(
-                rbInitConc,
-                rbInitVol,
-                rbFinConc,
-                rbFinVol,
-                tbInitConc,
-                tbInitVol,
-                tbFinConc,
-                tbFinVol
-            );
+            
         }
 
         private void MainPage_Load(object sender, EventArgs e)
@@ -117,16 +79,6 @@ namespace PalmSense4
             measurement_type.SelectedIndex = 0;
 
 
-            // Calculator
-            comboBox_ppm_unit.Items.Add("ppm");
-            comboBox_ppm_unit.Items.Add("ppb");
-            comboBox_ppm_unit.Items.Add("mg/L");
-            comboBox_molarity_unit.Items.Add("M");
-            comboBox_molarity_unit.Items.Add("mM");
-            comboBox_molarity_unit.Items.Add("μM");
-            comboBox_molarity_unit.Items.Add("nM");
-            comboBox_ppm_unit.SelectedIndex = 0;
-            comboBox_molarity_unit.SelectedIndex = 0;
         }
         // CONSTRUCTORS *************************************************************************
 
@@ -241,6 +193,9 @@ namespace PalmSense4
                     cvSettings1.Visible = true;
                     dpSettings1.Visible = false;
                     isSettings1.Visible = false;
+
+                    pretreatmentSettings1.loadCLVPretreatmentSettings();
+                    currentRangeSettings1.loadCLVCurrentRange();
                     break;
                 case DifferentialPulse.Name:
                     _selectedMethod = _methodDLP;
@@ -248,6 +203,9 @@ namespace PalmSense4
                     cvSettings1.Visible = false;
                     dpSettings1.Visible = true;
                     isSettings1.Visible = false;
+
+                    pretreatmentSettings1.loadDPPretreatmentSettings();
+                    currentRangeSettings1.loadDPCurrentRange();
                     break;
                 case ImpedimetricMethod.Name:
                     _selectedMethod = _methodIMM;
@@ -255,6 +213,9 @@ namespace PalmSense4
                     cvSettings1.Visible = false;
                     dpSettings1.Visible = false;
                     isSettings1.Visible = true;
+
+                    pretreatmentSettings1.loadIMMPretreatmentSettings();
+                    currentRangeSettings1.loadISCurrentRange();
                     break;
                 default:
                     _selectedMethod = null;
@@ -264,49 +225,7 @@ namespace PalmSense4
 
 
 
-        // CALCULATORS ----------------------------------------------------------------------------------
-
-
-        // GRAM TO MOLE CALC
-        private void comboBox_Chemical_SelectedIndexChanged(object sender, EventArgs e) => gtmCalc.comboBox_Chemical_SelectedIndexChanged();
-        private void comboBox_Chemical_Select_SelectedIndexChanged(object sender, EventArgs e) => gtmCalc.comboBox_Chemical_Select_SelectedIndexChanged();
-        private void radioButton_Mass_CheckedChanged(object sender, EventArgs e) => gtmCalc.radioButton_Mass_CheckedChanged();
-        private void radioButton_NumberofMoles_CheckedChanged(object sender, EventArgs e) => gtmCalc.radioButton_NumberofMoles_CheckedChanged();
-        private void btnReset_GramsToMoleCalc_Click(object sender, EventArgs e) => gtmCalc.btnReset_GramsToMoleCalc_Click();
-        private void textBox_Mass__TextChanged(object sender, EventArgs e) => gtmCalc.textBox_Mass__TextChanged();
-        private void textBox_NumberofMoles__TextChanged(object sender, EventArgs e) => gtmCalc.textBox_NumberofMoles__TextChanged();
-
-        // pH - pOH CALCULATOR
-        private void textBox_H__TextChanged(object sender, EventArgs e) => pH_pOH.textBox_H__TextChanged();
-        private void radioButton_H_CheckedChanged(object sender, EventArgs e) => pH_pOH.radioButton_H_CheckedChanged();
-        private void radioButton_OH_CheckedChanged(object sender, EventArgs e) => pH_pOH.radioButton_OH_CheckedChanged();
-        private void textBox_OH__TextChanged(object sender, EventArgs e) => pH_pOH.textBox_OH__TextChanged();
-        private void pHpOHResetBtn_Click(object sender, EventArgs e) => pH_pOH.pHpOHResetBtn_Click();
-
-        // PPM CALCULATOR
-        private void radioButton_ppm_CheckedChanged(object sender, EventArgs e) => ppmCalc.radioButton_ppm_CheckedChanged();
-        private void radioButton_molarmass_CheckedChanged(object sender, EventArgs e) => ppmCalc.radioButton_molarmass_CheckedChanged();
-        private void radioButton_molarity_CheckedChanged(object sender, EventArgs e) => ppmCalc.radioButton_molarity_CheckedChanged();
-        private void comboBox_ppm_unit_SelectedIndexChanged(object sender, EventArgs e) => ppmCalc.comboBox_ppm_unit_SelectedIndexChanged();
-        private void comboBox_molarity_unit_SelectedIndexChanged(object sender, EventArgs e) => ppmCalc.comboBox_molarity_unit_SelectedIndexChanged();
-        private void textBox_ppm__TextChanged(object sender, EventArgs e) => ppmCalc.PpmCalculate();
-        private void textBox_MolarMass_ppm__TextChanged(object sender, EventArgs e) => ppmCalc.PpmCalculate();
-        private void textBox_Molarity__TextChanged(object sender, EventArgs e) => ppmCalc.PpmCalculate();
-        private void button_reset_ppm_Click(object sender, EventArgs e) => ppmCalc.button_reset_ppm_Click();
-
-        // SOLUTION DILUATION CALCULATOR
-        private void rbInitConc_CheckedChanged(object sender, EventArgs e) => solDiluationCalc.rbInitConc_CheckedChanged();
-        private void rbInitVol_CheckedChanged(object sender, EventArgs e) => solDiluationCalc.rbInitVol_CheckedChanged();
-        private void rbFinConc_CheckedChanged(object sender, EventArgs e) => solDiluationCalc.rbFinConc_CheckedChanged();
-        private void rbFinVol_CheckedChanged(object sender, EventArgs e) => solDiluationCalc.rbFinVol_CheckedChanged();
-        private void tbInitConc__TextChanged(object sender, EventArgs e) => solDiluationCalc.SolDilCalc();
-        private void tbInitVol__TextChanged(object sender, EventArgs e) => solDiluationCalc.SolDilCalc();
-        private void tbFinConc__TextChanged(object sender, EventArgs e) => solDiluationCalc.SolDilCalc();
-        private void tbFinVol__TextChanged(object sender, EventArgs e) => solDiluationCalc.SolDilCalc();
-        private void soldiluationResetBtn_Click(object sender, EventArgs e) => solDiluationCalc.soldiluationResetBtn_Click();
-
-        //END CALCULATORS ----------------------------------------------------------------------------------
-
+        
 
         private void section1_btn_Click(object sender, EventArgs e)
         {
@@ -317,20 +236,6 @@ namespace PalmSense4
         {
             splitContainer1.Panel2Collapsed = !splitContainer1.Panel2Collapsed;
             section2_btn.BackgroundImage.RotateFlip(RotateFlipType.Rotate180FlipY);
-        }
-
-        private void pretreatment_settings_btn_Click(object sender, EventArgs e)
-        {
-            pretreatment_settings_btn.Image.RotateFlip(RotateFlipType.Rotate180FlipX);
-
-            if (pretreatmentSettingsPanel.Height == pretreatment_settings_btn.Height)
-            {
-                pretreatmentSettingsPanel.Height = 331;
-            }
-            else
-            {
-                pretreatmentSettingsPanel.Height = pretreatment_settings_btn.Height;
-            }
         }
 
         private void cvSettings1_Load(object sender, EventArgs e)

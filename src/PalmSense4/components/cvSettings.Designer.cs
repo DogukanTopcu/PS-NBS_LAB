@@ -30,25 +30,25 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(cvSettings));
             this.rjButton1 = new RJCodeAdvance.RJControls.RJButton();
-            this.rjTextBox11 = new RJCodeAdvance.RJControls.RJTextBox();
+            this.tbNumberOfScan = new RJCodeAdvance.RJControls.RJTextBox();
             this.label41 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
-            this.rjTextBox10 = new RJCodeAdvance.RJControls.RJTextBox();
+            this.tbScanRate = new RJCodeAdvance.RJControls.RJTextBox();
             this.label39 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
-            this.rjTextBox9 = new RJCodeAdvance.RJControls.RJTextBox();
+            this.tbEStep = new RJCodeAdvance.RJControls.RJTextBox();
             this.label37 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
-            this.rjTextBox8 = new RJCodeAdvance.RJControls.RJTextBox();
+            this.tbEVertex2 = new RJCodeAdvance.RJControls.RJTextBox();
             this.label35 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
-            this.rjTextBox7 = new RJCodeAdvance.RJControls.RJTextBox();
+            this.tbEVertex1 = new RJCodeAdvance.RJControls.RJTextBox();
             this.label33 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
-            this.rjTextBox6 = new RJCodeAdvance.RJControls.RJTextBox();
+            this.tbEBegin = new RJCodeAdvance.RJControls.RJTextBox();
             this.label31 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.rjTextBox5 = new RJCodeAdvance.RJControls.RJTextBox();
+            this.tbTEq = new RJCodeAdvance.RJControls.RJTextBox();
             this.label29 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -75,35 +75,35 @@
             this.rjButton1.UseVisualStyleBackColor = false;
             this.rjButton1.Click += new System.EventHandler(this.rjButton1_Click);
             // 
-            // rjTextBox11
+            // tbNumberOfScan
             // 
-            this.rjTextBox11.BackColor = System.Drawing.SystemColors.Window;
-            this.rjTextBox11.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjTextBox11.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.rjTextBox11.BorderRadius = 0;
-            this.rjTextBox11.BorderSize = 2;
-            this.rjTextBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjTextBox11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rjTextBox11.Location = new System.Drawing.Point(169, 319);
-            this.rjTextBox11.Margin = new System.Windows.Forms.Padding(4);
-            this.rjTextBox11.Multiline = false;
-            this.rjTextBox11.Name = "rjTextBox11";
-            this.rjTextBox11.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.rjTextBox11.PasswordChar = false;
-            this.rjTextBox11.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.rjTextBox11.PlaceholderText = "";
-            this.rjTextBox11.Size = new System.Drawing.Size(201, 35);
-            this.rjTextBox11.TabIndex = 71;
-            this.rjTextBox11.Texts = "";
-            this.rjTextBox11.UnderlinedStyle = false;
+            this.tbNumberOfScan.BackColor = System.Drawing.SystemColors.Window;
+            this.tbNumberOfScan.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.tbNumberOfScan.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.tbNumberOfScan.BorderRadius = 0;
+            this.tbNumberOfScan.BorderSize = 2;
+            this.tbNumberOfScan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbNumberOfScan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbNumberOfScan.Location = new System.Drawing.Point(179, 319);
+            this.tbNumberOfScan.Margin = new System.Windows.Forms.Padding(4);
+            this.tbNumberOfScan.Multiline = false;
+            this.tbNumberOfScan.Name = "tbNumberOfScan";
+            this.tbNumberOfScan.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.tbNumberOfScan.PasswordChar = false;
+            this.tbNumberOfScan.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.tbNumberOfScan.PlaceholderText = "";
+            this.tbNumberOfScan.Size = new System.Drawing.Size(201, 35);
+            this.tbNumberOfScan.TabIndex = 71;
+            this.tbNumberOfScan.Texts = "";
+            this.tbNumberOfScan.UnderlinedStyle = false;
             // 
             // label41
             // 
             this.label41.AutoSize = true;
-            this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label41.Location = new System.Drawing.Point(3, 328);
+            this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label41.Location = new System.Drawing.Point(7, 325);
             this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(142, 20);
+            this.label41.Size = new System.Drawing.Size(165, 25);
             this.label41.TabIndex = 70;
             this.label41.Text = "Number of scans:";
             // 
@@ -111,41 +111,41 @@
             // 
             this.label38.AutoSize = true;
             this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.Location = new System.Drawing.Point(377, 280);
+            this.label38.Location = new System.Drawing.Point(387, 280);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(42, 25);
             this.label38.TabIndex = 66;
             this.label38.Text = "V/s";
             // 
-            // rjTextBox10
+            // tbScanRate
             // 
-            this.rjTextBox10.BackColor = System.Drawing.SystemColors.Window;
-            this.rjTextBox10.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjTextBox10.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.rjTextBox10.BorderRadius = 0;
-            this.rjTextBox10.BorderSize = 2;
-            this.rjTextBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjTextBox10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rjTextBox10.Location = new System.Drawing.Point(169, 276);
-            this.rjTextBox10.Margin = new System.Windows.Forms.Padding(4);
-            this.rjTextBox10.Multiline = false;
-            this.rjTextBox10.Name = "rjTextBox10";
-            this.rjTextBox10.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.rjTextBox10.PasswordChar = false;
-            this.rjTextBox10.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.rjTextBox10.PlaceholderText = "";
-            this.rjTextBox10.Size = new System.Drawing.Size(201, 35);
-            this.rjTextBox10.TabIndex = 68;
-            this.rjTextBox10.Texts = "";
-            this.rjTextBox10.UnderlinedStyle = false;
+            this.tbScanRate.BackColor = System.Drawing.SystemColors.Window;
+            this.tbScanRate.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.tbScanRate.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.tbScanRate.BorderRadius = 0;
+            this.tbScanRate.BorderSize = 2;
+            this.tbScanRate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbScanRate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbScanRate.Location = new System.Drawing.Point(179, 276);
+            this.tbScanRate.Margin = new System.Windows.Forms.Padding(4);
+            this.tbScanRate.Multiline = false;
+            this.tbScanRate.Name = "tbScanRate";
+            this.tbScanRate.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.tbScanRate.PasswordChar = false;
+            this.tbScanRate.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.tbScanRate.PlaceholderText = "";
+            this.tbScanRate.Size = new System.Drawing.Size(201, 35);
+            this.tbScanRate.TabIndex = 68;
+            this.tbScanRate.Texts = "";
+            this.tbScanRate.UnderlinedStyle = false;
             // 
             // label39
             // 
             this.label39.AutoSize = true;
-            this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label39.Location = new System.Drawing.Point(59, 284);
+            this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label39.Location = new System.Drawing.Point(53, 280);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(86, 20);
+            this.label39.Size = new System.Drawing.Size(102, 25);
             this.label39.TabIndex = 67;
             this.label39.Text = "Scan rate:";
             // 
@@ -153,41 +153,41 @@
             // 
             this.label36.AutoSize = true;
             this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.Location = new System.Drawing.Point(377, 237);
+            this.label36.Location = new System.Drawing.Point(387, 237);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(26, 25);
             this.label36.TabIndex = 63;
             this.label36.Text = "V";
             // 
-            // rjTextBox9
+            // tbEStep
             // 
-            this.rjTextBox9.BackColor = System.Drawing.SystemColors.Window;
-            this.rjTextBox9.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjTextBox9.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.rjTextBox9.BorderRadius = 0;
-            this.rjTextBox9.BorderSize = 2;
-            this.rjTextBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjTextBox9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rjTextBox9.Location = new System.Drawing.Point(169, 233);
-            this.rjTextBox9.Margin = new System.Windows.Forms.Padding(4);
-            this.rjTextBox9.Multiline = false;
-            this.rjTextBox9.Name = "rjTextBox9";
-            this.rjTextBox9.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.rjTextBox9.PasswordChar = false;
-            this.rjTextBox9.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.rjTextBox9.PlaceholderText = "";
-            this.rjTextBox9.Size = new System.Drawing.Size(201, 35);
-            this.rjTextBox9.TabIndex = 65;
-            this.rjTextBox9.Texts = "";
-            this.rjTextBox9.UnderlinedStyle = false;
+            this.tbEStep.BackColor = System.Drawing.SystemColors.Window;
+            this.tbEStep.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.tbEStep.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.tbEStep.BorderRadius = 0;
+            this.tbEStep.BorderSize = 2;
+            this.tbEStep.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbEStep.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbEStep.Location = new System.Drawing.Point(179, 233);
+            this.tbEStep.Margin = new System.Windows.Forms.Padding(4);
+            this.tbEStep.Multiline = false;
+            this.tbEStep.Name = "tbEStep";
+            this.tbEStep.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.tbEStep.PasswordChar = false;
+            this.tbEStep.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.tbEStep.PlaceholderText = "";
+            this.tbEStep.Size = new System.Drawing.Size(201, 35);
+            this.tbEStep.TabIndex = 65;
+            this.tbEStep.Texts = "";
+            this.tbEStep.UnderlinedStyle = false;
             // 
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.Location = new System.Drawing.Point(83, 241);
+            this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label37.Location = new System.Drawing.Point(82, 237);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(62, 20);
+            this.label37.Size = new System.Drawing.Size(73, 25);
             this.label37.TabIndex = 64;
             this.label37.Text = "E step:";
             // 
@@ -195,41 +195,41 @@
             // 
             this.label34.AutoSize = true;
             this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.Location = new System.Drawing.Point(377, 194);
+            this.label34.Location = new System.Drawing.Point(387, 194);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(26, 25);
             this.label34.TabIndex = 60;
             this.label34.Text = "V";
             // 
-            // rjTextBox8
+            // tbEVertex2
             // 
-            this.rjTextBox8.BackColor = System.Drawing.SystemColors.Window;
-            this.rjTextBox8.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjTextBox8.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.rjTextBox8.BorderRadius = 0;
-            this.rjTextBox8.BorderSize = 2;
-            this.rjTextBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjTextBox8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rjTextBox8.Location = new System.Drawing.Point(169, 190);
-            this.rjTextBox8.Margin = new System.Windows.Forms.Padding(4);
-            this.rjTextBox8.Multiline = false;
-            this.rjTextBox8.Name = "rjTextBox8";
-            this.rjTextBox8.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.rjTextBox8.PasswordChar = false;
-            this.rjTextBox8.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.rjTextBox8.PlaceholderText = "";
-            this.rjTextBox8.Size = new System.Drawing.Size(201, 35);
-            this.rjTextBox8.TabIndex = 62;
-            this.rjTextBox8.Texts = "";
-            this.rjTextBox8.UnderlinedStyle = false;
+            this.tbEVertex2.BackColor = System.Drawing.SystemColors.Window;
+            this.tbEVertex2.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.tbEVertex2.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.tbEVertex2.BorderRadius = 0;
+            this.tbEVertex2.BorderSize = 2;
+            this.tbEVertex2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbEVertex2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbEVertex2.Location = new System.Drawing.Point(179, 190);
+            this.tbEVertex2.Margin = new System.Windows.Forms.Padding(4);
+            this.tbEVertex2.Multiline = false;
+            this.tbEVertex2.Name = "tbEVertex2";
+            this.tbEVertex2.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.tbEVertex2.PasswordChar = false;
+            this.tbEVertex2.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.tbEVertex2.PlaceholderText = "";
+            this.tbEVertex2.Size = new System.Drawing.Size(201, 35);
+            this.tbEVertex2.TabIndex = 62;
+            this.tbEVertex2.Texts = "";
+            this.tbEVertex2.UnderlinedStyle = false;
             // 
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.Location = new System.Drawing.Point(61, 198);
+            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.Location = new System.Drawing.Point(55, 194);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(84, 20);
+            this.label35.Size = new System.Drawing.Size(100, 25);
             this.label35.TabIndex = 61;
             this.label35.Text = "E vertex2:";
             // 
@@ -237,41 +237,41 @@
             // 
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(377, 151);
+            this.label32.Location = new System.Drawing.Point(387, 151);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(26, 25);
             this.label32.TabIndex = 57;
             this.label32.Text = "V";
             // 
-            // rjTextBox7
+            // tbEVertex1
             // 
-            this.rjTextBox7.BackColor = System.Drawing.SystemColors.Window;
-            this.rjTextBox7.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjTextBox7.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.rjTextBox7.BorderRadius = 0;
-            this.rjTextBox7.BorderSize = 2;
-            this.rjTextBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjTextBox7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rjTextBox7.Location = new System.Drawing.Point(169, 147);
-            this.rjTextBox7.Margin = new System.Windows.Forms.Padding(4);
-            this.rjTextBox7.Multiline = false;
-            this.rjTextBox7.Name = "rjTextBox7";
-            this.rjTextBox7.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.rjTextBox7.PasswordChar = false;
-            this.rjTextBox7.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.rjTextBox7.PlaceholderText = "";
-            this.rjTextBox7.Size = new System.Drawing.Size(201, 35);
-            this.rjTextBox7.TabIndex = 59;
-            this.rjTextBox7.Texts = "";
-            this.rjTextBox7.UnderlinedStyle = false;
+            this.tbEVertex1.BackColor = System.Drawing.SystemColors.Window;
+            this.tbEVertex1.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.tbEVertex1.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.tbEVertex1.BorderRadius = 0;
+            this.tbEVertex1.BorderSize = 2;
+            this.tbEVertex1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbEVertex1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbEVertex1.Location = new System.Drawing.Point(179, 147);
+            this.tbEVertex1.Margin = new System.Windows.Forms.Padding(4);
+            this.tbEVertex1.Multiline = false;
+            this.tbEVertex1.Name = "tbEVertex1";
+            this.tbEVertex1.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.tbEVertex1.PasswordChar = false;
+            this.tbEVertex1.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.tbEVertex1.PlaceholderText = "";
+            this.tbEVertex1.Size = new System.Drawing.Size(201, 35);
+            this.tbEVertex1.TabIndex = 59;
+            this.tbEVertex1.Texts = "";
+            this.tbEVertex1.UnderlinedStyle = false;
             // 
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.Location = new System.Drawing.Point(61, 155);
+            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label33.Location = new System.Drawing.Point(55, 151);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(84, 20);
+            this.label33.Size = new System.Drawing.Size(100, 25);
             this.label33.TabIndex = 58;
             this.label33.Text = "E vertex1:";
             // 
@@ -279,41 +279,41 @@
             // 
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(377, 108);
+            this.label30.Location = new System.Drawing.Point(387, 108);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(26, 25);
             this.label30.TabIndex = 54;
             this.label30.Text = "V";
             // 
-            // rjTextBox6
+            // tbEBegin
             // 
-            this.rjTextBox6.BackColor = System.Drawing.SystemColors.Window;
-            this.rjTextBox6.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjTextBox6.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.rjTextBox6.BorderRadius = 0;
-            this.rjTextBox6.BorderSize = 2;
-            this.rjTextBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjTextBox6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rjTextBox6.Location = new System.Drawing.Point(169, 104);
-            this.rjTextBox6.Margin = new System.Windows.Forms.Padding(4);
-            this.rjTextBox6.Multiline = false;
-            this.rjTextBox6.Name = "rjTextBox6";
-            this.rjTextBox6.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.rjTextBox6.PasswordChar = false;
-            this.rjTextBox6.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.rjTextBox6.PlaceholderText = "";
-            this.rjTextBox6.Size = new System.Drawing.Size(201, 35);
-            this.rjTextBox6.TabIndex = 56;
-            this.rjTextBox6.Texts = "";
-            this.rjTextBox6.UnderlinedStyle = false;
+            this.tbEBegin.BackColor = System.Drawing.SystemColors.Window;
+            this.tbEBegin.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.tbEBegin.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.tbEBegin.BorderRadius = 0;
+            this.tbEBegin.BorderSize = 2;
+            this.tbEBegin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbEBegin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbEBegin.Location = new System.Drawing.Point(179, 104);
+            this.tbEBegin.Margin = new System.Windows.Forms.Padding(4);
+            this.tbEBegin.Multiline = false;
+            this.tbEBegin.Name = "tbEBegin";
+            this.tbEBegin.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.tbEBegin.PasswordChar = false;
+            this.tbEBegin.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.tbEBegin.PlaceholderText = "";
+            this.tbEBegin.Size = new System.Drawing.Size(201, 35);
+            this.tbEBegin.TabIndex = 56;
+            this.tbEBegin.Texts = "";
+            this.tbEBegin.UnderlinedStyle = false;
             // 
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(75, 112);
+            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Location = new System.Drawing.Point(71, 108);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(70, 20);
+            this.label31.Size = new System.Drawing.Size(84, 25);
             this.label31.TabIndex = 55;
             this.label31.Text = "E begin:";
             // 
@@ -321,41 +321,41 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(377, 64);
+            this.label3.Location = new System.Drawing.Point(387, 64);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(22, 25);
             this.label3.TabIndex = 51;
             this.label3.Text = "s";
             // 
-            // rjTextBox5
+            // tbTEq
             // 
-            this.rjTextBox5.BackColor = System.Drawing.SystemColors.Window;
-            this.rjTextBox5.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjTextBox5.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.rjTextBox5.BorderRadius = 0;
-            this.rjTextBox5.BorderSize = 2;
-            this.rjTextBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjTextBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rjTextBox5.Location = new System.Drawing.Point(169, 60);
-            this.rjTextBox5.Margin = new System.Windows.Forms.Padding(4);
-            this.rjTextBox5.Multiline = false;
-            this.rjTextBox5.Name = "rjTextBox5";
-            this.rjTextBox5.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.rjTextBox5.PasswordChar = false;
-            this.rjTextBox5.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.rjTextBox5.PlaceholderText = "";
-            this.rjTextBox5.Size = new System.Drawing.Size(201, 35);
-            this.rjTextBox5.TabIndex = 53;
-            this.rjTextBox5.Texts = "";
-            this.rjTextBox5.UnderlinedStyle = false;
+            this.tbTEq.BackColor = System.Drawing.SystemColors.Window;
+            this.tbTEq.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.tbTEq.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.tbTEq.BorderRadius = 0;
+            this.tbTEq.BorderSize = 2;
+            this.tbTEq.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTEq.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbTEq.Location = new System.Drawing.Point(179, 60);
+            this.tbTEq.Margin = new System.Windows.Forms.Padding(4);
+            this.tbTEq.Multiline = false;
+            this.tbTEq.Name = "tbTEq";
+            this.tbTEq.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.tbTEq.PasswordChar = false;
+            this.tbTEq.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.tbTEq.PlaceholderText = "";
+            this.tbTEq.Size = new System.Drawing.Size(201, 35);
+            this.tbTEq.TabIndex = 53;
+            this.tbTEq.Texts = "";
+            this.tbTEq.UnderlinedStyle = false;
             // 
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(31, 68);
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.Location = new System.Drawing.Point(23, 64);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(114, 20);
+            this.label29.Size = new System.Drawing.Size(132, 25);
             this.label29.TabIndex = 52;
             this.label29.Text = "t equilibration:";
             // 
@@ -363,29 +363,30 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.rjTextBox11);
+            this.Controls.Add(this.tbNumberOfScan);
             this.Controls.Add(this.label41);
             this.Controls.Add(this.label38);
-            this.Controls.Add(this.rjTextBox10);
+            this.Controls.Add(this.tbScanRate);
             this.Controls.Add(this.label39);
             this.Controls.Add(this.label36);
-            this.Controls.Add(this.rjTextBox9);
+            this.Controls.Add(this.tbEStep);
             this.Controls.Add(this.label37);
             this.Controls.Add(this.label34);
-            this.Controls.Add(this.rjTextBox8);
+            this.Controls.Add(this.tbEVertex2);
             this.Controls.Add(this.label35);
             this.Controls.Add(this.label32);
-            this.Controls.Add(this.rjTextBox7);
+            this.Controls.Add(this.tbEVertex1);
             this.Controls.Add(this.label33);
             this.Controls.Add(this.label30);
-            this.Controls.Add(this.rjTextBox6);
+            this.Controls.Add(this.tbEBegin);
             this.Controls.Add(this.label31);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.rjTextBox5);
+            this.Controls.Add(this.tbTEq);
             this.Controls.Add(this.label29);
             this.Controls.Add(this.rjButton1);
             this.Name = "cvSettings";
             this.Size = new System.Drawing.Size(435, 380);
+            this.Load += new System.EventHandler(this.cvSettings_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -394,25 +395,25 @@
         #endregion
 
         private RJCodeAdvance.RJControls.RJButton rjButton1;
-        private RJCodeAdvance.RJControls.RJTextBox rjTextBox11;
+        private RJCodeAdvance.RJControls.RJTextBox tbNumberOfScan;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Label label38;
-        private RJCodeAdvance.RJControls.RJTextBox rjTextBox10;
+        private RJCodeAdvance.RJControls.RJTextBox tbScanRate;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.Label label36;
-        private RJCodeAdvance.RJControls.RJTextBox rjTextBox9;
+        private RJCodeAdvance.RJControls.RJTextBox tbEStep;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Label label34;
-        private RJCodeAdvance.RJControls.RJTextBox rjTextBox8;
+        private RJCodeAdvance.RJControls.RJTextBox tbEVertex2;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label32;
-        private RJCodeAdvance.RJControls.RJTextBox rjTextBox7;
+        private RJCodeAdvance.RJControls.RJTextBox tbEVertex1;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label30;
-        private RJCodeAdvance.RJControls.RJTextBox rjTextBox6;
+        private RJCodeAdvance.RJControls.RJTextBox tbEBegin;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label3;
-        private RJCodeAdvance.RJControls.RJTextBox rjTextBox5;
+        private RJCodeAdvance.RJControls.RJTextBox tbTEq;
         private System.Windows.Forms.Label label29;
     }
 }

@@ -15,8 +15,6 @@ namespace PalmSense4
         [STAThread]
         static void Main()
         {
-            InitializeData data = new InitializeData();
-            List<Chemical_Combinations> _cc = data.InitializeChemicalCombinations();
 
 
             Application.EnableVisualStyles();

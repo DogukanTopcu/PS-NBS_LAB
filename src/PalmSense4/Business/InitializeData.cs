@@ -11,15 +11,19 @@ namespace PalmSense4.Business
     internal class InitializeData
     {
         private List<Chemical_Combinations> _combinations { get; set; }
+        private string docName;
         
-        public InitializeData() 
+        public InitializeData(String url) 
         {
             _combinations = new List<Chemical_Combinations>();
+            docName = url;
         }
 
         public List<Chemical_Combinations> InitializeChemicalCombinations()
         {
-            using (StreamReader r = new StreamReader("../../data/chemical_combinations_data.json"))
+            //../../
+            //./src/PalmSense4/
+            using (StreamReader r = new StreamReader(docName))
             {
                 string json = r.ReadToEnd();
                 JObject j = JObject.Parse(json);

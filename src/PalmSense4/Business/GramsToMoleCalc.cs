@@ -20,6 +20,7 @@ namespace PalmSense4.Business
         private RadioButton radioButton_NumberofMoles;
         private Button btnReset_GramsToMoleCalc;
 
+        private InitializeData data;
         private List<Chemical_Combinations> _cc;
 
 
@@ -43,7 +44,10 @@ namespace PalmSense4.Business
             this.radioButton_NumberofMoles = radioButton_NumberofMoles;
             this.btnReset_GramsToMoleCalc = btnReset_GramsToMoleCalc;
 
-            _cc = new InitializeData().InitializeChemicalCombinations();
+            // ../../
+            // src/PalmSense4/
+            data = new InitializeData("../../data/chemical_combinations_data.json");
+            _cc = data.InitializeChemicalCombinations();
         }
 
         public void comboBox_Chemical_SelectedIndexChanged()
