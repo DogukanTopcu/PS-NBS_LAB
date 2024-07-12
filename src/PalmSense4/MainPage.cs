@@ -71,7 +71,6 @@ namespace PalmSense4
                 radioButton_NumberofMoles,
                 btnReset_GramsToMoleCalc
             );
-
             pH_pOH = new PH_POH_Calculator(
                 radioButton_H,
                 textBox_H,
@@ -81,7 +80,6 @@ namespace PalmSense4
                 textBox_pOH,
                 pHpOHResetBtn
             );
-
             ppmCalc = new PpmCalculator(
                 radioButton_ppm,
                 radioButton_molarmass,
@@ -92,7 +90,6 @@ namespace PalmSense4
                 comboBox_ppm_unit,
                 comboBox_molarity_unit
             );
-
             solDiluationCalc = new SolutionDiluationCalc(
                 rbInitConc,
                 rbInitVol,
@@ -240,12 +237,24 @@ namespace PalmSense4
             {
                 case CyclicVoltammetry.Name:
                     _selectedMethod = _methodCLV;
+                    
+                    cvSettings1.Visible = true;
+                    dpSettings1.Visible = false;
+                    isSettings1.Visible = false;
                     break;
                 case DifferentialPulse.Name:
                     _selectedMethod = _methodDLP;
+                    
+                    cvSettings1.Visible = false;
+                    dpSettings1.Visible = true;
+                    isSettings1.Visible = false;
                     break;
                 case ImpedimetricMethod.Name:
                     _selectedMethod = _methodIMM;
+
+                    cvSettings1.Visible = false;
+                    dpSettings1.Visible = false;
+                    isSettings1.Visible = true;
                     break;
                 default:
                     _selectedMethod = null;
@@ -324,20 +333,9 @@ namespace PalmSense4
             }
         }
 
-        private void technique_settings_Click(object sender, EventArgs e)
+        private void cvSettings1_Load(object sender, EventArgs e)
         {
-            technique_settings.Image.RotateFlip(RotateFlipType.Rotate180FlipX);
 
-            if (techniqueSettingsPanel.Height == technique_settings.Height)
-            {
-                techniqueSettingsPanel.Height = 331;
-            }
-            else
-            {
-                techniqueSettingsPanel.Height = technique_settings.Height;
-            }
         }
-
-        
     }
 }

@@ -165,8 +165,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.pretreatment_settings_btn = new RJCodeAdvance.RJControls.RJButton();
-            this.techniqueSettingsPanel = new System.Windows.Forms.Panel();
-            this.technique_settings = new RJCodeAdvance.RJControls.RJButton();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.rjButton12 = new RJCodeAdvance.RJControls.RJButton();
             this.rjButton13 = new RJCodeAdvance.RJControls.RJButton();
@@ -199,6 +197,9 @@
             this.measurement_type = new System.Windows.Forms.ComboBox();
             this.rjDropdownMenu1 = new RJCodeAdvance.RJControls.RJDropdownMenu(this.components);
             this.psCommSimpleWinForms = new PalmSens.Core.Simplified.WinForms.PSCommSimpleWinForms(this.components);
+            this.isSettings1 = new PalmSense4.components.isSettings();
+            this.dpSettings1 = new PalmSense4.components.dpSettings();
+            this.cvSettings1 = new PalmSense4.components.cvSettings();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
@@ -236,7 +237,6 @@
             this.splitContainer1.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
             this.pretreatmentSettingsPanel.SuspendLayout();
-            this.techniqueSettingsPanel.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -253,38 +253,38 @@
             this.eISPlotToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1632, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1632, 30);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // methodToolStripMenuItem
             // 
             this.methodToolStripMenuItem.Name = "methodToolStripMenuItem";
-            this.methodToolStripMenuItem.Size = new System.Drawing.Size(75, 24);
+            this.methodToolStripMenuItem.Size = new System.Drawing.Size(75, 26);
             this.methodToolStripMenuItem.Text = "Method";
             // 
             // dataToolStripMenuItem
             // 
             this.dataToolStripMenuItem.Name = "dataToolStripMenuItem";
-            this.dataToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
+            this.dataToolStripMenuItem.Size = new System.Drawing.Size(55, 26);
             this.dataToolStripMenuItem.Text = "Data";
             // 
             // measurementToolStripMenuItem
             // 
             this.measurementToolStripMenuItem.Name = "measurementToolStripMenuItem";
-            this.measurementToolStripMenuItem.Size = new System.Drawing.Size(113, 24);
+            this.measurementToolStripMenuItem.Size = new System.Drawing.Size(113, 26);
             this.measurementToolStripMenuItem.Text = "Measurement";
             // 
             // plotToolStripMenuItem1
             // 
             this.plotToolStripMenuItem1.Name = "plotToolStripMenuItem1";
-            this.plotToolStripMenuItem1.Size = new System.Drawing.Size(49, 24);
+            this.plotToolStripMenuItem1.Size = new System.Drawing.Size(49, 26);
             this.plotToolStripMenuItem1.Text = "Plot";
             // 
             // eISPlotToolStripMenuItem
             // 
             this.eISPlotToolStripMenuItem.Name = "eISPlotToolStripMenuItem";
-            this.eISPlotToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
+            this.eISPlotToolStripMenuItem.Size = new System.Drawing.Size(73, 26);
             this.eISPlotToolStripMenuItem.Text = "EIS Plot";
             // 
             // statusStrip1
@@ -339,7 +339,7 @@
             this.splitContainer2.Panel2.Controls.Add(this.tabControl2);
             this.splitContainer2.Panel2.Controls.Add(this.section2_btn);
             this.splitContainer2.Panel2.Controls.Add(this.section1_btn);
-            this.splitContainer2.Size = new System.Drawing.Size(1155, 899);
+            this.splitContainer2.Size = new System.Drawing.Size(1155, 897);
             this.splitContainer2.SplitterDistance = 425;
             this.splitContainer2.TabIndex = 0;
             // 
@@ -350,7 +350,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 115);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(425, 579);
+            this.panel5.Size = new System.Drawing.Size(425, 577);
             this.panel5.TabIndex = 14;
             // 
             // panel20
@@ -367,7 +367,7 @@
             this.panel20.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel20.Location = new System.Drawing.Point(0, 401);
             this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(425, 178);
+            this.panel20.Size = new System.Drawing.Size(425, 176);
             this.panel20.TabIndex = 12;
             // 
             // timeRegeneration
@@ -464,7 +464,7 @@
             this.regenerationStartButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.regenerationStartButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.regenerationStartButton.Location = new System.Drawing.Point(126, 126);
+            this.regenerationStartButton.Location = new System.Drawing.Point(126, 124);
             this.regenerationStartButton.Name = "regenerationStartButton";
             this.regenerationStartButton.Size = new System.Drawing.Size(203, 35);
             this.regenerationStartButton.TabIndex = 22;
@@ -1333,7 +1333,7 @@
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.lbConsole);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 694);
+            this.panel2.Location = new System.Drawing.Point(0, 692);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(425, 205);
             this.panel2.TabIndex = 13;
@@ -1498,7 +1498,7 @@
             this.tabControl2.Location = new System.Drawing.Point(43, 5);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(641, 861);
+            this.tabControl2.Size = new System.Drawing.Size(641, 859);
             this.tabControl2.TabIndex = 18;
             // 
             // PlotArea
@@ -1508,7 +1508,7 @@
             this.PlotArea.Location = new System.Drawing.Point(4, 25);
             this.PlotArea.Name = "PlotArea";
             this.PlotArea.Padding = new System.Windows.Forms.Padding(3);
-            this.PlotArea.Size = new System.Drawing.Size(633, 832);
+            this.PlotArea.Size = new System.Drawing.Size(633, 830);
             this.PlotArea.TabIndex = 0;
             this.PlotArea.Text = "Plot";
             this.PlotArea.UseVisualStyleBackColor = true;
@@ -1521,7 +1521,7 @@
             this.panel18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel18.Location = new System.Drawing.Point(3, 3);
             this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(627, 826);
+            this.panel18.Size = new System.Drawing.Size(627, 824);
             this.panel18.TabIndex = 1;
             // 
             // plot1
@@ -1533,7 +1533,7 @@
             this.plot1.MarkerSize = 5;
             this.plot1.MarkerType = OxyPlot.MarkerType.Circle;
             this.plot1.Name = "plot1";
-            this.plot1.Size = new System.Drawing.Size(627, 795);
+            this.plot1.Size = new System.Drawing.Size(627, 793);
             this.plot1.TabIndex = 10;
             this.plot1.Title = null;
             this.plot1.XAxisLabel = null;
@@ -1695,7 +1695,7 @@
             this.eisPlotArea.Location = new System.Drawing.Point(4, 25);
             this.eisPlotArea.Name = "eisPlotArea";
             this.eisPlotArea.Padding = new System.Windows.Forms.Padding(3);
-            this.eisPlotArea.Size = new System.Drawing.Size(633, 832);
+            this.eisPlotArea.Size = new System.Drawing.Size(633, 830);
             this.eisPlotArea.TabIndex = 1;
             this.eisPlotArea.Text = "EIS Plot";
             this.eisPlotArea.UseVisualStyleBackColor = true;
@@ -1709,7 +1709,7 @@
             this.dataArea.Location = new System.Drawing.Point(4, 25);
             this.dataArea.Name = "dataArea";
             this.dataArea.Padding = new System.Windows.Forms.Padding(3);
-            this.dataArea.Size = new System.Drawing.Size(633, 832);
+            this.dataArea.Size = new System.Drawing.Size(633, 830);
             this.dataArea.TabIndex = 2;
             this.dataArea.Text = "Data";
             this.dataArea.UseVisualStyleBackColor = true;
@@ -1734,7 +1734,7 @@
             // 
             this.btnDataViewSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDataViewSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDataViewSave.Location = new System.Drawing.Point(165, 768);
+            this.btnDataViewSave.Location = new System.Drawing.Point(165, 766);
             this.btnDataViewSave.Name = "btnDataViewSave";
             this.btnDataViewSave.Size = new System.Drawing.Size(191, 49);
             this.btnDataViewSave.TabIndex = 10;
@@ -1745,7 +1745,7 @@
             // 
             this.btnLoad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnLoad.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLoad.Location = new System.Drawing.Point(6, 768);
+            this.btnLoad.Location = new System.Drawing.Point(6, 766);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(192, 49);
             this.btnLoad.TabIndex = 9;
@@ -1767,7 +1767,7 @@
             this.section2_btn.ForeColor = System.Drawing.Color.White;
             this.section2_btn.Location = new System.Drawing.Point(694, 0);
             this.section2_btn.Name = "section2_btn";
-            this.section2_btn.Size = new System.Drawing.Size(32, 899);
+            this.section2_btn.Size = new System.Drawing.Size(32, 897);
             this.section2_btn.TabIndex = 17;
             this.section2_btn.TextColor = System.Drawing.Color.White;
             this.section2_btn.UseVisualStyleBackColor = false;
@@ -1788,7 +1788,7 @@
             this.section1_btn.ForeColor = System.Drawing.Color.White;
             this.section1_btn.Location = new System.Drawing.Point(0, 0);
             this.section1_btn.Name = "section1_btn";
-            this.section1_btn.Size = new System.Drawing.Size(32, 899);
+            this.section1_btn.Size = new System.Drawing.Size(32, 897);
             this.section1_btn.TabIndex = 14;
             this.section1_btn.TextColor = System.Drawing.Color.White;
             this.section1_btn.UseVisualStyleBackColor = false;
@@ -1798,7 +1798,7 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 28);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 30);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -1814,7 +1814,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.label4);
             this.splitContainer1.Panel2.Controls.Add(this.toolStrip1);
             this.splitContainer1.Panel2.Controls.Add(this.measurement_type);
-            this.splitContainer1.Size = new System.Drawing.Size(1632, 899);
+            this.splitContainer1.Size = new System.Drawing.Size(1632, 897);
             this.splitContainer1.SplitterDistance = 1155;
             this.splitContainer1.TabIndex = 14;
             // 
@@ -1824,10 +1824,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel3.AutoScroll = true;
             this.flowLayoutPanel3.Controls.Add(this.pretreatmentSettingsPanel);
-            this.flowLayoutPanel3.Controls.Add(this.techniqueSettingsPanel);
+            this.flowLayoutPanel3.Controls.Add(this.isSettings1);
+            this.flowLayoutPanel3.Controls.Add(this.dpSettings1);
+            this.flowLayoutPanel3.Controls.Add(this.cvSettings1);
             this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 262);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(467, 606);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(467, 604);
             this.flowLayoutPanel3.TabIndex = 27;
             // 
             // pretreatmentSettingsPanel
@@ -2041,38 +2043,6 @@
             this.pretreatment_settings_btn.TextColor = System.Drawing.Color.White;
             this.pretreatment_settings_btn.UseVisualStyleBackColor = false;
             this.pretreatment_settings_btn.Click += new System.EventHandler(this.pretreatment_settings_btn_Click);
-            // 
-            // techniqueSettingsPanel
-            // 
-            this.techniqueSettingsPanel.BackColor = System.Drawing.SystemColors.ControlText;
-            this.techniqueSettingsPanel.Controls.Add(this.technique_settings);
-            this.techniqueSettingsPanel.Location = new System.Drawing.Point(3, 340);
-            this.techniqueSettingsPanel.Name = "techniqueSettingsPanel";
-            this.techniqueSettingsPanel.Size = new System.Drawing.Size(435, 331);
-            this.techniqueSettingsPanel.TabIndex = 19;
-            // 
-            // technique_settings
-            // 
-            this.technique_settings.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.technique_settings.BackgroundColor = System.Drawing.Color.LightSteelBlue;
-            this.technique_settings.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.technique_settings.BorderRadius = 0;
-            this.technique_settings.BorderSize = 0;
-            this.technique_settings.Dock = System.Windows.Forms.DockStyle.Top;
-            this.technique_settings.FlatAppearance.BorderSize = 0;
-            this.technique_settings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.technique_settings.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.technique_settings.ForeColor = System.Drawing.Color.White;
-            this.technique_settings.Image = ((System.Drawing.Image)(resources.GetObject("technique_settings.Image")));
-            this.technique_settings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.technique_settings.Location = new System.Drawing.Point(0, 0);
-            this.technique_settings.Name = "technique_settings";
-            this.technique_settings.Size = new System.Drawing.Size(435, 41);
-            this.technique_settings.TabIndex = 0;
-            this.technique_settings.Text = "Differencial Pulse Voltametry Settings";
-            this.technique_settings.TextColor = System.Drawing.Color.White;
-            this.technique_settings.UseVisualStyleBackColor = false;
-            this.technique_settings.Click += new System.EventHandler(this.technique_settings_Click);
             // 
             // flowLayoutPanel2
             // 
@@ -2549,7 +2519,6 @@
             this.measurement_type.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.measurement_type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.measurement_type.Enabled = false;
             this.measurement_type.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.measurement_type.FormattingEnabled = true;
             this.measurement_type.Location = new System.Drawing.Point(101, 25);
@@ -2576,6 +2545,27 @@
             this.psCommSimpleWinForms.ReceiveStatus += new PalmSens.Comm.StatusEventHandler(this.psCommSimpleWinForms_ReceiveStatus);
             this.psCommSimpleWinForms.StateChanged += new PalmSens.Comm.CommManager.StatusChangedEventHandler(this.psCommSimpleWinForms_StateChanged);
             this.psCommSimpleWinForms.Disconnected += new PalmSens.Core.Simplified.DisconnectedEventHandler(this.psCommSimpleWinForms_Disconnected);
+            // 
+            // isSettings1
+            // 
+            this.isSettings1.Location = new System.Drawing.Point(3, 340);
+            this.isSettings1.Name = "isSettings1";
+            this.isSettings1.Size = new System.Drawing.Size(435, 560);
+            this.isSettings1.TabIndex = 11;
+            // 
+            // dpSettings1
+            // 
+            this.dpSettings1.Location = new System.Drawing.Point(3, 906);
+            this.dpSettings1.Name = "dpSettings1";
+            this.dpSettings1.Size = new System.Drawing.Size(435, 380);
+            this.dpSettings1.TabIndex = 11;
+            // 
+            // cvSettings1
+            // 
+            this.cvSettings1.Location = new System.Drawing.Point(3, 1292);
+            this.cvSettings1.Name = "cvSettings1";
+            this.cvSettings1.Size = new System.Drawing.Size(435, 380);
+            this.cvSettings1.TabIndex = 28;
             // 
             // MainPage
             // 
@@ -2643,7 +2633,6 @@
             this.flowLayoutPanel3.ResumeLayout(false);
             this.pretreatmentSettingsPanel.ResumeLayout(false);
             this.pretreatmentSettingsPanel.PerformLayout();
-            this.techniqueSettingsPanel.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
@@ -2761,9 +2750,7 @@
         private RJCodeAdvance.RJControls.RJButton rjButton21;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private RJCodeAdvance.RJControls.RJButton pretreatment_settings_btn;
-        private RJCodeAdvance.RJControls.RJButton technique_settings;
         private System.Windows.Forms.Panel pretreatmentSettingsPanel;
-        private System.Windows.Forms.Panel techniqueSettingsPanel;
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage PlotArea;
         private System.Windows.Forms.Panel panel18;
@@ -2823,5 +2810,8 @@
         private RJCodeAdvance.RJControls.RJTextBox timeRegeneration;
         private RJCodeAdvance.RJControls.RJButton btnBluetooth;
         private PalmSens.Core.Simplified.WinForms.PSCommSimpleWinForms psCommSimpleWinForms;
+        private components.cvSettings cvSettings1;
+        private components.dpSettings dpSettings1;
+        private components.isSettings isSettings1;
     }
 }

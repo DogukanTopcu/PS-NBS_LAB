@@ -129,11 +129,23 @@
     <Compile Include="Business\PH_POH_Calculator.cs" />
     <Compile Include="Business\PpmCalculator.cs" />
     <Compile Include="Business\SolutionDiluationCalc.cs" />
-    <Compile Include="components\ConnectDevice.cs">
+    <Compile Include="components\cvSettings.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="components\ConnectDevice.Designer.cs">
-      <DependentUpon>ConnectDevice.cs</DependentUpon>
+    <Compile Include="components\cvSettings.Designer.cs">
+      <DependentUpon>cvSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="components\dpSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="components\dpSettings.Designer.cs">
+      <DependentUpon>dpSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="components\isSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="components\isSettings.Designer.cs">
+      <DependentUpon>isSettings.cs</DependentUpon>
     </Compile>
     <Compile Include="data\Chemical_Combinations.cs" />
     <Compile Include="data\Measurement_Settings\CV_Setting.cs" />
@@ -181,8 +193,14 @@
     <Compile Include="Regeneration.Designer.cs">
       <DependentUpon>Regeneration.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="components\ConnectDevice.resx">
-      <DependentUpon>ConnectDevice.cs</DependentUpon>
+    <EmbeddedResource Include="components\cvSettings.resx">
+      <DependentUpon>cvSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="components\dpSettings.resx">
+      <DependentUpon>dpSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="components\isSettings.resx">
+      <DependentUpon>isSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ExportGraph.resx">
       <DependentUpon>ExportGraph.cs</DependentUpon>
