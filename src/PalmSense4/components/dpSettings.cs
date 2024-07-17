@@ -16,11 +16,10 @@ namespace PalmSense4.components
 {
     public partial class dpSettings : UserControl
     {
-        public static DifferentialPulse_Settings _dpSettings;
+        public static DifferentialPulse_Settings _dpSettings = new DifferentialPulse_Settings(MainPage._methodDLP);
         public dpSettings()
         {
             InitializeComponent();
-            _dpSettings = new DifferentialPulse_Settings(MainPage._methodDLP);
         }
 
         private void dpSettings_Load(object sender, EventArgs e)

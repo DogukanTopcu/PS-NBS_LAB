@@ -19,14 +19,13 @@ namespace PalmSense4.components
     {
         private int panelHeight;
 
-        public static ImpedimetricMethod_Settings _impSettings;
+        public static ImpedimetricMethod_Settings _impSettings = new ImpedimetricMethod_Settings(MainPage._methodIMM);
 
         public isSettings()
         {
             InitializeComponent();
 
             panelHeight = 560;
-            _impSettings = new ImpedimetricMethod_Settings(MainPage._methodIMM);
         }
 
         private void isSettings_Load(object sender, EventArgs e)

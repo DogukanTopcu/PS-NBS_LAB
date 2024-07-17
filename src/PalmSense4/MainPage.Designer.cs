@@ -107,6 +107,7 @@
             this.section2_btn = new RJCodeAdvance.RJControls.RJButton();
             this.section1_btn = new RJCodeAdvance.RJControls.RJButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.saveSettingsInInternalStorage = new System.Windows.Forms.CheckBox();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.pretreatmentSettings1 = new PalmSense4.components.pretreatmentSettings();
             this.isSettings1 = new PalmSense4.components.isSettings();
@@ -1089,6 +1090,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.saveSettingsInInternalStorage);
             this.splitContainer1.Panel2.Controls.Add(this.flowLayoutPanel3);
             this.splitContainer1.Panel2.Controls.Add(this.label5);
             this.splitContainer1.Panel2.Controls.Add(this.currentRangeSettings1);
@@ -1097,6 +1099,19 @@
             this.splitContainer1.Size = new System.Drawing.Size(1632, 899);
             this.splitContainer1.SplitterDistance = 1155;
             this.splitContainer1.TabIndex = 14;
+            // 
+            // saveSettingsInInternalStorage
+            // 
+            this.saveSettingsInInternalStorage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.saveSettingsInInternalStorage.AutoSize = true;
+            this.saveSettingsInInternalStorage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveSettingsInInternalStorage.Location = new System.Drawing.Point(12, 857);
+            this.saveSettingsInInternalStorage.Name = "saveSettingsInInternalStorage";
+            this.saveSettingsInInternalStorage.Size = new System.Drawing.Size(250, 29);
+            this.saveSettingsInInternalStorage.TabIndex = 30;
+            this.saveSettingsInInternalStorage.Text = "Save on Internal Storage";
+            this.saveSettingsInInternalStorage.UseVisualStyleBackColor = true;
+            this.saveSettingsInInternalStorage.CheckedChanged += new System.EventHandler(this.saveSettingsInInternalStorage_CheckedChanged);
             // 
             // flowLayoutPanel3
             // 
@@ -1109,7 +1124,7 @@
             this.flowLayoutPanel3.Controls.Add(this.cvSettings1);
             this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 262);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(467, 606);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(467, 576);
             this.flowLayoutPanel3.TabIndex = 27;
             // 
             // pretreatmentSettings1
@@ -1382,5 +1397,6 @@
         private RJCodeAdvance.RJControls.RJButton rjButton30;
         private components.currentRangeSettings currentRangeSettings1;
         private components.calculators calculators1;
+        private System.Windows.Forms.CheckBox saveSettingsInInternalStorage;
     }
 }

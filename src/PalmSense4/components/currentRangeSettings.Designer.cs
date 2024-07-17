@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(currentRangeSettings));
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.currentRangeBtns = new System.Windows.Forms.FlowLayoutPanel();
             this.btnpA100_current = new RJCodeAdvance.RJControls.RJButton();
             this.btnnA1_current = new RJCodeAdvance.RJControls.RJButton();
             this.btnnA10_current = new RJCodeAdvance.RJControls.RJButton();
@@ -52,32 +51,32 @@
             this.btnmA10 = new RJCodeAdvance.RJControls.RJButton();
             this.btnmA100 = new RJCodeAdvance.RJControls.RJButton();
             this.label4 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel2.SuspendLayout();
+            this.currentRangeBtns.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // flowLayoutPanel2
+            // currentRangeBtns
             // 
-            this.flowLayoutPanel2.Controls.Add(this.btnpA100_current);
-            this.flowLayoutPanel2.Controls.Add(this.btnnA1_current);
-            this.flowLayoutPanel2.Controls.Add(this.btnnA10_current);
-            this.flowLayoutPanel2.Controls.Add(this.btnnA100_current);
-            this.flowLayoutPanel2.Controls.Add(this.btnuA1_current);
-            this.flowLayoutPanel2.Controls.Add(this.btnuA10_current);
-            this.flowLayoutPanel2.Controls.Add(this.btnuA100_current);
-            this.flowLayoutPanel2.Controls.Add(this.btnmA1_current);
-            this.flowLayoutPanel2.Controls.Add(this.btnmA10_current);
-            this.flowLayoutPanel2.Controls.Add(this.btnmA100_current);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 41);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(468, 44);
-            this.flowLayoutPanel2.TabIndex = 29;
+            this.currentRangeBtns.Controls.Add(this.btnpA100_current);
+            this.currentRangeBtns.Controls.Add(this.btnnA1_current);
+            this.currentRangeBtns.Controls.Add(this.btnnA10_current);
+            this.currentRangeBtns.Controls.Add(this.btnnA100_current);
+            this.currentRangeBtns.Controls.Add(this.btnuA1_current);
+            this.currentRangeBtns.Controls.Add(this.btnuA10_current);
+            this.currentRangeBtns.Controls.Add(this.btnuA100_current);
+            this.currentRangeBtns.Controls.Add(this.btnmA1_current);
+            this.currentRangeBtns.Controls.Add(this.btnmA10_current);
+            this.currentRangeBtns.Controls.Add(this.btnmA100_current);
+            this.currentRangeBtns.Location = new System.Drawing.Point(0, 41);
+            this.currentRangeBtns.Name = "currentRangeBtns";
+            this.currentRangeBtns.Size = new System.Drawing.Size(468, 44);
+            this.currentRangeBtns.TabIndex = 29;
             // 
             // btnpA100_current
             // 
             this.btnpA100_current.BackColor = System.Drawing.SystemColors.Control;
             this.btnpA100_current.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.btnpA100_current.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnpA100_current.BackgroundImage")));
+            this.btnpA100_current.BackgroundImage = global::PalmSense4.Properties.Resources.downIconBlue24;
             this.btnpA100_current.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnpA100_current.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.btnpA100_current.BorderRadius = 0;
@@ -91,12 +90,13 @@
             this.btnpA100_current.TabIndex = 27;
             this.btnpA100_current.TextColor = System.Drawing.Color.White;
             this.btnpA100_current.UseVisualStyleBackColor = false;
+            this.btnpA100_current.Click += new System.EventHandler(this.btnpA100_current_Click);
             // 
             // btnnA1_current
             // 
             this.btnnA1_current.BackColor = System.Drawing.SystemColors.Control;
             this.btnnA1_current.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.btnnA1_current.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnnA1_current.BackgroundImage")));
+            this.btnnA1_current.BackgroundImage = global::PalmSense4.Properties.Resources.downIconBlue24;
             this.btnnA1_current.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnnA1_current.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.btnnA1_current.BorderRadius = 0;
@@ -110,12 +110,13 @@
             this.btnnA1_current.TabIndex = 28;
             this.btnnA1_current.TextColor = System.Drawing.Color.White;
             this.btnnA1_current.UseVisualStyleBackColor = false;
+            this.btnnA1_current.Click += new System.EventHandler(this.btnnA1_current_Click);
             // 
             // btnnA10_current
             // 
             this.btnnA10_current.BackColor = System.Drawing.SystemColors.Control;
             this.btnnA10_current.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.btnnA10_current.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnnA10_current.BackgroundImage")));
+            this.btnnA10_current.BackgroundImage = global::PalmSense4.Properties.Resources.downIconBlue24;
             this.btnnA10_current.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnnA10_current.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.btnnA10_current.BorderRadius = 0;
@@ -129,12 +130,13 @@
             this.btnnA10_current.TabIndex = 29;
             this.btnnA10_current.TextColor = System.Drawing.Color.White;
             this.btnnA10_current.UseVisualStyleBackColor = false;
+            this.btnnA10_current.Click += new System.EventHandler(this.btnnA10_current_Click);
             // 
             // btnnA100_current
             // 
             this.btnnA100_current.BackColor = System.Drawing.SystemColors.Control;
             this.btnnA100_current.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.btnnA100_current.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnnA100_current.BackgroundImage")));
+            this.btnnA100_current.BackgroundImage = global::PalmSense4.Properties.Resources.downIconBlue24;
             this.btnnA100_current.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnnA100_current.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.btnnA100_current.BorderRadius = 0;
@@ -148,12 +150,13 @@
             this.btnnA100_current.TabIndex = 30;
             this.btnnA100_current.TextColor = System.Drawing.Color.White;
             this.btnnA100_current.UseVisualStyleBackColor = false;
+            this.btnnA100_current.Click += new System.EventHandler(this.btnnA100_current_Click);
             // 
             // btnuA1_current
             // 
             this.btnuA1_current.BackColor = System.Drawing.SystemColors.Control;
             this.btnuA1_current.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.btnuA1_current.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnuA1_current.BackgroundImage")));
+            this.btnuA1_current.BackgroundImage = global::PalmSense4.Properties.Resources.downIconBlue24;
             this.btnuA1_current.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnuA1_current.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.btnuA1_current.BorderRadius = 0;
@@ -167,12 +170,13 @@
             this.btnuA1_current.TabIndex = 31;
             this.btnuA1_current.TextColor = System.Drawing.Color.White;
             this.btnuA1_current.UseVisualStyleBackColor = false;
+            this.btnuA1_current.Click += new System.EventHandler(this.btnuA1_current_Click);
             // 
             // btnuA10_current
             // 
             this.btnuA10_current.BackColor = System.Drawing.SystemColors.Control;
             this.btnuA10_current.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.btnuA10_current.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnuA10_current.BackgroundImage")));
+            this.btnuA10_current.BackgroundImage = global::PalmSense4.Properties.Resources.downIconBlue24;
             this.btnuA10_current.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnuA10_current.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.btnuA10_current.BorderRadius = 0;
@@ -186,12 +190,13 @@
             this.btnuA10_current.TabIndex = 32;
             this.btnuA10_current.TextColor = System.Drawing.Color.White;
             this.btnuA10_current.UseVisualStyleBackColor = false;
+            this.btnuA10_current.Click += new System.EventHandler(this.btnuA10_current_Click);
             // 
             // btnuA100_current
             // 
             this.btnuA100_current.BackColor = System.Drawing.SystemColors.Control;
             this.btnuA100_current.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.btnuA100_current.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnuA100_current.BackgroundImage")));
+            this.btnuA100_current.BackgroundImage = global::PalmSense4.Properties.Resources.downIconBlue24;
             this.btnuA100_current.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnuA100_current.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.btnuA100_current.BorderRadius = 0;
@@ -205,12 +210,13 @@
             this.btnuA100_current.TabIndex = 33;
             this.btnuA100_current.TextColor = System.Drawing.Color.White;
             this.btnuA100_current.UseVisualStyleBackColor = false;
+            this.btnuA100_current.Click += new System.EventHandler(this.btnuA100_current_Click);
             // 
             // btnmA1_current
             // 
             this.btnmA1_current.BackColor = System.Drawing.SystemColors.Control;
             this.btnmA1_current.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.btnmA1_current.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnmA1_current.BackgroundImage")));
+            this.btnmA1_current.BackgroundImage = global::PalmSense4.Properties.Resources.downIconBlue24;
             this.btnmA1_current.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnmA1_current.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.btnmA1_current.BorderRadius = 0;
@@ -224,12 +230,13 @@
             this.btnmA1_current.TabIndex = 34;
             this.btnmA1_current.TextColor = System.Drawing.Color.White;
             this.btnmA1_current.UseVisualStyleBackColor = false;
+            this.btnmA1_current.Click += new System.EventHandler(this.btnmA1_current_Click);
             // 
             // btnmA10_current
             // 
             this.btnmA10_current.BackColor = System.Drawing.SystemColors.Control;
             this.btnmA10_current.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.btnmA10_current.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnmA10_current.BackgroundImage")));
+            this.btnmA10_current.BackgroundImage = global::PalmSense4.Properties.Resources.downIconBlue24;
             this.btnmA10_current.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnmA10_current.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.btnmA10_current.BorderRadius = 0;
@@ -243,12 +250,13 @@
             this.btnmA10_current.TabIndex = 35;
             this.btnmA10_current.TextColor = System.Drawing.Color.White;
             this.btnmA10_current.UseVisualStyleBackColor = false;
+            this.btnmA10_current.Click += new System.EventHandler(this.btnmA10_current_Click);
             // 
             // btnmA100_current
             // 
             this.btnmA100_current.BackColor = System.Drawing.SystemColors.Control;
             this.btnmA100_current.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.btnmA100_current.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnmA100_current.BackgroundImage")));
+            this.btnmA100_current.BackgroundImage = global::PalmSense4.Properties.Resources.downIconBlue24;
             this.btnmA100_current.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnmA100_current.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.btnmA100_current.BorderRadius = 0;
@@ -262,6 +270,7 @@
             this.btnmA100_current.TabIndex = 36;
             this.btnmA100_current.TextColor = System.Drawing.Color.White;
             this.btnmA100_current.UseVisualStyleBackColor = false;
+            this.btnmA100_current.Click += new System.EventHandler(this.btnmA100_current_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -298,6 +307,7 @@
             this.btnpA100.Text = "100 pA";
             this.btnpA100.TextColor = System.Drawing.Color.White;
             this.btnpA100.UseVisualStyleBackColor = false;
+            this.btnpA100.Click += new System.EventHandler(this.btnpA100_Click);
             // 
             // btnnA1
             // 
@@ -317,6 +327,7 @@
             this.btnnA1.Text = "1 nA";
             this.btnnA1.TextColor = System.Drawing.Color.White;
             this.btnnA1.UseVisualStyleBackColor = false;
+            this.btnnA1.Click += new System.EventHandler(this.btnnA1_Click);
             // 
             // btnnA10
             // 
@@ -336,6 +347,7 @@
             this.btnnA10.Text = "10 nA";
             this.btnnA10.TextColor = System.Drawing.Color.White;
             this.btnnA10.UseVisualStyleBackColor = false;
+            this.btnnA10.Click += new System.EventHandler(this.btnnA10_Click);
             // 
             // btnnA100
             // 
@@ -355,6 +367,7 @@
             this.btnnA100.Text = "100 nA";
             this.btnnA100.TextColor = System.Drawing.Color.White;
             this.btnnA100.UseVisualStyleBackColor = false;
+            this.btnnA100.Click += new System.EventHandler(this.btnnA100_Click);
             // 
             // btnuA1
             // 
@@ -374,6 +387,7 @@
             this.btnuA1.Text = "1 uA";
             this.btnuA1.TextColor = System.Drawing.Color.White;
             this.btnuA1.UseVisualStyleBackColor = false;
+            this.btnuA1.Click += new System.EventHandler(this.btnuA1_Click);
             // 
             // btnuA10
             // 
@@ -393,6 +407,7 @@
             this.btnuA10.Text = "10 uA";
             this.btnuA10.TextColor = System.Drawing.Color.White;
             this.btnuA10.UseVisualStyleBackColor = false;
+            this.btnuA10.Click += new System.EventHandler(this.btnuA10_Click);
             // 
             // btnuA100
             // 
@@ -412,6 +427,7 @@
             this.btnuA100.Text = "100 uA";
             this.btnuA100.TextColor = System.Drawing.Color.White;
             this.btnuA100.UseVisualStyleBackColor = false;
+            this.btnuA100.Click += new System.EventHandler(this.btnuA100_Click);
             // 
             // btnmA1
             // 
@@ -431,6 +447,7 @@
             this.btnmA1.Text = "1 mA";
             this.btnmA1.TextColor = System.Drawing.Color.White;
             this.btnmA1.UseVisualStyleBackColor = false;
+            this.btnmA1.Click += new System.EventHandler(this.btnmA1_Click);
             // 
             // btnmA10
             // 
@@ -450,6 +467,7 @@
             this.btnmA10.Text = "10 mA";
             this.btnmA10.TextColor = System.Drawing.Color.White;
             this.btnmA10.UseVisualStyleBackColor = false;
+            this.btnmA10.Click += new System.EventHandler(this.btnmA10_Click);
             // 
             // btnmA100
             // 
@@ -469,12 +487,13 @@
             this.btnmA100.Text = "100 mA";
             this.btnmA100.TextColor = System.Drawing.Color.White;
             this.btnmA100.UseVisualStyleBackColor = false;
+            this.btnmA100.Click += new System.EventHandler(this.btnmA100_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(4, 1);
+            this.label4.Location = new System.Drawing.Point(3, 13);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(215, 25);
             this.label4.TabIndex = 27;
@@ -484,13 +503,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.flowLayoutPanel2);
+            this.Controls.Add(this.currentRangeBtns);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.label4);
             this.Name = "currentRangeSettings";
             this.Size = new System.Drawing.Size(469, 150);
             this.Load += new System.EventHandler(this.currentRangeSettings_Load);
-            this.flowLayoutPanel2.ResumeLayout(false);
+            this.currentRangeBtns.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -499,7 +518,7 @@
 
         #endregion
 
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.FlowLayoutPanel currentRangeBtns;
         private RJCodeAdvance.RJControls.RJButton btnpA100_current;
         private RJCodeAdvance.RJControls.RJButton btnnA1_current;
         private RJCodeAdvance.RJControls.RJButton btnnA10_current;

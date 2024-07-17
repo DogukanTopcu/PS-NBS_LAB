@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using Org.BouncyCastle.Utilities;
 using PalmSens.Techniques;
 using PalmSense4.data.Measurement_Settings;
 using System;
@@ -21,12 +22,23 @@ namespace PalmSense4.components
         CyclicVoltammetry_Settings _cvSettings;
         DifferentialPulse_Settings _dpSettings;
         ImpedimetricMethod_Settings _impSettings;
+
+        private float _eCondition;
+        private float _tCondition;
+        private float _eDeposition;
+        private float _tDeposition;
+
         public pretreatmentSettings()
         {
             InitializeComponent();
             _cvSettings = cvSettings._cvSettings;
             _dpSettings = dpSettings._dpSettings;
             _impSettings = isSettings._impSettings;
+
+            _eCondition = 0;
+            _tCondition = 0;
+            _eDeposition = 0;
+            _tDeposition = 0;
         }
 
         private void pretreatmentSettings_Load(object sender, EventArgs e)
@@ -127,6 +139,244 @@ namespace PalmSense4.components
             }
         }
 
-        
+
+
+        private float CheckStringToFloat(string text)
+        {
+            try
+            {
+                return float.Parse(text);
+            }
+            catch (FormatException)
+            {
+                throw new FormatException();
+            }
+        }
+
+
+        private void tbECondition__TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                _eCondition = this.CheckStringToFloat(tbECondition.Texts);
+            }
+            catch
+            {
+                MessageBox.Show("Lütfen boş alan bırakmayınız.");
+                return;
+            }
+
+            if (MainPage._selectedMethod == MainPage._methodCLV)
+            {
+                _cvSettings.ECondition.Method.ConditioningPotential = _eCondition;
+
+                if (MainPage.saveInternalStorage)
+                {
+                    string keyPath = @"SOFTWARE\PalmSense";
+                    using (RegistryKey key = Registry.CurrentUser.CreateSubKey(keyPath))
+                    {
+
+                        key.SetValue("cv_ConditioningPotential", _eCondition);
+                    }
+                }
+            }
+            else if (MainPage._selectedMethod == MainPage._methodDLP)
+            {
+                _dpSettings.ECondition.Method.ConditioningPotential = _eCondition;
+
+                if (MainPage.saveInternalStorage)
+                {
+                    string keyPath = @"SOFTWARE\PalmSense";
+                    using (RegistryKey key = Registry.CurrentUser.CreateSubKey(keyPath))
+                    {
+
+                        key.SetValue("dp_ConditioningPotential", _eCondition);
+                    }
+                }
+            }
+            else if (MainPage._selectedMethod == MainPage._methodIMM)
+            {
+                _impSettings.ECondition.Method.ConditioningPotential = _eCondition;
+
+                if (MainPage.saveInternalStorage)
+                {
+                    string keyPath = @"SOFTWARE\PalmSense";
+                    using (RegistryKey key = Registry.CurrentUser.CreateSubKey(keyPath))
+                    {
+
+                        key.SetValue("im_ConditioningPotential", _eCondition);
+                    }
+                }
+            }
+        }
+
+        private void tbTCondition__TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                _tCondition = this.CheckStringToFloat(tbTCondition.Texts);
+            }
+            catch
+            {
+                MessageBox.Show("Lütfen boş alan bırakmayınız.");
+                return;
+            }
+
+            if (MainPage._selectedMethod == MainPage._methodCLV)
+            {
+                _cvSettings.TCondition.Method.ConditioningTime = _tCondition;
+
+                if (MainPage.saveInternalStorage)
+                {
+                    string keyPath = @"SOFTWARE\PalmSense";
+                    using (RegistryKey key = Registry.CurrentUser.CreateSubKey(keyPath))
+                    {
+
+                        key.SetValue("cv_ConditioningTime", _tCondition);
+                    }
+                }
+            }
+            else if (MainPage._selectedMethod == MainPage._methodDLP)
+            {
+                _dpSettings.TCondition.Method.ConditioningTime = _tCondition;
+
+                if (MainPage.saveInternalStorage)
+                {
+                    string keyPath = @"SOFTWARE\PalmSense";
+                    using (RegistryKey key = Registry.CurrentUser.CreateSubKey(keyPath))
+                    {
+
+                        key.SetValue("dp_ConditioningTime", _tCondition);
+                    }
+                }
+            }
+            else if (MainPage._selectedMethod == MainPage._methodIMM)
+            {
+                _impSettings.TCondition.Method.ConditioningTime = _tCondition;
+
+                if (MainPage.saveInternalStorage)
+                {
+                    string keyPath = @"SOFTWARE\PalmSense";
+                    using (RegistryKey key = Registry.CurrentUser.CreateSubKey(keyPath))
+                    {
+
+                        key.SetValue("im_ConditioningTime", _tCondition);
+                    }
+                }
+            }
+        }
+
+        private void tbEDeposition__TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                _eDeposition = this.CheckStringToFloat(tbEDeposition.Texts);
+            }
+            catch
+            {
+                MessageBox.Show("Lütfen boş alan bırakmayınız.");
+                return;
+            }
+
+            if (MainPage._selectedMethod == MainPage._methodCLV)
+            {
+                _cvSettings.EDeposition.Method.DepositionPotential = _eDeposition;
+
+                if (MainPage.saveInternalStorage)
+                {
+                    string keyPath = @"SOFTWARE\PalmSense";
+                    using (RegistryKey key = Registry.CurrentUser.CreateSubKey(keyPath))
+                    {
+
+                        key.SetValue("cv_DepositionPotential", _eDeposition);
+                    }
+                }
+            }
+            else if (MainPage._selectedMethod == MainPage._methodDLP)
+            {
+                _dpSettings.EDeposition.Method.DepositionPotential = _eDeposition;
+
+                if (MainPage.saveInternalStorage)
+                {
+                    string keyPath = @"SOFTWARE\PalmSense";
+                    using (RegistryKey key = Registry.CurrentUser.CreateSubKey(keyPath))
+                    {
+
+                        key.SetValue("dp_DepositionPotential", _eDeposition);
+                    }
+                }
+            }
+            else if (MainPage._selectedMethod == MainPage._methodIMM)
+            {
+                _impSettings.EDeposition.Method.DepositionPotential = _eDeposition;
+
+                if (MainPage.saveInternalStorage)
+                {
+                    string keyPath = @"SOFTWARE\PalmSense";
+                    using (RegistryKey key = Registry.CurrentUser.CreateSubKey(keyPath))
+                    {
+
+                        key.SetValue("im_DepositionPotential", _eDeposition);
+                    }
+                }
+            }
+        }
+
+        private void tbTDeposition__TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                _tDeposition = this.CheckStringToFloat(tbTDeposition.Texts);
+            }
+            catch
+            {
+                MessageBox.Show("Lütfen boş alan bırakmayınız.");
+                return;
+            }
+
+            if (MainPage._selectedMethod == MainPage._methodCLV)
+            {
+                _cvSettings.TDeposition.Method.DepositionTime = _tDeposition;
+
+                if (MainPage.saveInternalStorage)
+                {
+                    string keyPath = @"SOFTWARE\PalmSense";
+                    using (RegistryKey key = Registry.CurrentUser.CreateSubKey(keyPath))
+                    {
+
+                        key.SetValue("cv_DepositionTime", _tDeposition);
+                    }
+                }
+            }
+            else if (MainPage._selectedMethod == MainPage._methodDLP)
+            {
+                _dpSettings.TDeposition.Method.DepositionTime = _tDeposition;
+
+                if (MainPage.saveInternalStorage)
+                {
+                    string keyPath = @"SOFTWARE\PalmSense";
+                    using (RegistryKey key = Registry.CurrentUser.CreateSubKey(keyPath))
+                    {
+
+                        key.SetValue("dp_DepositionTime", _tDeposition);
+                    }
+                }
+            }
+            else if (MainPage._selectedMethod == MainPage._methodIMM)
+            {
+                _impSettings.TDeposition.Method.DepositionTime = _tDeposition;
+
+                if (MainPage.saveInternalStorage)
+                {
+                    string keyPath = @"SOFTWARE\PalmSense";
+                    using (RegistryKey key = Registry.CurrentUser.CreateSubKey(keyPath))
+                    {
+
+                        key.SetValue("im_DepositionTime", _tDeposition);
+                    }
+                }
+            }
+
+        }
     }
 }

@@ -128,6 +128,7 @@
             this.tbTDeposition.TabIndex = 38;
             this.tbTDeposition.Texts = "";
             this.tbTDeposition.UnderlinedStyle = false;
+            this.tbTDeposition._TextChanged += new System.EventHandler(this.tbTDeposition__TextChanged);
             // 
             // tbEDeposition
             // 
@@ -150,6 +151,7 @@
             this.tbEDeposition.TabIndex = 37;
             this.tbEDeposition.Texts = "";
             this.tbEDeposition.UnderlinedStyle = false;
+            this.tbEDeposition._TextChanged += new System.EventHandler(this.tbEDeposition__TextChanged);
             // 
             // tbTCondition
             // 
@@ -172,6 +174,7 @@
             this.tbTCondition.TabIndex = 36;
             this.tbTCondition.Texts = "";
             this.tbTCondition.UnderlinedStyle = false;
+            this.tbTCondition._TextChanged += new System.EventHandler(this.tbTCondition__TextChanged);
             // 
             // tbECondition
             // 
@@ -194,6 +197,7 @@
             this.tbECondition.TabIndex = 35;
             this.tbECondition.Texts = "";
             this.tbECondition.UnderlinedStyle = false;
+            this.tbECondition._TextChanged += new System.EventHandler(this.tbECondition__TextChanged);
             // 
             // label19
             // 

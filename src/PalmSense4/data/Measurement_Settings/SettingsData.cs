@@ -52,33 +52,63 @@ namespace PalmSense4.data.Measurement_Settings
 
             }
         }
-        public float GetFrequency()
+        //public float GetFrequency()
+        //{
+        //    // pA / 100  değerinde veri
+        //    switch (this.value)
+        //    {
+        //        case 1:
+        //            return 0.0001f;
+        //        case 2:
+        //            return 0.001f;
+        //        case 3:
+        //            return 0.01f;
+        //        case 4:
+        //            return 0.1f;
+        //        case 5:
+        //            return 1f;
+        //        case 6:
+        //            return 10f;
+        //        case 7:
+        //            return 100f;
+        //        case 8:
+        //            return 1000f;
+        //        case 9:
+        //            return 10000f;
+        //        case 10:
+        //            return 100000f;
+        //        default:
+        //            return 1f;
+        //    }
+        //}
+
+        public CurrentRanges GetFrequency()
         {
             // pA / 100  değerinde veri
             switch (this.value)
             {
                 case 1:
-                    return 0.0001f;
+                    return CurrentRanges.cr100pA;
                 case 2:
-                    return 0.001f;
+                    return CurrentRanges.cr1nA;
                 case 3:
-                    return 0.01f;
+                    return CurrentRanges.cr10nA;
                 case 4:
-                    return 0.1f;
+                    return CurrentRanges.cr100nA;
                 case 5:
-                    return 1f;
+                    return CurrentRanges.cr1uA;
                 case 6:
-                    return 10f;
+                    return CurrentRanges.cr10uA;
                 case 7:
-                    return 100f;
+                    return CurrentRanges.cr100uA;
                 case 8:
-                    return 1000f;
+                    return CurrentRanges.cr1mA;
                 case 9:
-                    return 10000f;
+                    return CurrentRanges.cr10mA;
                 case 10:
-                    return 100000f;
+                    return CurrentRanges.cr100mA;
                 default:
-                    return 1f;
+                    return CurrentRanges.cr100pA;
             }
         }
 

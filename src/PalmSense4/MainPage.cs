@@ -25,15 +25,16 @@ namespace PalmSense4
         private Device[] _connectedDevices;
         private SimpleMeasurement _activeMeasurement;
 
-        public static CyclicVoltammetry _methodCLV;
-        public static DifferentialPulse _methodDLP;
-        public static ImpedimetricMethod _methodIMM;
+        public static CyclicVoltammetry _methodCLV = new CyclicVoltammetry();
+        public static DifferentialPulse _methodDLP = new DifferentialPulse();
+        public static ImpedimetricMethod _methodIMM = new ImpedimetricMethod();
         public static Method _selectedMethod;
 
         private Measurement_Settings _measurementSettings;
         private CyclicVoltammetry_Settings _cvSettings;
         private DifferentialPulse_Settings _dpSettings;
         private ImpedimetricMethod_Settings _impSettings;
+        public static bool saveInternalStorage;
 
 
         // Calculators
@@ -41,6 +42,7 @@ namespace PalmSense4
         private PH_POH_Calculator pH_pOH;
         private PpmCalculator ppmCalc;
         private SolutionDiluationCalc solDiluationCalc;
+
 
         // CONSTRUCTORS *************************************************************************
         public MainPage()
@@ -50,18 +52,16 @@ namespace PalmSense4
 
             DiscoverConnectedDevices();
 
-            _methodCLV = new CyclicVoltammetry();
-            _methodDLP = new DifferentialPulse();
-            _methodIMM = new ImpedimetricMethod();
             _selectedMethod = _methodCLV;
 
             _cvSettings = new CyclicVoltammetry_Settings(_methodCLV);
             _dpSettings = new DifferentialPulse_Settings(_methodDLP);
             _impSettings = new ImpedimetricMethod_Settings(_methodIMM);
             _measurementSettings = new Measurement_Settings(_cvSettings, _dpSettings, _impSettings);
+            saveInternalStorage = saveSettingsInInternalStorage.Checked;
 
 
-            
+
         }
 
         private void MainPage_Load(object sender, EventArgs e)
@@ -241,6 +241,11 @@ namespace PalmSense4
         private void cvSettings1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void saveSettingsInInternalStorage_CheckedChanged(object sender, EventArgs e)
+        {
+            saveInternalStorage = saveSettingsInInternalStorage.Checked;
         }
     }
 }

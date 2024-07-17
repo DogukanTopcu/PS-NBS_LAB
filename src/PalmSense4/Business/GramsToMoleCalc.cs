@@ -76,10 +76,8 @@ namespace PalmSense4.Business
             string selectedChemical = comboBox_Chemical_Select.SelectedItem.ToString();
             float molarMass = 0;
 
-            Console.WriteLine(selectedChemical);
             foreach (Chemical_Combinations cc in _cc)
             {
-                Console.WriteLine(cc.Name.Equals(selectedChemical));
                 if (cc.Name.Equals(selectedChemical))
                 {
                     molarMass = cc.MolarMass;

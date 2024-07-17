@@ -387,11 +387,11 @@ namespace PalmSense4
                 _cvSettings.StartCurrent.Value = tBStartCurrent.Value;
                 //_cvSettings.StartCurrent.Method. = _cvSettings.StartCurrent.GetFrequency();
 
-                _cvSettings.MaxCurrent.Value = tbMaxCurrent.Value;
-                _cvSettings.MaxCurrent.Method.PretLimitMaxValue = _cvSettings.MaxCurrent.GetFrequency();
+                //_cvSettings.MaxCurrent.Value = tbMaxCurrent.Value;
+                //_cvSettings.MaxCurrent.Method.PretLimitMaxValue = _cvSettings.MaxCurrent.GetFrequency();
 
-                _cvSettings.MinCurrent.Value = tBMinCurrent.Value;
-                _cvSettings.MinCurrent.Method.PretLimitMinValue = _cvSettings.MinCurrent.GetFrequency();
+                //_cvSettings.MinCurrent.Value = tBMinCurrent.Value;
+                //_cvSettings.MinCurrent.Method.PretLimitMinValue = _cvSettings.MinCurrent.GetFrequency();
 
                 
                 // Save the measurement settings to the Windows Registry
@@ -474,11 +474,11 @@ namespace PalmSense4
                 _dpSettings.StartCurrent.Value = tBStartCurrent.Value;
                 //_dpSettings.StartCurrent.Method. = _dpSettings.StartCurrent.GetFrequency();
 
-                _dpSettings.MaxCurrent.Value = tbMaxCurrent.Value;
-                _dpSettings.MaxCurrent.Method.PretLimitMaxValue = _dpSettings.MaxCurrent.GetFrequency();
+                //_dpSettings.MaxCurrent.Value = tbMaxCurrent.Value;
+                //_dpSettings.MaxCurrent.Method.PretLimitMaxValue = _dpSettings.MaxCurrent.GetFrequency();
                 
-                _dpSettings.MinCurrent.Value = tBMinCurrent.Value;
-                _dpSettings.MinCurrent.Method.PretLimitMinValue = _dpSettings.MinCurrent.GetFrequency();
+                //_dpSettings.MinCurrent.Value = tBMinCurrent.Value;
+                //_dpSettings.MinCurrent.Method.PretLimitMinValue = _dpSettings.MinCurrent.GetFrequency();
 
 
                 // Save the measurement settings to the Windows Registry

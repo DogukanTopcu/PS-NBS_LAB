@@ -166,6 +166,7 @@
             this.btnReset_GramsToMoleCalc.TabIndex = 2;
             this.btnReset_GramsToMoleCalc.Text = "Reset";
             this.btnReset_GramsToMoleCalc.UseVisualStyleBackColor = true;
+            this.btnReset_GramsToMoleCalc.Click += new System.EventHandler(this.btnReset_GramsToMoleCalc_Click);
             // 
             // panel10
             // 
@@ -202,6 +203,7 @@
             this.textBox_NumberofMoles.TabIndex = 40;
             this.textBox_NumberofMoles.Texts = "";
             this.textBox_NumberofMoles.UnderlinedStyle = false;
+            this.textBox_NumberofMoles._TextChanged += new System.EventHandler(this.textBox_NumberofMoles__TextChanged);
             // 
             // textBox_Mass
             // 
@@ -225,6 +227,7 @@
             this.textBox_Mass.TabIndex = 39;
             this.textBox_Mass.Texts = "";
             this.textBox_Mass.UnderlinedStyle = false;
+            this.textBox_Mass._TextChanged += new System.EventHandler(this.textBox_Mass__TextChanged);
             // 
             // label13
             // 
@@ -257,6 +260,7 @@
             this.radioButton_NumberofMoles.TabStop = true;
             this.radioButton_NumberofMoles.Text = "Number of Moles:";
             this.radioButton_NumberofMoles.UseVisualStyleBackColor = true;
+            this.radioButton_NumberofMoles.CheckedChanged += new System.EventHandler(this.radioButton_NumberofMoles_CheckedChanged);
             // 
             // radioButton_Mass
             // 
@@ -269,6 +273,7 @@
             this.radioButton_Mass.TabStop = true;
             this.radioButton_Mass.Text = "Mass:";
             this.radioButton_Mass.UseVisualStyleBackColor = true;
+            this.radioButton_Mass.CheckedChanged += new System.EventHandler(this.radioButton_Mass_CheckedChanged);
             // 
             // panel9
             // 
@@ -315,6 +320,7 @@
             this.comboBox_Chemical_Select.Name = "comboBox_Chemical_Select";
             this.comboBox_Chemical_Select.Size = new System.Drawing.Size(245, 33);
             this.comboBox_Chemical_Select.TabIndex = 7;
+            this.comboBox_Chemical_Select.SelectedIndexChanged += new System.EventHandler(this.comboBox_Chemical_Select_SelectedIndexChanged);
             // 
             // label11
             // 
@@ -351,6 +357,7 @@
             this.comboBox_Chemical.Name = "comboBox_Chemical";
             this.comboBox_Chemical.Size = new System.Drawing.Size(246, 33);
             this.comboBox_Chemical.TabIndex = 1;
+            this.comboBox_Chemical.SelectedIndexChanged += new System.EventHandler(this.comboBox_Chemical_SelectedIndexChanged);
             // 
             // label9
             // 
@@ -436,6 +443,7 @@
             this.textBox_OH.TabIndex = 37;
             this.textBox_OH.Texts = "";
             this.textBox_OH.UnderlinedStyle = false;
+            this.textBox_OH._TextChanged += new System.EventHandler(this.textBox_OH__TextChanged);
             // 
             // textBox_pH
             // 
@@ -482,6 +490,7 @@
             this.textBox_H.TabIndex = 35;
             this.textBox_H.Texts = "";
             this.textBox_H.UnderlinedStyle = false;
+            this.textBox_H._TextChanged += new System.EventHandler(this.textBox_H__TextChanged);
             // 
             // label17
             // 
@@ -524,6 +533,7 @@
             this.radioButton_OH.TabStop = true;
             this.radioButton_OH.Text = "[OH-]";
             this.radioButton_OH.UseVisualStyleBackColor = true;
+            this.radioButton_OH.CheckedChanged += new System.EventHandler(this.radioButton_OH_CheckedChanged);
             // 
             // label14
             // 
@@ -546,6 +556,7 @@
             this.radioButton_H.TabStop = true;
             this.radioButton_H.Text = "[H+]";
             this.radioButton_H.UseVisualStyleBackColor = true;
+            this.radioButton_H.CheckedChanged += new System.EventHandler(this.radioButton_H_CheckedChanged);
             // 
             // pHpOHResetBtn
             // 
@@ -557,6 +568,7 @@
             this.pHpOHResetBtn.TabIndex = 3;
             this.pHpOHResetBtn.Text = "Reset";
             this.pHpOHResetBtn.UseVisualStyleBackColor = true;
+            this.pHpOHResetBtn.Click += new System.EventHandler(this.pHpOHResetBtn_Click);
             // 
             // tabPage4
             // 

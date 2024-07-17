@@ -15,11 +15,11 @@ namespace PalmSense4.components
 {
     public partial class cvSettings : UserControl
     {
-        public static CyclicVoltammetry_Settings _cvSettings;
+        public static CyclicVoltammetry_Settings _cvSettings = new CyclicVoltammetry_Settings(MainPage._methodCLV);
+
         public cvSettings()
         {
             InitializeComponent();
-            _cvSettings = new CyclicVoltammetry_Settings(MainPage._methodCLV);
         }
 
         private void cvSettings_Load(object sender, EventArgs e)
