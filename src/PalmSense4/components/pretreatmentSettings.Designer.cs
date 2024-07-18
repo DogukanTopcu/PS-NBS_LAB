@@ -55,7 +55,7 @@
             this.pretreatment_settings_btn.FlatAppearance.BorderSize = 0;
             this.pretreatment_settings_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.pretreatment_settings_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pretreatment_settings_btn.ForeColor = System.Drawing.Color.White;
+            this.pretreatment_settings_btn.ForeColor = System.Drawing.Color.Black;
             this.pretreatment_settings_btn.Image = ((System.Drawing.Image)(resources.GetObject("pretreatment_settings_btn.Image")));
             this.pretreatment_settings_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.pretreatment_settings_btn.Location = new System.Drawing.Point(0, 0);
@@ -63,7 +63,7 @@
             this.pretreatment_settings_btn.Size = new System.Drawing.Size(435, 40);
             this.pretreatment_settings_btn.TabIndex = 18;
             this.pretreatment_settings_btn.Text = "Pretreatment Settings";
-            this.pretreatment_settings_btn.TextColor = System.Drawing.Color.White;
+            this.pretreatment_settings_btn.TextColor = System.Drawing.Color.Black;
             this.pretreatment_settings_btn.UseVisualStyleBackColor = false;
             this.pretreatment_settings_btn.Click += new System.EventHandler(this.pretreatment_settings_btn_Click);
             // 
@@ -203,7 +203,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(24, 257);
+            this.label19.Location = new System.Drawing.Point(16, 256);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(120, 25);
             this.label19.TabIndex = 34;
@@ -213,7 +213,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(33, 137);
+            this.label18.Location = new System.Drawing.Point(16, 133);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(111, 25);
             this.label18.TabIndex = 33;
@@ -233,7 +233,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(25, 80);
+            this.label6.Location = new System.Drawing.Point(16, 80);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(119, 25);
             this.label6.TabIndex = 31;

@@ -46,7 +46,7 @@ namespace PalmSense4.Business
 
             // ../../
             // src/PalmSense4/
-            data = new InitializeData("../../data/chemical_combinations_data.json");
+            data = new InitializeData("src/PalmSense4/data/chemical_combinations_data.json");
             _cc = data.InitializeChemicalCombinations();
         }
 

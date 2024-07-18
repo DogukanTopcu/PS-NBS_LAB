@@ -68,7 +68,7 @@
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.PlotArea = new System.Windows.Forms.TabPage();
             this.panel18 = new System.Windows.Forms.Panel();
-            this.plot1 = new SDKPlot.WinForms.Plot();
+            this.plot = new SDKPlot.WinForms.Plot();
             this.PlotSettings = new System.Windows.Forms.MenuStrip();
             this.plotToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadMeasureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -115,11 +115,10 @@
             this.cvSettings1 = new PalmSense4.components.cvSettings();
             this.label5 = new System.Windows.Forms.Label();
             this.currentRangeSettings1 = new PalmSense4.components.currentRangeSettings();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.btnRun = new System.Windows.Forms.ToolStrip();
             this.measurementBtn = new System.Windows.Forms.ToolStripSplitButton();
-            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.overrideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.blankToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newRunBtn = new System.Windows.Forms.ToolStripMenuItem();
+            this.overlayRunBtn = new System.Windows.Forms.ToolStripMenuItem();
             this.measurement_type = new System.Windows.Forms.ComboBox();
             this.rjDropdownMenu1 = new RJCodeAdvance.RJControls.RJDropdownMenu(this.components);
             this.psCommSimpleWinForms = new PalmSens.Core.Simplified.WinForms.PSCommSimpleWinForms(this.components);
@@ -148,11 +147,12 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
+            this.btnRun.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
+            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.methodToolStripMenuItem,
@@ -162,38 +162,38 @@
             this.eISPlotToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1632, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1632, 36);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // methodToolStripMenuItem
             // 
             this.methodToolStripMenuItem.Name = "methodToolStripMenuItem";
-            this.methodToolStripMenuItem.Size = new System.Drawing.Size(75, 24);
+            this.methodToolStripMenuItem.Size = new System.Drawing.Size(96, 32);
             this.methodToolStripMenuItem.Text = "Method";
             // 
             // dataToolStripMenuItem
             // 
             this.dataToolStripMenuItem.Name = "dataToolStripMenuItem";
-            this.dataToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
+            this.dataToolStripMenuItem.Size = new System.Drawing.Size(67, 32);
             this.dataToolStripMenuItem.Text = "Data";
             // 
             // measurementToolStripMenuItem
             // 
             this.measurementToolStripMenuItem.Name = "measurementToolStripMenuItem";
-            this.measurementToolStripMenuItem.Size = new System.Drawing.Size(113, 24);
+            this.measurementToolStripMenuItem.Size = new System.Drawing.Size(145, 32);
             this.measurementToolStripMenuItem.Text = "Measurement";
             // 
             // plotToolStripMenuItem1
             // 
             this.plotToolStripMenuItem1.Name = "plotToolStripMenuItem1";
-            this.plotToolStripMenuItem1.Size = new System.Drawing.Size(49, 24);
+            this.plotToolStripMenuItem1.Size = new System.Drawing.Size(61, 32);
             this.plotToolStripMenuItem1.Text = "Plot";
             // 
             // eISPlotToolStripMenuItem
             // 
             this.eISPlotToolStripMenuItem.Name = "eISPlotToolStripMenuItem";
-            this.eISPlotToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
+            this.eISPlotToolStripMenuItem.Size = new System.Drawing.Size(92, 32);
             this.eISPlotToolStripMenuItem.Text = "EIS Plot";
             // 
             // statusStrip1
@@ -248,7 +248,7 @@
             this.splitContainer2.Panel2.Controls.Add(this.tabControl2);
             this.splitContainer2.Panel2.Controls.Add(this.section2_btn);
             this.splitContainer2.Panel2.Controls.Add(this.section1_btn);
-            this.splitContainer2.Size = new System.Drawing.Size(1155, 899);
+            this.splitContainer2.Size = new System.Drawing.Size(1155, 891);
             this.splitContainer2.SplitterDistance = 425;
             this.splitContainer2.TabIndex = 0;
             // 
@@ -259,7 +259,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 115);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(425, 579);
+            this.panel5.Size = new System.Drawing.Size(425, 571);
             this.panel5.TabIndex = 14;
             // 
             // calculators1
@@ -284,7 +284,7 @@
             this.panel20.Controls.Add(this.label20);
             this.panel20.Location = new System.Drawing.Point(0, 399);
             this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(425, 180);
+            this.panel20.Size = new System.Drawing.Size(425, 172);
             this.panel20.TabIndex = 12;
             // 
             // timeRegeneration
@@ -368,11 +368,11 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.Color.Black;
             this.label22.Location = new System.Drawing.Point(7, 2);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(204, 25);
+            this.label22.Size = new System.Drawing.Size(227, 26);
             this.label22.TabIndex = 0;
             this.label22.Text = "Regeneration Process";
             // 
@@ -381,7 +381,7 @@
             this.regenerationStartButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.regenerationStartButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.regenerationStartButton.Location = new System.Drawing.Point(126, 128);
+            this.regenerationStartButton.Location = new System.Drawing.Point(126, 120);
             this.regenerationStartButton.Name = "regenerationStartButton";
             this.regenerationStartButton.Size = new System.Drawing.Size(203, 35);
             this.regenerationStartButton.TabIndex = 22;
@@ -418,7 +418,7 @@
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.lbConsole);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 694);
+            this.panel2.Location = new System.Drawing.Point(0, 686);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(425, 205);
             this.panel2.TabIndex = 13;
@@ -436,11 +436,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(7, 2);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 25);
+            this.label1.Size = new System.Drawing.Size(92, 26);
             this.label1.TabIndex = 0;
             this.label1.Text = "Console";
             // 
@@ -491,11 +491,11 @@
             this.btnConnect.Enabled = false;
             this.btnConnect.FlatAppearance.BorderSize = 0;
             this.btnConnect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConnect.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConnect.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConnect.ForeColor = System.Drawing.Color.Black;
             this.btnConnect.Location = new System.Drawing.Point(300, 42);
             this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(105, 32);
+            this.btnConnect.Size = new System.Drawing.Size(122, 32);
             this.btnConnect.TabIndex = 13;
             this.btnConnect.Text = "Connect";
             this.btnConnect.TextColor = System.Drawing.Color.Black;
@@ -555,11 +555,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label2.Location = new System.Drawing.Point(3, 3);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(151, 25);
+            this.label2.Size = new System.Drawing.Size(166, 26);
             this.label2.TabIndex = 0;
             this.label2.Text = "Connect Device";
             // 
@@ -580,20 +580,21 @@
             this.tabControl2.Controls.Add(this.PlotArea);
             this.tabControl2.Controls.Add(this.eisPlotArea);
             this.tabControl2.Controls.Add(this.dataArea);
+            this.tabControl2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl2.Location = new System.Drawing.Point(43, 5);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(641, 861);
+            this.tabControl2.Size = new System.Drawing.Size(641, 853);
             this.tabControl2.TabIndex = 18;
             // 
             // PlotArea
             // 
             this.PlotArea.Controls.Add(this.panel18);
             this.PlotArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PlotArea.Location = new System.Drawing.Point(4, 25);
+            this.PlotArea.Location = new System.Drawing.Point(4, 34);
             this.PlotArea.Name = "PlotArea";
             this.PlotArea.Padding = new System.Windows.Forms.Padding(3);
-            this.PlotArea.Size = new System.Drawing.Size(633, 832);
+            this.PlotArea.Size = new System.Drawing.Size(633, 815);
             this.PlotArea.TabIndex = 0;
             this.PlotArea.Text = "Plot";
             this.PlotArea.UseVisualStyleBackColor = true;
@@ -601,37 +602,37 @@
             // panel18
             // 
             this.panel18.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel18.Controls.Add(this.plot1);
+            this.panel18.Controls.Add(this.plot);
             this.panel18.Controls.Add(this.PlotSettings);
             this.panel18.Controls.Add(this.flowLayoutPanel4);
             this.panel18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel18.Location = new System.Drawing.Point(3, 3);
             this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(627, 826);
+            this.panel18.Size = new System.Drawing.Size(627, 809);
             this.panel18.TabIndex = 1;
             // 
-            // plot1
+            // plot
             // 
-            this.plot1.BackColor = System.Drawing.Color.White;
-            this.plot1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.plot1.Location = new System.Drawing.Point(0, 31);
-            this.plot1.Margin = new System.Windows.Forms.Padding(9);
-            this.plot1.MarkerSize = 5;
-            this.plot1.MarkerType = OxyPlot.MarkerType.Circle;
-            this.plot1.Name = "plot1";
-            this.plot1.Size = new System.Drawing.Size(627, 795);
-            this.plot1.TabIndex = 10;
-            this.plot1.Title = null;
-            this.plot1.XAxisLabel = null;
-            this.plot1.XAxisType = SDKPlot.AxisType.Linear;
-            this.plot1.YAxisLabel = null;
-            this.plot1.YAxisSecondaryLabel = null;
-            this.plot1.YAxisSecondaryType = SDKPlot.AxisType.Linear;
-            this.plot1.YAxisType = SDKPlot.AxisType.Linear;
+            this.plot.BackColor = System.Drawing.Color.White;
+            this.plot.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.plot.Location = new System.Drawing.Point(0, 33);
+            this.plot.Margin = new System.Windows.Forms.Padding(9);
+            this.plot.MarkerSize = 5;
+            this.plot.MarkerType = OxyPlot.MarkerType.Circle;
+            this.plot.Name = "plot";
+            this.plot.Size = new System.Drawing.Size(627, 776);
+            this.plot.TabIndex = 10;
+            this.plot.Title = null;
+            this.plot.XAxisLabel = null;
+            this.plot.XAxisType = SDKPlot.AxisType.Linear;
+            this.plot.YAxisLabel = null;
+            this.plot.YAxisSecondaryLabel = null;
+            this.plot.YAxisSecondaryType = SDKPlot.AxisType.Linear;
+            this.plot.YAxisType = SDKPlot.AxisType.Linear;
             // 
             // PlotSettings
             // 
-            this.PlotSettings.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.PlotSettings.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.PlotSettings.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
             this.PlotSettings.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.PlotSettings.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -644,7 +645,7 @@
             this.PlotSettings.Name = "PlotSettings";
             this.PlotSettings.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.PlotSettings.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.PlotSettings.Size = new System.Drawing.Size(627, 31);
+            this.PlotSettings.Size = new System.Drawing.Size(627, 33);
             this.PlotSettings.TabIndex = 9;
             this.PlotSettings.Text = "menuStrip2";
             // 
@@ -657,37 +658,37 @@
             this.movingAvargeBaselineToolStripMenuItem,
             this.TSMILOP});
             this.plotToolStripMenuItem.Name = "plotToolStripMenuItem";
-            this.plotToolStripMenuItem.Size = new System.Drawing.Size(54, 27);
+            this.plotToolStripMenuItem.Size = new System.Drawing.Size(59, 29);
             this.plotToolStripMenuItem.Text = "Plot";
             // 
             // loadMeasureToolStripMenuItem
             // 
             this.loadMeasureToolStripMenuItem.Name = "loadMeasureToolStripMenuItem";
-            this.loadMeasureToolStripMenuItem.Size = new System.Drawing.Size(276, 28);
+            this.loadMeasureToolStripMenuItem.Size = new System.Drawing.Size(301, 30);
             this.loadMeasureToolStripMenuItem.Text = "Load Measure For Excel";
             // 
             // exportGraphAsImageToolStripMenuItem
             // 
             this.exportGraphAsImageToolStripMenuItem.Name = "exportGraphAsImageToolStripMenuItem";
-            this.exportGraphAsImageToolStripMenuItem.Size = new System.Drawing.Size(276, 28);
+            this.exportGraphAsImageToolStripMenuItem.Size = new System.Drawing.Size(301, 30);
             this.exportGraphAsImageToolStripMenuItem.Text = "Export Graph As Image";
             // 
             // peakDetectationPlot
             // 
             this.peakDetectationPlot.Name = "peakDetectationPlot";
-            this.peakDetectationPlot.Size = new System.Drawing.Size(276, 28);
+            this.peakDetectationPlot.Size = new System.Drawing.Size(301, 30);
             this.peakDetectationPlot.Text = "Peak Detectation";
             // 
             // movingAvargeBaselineToolStripMenuItem
             // 
             this.movingAvargeBaselineToolStripMenuItem.Name = "movingAvargeBaselineToolStripMenuItem";
-            this.movingAvargeBaselineToolStripMenuItem.Size = new System.Drawing.Size(276, 28);
+            this.movingAvargeBaselineToolStripMenuItem.Size = new System.Drawing.Size(301, 30);
             this.movingAvargeBaselineToolStripMenuItem.Text = "Moving Avarge Baseline";
             // 
             // TSMILOP
             // 
             this.TSMILOP.Name = "TSMILOP";
-            this.TSMILOP.Size = new System.Drawing.Size(276, 28);
+            this.TSMILOP.Size = new System.Drawing.Size(301, 30);
             this.TSMILOP.Text = "List Of The Peaks";
             // 
             // clearToolStripMenuItem
@@ -698,25 +699,25 @@
             this.clearAllToolStripMenuItem});
             this.clearToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.clearToolStripMenuItem.Name = "clearToolStripMenuItem";
-            this.clearToolStripMenuItem.Size = new System.Drawing.Size(63, 27);
+            this.clearToolStripMenuItem.Size = new System.Drawing.Size(70, 29);
             this.clearToolStripMenuItem.Text = "Clear";
             // 
             // clearPlotToolStripMenuItem
             // 
             this.clearPlotToolStripMenuItem.Name = "clearPlotToolStripMenuItem";
-            this.clearPlotToolStripMenuItem.Size = new System.Drawing.Size(208, 28);
+            this.clearPlotToolStripMenuItem.Size = new System.Drawing.Size(225, 30);
             this.clearPlotToolStripMenuItem.Text = "Clear Plot";
             // 
             // clearMeasureToolStripMenuItem
             // 
             this.clearMeasureToolStripMenuItem.Name = "clearMeasureToolStripMenuItem";
-            this.clearMeasureToolStripMenuItem.Size = new System.Drawing.Size(208, 28);
+            this.clearMeasureToolStripMenuItem.Size = new System.Drawing.Size(225, 30);
             this.clearMeasureToolStripMenuItem.Text = "Clear  Measure";
             // 
             // clearAllToolStripMenuItem
             // 
             this.clearAllToolStripMenuItem.Name = "clearAllToolStripMenuItem";
-            this.clearAllToolStripMenuItem.Size = new System.Drawing.Size(208, 28);
+            this.clearAllToolStripMenuItem.Size = new System.Drawing.Size(225, 30);
             this.clearAllToolStripMenuItem.Text = "Clear All";
             // 
             // zoomSettingsToolStripMenuItem
@@ -727,25 +728,25 @@
             this.TSMIdrawHas});
             this.zoomSettingsToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.zoomSettingsToolStripMenuItem.Name = "zoomSettingsToolStripMenuItem";
-            this.zoomSettingsToolStripMenuItem.Size = new System.Drawing.Size(66, 27);
+            this.zoomSettingsToolStripMenuItem.Size = new System.Drawing.Size(73, 29);
             this.zoomSettingsToolStripMenuItem.Text = "Filter ";
             // 
             // PlotZoomSet
             // 
             this.PlotZoomSet.Name = "PlotZoomSet";
-            this.PlotZoomSet.Size = new System.Drawing.Size(256, 28);
+            this.PlotZoomSet.Size = new System.Drawing.Size(277, 30);
             this.PlotZoomSet.Text = "Filter Set";
             // 
             // lODLOQCalculationTSMI
             // 
             this.lODLOQCalculationTSMI.Name = "lODLOQCalculationTSMI";
-            this.lODLOQCalculationTSMI.Size = new System.Drawing.Size(256, 28);
+            this.lODLOQCalculationTSMI.Size = new System.Drawing.Size(277, 30);
             this.lODLOQCalculationTSMI.Text = "LOD-LOQ Calculation";
             // 
             // TSMIdrawHas
             // 
             this.TSMIdrawHas.Name = "TSMIdrawHas";
-            this.TSMIdrawHas.Size = new System.Drawing.Size(256, 28);
+            this.TSMIdrawHas.Size = new System.Drawing.Size(277, 30);
             this.TSMIdrawHas.Text = "New";
             // 
             // exportsToolStripMenuItem
@@ -754,26 +755,26 @@
             this.imageGraphExport,
             this.graphTxtExport});
             this.exportsToolStripMenuItem.Name = "exportsToolStripMenuItem";
-            this.exportsToolStripMenuItem.Size = new System.Drawing.Size(80, 27);
+            this.exportsToolStripMenuItem.Size = new System.Drawing.Size(88, 29);
             this.exportsToolStripMenuItem.Text = "Exports";
             // 
             // imageGraphExport
             // 
             this.imageGraphExport.Name = "imageGraphExport";
-            this.imageGraphExport.Size = new System.Drawing.Size(142, 28);
+            this.imageGraphExport.Size = new System.Drawing.Size(150, 30);
             this.imageGraphExport.Text = "Image";
             // 
             // graphTxtExport
             // 
             this.graphTxtExport.Name = "graphTxtExport";
-            this.graphTxtExport.Size = new System.Drawing.Size(142, 28);
+            this.graphTxtExport.Size = new System.Drawing.Size(150, 30);
             this.graphTxtExport.Text = "Text";
             // 
             // TSMILoadPeakLOD
             // 
             this.TSMILoadPeakLOD.Name = "TSMILoadPeakLOD";
-            this.TSMILoadPeakLOD.Size = new System.Drawing.Size(207, 27);
-            this.TSMILoadPeakLOD.Text = "Load Peaks For LOD&LOQ";
+            this.TSMILoadPeakLOD.Size = new System.Drawing.Size(234, 29);
+            this.TSMILoadPeakLOD.Text = "Load Peaks for LOD & LOQ";
             // 
             // flowLayoutPanel4
             // 
@@ -975,10 +976,10 @@
             // eisPlotArea
             // 
             this.eisPlotArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.eisPlotArea.Location = new System.Drawing.Point(4, 25);
+            this.eisPlotArea.Location = new System.Drawing.Point(4, 34);
             this.eisPlotArea.Name = "eisPlotArea";
             this.eisPlotArea.Padding = new System.Windows.Forms.Padding(3);
-            this.eisPlotArea.Size = new System.Drawing.Size(633, 832);
+            this.eisPlotArea.Size = new System.Drawing.Size(633, 815);
             this.eisPlotArea.TabIndex = 1;
             this.eisPlotArea.Text = "EIS Plot";
             this.eisPlotArea.UseVisualStyleBackColor = true;
@@ -989,10 +990,10 @@
             this.dataArea.Controls.Add(this.btnDataViewSave);
             this.dataArea.Controls.Add(this.btnLoad);
             this.dataArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataArea.Location = new System.Drawing.Point(4, 25);
+            this.dataArea.Location = new System.Drawing.Point(4, 34);
             this.dataArea.Name = "dataArea";
             this.dataArea.Padding = new System.Windows.Forms.Padding(3);
-            this.dataArea.Size = new System.Drawing.Size(633, 832);
+            this.dataArea.Size = new System.Drawing.Size(633, 815);
             this.dataArea.TabIndex = 2;
             this.dataArea.Text = "Data";
             this.dataArea.UseVisualStyleBackColor = true;
@@ -1016,24 +1017,26 @@
             // btnDataViewSave
             // 
             this.btnDataViewSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDataViewSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDataViewSave.Location = new System.Drawing.Point(165, 768);
+            this.btnDataViewSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDataViewSave.Location = new System.Drawing.Point(435, 751);
             this.btnDataViewSave.Name = "btnDataViewSave";
             this.btnDataViewSave.Size = new System.Drawing.Size(191, 49);
             this.btnDataViewSave.TabIndex = 10;
             this.btnDataViewSave.Text = "Save";
             this.btnDataViewSave.UseVisualStyleBackColor = true;
+            this.btnDataViewSave.Click += new System.EventHandler(this.btnDataViewSave_Click);
             // 
             // btnLoad
             // 
             this.btnLoad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnLoad.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLoad.Location = new System.Drawing.Point(6, 768);
+            this.btnLoad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLoad.Location = new System.Drawing.Point(4, 751);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(192, 49);
             this.btnLoad.TabIndex = 9;
             this.btnLoad.Text = "Load";
             this.btnLoad.UseVisualStyleBackColor = true;
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
             // section2_btn
             // 
@@ -1050,7 +1053,7 @@
             this.section2_btn.ForeColor = System.Drawing.Color.White;
             this.section2_btn.Location = new System.Drawing.Point(694, 0);
             this.section2_btn.Name = "section2_btn";
-            this.section2_btn.Size = new System.Drawing.Size(32, 899);
+            this.section2_btn.Size = new System.Drawing.Size(32, 891);
             this.section2_btn.TabIndex = 17;
             this.section2_btn.TextColor = System.Drawing.Color.White;
             this.section2_btn.UseVisualStyleBackColor = false;
@@ -1071,7 +1074,7 @@
             this.section1_btn.ForeColor = System.Drawing.Color.White;
             this.section1_btn.Location = new System.Drawing.Point(0, 0);
             this.section1_btn.Name = "section1_btn";
-            this.section1_btn.Size = new System.Drawing.Size(32, 899);
+            this.section1_btn.Size = new System.Drawing.Size(32, 891);
             this.section1_btn.TabIndex = 14;
             this.section1_btn.TextColor = System.Drawing.Color.White;
             this.section1_btn.UseVisualStyleBackColor = false;
@@ -1081,7 +1084,7 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 28);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 36);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -1094,9 +1097,9 @@
             this.splitContainer1.Panel2.Controls.Add(this.flowLayoutPanel3);
             this.splitContainer1.Panel2.Controls.Add(this.label5);
             this.splitContainer1.Panel2.Controls.Add(this.currentRangeSettings1);
-            this.splitContainer1.Panel2.Controls.Add(this.toolStrip1);
+            this.splitContainer1.Panel2.Controls.Add(this.btnRun);
             this.splitContainer1.Panel2.Controls.Add(this.measurement_type);
-            this.splitContainer1.Size = new System.Drawing.Size(1632, 899);
+            this.splitContainer1.Size = new System.Drawing.Size(1632, 891);
             this.splitContainer1.SplitterDistance = 1155;
             this.splitContainer1.TabIndex = 14;
             // 
@@ -1105,7 +1108,7 @@
             this.saveSettingsInInternalStorage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.saveSettingsInInternalStorage.AutoSize = true;
             this.saveSettingsInInternalStorage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveSettingsInInternalStorage.Location = new System.Drawing.Point(12, 857);
+            this.saveSettingsInInternalStorage.Location = new System.Drawing.Point(12, 849);
             this.saveSettingsInInternalStorage.Name = "saveSettingsInInternalStorage";
             this.saveSettingsInInternalStorage.Size = new System.Drawing.Size(250, 29);
             this.saveSettingsInInternalStorage.TabIndex = 30;
@@ -1124,7 +1127,7 @@
             this.flowLayoutPanel3.Controls.Add(this.cvSettings1);
             this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 262);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(467, 576);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(467, 568);
             this.flowLayoutPanel3.TabIndex = 27;
             // 
             // pretreatmentSettings1
@@ -1138,19 +1141,19 @@
             // 
             this.isSettings1.Location = new System.Drawing.Point(3, 340);
             this.isSettings1.Name = "isSettings1";
-            this.isSettings1.Size = new System.Drawing.Size(435, 360);
+            this.isSettings1.Size = new System.Drawing.Size(435, 460);
             this.isSettings1.TabIndex = 11;
             // 
             // dpSettings1
             // 
-            this.dpSettings1.Location = new System.Drawing.Point(3, 706);
+            this.dpSettings1.Location = new System.Drawing.Point(3, 806);
             this.dpSettings1.Name = "dpSettings1";
             this.dpSettings1.Size = new System.Drawing.Size(435, 380);
             this.dpSettings1.TabIndex = 11;
             // 
             // cvSettings1
             // 
-            this.cvSettings1.Location = new System.Drawing.Point(3, 1092);
+            this.cvSettings1.Location = new System.Drawing.Point(3, 1192);
             this.cvSettings1.Name = "cvSettings1";
             this.cvSettings1.Size = new System.Drawing.Size(435, 380);
             this.cvSettings1.TabIndex = 28;
@@ -1172,51 +1175,47 @@
             this.currentRangeSettings1.Size = new System.Drawing.Size(469, 150);
             this.currentRangeSettings1.TabIndex = 29;
             // 
-            // toolStrip1
+            // btnRun
             // 
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.toolStrip1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnRun.Dock = System.Windows.Forms.DockStyle.None;
+            this.btnRun.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnRun.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.btnRun.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.btnRun.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.measurementBtn});
-            this.toolStrip1.Location = new System.Drawing.Point(359, 26);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip1.Size = new System.Drawing.Size(87, 32);
-            this.toolStrip1.TabIndex = 19;
-            this.toolStrip1.Text = "toolStrip1";
+            this.btnRun.Location = new System.Drawing.Point(359, 26);
+            this.btnRun.Name = "btnRun";
+            this.btnRun.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.btnRun.Size = new System.Drawing.Size(87, 32);
+            this.btnRun.TabIndex = 19;
+            this.btnRun.Text = "toolStrip1";
             // 
             // measurementBtn
             // 
             this.measurementBtn.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newToolStripMenuItem,
-            this.overrideToolStripMenuItem,
-            this.blankToolStripMenuItem});
+            this.newRunBtn,
+            this.overlayRunBtn});
             this.measurementBtn.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.measurementBtn.Image = ((System.Drawing.Image)(resources.GetObject("measurementBtn.Image")));
             this.measurementBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.measurementBtn.Name = "measurementBtn";
             this.measurementBtn.Size = new System.Drawing.Size(84, 29);
             this.measurementBtn.Text = "Run";
+            this.measurementBtn.ButtonClick += new System.EventHandler(this.measurementBtn_ButtonClick);
             // 
-            // newToolStripMenuItem
+            // newRunBtn
             // 
-            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(162, 30);
-            this.newToolStripMenuItem.Text = "New";
+            this.newRunBtn.Name = "newRunBtn";
+            this.newRunBtn.Size = new System.Drawing.Size(240, 30);
+            this.newRunBtn.Text = "New";
+            this.newRunBtn.Click += new System.EventHandler(this.newRunBtn_Click);
             // 
-            // overrideToolStripMenuItem
+            // overlayRunBtn
             // 
-            this.overrideToolStripMenuItem.Name = "overrideToolStripMenuItem";
-            this.overrideToolStripMenuItem.Size = new System.Drawing.Size(162, 30);
-            this.overrideToolStripMenuItem.Text = "Overlay";
-            // 
-            // blankToolStripMenuItem
-            // 
-            this.blankToolStripMenuItem.Name = "blankToolStripMenuItem";
-            this.blankToolStripMenuItem.Size = new System.Drawing.Size(162, 30);
-            this.blankToolStripMenuItem.Text = "Blank";
+            this.overlayRunBtn.Name = "overlayRunBtn";
+            this.overlayRunBtn.Size = new System.Drawing.Size(240, 30);
+            this.overlayRunBtn.Text = "Overlay (Default)";
+            this.overlayRunBtn.Click += new System.EventHandler(this.overlayRunBtn_Click);
             // 
             // measurement_type
             // 
@@ -1247,6 +1246,9 @@
             this.psCommSimpleWinForms.EnableSerialPort = false;
             this.psCommSimpleWinForms.Parent = this;
             this.psCommSimpleWinForms.ReceiveStatus += new PalmSens.Comm.StatusEventHandler(this.psCommSimpleWinForms_ReceiveStatus);
+            this.psCommSimpleWinForms.MeasurementStarted += new System.EventHandler(this.psCommSimpleWinForms_MeasurementStarted);
+            this.psCommSimpleWinForms.MeasurementEnded += new System.EventHandler<System.Exception>(this.psCommSimpleWinForms_MeasurementEnded);
+            this.psCommSimpleWinForms.SimpleCurveStartReceivingData += new PalmSens.Core.Simplified.PSCommSimple.SimpleCurveStartReceivingDataHandler(this.psCommSimpleWinForms_SimpleCurveStartReceivingData);
             this.psCommSimpleWinForms.StateChanged += new PalmSens.Comm.CommManager.StatusChangedEventHandler(this.psCommSimpleWinForms_StateChanged);
             this.psCommSimpleWinForms.Disconnected += new PalmSens.Core.Simplified.DisconnectedEventHandler(this.psCommSimpleWinForms_Disconnected);
             // 
@@ -1297,8 +1299,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.flowLayoutPanel3.ResumeLayout(false);
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
+            this.btnRun.ResumeLayout(false);
+            this.btnRun.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1340,11 +1342,10 @@
         private RJCodeAdvance.RJControls.RJButton section2_btn;
         private System.Windows.Forms.Panel panel5;
         public System.Windows.Forms.ComboBox measurement_type;
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStrip btnRun;
         private System.Windows.Forms.ToolStripSplitButton measurementBtn;
-        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem overrideToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem blankToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newRunBtn;
+        private System.Windows.Forms.ToolStripMenuItem overlayRunBtn;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private System.Windows.Forms.TabControl tabControl2;
@@ -1375,7 +1376,7 @@
         private System.Windows.Forms.Button btnDataViewSave;
         private System.Windows.Forms.Button btnLoad;
         private RJCodeAdvance.RJControls.RJDropdownMenu rjDropdownMenu1;
-        private SDKPlot.WinForms.Plot plot1;
+        private SDKPlot.WinForms.Plot plot;
         private RJCodeAdvance.RJControls.RJTextBox potantialRegeneration;
         private RJCodeAdvance.RJControls.RJTextBox timeRegeneration;
         private RJCodeAdvance.RJControls.RJButton btnBluetooth;

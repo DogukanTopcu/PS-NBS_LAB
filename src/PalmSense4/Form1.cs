@@ -803,7 +803,7 @@ namespace PalmSense4
         {
             //Subscribe to the curve's events to receive updates when new data is available and when it iss finished receiving data
             activeSimpleCurve.NewDataAdded += activeSimpleCurve_NewDataAdded;
-            plot.AddSimpleCurve(activeSimpleCurve);
+            plot1.AddSimpleCurve(activeSimpleCurve);
             activeSimpleCurve.CurveFinished += activeSimpleCurve_CurveFinished;
 
             lbConsole.Items.Add("Curve is receiving new data...");
@@ -899,16 +899,16 @@ namespace PalmSense4
 
         private void InitPlot()
         {
-            plot.ClearAll(); //Clear all curves and data from plot
+            plot1.ClearAll(); //Clear all curves and data from plot
             //Set the Axis labels
-            plot.XAxisLabel = "V";
-            plot.YAxisLabel = "µA";
-            plot.AddData("", new double[0], new double[0]); //Add a empty data array to draw an empty plot
+            plot1.XAxisLabel = "V";
+            plot1.YAxisLabel = "µA";
+            plot1.AddData("", new double[0], new double[0]); //Add a empty data array to draw an empty plot
         }
 
         private void clearPlotToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            plot.ClearAll();
+            plot1.ClearAll();
         }
 
         private void clearMeasureToolStripMenuItem_Click(object sender, EventArgs e)
@@ -918,7 +918,7 @@ namespace PalmSense4
 
         private void clearAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            plot.ClearAll();
+            plot1.ClearAll();
             dgvMeasurement.Rows.Clear();
         }
 
@@ -985,7 +985,7 @@ namespace PalmSense4
         private void DisplayLoadedData()
         {
             InitDataGridView();
-            plot.ClearAll();
+            plot1.ClearAll();
             List<double> potentials = new List<double>();
             List<double> currents = new List<double>();
 
@@ -1006,7 +1006,7 @@ namespace PalmSense4
                     currents.Add(item.Value[i][2]);
                 }
 
-                plot.AddData(item.Key, new List<double>(potentials).ToArray(), new List<double>(currents).ToArray());
+                plot1.AddData(item.Key, new List<double>(potentials).ToArray(), new List<double>(currents).ToArray());
                 isFirst = false;
                 potentials.Clear();
                 currents.Clear();
@@ -1016,7 +1016,7 @@ namespace PalmSense4
 
         private void clearPlotToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            plot.ClearAll();
+            plot1.ClearAll();
         }
 
         private void clearMeasureToolStripMenuItem_Click_1(object sender, EventArgs e)
@@ -1027,7 +1027,7 @@ namespace PalmSense4
 
         private void clearAllToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            plot.ClearAll();
+            plot1.ClearAll();
             InitDataGridView();
             _allMeasurements.Clear();
         }
@@ -1052,8 +1052,8 @@ namespace PalmSense4
                     string fn = "Graph (" + DateTime.Now.ToString("MM-dd-yyyy-h-mm-tt") + ").png";
                     string filePathName = Path.Combine(folderName, fn);
 
-                    Bitmap bitmap = new Bitmap(plot.Width, plot.Height);
-                    plot.DrawToBitmap(bitmap, new Rectangle(0, 0, plot.Width, plot.Height));
+                    Bitmap bitmap = new Bitmap(plot1.Width, plot1.Height);
+                    plot1.DrawToBitmap(bitmap, new Rectangle(0, 0, plot1.Width, plot1.Height));
                     bitmap.Save(filePathName, System.Drawing.Imaging.ImageFormat.Png);
                     bitmap.Dispose();
                     lbConsole.Items.Add($"Graph exported as {filePathName}");

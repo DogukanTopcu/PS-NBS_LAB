@@ -121,11 +121,11 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label7.Location = new System.Drawing.Point(7, 2);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(110, 25);
+            this.label7.Size = new System.Drawing.Size(121, 26);
             this.label7.TabIndex = 0;
             this.label7.Text = "Calculators";
             // 
@@ -215,7 +215,7 @@
             this.textBox_Mass.Enabled = false;
             this.textBox_Mass.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_Mass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.textBox_Mass.Location = new System.Drawing.Point(131, 14);
+            this.textBox_Mass.Location = new System.Drawing.Point(187, 14);
             this.textBox_Mass.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_Mass.Multiline = false;
             this.textBox_Mass.Name = "textBox_Mass";
@@ -223,7 +223,7 @@
             this.textBox_Mass.PasswordChar = false;
             this.textBox_Mass.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.textBox_Mass.PlaceholderText = "";
-            this.textBox_Mass.Size = new System.Drawing.Size(191, 35);
+            this.textBox_Mass.Size = new System.Drawing.Size(135, 35);
             this.textBox_Mass.TabIndex = 39;
             this.textBox_Mass.Texts = "";
             this.textBox_Mass.UnderlinedStyle = false;

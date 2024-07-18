@@ -171,6 +171,7 @@ namespace PalmSense4
             this.status_statusbar = new System.Windows.Forms.ToolStripStatusLabel();
             this.potential_statusbar = new System.Windows.Forms.ToolStripStatusLabel();
             this.current_statusbar = new System.Windows.Forms.ToolStripStatusLabel();
+            this.plot1 = new SDKPlot.WinForms.Plot();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -666,10 +667,11 @@ namespace PalmSense4
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel18.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel18.Controls.Add(this.plot1);
             this.panel18.Controls.Add(this.PlotSettings);
-            this.panel18.Location = new System.Drawing.Point(3, 3);
+            this.panel18.Location = new System.Drawing.Point(94, 45);
             this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(638, 754);
+            this.panel18.Size = new System.Drawing.Size(406, 554);
             this.panel18.TabIndex = 1;
             // 
             // PlotSettings
@@ -687,7 +689,7 @@ namespace PalmSense4
             this.PlotSettings.Name = "PlotSettings";
             this.PlotSettings.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.PlotSettings.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.PlotSettings.Size = new System.Drawing.Size(638, 31);
+            this.PlotSettings.Size = new System.Drawing.Size(406, 31);
             this.PlotSettings.TabIndex = 9;
             this.PlotSettings.Text = "menuStrip2";
             // 
@@ -1673,38 +1675,38 @@ namespace PalmSense4
             this.eISPlotToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1503, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1503, 28);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // methodToolStripMenuItem
             // 
             this.methodToolStripMenuItem.Name = "methodToolStripMenuItem";
-            this.methodToolStripMenuItem.Size = new System.Drawing.Size(75, 26);
+            this.methodToolStripMenuItem.Size = new System.Drawing.Size(75, 24);
             this.methodToolStripMenuItem.Text = "Method";
             // 
             // dataToolStripMenuItem
             // 
             this.dataToolStripMenuItem.Name = "dataToolStripMenuItem";
-            this.dataToolStripMenuItem.Size = new System.Drawing.Size(55, 26);
+            this.dataToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
             this.dataToolStripMenuItem.Text = "Data";
             // 
             // measurementToolStripMenuItem
             // 
             this.measurementToolStripMenuItem.Name = "measurementToolStripMenuItem";
-            this.measurementToolStripMenuItem.Size = new System.Drawing.Size(113, 26);
+            this.measurementToolStripMenuItem.Size = new System.Drawing.Size(113, 24);
             this.measurementToolStripMenuItem.Text = "Measurement";
             // 
             // plotToolStripMenuItem1
             // 
             this.plotToolStripMenuItem1.Name = "plotToolStripMenuItem1";
-            this.plotToolStripMenuItem1.Size = new System.Drawing.Size(49, 26);
+            this.plotToolStripMenuItem1.Size = new System.Drawing.Size(49, 24);
             this.plotToolStripMenuItem1.Text = "Plot";
             // 
             // eISPlotToolStripMenuItem
             // 
             this.eISPlotToolStripMenuItem.Name = "eISPlotToolStripMenuItem";
-            this.eISPlotToolStripMenuItem.Size = new System.Drawing.Size(73, 26);
+            this.eISPlotToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
             this.eISPlotToolStripMenuItem.Text = "EIS Plot";
             // 
             // statusStrip1
@@ -1741,6 +1743,24 @@ namespace PalmSense4
             this.current_statusbar.Name = "current_statusbar";
             this.current_statusbar.Size = new System.Drawing.Size(60, 20);
             this.current_statusbar.Text = "Current:";
+            // 
+            // plot1
+            // 
+            this.plot1.BackColor = System.Drawing.Color.White;
+            this.plot1.Location = new System.Drawing.Point(36, 96);
+            this.plot1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.plot1.MarkerSize = 5;
+            this.plot1.MarkerType = OxyPlot.MarkerType.Circle;
+            this.plot1.Name = "plot1";
+            this.plot1.Size = new System.Drawing.Size(307, 230);
+            this.plot1.TabIndex = 10;
+            this.plot1.Title = null;
+            this.plot1.XAxisLabel = null;
+            this.plot1.XAxisType = SDKPlot.AxisType.Linear;
+            this.plot1.YAxisLabel = null;
+            this.plot1.YAxisSecondaryLabel = null;
+            this.plot1.YAxisSecondaryType = SDKPlot.AxisType.Linear;
+            this.plot1.YAxisType = SDKPlot.AxisType.Linear;
             // 
             // Form1
             // 
@@ -1959,6 +1979,7 @@ namespace PalmSense4
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem overrideToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem blankToolStripMenuItem;
+        private SDKPlot.WinForms.Plot plot1;
     }
 }
 
