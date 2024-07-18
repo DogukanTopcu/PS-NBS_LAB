@@ -96,6 +96,7 @@
             this.tbNumberOfScan.TabIndex = 71;
             this.tbNumberOfScan.Texts = "";
             this.tbNumberOfScan.UnderlinedStyle = false;
+            this.tbNumberOfScan._TextChanged += new System.EventHandler(this.tbNumberOfScan__TextChanged);
             // 
             // label41
             // 
@@ -138,6 +139,7 @@
             this.tbScanRate.TabIndex = 68;
             this.tbScanRate.Texts = "";
             this.tbScanRate.UnderlinedStyle = false;
+            this.tbScanRate._TextChanged += new System.EventHandler(this.tbScanRate__TextChanged);
             // 
             // label39
             // 
@@ -180,6 +182,7 @@
             this.tbEStep.TabIndex = 65;
             this.tbEStep.Texts = "";
             this.tbEStep.UnderlinedStyle = false;
+            this.tbEStep._TextChanged += new System.EventHandler(this.tbEStep__TextChanged);
             // 
             // label37
             // 
@@ -222,6 +225,7 @@
             this.tbEVertex2.TabIndex = 62;
             this.tbEVertex2.Texts = "";
             this.tbEVertex2.UnderlinedStyle = false;
+            this.tbEVertex2._TextChanged += new System.EventHandler(this.tbEVertex2__TextChanged);
             // 
             // label35
             // 
@@ -264,6 +268,7 @@
             this.tbEVertex1.TabIndex = 59;
             this.tbEVertex1.Texts = "";
             this.tbEVertex1.UnderlinedStyle = false;
+            this.tbEVertex1._TextChanged += new System.EventHandler(this.tbEVertex1__TextChanged);
             // 
             // label33
             // 
@@ -306,6 +311,7 @@
             this.tbEBegin.TabIndex = 56;
             this.tbEBegin.Texts = "";
             this.tbEBegin.UnderlinedStyle = false;
+            this.tbEBegin._TextChanged += new System.EventHandler(this.tbEBegin__TextChanged);
             // 
             // label31
             // 
@@ -348,6 +354,7 @@
             this.tbTEq.TabIndex = 53;
             this.tbTEq.Texts = "";
             this.tbTEq.UnderlinedStyle = false;
+            this.tbTEq._TextChanged += new System.EventHandler(this.tbTEq__TextChanged);
             // 
             // label29
             // 

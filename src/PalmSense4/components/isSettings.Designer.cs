@@ -56,7 +56,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.tTurnPanel = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
-            this.tbTTurn = new RJCodeAdvance.RJControls.RJTextBox();
+            this.tbTRun = new RJCodeAdvance.RJControls.RJTextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.tIntervalPanel = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
@@ -187,6 +187,7 @@
             this.tbTEq.TabIndex = 77;
             this.tbTEq.Texts = "";
             this.tbTEq.UnderlinedStyle = false;
+            this.tbTEq._TextChanged += new System.EventHandler(this.tbTEq__TextChanged);
             // 
             // label29
             // 
@@ -268,6 +269,7 @@
             this.tbEBegin.TabIndex = 77;
             this.tbEBegin.Texts = "";
             this.tbEBegin.UnderlinedStyle = false;
+            this.tbEBegin._TextChanged += new System.EventHandler(this.tbEBegin__TextChanged);
             // 
             // label4
             // 
@@ -320,6 +322,7 @@
             this.tbEStep.TabIndex = 77;
             this.tbEStep.Texts = "";
             this.tbEStep.UnderlinedStyle = false;
+            this.tbEStep._TextChanged += new System.EventHandler(this.tbEStep__TextChanged);
             // 
             // label6
             // 
@@ -372,6 +375,7 @@
             this.tbEEnd.TabIndex = 77;
             this.tbEEnd.Texts = "";
             this.tbEEnd.UnderlinedStyle = false;
+            this.tbEEnd._TextChanged += new System.EventHandler(this.tbEEnd__TextChanged);
             // 
             // label8
             // 
@@ -424,6 +428,7 @@
             this.tbEDc.TabIndex = 77;
             this.tbEDc.Texts = "";
             this.tbEDc.UnderlinedStyle = false;
+            this.tbEDc._TextChanged += new System.EventHandler(this.tbEDc__TextChanged);
             // 
             // label13
             // 
@@ -438,7 +443,7 @@
             // tTurnPanel
             // 
             this.tTurnPanel.Controls.Add(this.label14);
-            this.tTurnPanel.Controls.Add(this.tbTTurn);
+            this.tTurnPanel.Controls.Add(this.tbTRun);
             this.tTurnPanel.Controls.Add(this.label15);
             this.tTurnPanel.Location = new System.Drawing.Point(3, 303);
             this.tTurnPanel.Name = "tTurnPanel";
@@ -455,37 +460,38 @@
             this.label14.TabIndex = 75;
             this.label14.Text = "s";
             // 
-            // tbTTurn
+            // tbTRun
             // 
-            this.tbTTurn.BackColor = System.Drawing.SystemColors.Window;
-            this.tbTTurn.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.tbTTurn.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.tbTTurn.BorderRadius = 0;
-            this.tbTTurn.BorderSize = 2;
-            this.tbTTurn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTTurn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tbTTurn.Location = new System.Drawing.Point(164, 5);
-            this.tbTTurn.Margin = new System.Windows.Forms.Padding(4);
-            this.tbTTurn.Multiline = false;
-            this.tbTTurn.Name = "tbTTurn";
-            this.tbTTurn.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.tbTTurn.PasswordChar = false;
-            this.tbTTurn.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.tbTTurn.PlaceholderText = "";
-            this.tbTTurn.Size = new System.Drawing.Size(201, 35);
-            this.tbTTurn.TabIndex = 77;
-            this.tbTTurn.Texts = "";
-            this.tbTTurn.UnderlinedStyle = false;
+            this.tbTRun.BackColor = System.Drawing.SystemColors.Window;
+            this.tbTRun.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.tbTRun.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.tbTRun.BorderRadius = 0;
+            this.tbTRun.BorderSize = 2;
+            this.tbTRun.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTRun.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbTRun.Location = new System.Drawing.Point(164, 5);
+            this.tbTRun.Margin = new System.Windows.Forms.Padding(4);
+            this.tbTRun.Multiline = false;
+            this.tbTRun.Name = "tbTRun";
+            this.tbTRun.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.tbTRun.PasswordChar = false;
+            this.tbTRun.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.tbTRun.PlaceholderText = "";
+            this.tbTRun.Size = new System.Drawing.Size(201, 35);
+            this.tbTRun.TabIndex = 77;
+            this.tbTRun.Texts = "";
+            this.tbTRun.UnderlinedStyle = false;
+            this.tbTRun._TextChanged += new System.EventHandler(this.tbTRun__TextChanged);
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(82, 9);
+            this.label15.Location = new System.Drawing.Point(87, 9);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(61, 25);
+            this.label15.Size = new System.Drawing.Size(56, 25);
             this.label15.TabIndex = 76;
-            this.label15.Text = "t turn:";
+            this.label15.Text = "t run:";
             // 
             // tIntervalPanel
             // 
@@ -528,6 +534,7 @@
             this.tbTInterval.TabIndex = 77;
             this.tbTInterval.Texts = "";
             this.tbTInterval.UnderlinedStyle = false;
+            this.tbTInterval._TextChanged += new System.EventHandler(this.tbTInterval__TextChanged);
             // 
             // label17
             // 
@@ -580,6 +587,7 @@
             this.tbEAc.TabIndex = 77;
             this.tbEAc.Texts = "";
             this.tbEAc.UnderlinedStyle = false;
+            this.tbEAc._TextChanged += new System.EventHandler(this.tbEAc__TextChanged);
             // 
             // label10
             // 
@@ -661,6 +669,7 @@
             this.tbFreq.TabIndex = 77;
             this.tbFreq.Texts = "";
             this.tbFreq.UnderlinedStyle = false;
+            this.tbFreq._TextChanged += new System.EventHandler(this.tbFreq__TextChanged);
             // 
             // label19
             // 
@@ -713,6 +722,7 @@
             this.tbNFreq.TabIndex = 77;
             this.tbNFreq.Texts = "";
             this.tbNFreq.UnderlinedStyle = false;
+            this.tbNFreq._TextChanged += new System.EventHandler(this.tbNFreq__TextChanged);
             // 
             // label21
             // 
@@ -765,6 +775,7 @@
             this.tbMaxFreq.TabIndex = 77;
             this.tbMaxFreq.Texts = "";
             this.tbMaxFreq.UnderlinedStyle = false;
+            this.tbMaxFreq._TextChanged += new System.EventHandler(this.tbMaxFreq__TextChanged);
             // 
             // label23
             // 
@@ -817,6 +828,7 @@
             this.tbMinFreq.TabIndex = 77;
             this.tbMinFreq.Texts = "";
             this.tbMinFreq.UnderlinedStyle = false;
+            this.tbMinFreq._TextChanged += new System.EventHandler(this.tbMinFreq__TextChanged);
             // 
             // label25
             // 
@@ -905,7 +917,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Panel tTurnPanel;
         private System.Windows.Forms.Label label14;
-        private RJCodeAdvance.RJControls.RJTextBox tbTTurn;
+        private RJCodeAdvance.RJControls.RJTextBox tbTRun;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Panel tIntervalPanel;
         private System.Windows.Forms.Label label16;

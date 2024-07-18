@@ -107,6 +107,7 @@
             this.tbScanRate.TabIndex = 92;
             this.tbScanRate.Texts = "";
             this.tbScanRate.UnderlinedStyle = false;
+            this.tbScanRate._TextChanged += new System.EventHandler(this.tbScanRate__TextChanged);
             // 
             // label41
             // 
@@ -149,6 +150,7 @@
             this.tbTPulse.TabIndex = 89;
             this.tbTPulse.Texts = "";
             this.tbTPulse.UnderlinedStyle = false;
+            this.tbTPulse._TextChanged += new System.EventHandler(this.tbTPulse__TextChanged);
             // 
             // label39
             // 
@@ -191,6 +193,7 @@
             this.tbEPulse.TabIndex = 86;
             this.tbEPulse.Texts = "";
             this.tbEPulse.UnderlinedStyle = false;
+            this.tbEPulse._TextChanged += new System.EventHandler(this.tbEPulse__TextChanged);
             // 
             // label37
             // 
@@ -233,6 +236,7 @@
             this.tbEStep.TabIndex = 83;
             this.tbEStep.Texts = "";
             this.tbEStep.UnderlinedStyle = false;
+            this.tbEStep._TextChanged += new System.EventHandler(this.tbEStep__TextChanged);
             // 
             // label35
             // 
@@ -275,6 +279,7 @@
             this.tbEEnd.TabIndex = 80;
             this.tbEEnd.Texts = "";
             this.tbEEnd.UnderlinedStyle = false;
+            this.tbEEnd._TextChanged += new System.EventHandler(this.tbEEnd__TextChanged);
             // 
             // label33
             // 
@@ -317,6 +322,7 @@
             this.tbEBegin.TabIndex = 77;
             this.tbEBegin.Texts = "";
             this.tbEBegin.UnderlinedStyle = false;
+            this.tbEBegin._TextChanged += new System.EventHandler(this.tbEBegin__TextChanged);
             // 
             // label31
             // 
@@ -359,6 +365,7 @@
             this.tbTEq.TabIndex = 74;
             this.tbTEq.Texts = "";
             this.tbTEq.UnderlinedStyle = false;
+            this.tbTEq._TextChanged += new System.EventHandler(this.tbTEq__TextChanged);
             // 
             // label29
             // 

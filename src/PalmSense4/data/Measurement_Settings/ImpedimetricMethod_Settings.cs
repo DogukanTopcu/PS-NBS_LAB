@@ -14,8 +14,11 @@ namespace PalmSense4.data.Measurement_Settings
         private Impedimetric_Setting _timeEquilibrium;
         private Impedimetric_Setting _potential;
         private Impedimetric_Setting _eAC;
+        private Impedimetric_Setting _tRun;
+        private Impedimetric_Setting _tInterval;
         private Impedimetric_Setting _scanType;
         private Impedimetric_Setting _frequencyType;
+        private Impedimetric_Setting _frequency;
         private Impedimetric_Setting _maxFrequency;
         private Impedimetric_Setting _minFrequency;
         private Impedimetric_Setting _nFrequencies;
@@ -41,8 +44,11 @@ namespace PalmSense4.data.Measurement_Settings
             _timeEquilibrium = new Impedimetric_Setting("Time Equilibrium", _method);
             _potential = new Impedimetric_Setting("Potential / DC (V)", _method);
             _eAC = new Impedimetric_Setting("E ac (V)", _method);
+            _tRun = new Impedimetric_Setting("Run Time", _method);
+            _tInterval = new Impedimetric_Setting("Time Interval", _method);
             _scanType = new Impedimetric_Setting("Scan Type", 1, _method);
             _frequencyType = new Impedimetric_Setting("Frequency Type", 1, _method);
+            _frequency = new Impedimetric_Setting("Frequency", _method);
             _maxFrequency = new Impedimetric_Setting("Max Frequency", _method);
             _minFrequency = new Impedimetric_Setting("Min Frequency", _method);
             _nFrequencies = new Impedimetric_Setting("n Frequencies", _method);
@@ -63,8 +69,11 @@ namespace PalmSense4.data.Measurement_Settings
             _settings.Add(_timeEquilibrium);
             _settings.Add(_potential);
             _settings.Add(_eAC);
+            _settings.Add(_tRun);
+            _settings.Add(_tInterval);
             _settings.Add(_scanType);
             _settings.Add(_frequencyType);
+            _settings.Add(_frequency);
             _settings.Add(_maxFrequency);
             _settings.Add(_minFrequency);
             _settings.Add(_nFrequencies);
@@ -87,8 +96,11 @@ namespace PalmSense4.data.Measurement_Settings
         public Impedimetric_Setting TimeEquilibrium { get { return _timeEquilibrium; } set { _timeEquilibrium = value; } }
         public Impedimetric_Setting Potential { get { return _potential; } set { _potential = value; } }
         public Impedimetric_Setting EAC { get { return _eAC; } set { _eAC = value; } }
+        public Impedimetric_Setting TRun { get { return _tRun; } set { _tRun = value; } }
+        public Impedimetric_Setting TInterval { get { return _tInterval; } set { _tInterval = value; } }
         public Impedimetric_Setting ScanType { get { return _scanType; } set { _scanType = value; } }
         public Impedimetric_Setting FrequencyType { get { return _frequencyType; } set { _frequencyType = value; } }
+        public Impedimetric_Setting Frequency { get { return _frequency; } set { _frequency = value; } }
         public Impedimetric_Setting MaxFrequency { get { return _maxFrequency; } set { _maxFrequency = value; } }
         public Impedimetric_Setting MinFrequency { get { return _minFrequency; } set { _minFrequency = value; } }
         public Impedimetric_Setting NFrequencies { get { return _nFrequencies; } set { _nFrequencies = value; } }
