@@ -255,5 +255,10 @@ namespace PSSDKDataExample
             int nextStepIndex = (int)_nextStep + 1;
             _nextStep = (Steps)nextStepIndex;
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

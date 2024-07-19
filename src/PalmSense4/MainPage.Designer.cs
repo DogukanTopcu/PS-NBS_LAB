@@ -67,15 +67,16 @@
             this.cmbDevices = new System.Windows.Forms.ComboBox();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.PlotArea = new System.Windows.Forms.TabPage();
-            this.panel18 = new System.Windows.Forms.Panel();
+            this.cv_dp_plot = new System.Windows.Forms.Panel();
             this.plot = new SDKPlot.WinForms.Plot();
             this.PlotSettings = new System.Windows.Forms.MenuStrip();
             this.plotToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadMeasureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exportGraphAsImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.peakDetectationPlot = new System.Windows.Forms.ToolStripMenuItem();
-            this.movingAvargeBaselineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.TSMILOP = new System.Windows.Forms.ToolStripMenuItem();
+            this.smoothCurveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.averageBaselineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.subtractBaselineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.detectPeaksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.allPlotsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearPlotToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearMeasureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -100,6 +101,7 @@
             this.rjButton29 = new RJCodeAdvance.RJControls.RJButton();
             this.rjButton30 = new RJCodeAdvance.RJControls.RJButton();
             this.eisPlotArea = new System.Windows.Forms.TabPage();
+            this.eisPlot = new SDKPlot.WinForms.Plot();
             this.dataArea = new System.Windows.Forms.TabPage();
             this.dgvMeasurement = new System.Windows.Forms.DataGridView();
             this.btnDataViewSave = new System.Windows.Forms.Button();
@@ -122,6 +124,8 @@
             this.measurement_type = new System.Windows.Forms.ComboBox();
             this.rjDropdownMenu1 = new RJCodeAdvance.RJControls.RJDropdownMenu(this.components);
             this.psCommSimpleWinForms = new PalmSens.Core.Simplified.WinForms.PSCommSimpleWinForms(this.components);
+            this.exportGraphToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.xlsxFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
@@ -137,9 +141,10 @@
             this.panel4.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.PlotArea.SuspendLayout();
-            this.panel18.SuspendLayout();
+            this.cv_dp_plot.SuspendLayout();
             this.PlotSettings.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
+            this.eisPlotArea.SuspendLayout();
             this.dataArea.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMeasurement)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -589,7 +594,7 @@
             // 
             // PlotArea
             // 
-            this.PlotArea.Controls.Add(this.panel18);
+            this.PlotArea.Controls.Add(this.cv_dp_plot);
             this.PlotArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PlotArea.Location = new System.Drawing.Point(4, 34);
             this.PlotArea.Name = "PlotArea";
@@ -599,17 +604,17 @@
             this.PlotArea.Text = "Plot";
             this.PlotArea.UseVisualStyleBackColor = true;
             // 
-            // panel18
+            // cv_dp_plot
             // 
-            this.panel18.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel18.Controls.Add(this.plot);
-            this.panel18.Controls.Add(this.PlotSettings);
-            this.panel18.Controls.Add(this.flowLayoutPanel4);
-            this.panel18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel18.Location = new System.Drawing.Point(3, 3);
-            this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(627, 809);
-            this.panel18.TabIndex = 1;
+            this.cv_dp_plot.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.cv_dp_plot.Controls.Add(this.plot);
+            this.cv_dp_plot.Controls.Add(this.PlotSettings);
+            this.cv_dp_plot.Controls.Add(this.flowLayoutPanel4);
+            this.cv_dp_plot.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cv_dp_plot.Location = new System.Drawing.Point(3, 3);
+            this.cv_dp_plot.Name = "cv_dp_plot";
+            this.cv_dp_plot.Size = new System.Drawing.Size(627, 809);
+            this.cv_dp_plot.TabIndex = 1;
             // 
             // plot
             // 
@@ -653,10 +658,10 @@
             // 
             this.plotToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.loadMeasureToolStripMenuItem,
-            this.exportGraphAsImageToolStripMenuItem,
-            this.peakDetectationPlot,
-            this.movingAvargeBaselineToolStripMenuItem,
-            this.TSMILOP});
+            this.smoothCurveToolStripMenuItem,
+            this.detectPeaksToolStripMenuItem,
+            this.averageBaselineToolStripMenuItem,
+            this.subtractBaselineToolStripMenuItem});
             this.plotToolStripMenuItem.Name = "plotToolStripMenuItem";
             this.plotToolStripMenuItem.Size = new System.Drawing.Size(59, 29);
             this.plotToolStripMenuItem.Text = "Plot";
@@ -664,32 +669,43 @@
             // loadMeasureToolStripMenuItem
             // 
             this.loadMeasureToolStripMenuItem.Name = "loadMeasureToolStripMenuItem";
-            this.loadMeasureToolStripMenuItem.Size = new System.Drawing.Size(301, 30);
+            this.loadMeasureToolStripMenuItem.Size = new System.Drawing.Size(297, 30);
             this.loadMeasureToolStripMenuItem.Text = "Load Measure For Excel";
             // 
-            // exportGraphAsImageToolStripMenuItem
+            // smoothCurveToolStripMenuItem
             // 
-            this.exportGraphAsImageToolStripMenuItem.Name = "exportGraphAsImageToolStripMenuItem";
-            this.exportGraphAsImageToolStripMenuItem.Size = new System.Drawing.Size(301, 30);
-            this.exportGraphAsImageToolStripMenuItem.Text = "Export Graph As Image";
+            this.smoothCurveToolStripMenuItem.Name = "smoothCurveToolStripMenuItem";
+            this.smoothCurveToolStripMenuItem.Size = new System.Drawing.Size(297, 30);
+            this.smoothCurveToolStripMenuItem.Text = "Smooth Curve";
             // 
-            // peakDetectationPlot
+            // averageBaselineToolStripMenuItem
             // 
-            this.peakDetectationPlot.Name = "peakDetectationPlot";
-            this.peakDetectationPlot.Size = new System.Drawing.Size(301, 30);
-            this.peakDetectationPlot.Text = "Peak Detectation";
+            this.averageBaselineToolStripMenuItem.Name = "averageBaselineToolStripMenuItem";
+            this.averageBaselineToolStripMenuItem.Size = new System.Drawing.Size(297, 30);
+            this.averageBaselineToolStripMenuItem.Text = "Average Baseline";
+            this.averageBaselineToolStripMenuItem.Click += new System.EventHandler(this.averageBaselineToolStripMenuItem_Click);
             // 
-            // movingAvargeBaselineToolStripMenuItem
+            // subtractBaselineToolStripMenuItem
             // 
-            this.movingAvargeBaselineToolStripMenuItem.Name = "movingAvargeBaselineToolStripMenuItem";
-            this.movingAvargeBaselineToolStripMenuItem.Size = new System.Drawing.Size(301, 30);
-            this.movingAvargeBaselineToolStripMenuItem.Text = "Moving Avarge Baseline";
+            this.subtractBaselineToolStripMenuItem.Name = "subtractBaselineToolStripMenuItem";
+            this.subtractBaselineToolStripMenuItem.Size = new System.Drawing.Size(297, 30);
+            this.subtractBaselineToolStripMenuItem.Text = "Subtract Baseline";
+            this.subtractBaselineToolStripMenuItem.Click += new System.EventHandler(this.subtractBaselineToolStripMenuItem_Click);
             // 
-            // TSMILOP
+            // detectPeaksToolStripMenuItem
             // 
-            this.TSMILOP.Name = "TSMILOP";
-            this.TSMILOP.Size = new System.Drawing.Size(301, 30);
-            this.TSMILOP.Text = "List Of The Peaks";
+            this.detectPeaksToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.allPlotsToolStripMenuItem});
+            this.detectPeaksToolStripMenuItem.Name = "detectPeaksToolStripMenuItem";
+            this.detectPeaksToolStripMenuItem.Size = new System.Drawing.Size(297, 30);
+            this.detectPeaksToolStripMenuItem.Text = "Detect Peaks";
+            // 
+            // allPlotsToolStripMenuItem
+            // 
+            this.allPlotsToolStripMenuItem.Name = "allPlotsToolStripMenuItem";
+            this.allPlotsToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
+            this.allPlotsToolStripMenuItem.Text = "All Plots";
+            this.allPlotsToolStripMenuItem.Click += new System.EventHandler(this.allPlotsToolStripMenuItem_Click);
             // 
             // clearToolStripMenuItem
             // 
@@ -753,7 +769,9 @@
             // 
             this.exportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.imageGraphExport,
-            this.graphTxtExport});
+            this.xlsxFileToolStripMenuItem,
+            this.graphTxtExport,
+            this.exportGraphToolStripMenuItem});
             this.exportsToolStripMenuItem.Name = "exportsToolStripMenuItem";
             this.exportsToolStripMenuItem.Size = new System.Drawing.Size(88, 29);
             this.exportsToolStripMenuItem.Text = "Exports";
@@ -761,14 +779,14 @@
             // imageGraphExport
             // 
             this.imageGraphExport.Name = "imageGraphExport";
-            this.imageGraphExport.Size = new System.Drawing.Size(150, 30);
-            this.imageGraphExport.Text = "Image";
+            this.imageGraphExport.Size = new System.Drawing.Size(291, 30);
+            this.imageGraphExport.Text = ".pssession File";
             // 
             // graphTxtExport
             // 
             this.graphTxtExport.Name = "graphTxtExport";
-            this.graphTxtExport.Size = new System.Drawing.Size(150, 30);
-            this.graphTxtExport.Text = "Text";
+            this.graphTxtExport.Size = new System.Drawing.Size(291, 30);
+            this.graphTxtExport.Text = ".txt File";
             // 
             // TSMILoadPeakLOD
             // 
@@ -975,6 +993,7 @@
             // 
             // eisPlotArea
             // 
+            this.eisPlotArea.Controls.Add(this.eisPlot);
             this.eisPlotArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.eisPlotArea.Location = new System.Drawing.Point(4, 34);
             this.eisPlotArea.Name = "eisPlotArea";
@@ -983,6 +1002,25 @@
             this.eisPlotArea.TabIndex = 1;
             this.eisPlotArea.Text = "EIS Plot";
             this.eisPlotArea.UseVisualStyleBackColor = true;
+            // 
+            // eisPlot
+            // 
+            this.eisPlot.BackColor = System.Drawing.Color.White;
+            this.eisPlot.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.eisPlot.Location = new System.Drawing.Point(3, 3);
+            this.eisPlot.Margin = new System.Windows.Forms.Padding(6);
+            this.eisPlot.MarkerSize = 5;
+            this.eisPlot.MarkerType = OxyPlot.MarkerType.Circle;
+            this.eisPlot.Name = "eisPlot";
+            this.eisPlot.Size = new System.Drawing.Size(627, 809);
+            this.eisPlot.TabIndex = 0;
+            this.eisPlot.Title = null;
+            this.eisPlot.XAxisLabel = null;
+            this.eisPlot.XAxisType = SDKPlot.AxisType.Linear;
+            this.eisPlot.YAxisLabel = null;
+            this.eisPlot.YAxisSecondaryLabel = null;
+            this.eisPlot.YAxisSecondaryType = SDKPlot.AxisType.Linear;
+            this.eisPlot.YAxisType = SDKPlot.AxisType.Linear;
             // 
             // dataArea
             // 
@@ -1161,10 +1199,10 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(8, 32);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(7, 28);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(91, 20);
+            this.label5.Size = new System.Drawing.Size(111, 25);
             this.label5.TabIndex = 21;
             this.label5.Text = "Technique:";
             // 
@@ -1224,9 +1262,9 @@
             this.measurement_type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.measurement_type.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.measurement_type.FormattingEnabled = true;
-            this.measurement_type.Location = new System.Drawing.Point(101, 25);
+            this.measurement_type.Location = new System.Drawing.Point(124, 25);
             this.measurement_type.Name = "measurement_type";
-            this.measurement_type.Size = new System.Drawing.Size(255, 33);
+            this.measurement_type.Size = new System.Drawing.Size(232, 33);
             this.measurement_type.TabIndex = 7;
             this.measurement_type.SelectedIndexChanged += new System.EventHandler(this.measurement_type_SelectedIndexChanged);
             // 
@@ -1251,6 +1289,18 @@
             this.psCommSimpleWinForms.SimpleCurveStartReceivingData += new PalmSens.Core.Simplified.PSCommSimple.SimpleCurveStartReceivingDataHandler(this.psCommSimpleWinForms_SimpleCurveStartReceivingData);
             this.psCommSimpleWinForms.StateChanged += new PalmSens.Comm.CommManager.StatusChangedEventHandler(this.psCommSimpleWinForms_StateChanged);
             this.psCommSimpleWinForms.Disconnected += new PalmSens.Core.Simplified.DisconnectedEventHandler(this.psCommSimpleWinForms_Disconnected);
+            // 
+            // exportGraphToolStripMenuItem
+            // 
+            this.exportGraphToolStripMenuItem.Name = "exportGraphToolStripMenuItem";
+            this.exportGraphToolStripMenuItem.Size = new System.Drawing.Size(291, 30);
+            this.exportGraphToolStripMenuItem.Text = "Export Graph As Image";
+            // 
+            // xlsxFileToolStripMenuItem
+            // 
+            this.xlsxFileToolStripMenuItem.Name = "xlsxFileToolStripMenuItem";
+            this.xlsxFileToolStripMenuItem.Size = new System.Drawing.Size(291, 30);
+            this.xlsxFileToolStripMenuItem.Text = ".xlsx File";
             // 
             // MainPage
             // 
@@ -1286,11 +1336,12 @@
             this.panel4.PerformLayout();
             this.tabControl2.ResumeLayout(false);
             this.PlotArea.ResumeLayout(false);
-            this.panel18.ResumeLayout(false);
-            this.panel18.PerformLayout();
+            this.cv_dp_plot.ResumeLayout(false);
+            this.cv_dp_plot.PerformLayout();
             this.PlotSettings.ResumeLayout(false);
             this.PlotSettings.PerformLayout();
             this.flowLayoutPanel4.ResumeLayout(false);
+            this.eisPlotArea.ResumeLayout(false);
             this.dataArea.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMeasurement)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -1350,14 +1401,10 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage PlotArea;
-        private System.Windows.Forms.Panel panel18;
+        private System.Windows.Forms.Panel cv_dp_plot;
         private System.Windows.Forms.MenuStrip PlotSettings;
         private System.Windows.Forms.ToolStripMenuItem plotToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loadMeasureToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exportGraphAsImageToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem peakDetectationPlot;
-        private System.Windows.Forms.ToolStripMenuItem movingAvargeBaselineToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem TSMILOP;
         private System.Windows.Forms.ToolStripMenuItem clearToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clearPlotToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clearMeasureToolStripMenuItem;
@@ -1399,5 +1446,13 @@
         private components.currentRangeSettings currentRangeSettings1;
         private components.calculators calculators1;
         private System.Windows.Forms.CheckBox saveSettingsInInternalStorage;
+        private SDKPlot.WinForms.Plot eisPlot;
+        private System.Windows.Forms.ToolStripMenuItem smoothCurveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem averageBaselineToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem subtractBaselineToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem detectPeaksToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem allPlotsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem xlsxFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exportGraphToolStripMenuItem;
     }
 }

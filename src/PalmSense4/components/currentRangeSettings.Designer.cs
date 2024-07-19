@@ -294,7 +294,7 @@
             this.btnpA100.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btnpA100.BackgroundColor = System.Drawing.Color.CornflowerBlue;
             this.btnpA100.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnpA100.BorderRadius = 2;
+            this.btnpA100.BorderRadius = 5;
             this.btnpA100.BorderSize = 0;
             this.btnpA100.FlatAppearance.BorderSize = 0;
             this.btnpA100.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -314,7 +314,7 @@
             this.btnnA1.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btnnA1.BackgroundColor = System.Drawing.Color.CornflowerBlue;
             this.btnnA1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnnA1.BorderRadius = 2;
+            this.btnnA1.BorderRadius = 5;
             this.btnnA1.BorderSize = 0;
             this.btnnA1.FlatAppearance.BorderSize = 0;
             this.btnnA1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -334,7 +334,7 @@
             this.btnnA10.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btnnA10.BackgroundColor = System.Drawing.Color.CornflowerBlue;
             this.btnnA10.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnnA10.BorderRadius = 2;
+            this.btnnA10.BorderRadius = 5;
             this.btnnA10.BorderSize = 0;
             this.btnnA10.FlatAppearance.BorderSize = 0;
             this.btnnA10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -354,7 +354,7 @@
             this.btnnA100.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btnnA100.BackgroundColor = System.Drawing.Color.CornflowerBlue;
             this.btnnA100.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnnA100.BorderRadius = 2;
+            this.btnnA100.BorderRadius = 5;
             this.btnnA100.BorderSize = 0;
             this.btnnA100.FlatAppearance.BorderSize = 0;
             this.btnnA100.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -374,7 +374,7 @@
             this.btnuA1.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btnuA1.BackgroundColor = System.Drawing.Color.CornflowerBlue;
             this.btnuA1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnuA1.BorderRadius = 2;
+            this.btnuA1.BorderRadius = 5;
             this.btnuA1.BorderSize = 0;
             this.btnuA1.FlatAppearance.BorderSize = 0;
             this.btnuA1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -394,7 +394,7 @@
             this.btnuA10.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btnuA10.BackgroundColor = System.Drawing.Color.CornflowerBlue;
             this.btnuA10.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnuA10.BorderRadius = 2;
+            this.btnuA10.BorderRadius = 5;
             this.btnuA10.BorderSize = 0;
             this.btnuA10.FlatAppearance.BorderSize = 0;
             this.btnuA10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -414,7 +414,7 @@
             this.btnuA100.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btnuA100.BackgroundColor = System.Drawing.Color.CornflowerBlue;
             this.btnuA100.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnuA100.BorderRadius = 2;
+            this.btnuA100.BorderRadius = 5;
             this.btnuA100.BorderSize = 0;
             this.btnuA100.FlatAppearance.BorderSize = 0;
             this.btnuA100.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -434,7 +434,7 @@
             this.btnmA1.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btnmA1.BackgroundColor = System.Drawing.Color.CornflowerBlue;
             this.btnmA1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnmA1.BorderRadius = 2;
+            this.btnmA1.BorderRadius = 5;
             this.btnmA1.BorderSize = 0;
             this.btnmA1.FlatAppearance.BorderSize = 0;
             this.btnmA1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -454,7 +454,7 @@
             this.btnmA10.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btnmA10.BackgroundColor = System.Drawing.Color.CornflowerBlue;
             this.btnmA10.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnmA10.BorderRadius = 2;
+            this.btnmA10.BorderRadius = 5;
             this.btnmA10.BorderSize = 0;
             this.btnmA10.FlatAppearance.BorderSize = 0;
             this.btnmA10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -474,7 +474,7 @@
             this.btnmA100.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btnmA100.BackgroundColor = System.Drawing.Color.CornflowerBlue;
             this.btnmA100.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnmA100.BorderRadius = 2;
+            this.btnmA100.BorderRadius = 5;
             this.btnmA100.BorderSize = 0;
             this.btnmA100.FlatAppearance.BorderSize = 0;
             this.btnmA100.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

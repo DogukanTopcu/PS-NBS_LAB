@@ -348,5 +348,10 @@ namespace PSSDKPlotPeakDetectionExample
             btnConnect.Enabled = true;
             btnMeasure.Text = "Measure";
         }
+
+        private void plot_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

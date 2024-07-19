@@ -1,4 +1,6 @@
-﻿using PalmSens;
+﻿using Microsoft.Office.Interop.Excel;
+using OxyPlot;
+using PalmSens;
 using PalmSens.Comm;
 using PalmSens.Core.Simplified.Data;
 using PalmSens.Core.Simplified.WinForms;
@@ -16,7 +18,9 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace PalmSense4
 {
@@ -49,8 +53,14 @@ namespace PalmSense4
         private List<List<double>> _measurementData;
         private Dictionary<string, List<List<double>>> _allMeasurements;
         private int plotNumber;
-
         private FileIO _fileIO;
+
+        private List<SimpleCurve> _allCurves;
+
+
+        // SimpleCurve data
+        private SimpleCurve _activeCurve;
+        private SimpleCurve _baselineCurve;
 
 
         // CONSTRUCTORS *************************************************************************
@@ -60,6 +70,7 @@ namespace PalmSense4
             this._connectedDevices = new Device[0];
 
             DiscoverConnectedDevices();
+            InitPlot();
 
             _selectedMethod = _methodCLV;
 
@@ -72,6 +83,7 @@ namespace PalmSense4
 
             _measurementData = new List<List<double>>();
             _allMeasurements = new Dictionary<string, List<List<double>>>();
+            _allCurves = new List<SimpleCurve>();
             plotNumber = 1;
 
             _fileIO = new FileIO();
@@ -91,10 +103,26 @@ namespace PalmSense4
             measurement_type.Items.Add(ImpedimetricMethod.Name);
             measurement_type.SelectedIndex = 0;
 
-
+            if (_allCurves.Count == 0)
+            {
+                smoothCurveToolStripMenuItem.Enabled = false;
+                detectPeaksToolStripMenuItem.Enabled = false;
+            }
         }
         // CONSTRUCTORS *************************************************************************
 
+
+        // Initial Plot
+        private void InitPlot()
+        {
+            plot.ClearAll(); //Clear all curves and data from plot
+            //Set the Axis labels
+            plot.XAxisLabel = "Potential/V";
+            plot.YAxisLabel = "Current/µA";
+
+            
+            plot.AddData("", new double[0], new double[0]); //Add a empty data array to draw an empty plot
+        }
 
 
         // CONNECTION ***************************************************************************
@@ -193,12 +221,12 @@ namespace PalmSense4
 
         private void psCommSimpleWinForms_MeasurementStarted(object sender, EventArgs e)
         {
-            lbConsole.Items.Add("Linear sweep voltammetry measurement started.");
+            lbConsole.Items.Add("Measurement started.");
         }
         private void psCommSimpleWinForms_MeasurementEnded(object sender, Exception e)
         {
             lbConsole.Items.Add("Measurement ended.");
-
+            
 
             _allMeasurements.Add($"plot{plotNumber}", new List<List<double>>(_measurementData));
             plotNumber++;
@@ -209,7 +237,19 @@ namespace PalmSense4
         {
             //Subscribe to the curve's events to receive updates when new data is available and when it iss finished receiving data
             activeSimpleCurve.NewDataAdded += activeSimpleCurve_NewDataAdded;
-            plot.AddSimpleCurve(activeSimpleCurve);
+            smoothCurveToolStripMenuItem.Enabled = false;
+            detectPeaksToolStripMenuItem.Enabled = false;
+            if (_selectedMethod == _methodIMM)
+            {
+                eisPlot.AddSimpleCurve(activeSimpleCurve);
+            }
+            else
+            {
+                plot.AddSimpleCurve(activeSimpleCurve);
+                plot.XAxisLabel = "Potential/V";
+                plot.YAxisLabel = "Current/µA";
+            }
+
             activeSimpleCurve.CurveFinished += activeSimpleCurve_CurveFinished;
 
             lbConsole.Items.Add("Curve is receiving new data...");
@@ -243,6 +283,26 @@ namespace PalmSense4
         private void activeSimpleCurve_CurveFinished(object sender, EventArgs e)
         {
             SimpleCurve activeSimpleCurve = sender as SimpleCurve;
+            
+            _allCurves.Add(activeSimpleCurve);
+            _activeCurve = activeSimpleCurve;
+
+            // Smooth Curve
+            smoothCurveToolStripMenuItem.Enabled = true;
+            string name = plotNumber + " " + activeSimpleCurve.FullTitle;
+            smoothCurveToolStripMenuItem.DropDownItems.Add(name, null, (sender2, e2) =>
+            {
+                smoothCurve(sender, e, activeSimpleCurve, name);
+            });
+
+            // Detect Peek
+            detectPeaksToolStripMenuItem.Enabled = true;
+            string peekName = plotNumber + " " + activeSimpleCurve.FullTitle;
+            detectPeaksToolStripMenuItem.DropDownItems.Add(peekName, null, (sender3, e3) =>
+            {
+                detectPeek(sender, e, activeSimpleCurve, peekName);
+            });
+
 
             //Unsubscribe from the curves events to avoid memory leaks
             activeSimpleCurve.NewDataAdded -= activeSimpleCurve_NewDataAdded;
@@ -345,6 +405,15 @@ namespace PalmSense4
                 {
                     lbConsole.Items.Add(ex.Message);
                 }
+            }
+
+            if (_selectedMethod == _methodIMM)
+            {
+                tabControl2.SelectedTab = eisPlotArea;
+            }
+            else
+            {
+                tabControl2.SelectedTab = PlotArea;
             }
         }
 
@@ -463,6 +532,7 @@ namespace PalmSense4
         {
             InitDataGridView();
             plot.ClearAll();
+            eisPlot.ClearAll();
             List<double> potentials = new List<double>();
             List<double> currents = new List<double>();
 
@@ -488,6 +558,90 @@ namespace PalmSense4
                 potentials.Clear();
                 currents.Clear();
             }
+        }
+
+        
+        private void smoothCurve(object sender, EventArgs e, SimpleCurve activeCurve, string name)
+        {
+            plot.RemoveSimpleCurve(activeCurve);
+            SimpleCurve smoothedCurve = activeCurve.Smooth(SmoothLevel.High);
+
+            lbConsole.Items.Add("Curve Smoothed: " + name);
+            plot.AddSimpleCurve(smoothedCurve);
+
+            _allCurves.Remove(activeCurve);
+            _allCurves.Add(smoothedCurve);
+
+            foreach (ToolStripMenuItem item in smoothCurveToolStripMenuItem.DropDownItems)
+            {
+                if (item.Text == name)
+                {
+                    item.Enabled = false;
+                    item.Text = name + " (Smoothed)";
+                    
+                    foreach (ToolStripMenuItem peekItem in detectPeaksToolStripMenuItem.DropDownItems)
+                    {
+                        if (peekItem.Text == name || peekItem.Text == name + " (Detected)")
+                        {
+                            detectPeaksToolStripMenuItem.DropDownItems.Remove(peekItem);
+                            detectPeaksToolStripMenuItem.DropDownItems.Add(item.Text, null, (sender3, e3) =>
+                            {
+                                detectPeek(sender, e, smoothedCurve, item.Text);
+                            });
+                            break;
+                        }
+                    }
+                    break;
+                }
+            }
+        }
+
+        private void averageBaselineToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Determine and plot the moving average baseline curve
+            _baselineCurve = _activeCurve.MovingAverageBaseline();
+            plot.AddSimpleCurve(_baselineCurve);
+
+            lbConsole.Items.Add("SWV Example Curve Moving Average Baseline Determined.");
+        }
+
+        private void subtractBaselineToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _activeCurve = _activeCurve.Subtract(_baselineCurve); //Replace the activeCurve reference with the result
+            plot.AddSimpleCurve(_activeCurve);
+
+            lbConsole.Items.Add("Baseline Curve Subtracted From SWV Example Curve.");
+        }
+
+        
+        private void detectPeek(object sender, EventArgs e, SimpleCurve activeCurve, string name)
+        {
+            activeCurve.DetectPeaks();
+            foreach (ToolStripMenuItem item in detectPeaksToolStripMenuItem.DropDownItems)
+            {
+                if (item.Text == name || item.Text == name + " (Smoothed)")
+                {
+                    item.Enabled = false;
+                    item.Text = name + " (Detected)";
+                }
+            }
+            lbConsole.Items.Add("Peak Detected: " + name);
+        }
+        private void allPlotsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (SimpleCurve curve in _allCurves)
+            {
+                curve.DetectPeaks();
+            }
+
+            bool isfirst = true;
+            foreach (ToolStripMenuItem item in detectPeaksToolStripMenuItem.DropDownItems)
+            {
+                if (isfirst) { isfirst = false; continue; }
+                item.Enabled = false;
+                item.Text += " (Detected)";
+            }
+            lbConsole.Items.Add("All Peaks Detected");
         }
     }
 }

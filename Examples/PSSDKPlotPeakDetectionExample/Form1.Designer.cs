@@ -44,11 +44,11 @@
             this.tbPotential = new System.Windows.Forms.TextBox();
             this.lblPotential = new System.Windows.Forms.Label();
             this.grpMeasurement = new System.Windows.Forms.GroupBox();
+            this.btnPeaks = new System.Windows.Forms.Button();
             this.plot = new SDKPlot.WinForms.Plot();
             this.grpConsole = new System.Windows.Forms.GroupBox();
             this.lbConsole = new System.Windows.Forms.ListBox();
             this.psCommSimpleWinForms = new PalmSens.Core.Simplified.WinForms.PSCommSimpleWinForms(this.components);
-            this.btnPeaks = new System.Windows.Forms.Button();
             this.grpConnection.SuspendLayout();
             this.grpDevice.SuspendLayout();
             this.grpMeasurement.SuspendLayout();
@@ -59,16 +59,18 @@
             // 
             this.cmbDevices.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDevices.FormattingEnabled = true;
-            this.cmbDevices.Location = new System.Drawing.Point(6, 19);
+            this.cmbDevices.Location = new System.Drawing.Point(8, 23);
+            this.cmbDevices.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbDevices.Name = "cmbDevices";
-            this.cmbDevices.Size = new System.Drawing.Size(155, 21);
+            this.cmbDevices.Size = new System.Drawing.Size(205, 24);
             this.cmbDevices.TabIndex = 0;
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(6, 46);
+            this.btnRefresh.Location = new System.Drawing.Point(8, 57);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh.Size = new System.Drawing.Size(100, 28);
             this.btnRefresh.TabIndex = 1;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
@@ -77,9 +79,10 @@
             // btnConnect
             // 
             this.btnConnect.Enabled = false;
-            this.btnConnect.Location = new System.Drawing.Point(86, 46);
+            this.btnConnect.Location = new System.Drawing.Point(115, 57);
+            this.btnConnect.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(75, 23);
+            this.btnConnect.Size = new System.Drawing.Size(100, 28);
             this.btnConnect.TabIndex = 2;
             this.btnConnect.Text = "Connect";
             this.btnConnect.UseVisualStyleBackColor = true;
@@ -88,9 +91,10 @@
             // btnMeasure
             // 
             this.btnMeasure.Enabled = false;
-            this.btnMeasure.Location = new System.Drawing.Point(6, 19);
+            this.btnMeasure.Location = new System.Drawing.Point(8, 23);
+            this.btnMeasure.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMeasure.Name = "btnMeasure";
-            this.btnMeasure.Size = new System.Drawing.Size(75, 23);
+            this.btnMeasure.Size = new System.Drawing.Size(100, 28);
             this.btnMeasure.TabIndex = 3;
             this.btnMeasure.Text = "Measure";
             this.btnMeasure.UseVisualStyleBackColor = true;
@@ -101,9 +105,11 @@
             this.grpConnection.Controls.Add(this.cmbDevices);
             this.grpConnection.Controls.Add(this.btnRefresh);
             this.grpConnection.Controls.Add(this.btnConnect);
-            this.grpConnection.Location = new System.Drawing.Point(12, 10);
+            this.grpConnection.Location = new System.Drawing.Point(16, 12);
+            this.grpConnection.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.grpConnection.Name = "grpConnection";
-            this.grpConnection.Size = new System.Drawing.Size(171, 79);
+            this.grpConnection.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpConnection.Size = new System.Drawing.Size(228, 97);
             this.grpConnection.TabIndex = 4;
             this.grpConnection.TabStop = false;
             this.grpConnection.Text = "Connection";
@@ -120,9 +126,11 @@
             this.grpDevice.Controls.Add(this.lblVolt);
             this.grpDevice.Controls.Add(this.tbPotential);
             this.grpDevice.Controls.Add(this.lblPotential);
-            this.grpDevice.Location = new System.Drawing.Point(190, 10);
+            this.grpDevice.Location = new System.Drawing.Point(253, 12);
+            this.grpDevice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.grpDevice.Name = "grpDevice";
-            this.grpDevice.Size = new System.Drawing.Size(453, 79);
+            this.grpDevice.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpDevice.Size = new System.Drawing.Size(604, 97);
             this.grpDevice.TabIndex = 5;
             this.grpDevice.TabStop = false;
             this.grpDevice.Text = "Device Status";
@@ -130,69 +138,77 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(189, 22);
+            this.label1.Location = new System.Drawing.Point(252, 27);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
+            this.label1.Size = new System.Drawing.Size(47, 16);
             this.label1.TabIndex = 7;
             this.label1.Text = "Status:";
             // 
             // tbDeviceStatus
             // 
-            this.tbDeviceStatus.Location = new System.Drawing.Point(192, 45);
+            this.tbDeviceStatus.Location = new System.Drawing.Point(256, 55);
+            this.tbDeviceStatus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbDeviceStatus.Name = "tbDeviceStatus";
             this.tbDeviceStatus.ReadOnly = true;
-            this.tbDeviceStatus.Size = new System.Drawing.Size(98, 20);
+            this.tbDeviceStatus.Size = new System.Drawing.Size(129, 22);
             this.tbDeviceStatus.TabIndex = 6;
             // 
             // lblCurrentRange
             // 
             this.lblCurrentRange.AutoSize = true;
-            this.lblCurrentRange.Location = new System.Drawing.Point(140, 48);
+            this.lblCurrentRange.Location = new System.Drawing.Point(187, 59);
+            this.lblCurrentRange.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCurrentRange.Name = "lblCurrentRange";
-            this.lblCurrentRange.Size = new System.Drawing.Size(44, 13);
+            this.lblCurrentRange.Size = new System.Drawing.Size(52, 16);
             this.lblCurrentRange.TabIndex = 5;
             this.lblCurrentRange.Text = "* 10 mA";
             // 
             // lblCurrent
             // 
             this.lblCurrent.AutoSize = true;
-            this.lblCurrent.Location = new System.Drawing.Point(7, 48);
+            this.lblCurrent.Location = new System.Drawing.Point(9, 59);
+            this.lblCurrent.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCurrent.Name = "lblCurrent";
-            this.lblCurrent.Size = new System.Drawing.Size(44, 13);
+            this.lblCurrent.Size = new System.Drawing.Size(52, 16);
             this.lblCurrent.TabIndex = 4;
             this.lblCurrent.Text = "Current:";
             // 
             // tbCurrent
             // 
-            this.tbCurrent.Location = new System.Drawing.Point(64, 45);
+            this.tbCurrent.Location = new System.Drawing.Point(85, 55);
+            this.tbCurrent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbCurrent.Name = "tbCurrent";
             this.tbCurrent.ReadOnly = true;
-            this.tbCurrent.Size = new System.Drawing.Size(70, 20);
+            this.tbCurrent.Size = new System.Drawing.Size(92, 22);
             this.tbCurrent.TabIndex = 3;
             // 
             // lblVolt
             // 
             this.lblVolt.AutoSize = true;
-            this.lblVolt.Location = new System.Drawing.Point(140, 22);
+            this.lblVolt.Location = new System.Drawing.Point(187, 27);
+            this.lblVolt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblVolt.Name = "lblVolt";
-            this.lblVolt.Size = new System.Drawing.Size(14, 13);
+            this.lblVolt.Size = new System.Drawing.Size(16, 16);
             this.lblVolt.TabIndex = 2;
             this.lblVolt.Text = "V";
             // 
             // tbPotential
             // 
-            this.tbPotential.Location = new System.Drawing.Point(64, 19);
+            this.tbPotential.Location = new System.Drawing.Point(85, 23);
+            this.tbPotential.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbPotential.Name = "tbPotential";
             this.tbPotential.ReadOnly = true;
-            this.tbPotential.Size = new System.Drawing.Size(70, 20);
+            this.tbPotential.Size = new System.Drawing.Size(92, 22);
             this.tbPotential.TabIndex = 1;
             // 
             // lblPotential
             // 
             this.lblPotential.AutoSize = true;
-            this.lblPotential.Location = new System.Drawing.Point(7, 22);
+            this.lblPotential.Location = new System.Drawing.Point(9, 27);
+            this.lblPotential.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPotential.Name = "lblPotential";
-            this.lblPotential.Size = new System.Drawing.Size(51, 13);
+            this.lblPotential.Size = new System.Drawing.Size(62, 16);
             this.lblPotential.TabIndex = 0;
             this.lblPotential.Text = "Potential:";
             // 
@@ -204,12 +220,26 @@
             this.grpMeasurement.Controls.Add(this.btnPeaks);
             this.grpMeasurement.Controls.Add(this.plot);
             this.grpMeasurement.Controls.Add(this.btnMeasure);
-            this.grpMeasurement.Location = new System.Drawing.Point(190, 96);
+            this.grpMeasurement.Location = new System.Drawing.Point(253, 118);
+            this.grpMeasurement.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.grpMeasurement.Name = "grpMeasurement";
-            this.grpMeasurement.Size = new System.Drawing.Size(453, 373);
+            this.grpMeasurement.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpMeasurement.Size = new System.Drawing.Size(604, 459);
             this.grpMeasurement.TabIndex = 6;
             this.grpMeasurement.TabStop = false;
             this.grpMeasurement.Text = "Measurement";
+            // 
+            // btnPeaks
+            // 
+            this.btnPeaks.Enabled = false;
+            this.btnPeaks.Location = new System.Drawing.Point(116, 23);
+            this.btnPeaks.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPeaks.Name = "btnPeaks";
+            this.btnPeaks.Size = new System.Drawing.Size(113, 28);
+            this.btnPeaks.TabIndex = 5;
+            this.btnPeaks.Text = "Detect peaks";
+            this.btnPeaks.UseVisualStyleBackColor = true;
+            this.btnPeaks.Click += new System.EventHandler(this.btnPeaks_Click);
             // 
             // plot
             // 
@@ -217,11 +247,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.plot.BackColor = System.Drawing.Color.White;
-            this.plot.Location = new System.Drawing.Point(7, 49);
+            this.plot.Location = new System.Drawing.Point(9, 60);
+            this.plot.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.plot.MarkerSize = 5;
             this.plot.MarkerType = OxyPlot.MarkerType.Circle;
             this.plot.Name = "plot";
-            this.plot.Size = new System.Drawing.Size(440, 317);
+            this.plot.Size = new System.Drawing.Size(587, 390);
             this.plot.TabIndex = 4;
             this.plot.Title = null;
             this.plot.XAxisLabel = null;
@@ -230,15 +261,18 @@
             this.plot.YAxisSecondaryLabel = null;
             this.plot.YAxisSecondaryType = SDKPlot.AxisType.Linear;
             this.plot.YAxisType = SDKPlot.AxisType.Linear;
+            this.plot.Load += new System.EventHandler(this.plot_Load);
             // 
             // grpConsole
             // 
             this.grpConsole.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.grpConsole.Controls.Add(this.lbConsole);
-            this.grpConsole.Location = new System.Drawing.Point(12, 96);
+            this.grpConsole.Location = new System.Drawing.Point(16, 118);
+            this.grpConsole.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.grpConsole.Name = "grpConsole";
-            this.grpConsole.Size = new System.Drawing.Size(172, 373);
+            this.grpConsole.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpConsole.Size = new System.Drawing.Size(229, 459);
             this.grpConsole.TabIndex = 7;
             this.grpConsole.TabStop = false;
             this.grpConsole.Text = "Console";
@@ -248,9 +282,11 @@
             this.lbConsole.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.lbConsole.FormattingEnabled = true;
-            this.lbConsole.Location = new System.Drawing.Point(7, 19);
+            this.lbConsole.ItemHeight = 16;
+            this.lbConsole.Location = new System.Drawing.Point(9, 23);
+            this.lbConsole.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lbConsole.Name = "lbConsole";
-            this.lbConsole.Size = new System.Drawing.Size(154, 342);
+            this.lbConsole.Size = new System.Drawing.Size(204, 420);
             this.lbConsole.TabIndex = 0;
             // 
             // psCommSimpleWinForms
@@ -265,26 +301,16 @@
             this.psCommSimpleWinForms.StateChanged += new PalmSens.Comm.CommManager.StatusChangedEventHandler(this.psCommSimpleWinForms_StateChanged);
             this.psCommSimpleWinForms.Disconnected += new PalmSens.Core.Simplified.DisconnectedEventHandler(this.psCommSimpleWinForms_Disconnected);
             // 
-            // btnPeaks
-            // 
-            this.btnPeaks.Enabled = false;
-            this.btnPeaks.Location = new System.Drawing.Point(87, 19);
-            this.btnPeaks.Name = "btnPeaks";
-            this.btnPeaks.Size = new System.Drawing.Size(85, 23);
-            this.btnPeaks.TabIndex = 5;
-            this.btnPeaks.Text = "Detect peaks";
-            this.btnPeaks.UseVisualStyleBackColor = true;
-            this.btnPeaks.Click += new System.EventHandler(this.btnPeaks_Click);
-            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(655, 481);
+            this.ClientSize = new System.Drawing.Size(873, 592);
             this.Controls.Add(this.grpConsole);
             this.Controls.Add(this.grpMeasurement);
             this.Controls.Add(this.grpDevice);
             this.Controls.Add(this.grpConnection);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.grpConnection.ResumeLayout(false);
