@@ -73,21 +73,19 @@
             this.plotToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadMeasureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.smoothCurveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.averageBaselineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.subtractBaselineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.detectPeaksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.allPlotsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.averageBaselineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.subtractBaselineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearPlotToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.clearMeasureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.zoomSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.PlotZoomSet = new System.Windows.Forms.ToolStripMenuItem();
-            this.lODLOQCalculationTSMI = new System.Windows.Forms.ToolStripMenuItem();
-            this.TSMIdrawHas = new System.Windows.Forms.ToolStripMenuItem();
+            this.filterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imageGraphExport = new System.Windows.Forms.ToolStripMenuItem();
+            this.xlsxFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.graphTxtExport = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportGraphToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMILoadPeakLOD = new System.Windows.Forms.ToolStripMenuItem();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.rjButton2 = new RJCodeAdvance.RJControls.RJButton();
@@ -124,8 +122,6 @@
             this.measurement_type = new System.Windows.Forms.ComboBox();
             this.rjDropdownMenu1 = new RJCodeAdvance.RJControls.RJDropdownMenu(this.components);
             this.psCommSimpleWinForms = new PalmSens.Core.Simplified.WinForms.PSCommSimpleWinForms(this.components);
-            this.exportGraphToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.xlsxFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
@@ -643,7 +639,7 @@
             this.PlotSettings.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.plotToolStripMenuItem,
             this.clearToolStripMenuItem,
-            this.zoomSettingsToolStripMenuItem,
+            this.filterToolStripMenuItem,
             this.exportsToolStripMenuItem,
             this.TSMILoadPeakLOD});
             this.PlotSettings.Location = new System.Drawing.Point(0, 0);
@@ -678,6 +674,21 @@
             this.smoothCurveToolStripMenuItem.Size = new System.Drawing.Size(297, 30);
             this.smoothCurveToolStripMenuItem.Text = "Smooth Curve";
             // 
+            // detectPeaksToolStripMenuItem
+            // 
+            this.detectPeaksToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.allPlotsToolStripMenuItem});
+            this.detectPeaksToolStripMenuItem.Name = "detectPeaksToolStripMenuItem";
+            this.detectPeaksToolStripMenuItem.Size = new System.Drawing.Size(297, 30);
+            this.detectPeaksToolStripMenuItem.Text = "Detect Peaks";
+            // 
+            // allPlotsToolStripMenuItem
+            // 
+            this.allPlotsToolStripMenuItem.Name = "allPlotsToolStripMenuItem";
+            this.allPlotsToolStripMenuItem.Size = new System.Drawing.Size(166, 30);
+            this.allPlotsToolStripMenuItem.Text = "All Plots";
+            this.allPlotsToolStripMenuItem.Click += new System.EventHandler(this.allPlotsToolStripMenuItem_Click);
+            // 
             // averageBaselineToolStripMenuItem
             // 
             this.averageBaselineToolStripMenuItem.Name = "averageBaselineToolStripMenuItem";
@@ -692,26 +703,10 @@
             this.subtractBaselineToolStripMenuItem.Text = "Subtract Baseline";
             this.subtractBaselineToolStripMenuItem.Click += new System.EventHandler(this.subtractBaselineToolStripMenuItem_Click);
             // 
-            // detectPeaksToolStripMenuItem
-            // 
-            this.detectPeaksToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.allPlotsToolStripMenuItem});
-            this.detectPeaksToolStripMenuItem.Name = "detectPeaksToolStripMenuItem";
-            this.detectPeaksToolStripMenuItem.Size = new System.Drawing.Size(297, 30);
-            this.detectPeaksToolStripMenuItem.Text = "Detect Peaks";
-            // 
-            // allPlotsToolStripMenuItem
-            // 
-            this.allPlotsToolStripMenuItem.Name = "allPlotsToolStripMenuItem";
-            this.allPlotsToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
-            this.allPlotsToolStripMenuItem.Text = "All Plots";
-            this.allPlotsToolStripMenuItem.Click += new System.EventHandler(this.allPlotsToolStripMenuItem_Click);
-            // 
             // clearToolStripMenuItem
             // 
             this.clearToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.clearPlotToolStripMenuItem,
-            this.clearMeasureToolStripMenuItem,
             this.clearAllToolStripMenuItem});
             this.clearToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.clearToolStripMenuItem.Name = "clearToolStripMenuItem";
@@ -721,49 +716,22 @@
             // clearPlotToolStripMenuItem
             // 
             this.clearPlotToolStripMenuItem.Name = "clearPlotToolStripMenuItem";
-            this.clearPlotToolStripMenuItem.Size = new System.Drawing.Size(225, 30);
+            this.clearPlotToolStripMenuItem.Size = new System.Drawing.Size(180, 30);
             this.clearPlotToolStripMenuItem.Text = "Clear Plot";
-            // 
-            // clearMeasureToolStripMenuItem
-            // 
-            this.clearMeasureToolStripMenuItem.Name = "clearMeasureToolStripMenuItem";
-            this.clearMeasureToolStripMenuItem.Size = new System.Drawing.Size(225, 30);
-            this.clearMeasureToolStripMenuItem.Text = "Clear  Measure";
             // 
             // clearAllToolStripMenuItem
             // 
             this.clearAllToolStripMenuItem.Name = "clearAllToolStripMenuItem";
-            this.clearAllToolStripMenuItem.Size = new System.Drawing.Size(225, 30);
+            this.clearAllToolStripMenuItem.Size = new System.Drawing.Size(180, 30);
             this.clearAllToolStripMenuItem.Text = "Clear All";
+            this.clearAllToolStripMenuItem.Click += new System.EventHandler(this.clearAllToolStripMenuItem_Click);
             // 
-            // zoomSettingsToolStripMenuItem
+            // filterToolStripMenuItem
             // 
-            this.zoomSettingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.PlotZoomSet,
-            this.lODLOQCalculationTSMI,
-            this.TSMIdrawHas});
-            this.zoomSettingsToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.zoomSettingsToolStripMenuItem.Name = "zoomSettingsToolStripMenuItem";
-            this.zoomSettingsToolStripMenuItem.Size = new System.Drawing.Size(73, 29);
-            this.zoomSettingsToolStripMenuItem.Text = "Filter ";
-            // 
-            // PlotZoomSet
-            // 
-            this.PlotZoomSet.Name = "PlotZoomSet";
-            this.PlotZoomSet.Size = new System.Drawing.Size(277, 30);
-            this.PlotZoomSet.Text = "Filter Set";
-            // 
-            // lODLOQCalculationTSMI
-            // 
-            this.lODLOQCalculationTSMI.Name = "lODLOQCalculationTSMI";
-            this.lODLOQCalculationTSMI.Size = new System.Drawing.Size(277, 30);
-            this.lODLOQCalculationTSMI.Text = "LOD-LOQ Calculation";
-            // 
-            // TSMIdrawHas
-            // 
-            this.TSMIdrawHas.Name = "TSMIdrawHas";
-            this.TSMIdrawHas.Size = new System.Drawing.Size(277, 30);
-            this.TSMIdrawHas.Text = "New";
+            this.filterToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.filterToolStripMenuItem.Name = "filterToolStripMenuItem";
+            this.filterToolStripMenuItem.Size = new System.Drawing.Size(73, 29);
+            this.filterToolStripMenuItem.Text = "Filter ";
             // 
             // exportsToolStripMenuItem
             // 
@@ -782,11 +750,23 @@
             this.imageGraphExport.Size = new System.Drawing.Size(291, 30);
             this.imageGraphExport.Text = ".pssession File";
             // 
+            // xlsxFileToolStripMenuItem
+            // 
+            this.xlsxFileToolStripMenuItem.Name = "xlsxFileToolStripMenuItem";
+            this.xlsxFileToolStripMenuItem.Size = new System.Drawing.Size(291, 30);
+            this.xlsxFileToolStripMenuItem.Text = ".xlsx File";
+            // 
             // graphTxtExport
             // 
             this.graphTxtExport.Name = "graphTxtExport";
             this.graphTxtExport.Size = new System.Drawing.Size(291, 30);
             this.graphTxtExport.Text = ".txt File";
+            // 
+            // exportGraphToolStripMenuItem
+            // 
+            this.exportGraphToolStripMenuItem.Name = "exportGraphToolStripMenuItem";
+            this.exportGraphToolStripMenuItem.Size = new System.Drawing.Size(291, 30);
+            this.exportGraphToolStripMenuItem.Text = "Export Graph As Image";
             // 
             // TSMILoadPeakLOD
             // 
@@ -1290,18 +1270,6 @@
             this.psCommSimpleWinForms.StateChanged += new PalmSens.Comm.CommManager.StatusChangedEventHandler(this.psCommSimpleWinForms_StateChanged);
             this.psCommSimpleWinForms.Disconnected += new PalmSens.Core.Simplified.DisconnectedEventHandler(this.psCommSimpleWinForms_Disconnected);
             // 
-            // exportGraphToolStripMenuItem
-            // 
-            this.exportGraphToolStripMenuItem.Name = "exportGraphToolStripMenuItem";
-            this.exportGraphToolStripMenuItem.Size = new System.Drawing.Size(291, 30);
-            this.exportGraphToolStripMenuItem.Text = "Export Graph As Image";
-            // 
-            // xlsxFileToolStripMenuItem
-            // 
-            this.xlsxFileToolStripMenuItem.Name = "xlsxFileToolStripMenuItem";
-            this.xlsxFileToolStripMenuItem.Size = new System.Drawing.Size(291, 30);
-            this.xlsxFileToolStripMenuItem.Text = ".xlsx File";
-            // 
             // MainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1407,12 +1375,8 @@
         private System.Windows.Forms.ToolStripMenuItem loadMeasureToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clearToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clearPlotToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem clearMeasureToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clearAllToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem zoomSettingsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem PlotZoomSet;
-        private System.Windows.Forms.ToolStripMenuItem lODLOQCalculationTSMI;
-        private System.Windows.Forms.ToolStripMenuItem TSMIdrawHas;
+        private System.Windows.Forms.ToolStripMenuItem filterToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem imageGraphExport;
         private System.Windows.Forms.ToolStripMenuItem graphTxtExport;

@@ -107,6 +107,7 @@ namespace PalmSense4
             {
                 smoothCurveToolStripMenuItem.Enabled = false;
                 detectPeaksToolStripMenuItem.Enabled = false;
+                clearPlotToolStripMenuItem.Enabled = false;
             }
         }
         // CONSTRUCTORS *************************************************************************
@@ -239,6 +240,9 @@ namespace PalmSense4
             activeSimpleCurve.NewDataAdded += activeSimpleCurve_NewDataAdded;
             smoothCurveToolStripMenuItem.Enabled = false;
             detectPeaksToolStripMenuItem.Enabled = false;
+            clearPlotToolStripMenuItem.Enabled = false;
+            clearAllToolStripMenuItem.Enabled = false;
+
             if (_selectedMethod == _methodIMM)
             {
                 eisPlot.AddSimpleCurve(activeSimpleCurve);
@@ -301,6 +305,15 @@ namespace PalmSense4
             detectPeaksToolStripMenuItem.DropDownItems.Add(peekName, null, (sender3, e3) =>
             {
                 detectPeek(sender, e, activeSimpleCurve, peekName);
+            });
+
+            // Clear Plot
+            clearPlotToolStripMenuItem.Enabled = true;
+            clearAllToolStripMenuItem.Enabled = true;
+            string plotName = plotNumber + " " + activeSimpleCurve.FullTitle;
+            clearPlotToolStripMenuItem.DropDownItems.Add(plotName, null, (sender4, e4) =>
+            {
+                clearPlot(sender, e,plotName, activeSimpleCurve);
             });
 
 
@@ -579,14 +592,26 @@ namespace PalmSense4
                     item.Enabled = false;
                     item.Text = name + " (Smoothed)";
                     
-                    foreach (ToolStripMenuItem peekItem in detectPeaksToolStripMenuItem.DropDownItems)
+                    foreach (ToolStripMenuItem peakItem in detectPeaksToolStripMenuItem.DropDownItems)
                     {
-                        if (peekItem.Text == name || peekItem.Text == name + " (Detected)")
+                        if (peakItem.Text == name || peakItem.Text == name + " (Detected)")
                         {
-                            detectPeaksToolStripMenuItem.DropDownItems.Remove(peekItem);
+                            detectPeaksToolStripMenuItem.DropDownItems.Remove(peakItem);
                             detectPeaksToolStripMenuItem.DropDownItems.Add(item.Text, null, (sender3, e3) =>
                             {
                                 detectPeek(sender, e, smoothedCurve, item.Text);
+                            });
+                            break;
+                        }
+                    }
+                    foreach (ToolStripMenuItem removeItem in clearPlotToolStripMenuItem.DropDownItems)
+                    {
+                        if (removeItem.Text == name)
+                        {
+                            clearPlotToolStripMenuItem.DropDownItems.Remove(removeItem);
+                            clearPlotToolStripMenuItem.DropDownItems.Add(item.Text, null, (sender3, e3) =>
+                            {
+                                clearPlot(sender, e, item.Text, smoothedCurve);
                             });
                             break;
                         }
@@ -642,6 +667,56 @@ namespace PalmSense4
                 item.Text += " (Detected)";
             }
             lbConsole.Items.Add("All Peaks Detected");
+        }
+
+        private void clearPlot(object sender, EventArgs e, string name, SimpleCurve removingCurve)
+        {
+            foreach (ToolStripMenuItem item in clearPlotToolStripMenuItem.DropDownItems)
+            {
+                if (item.Text == name || item.Text == name + " (Smoothed)")
+                {
+                    plot.RemoveSimpleCurve(removingCurve);
+                    _allCurves.Remove(removingCurve);
+                    clearPlotToolStripMenuItem.DropDownItems.Remove(item);
+
+                    foreach (ToolStripMenuItem peakItem in detectPeaksToolStripMenuItem.DropDownItems)
+                    {
+                        if (peakItem.Text == name || peakItem.Text == name + " (Detected)")
+                        {
+                            detectPeaksToolStripMenuItem.DropDownItems.Remove(peakItem);
+                            if (detectPeaksToolStripMenuItem.DropDownItems.Count == 1) detectPeaksToolStripMenuItem.Enabled = false;
+                            break;
+                        }
+                    }
+                    foreach (ToolStripMenuItem smooothItem in smoothCurveToolStripMenuItem.DropDownItems)
+                    {
+                        if (smooothItem.Text == name)
+                        {
+                            smoothCurveToolStripMenuItem.DropDownItems.Remove(smooothItem);
+                            if (smoothCurveToolStripMenuItem.DropDownItems.Count == 0) smoothCurveToolStripMenuItem.Enabled = false;
+                            break;
+                        }
+                    }
+                    if (clearPlotToolStripMenuItem.DropDownItems.Count == 0) { clearPlotToolStripMenuItem.Enabled = false; clearAllToolStripMenuItem.Enabled = false; }
+                    break;
+                }
+            }
+
+            lbConsole.Items.Add("Plot Removed: " + name);
+        }
+
+        private void clearAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            plot.ClearAll();
+            _allCurves.Clear();
+            detectPeaksToolStripMenuItem.DropDownItems.Clear();
+            smoothCurveToolStripMenuItem.DropDownItems.Clear();
+            clearPlotToolStripMenuItem.DropDownItems.Clear();
+
+            smoothCurveToolStripMenuItem.Enabled = false;
+            detectPeaksToolStripMenuItem.Enabled = false;
+            clearPlotToolStripMenuItem.Enabled = false;
+            clearAllToolStripMenuItem.Enabled = false;
         }
     }
 }
