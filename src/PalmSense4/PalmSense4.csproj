@@ -179,6 +179,12 @@
     <Compile Include="ExportGraph.Designer.cs">
       <DependentUpon>ExportGraph.cs</DependentUpon>
     </Compile>
+    <Compile Include="FilteredPlot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FilteredPlot.Designer.cs">
+      <DependentUpon>FilteredPlot.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -231,6 +237,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ExportGraph.resx">
       <DependentUpon>ExportGraph.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FilteredPlot.resx">
+      <DependentUpon>FilteredPlot.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

@@ -307,5 +307,10 @@ namespace PSSDKInternalStorageExample
                 LogMessage(exception);
             }
         }
+
+        private void FrmInternalStorageBrowser_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

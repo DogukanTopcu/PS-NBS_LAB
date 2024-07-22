@@ -32,10 +32,24 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainPage));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.methodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveMethodAspssessionFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadMethodFrompssessionFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.importDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.importFrompssessionFileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.importFromxlsxFileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportAspssessionFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportAsxlsxFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportAstxtFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportGraphAsImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.measurementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.downloadMeasurementDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveMeasurementDaaToLocalStorageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.startWithNewPlotToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.plotToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.eISPlotToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.smoothCurveToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.peakDetectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.status_statusbar = new System.Windows.Forms.ToolStripStatusLabel();
             this.potential_statusbar = new System.Windows.Forms.ToolStripStatusLabel();
@@ -71,22 +85,20 @@
             this.plot = new SDKPlot.WinForms.Plot();
             this.PlotSettings = new System.Windows.Forms.MenuStrip();
             this.plotToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loadMeasureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.smoothCurveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.detectPeaksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.allPlotsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.averageBaselineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.subtractBaselineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearPlotToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.filterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.imageGraphExport = new System.Windows.Forms.ToolStripMenuItem();
-            this.xlsxFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.graphTxtExport = new System.Windows.Forms.ToolStripMenuItem();
-            this.exportGraphToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMILoadPeakLOD = new System.Windows.Forms.ToolStripMenuItem();
+            this.importFrompssessionFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.importFromxlsxFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pssessionExport = new System.Windows.Forms.ToolStripMenuItem();
+            this.xlsxFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportGraphToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.rjButton2 = new RJCodeAdvance.RJControls.RJButton();
             this.rjButton22 = new RJCodeAdvance.RJControls.RJButton();
@@ -159,8 +171,7 @@
             this.methodToolStripMenuItem,
             this.dataToolStripMenuItem,
             this.measurementToolStripMenuItem,
-            this.plotToolStripMenuItem1,
-            this.eISPlotToolStripMenuItem});
+            this.plotToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1632, 36);
@@ -169,33 +180,138 @@
             // 
             // methodToolStripMenuItem
             // 
+            this.methodToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saveMethodAspssessionFileToolStripMenuItem,
+            this.loadMethodFrompssessionFileToolStripMenuItem});
             this.methodToolStripMenuItem.Name = "methodToolStripMenuItem";
             this.methodToolStripMenuItem.Size = new System.Drawing.Size(96, 32);
             this.methodToolStripMenuItem.Text = "Method";
             // 
+            // saveMethodAspssessionFileToolStripMenuItem
+            // 
+            this.saveMethodAspssessionFileToolStripMenuItem.Name = "saveMethodAspssessionFileToolStripMenuItem";
+            this.saveMethodAspssessionFileToolStripMenuItem.Size = new System.Drawing.Size(393, 32);
+            this.saveMethodAspssessionFileToolStripMenuItem.Text = "Save Method as .pssession File";
+            // 
+            // loadMethodFrompssessionFileToolStripMenuItem
+            // 
+            this.loadMethodFrompssessionFileToolStripMenuItem.Name = "loadMethodFrompssessionFileToolStripMenuItem";
+            this.loadMethodFrompssessionFileToolStripMenuItem.Size = new System.Drawing.Size(393, 32);
+            this.loadMethodFrompssessionFileToolStripMenuItem.Text = "Load Method From .pssession File";
+            // 
             // dataToolStripMenuItem
             // 
+            this.dataToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.importDataToolStripMenuItem,
+            this.exportDataToolStripMenuItem});
             this.dataToolStripMenuItem.Name = "dataToolStripMenuItem";
             this.dataToolStripMenuItem.Size = new System.Drawing.Size(67, 32);
             this.dataToolStripMenuItem.Text = "Data";
             // 
+            // importDataToolStripMenuItem
+            // 
+            this.importDataToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.importFrompssessionFileToolStripMenuItem1,
+            this.importFromxlsxFileToolStripMenuItem1});
+            this.importDataToolStripMenuItem.Name = "importDataToolStripMenuItem";
+            this.importDataToolStripMenuItem.Size = new System.Drawing.Size(204, 32);
+            this.importDataToolStripMenuItem.Text = "Import Data";
+            // 
+            // importFrompssessionFileToolStripMenuItem1
+            // 
+            this.importFrompssessionFileToolStripMenuItem1.Name = "importFrompssessionFileToolStripMenuItem1";
+            this.importFrompssessionFileToolStripMenuItem1.Size = new System.Drawing.Size(335, 32);
+            this.importFrompssessionFileToolStripMenuItem1.Text = "Import From .pssession File";
+            // 
+            // importFromxlsxFileToolStripMenuItem1
+            // 
+            this.importFromxlsxFileToolStripMenuItem1.Name = "importFromxlsxFileToolStripMenuItem1";
+            this.importFromxlsxFileToolStripMenuItem1.Size = new System.Drawing.Size(335, 32);
+            this.importFromxlsxFileToolStripMenuItem1.Text = "Import From .xlsx File";
+            // 
+            // exportDataToolStripMenuItem
+            // 
+            this.exportDataToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exportAspssessionFileToolStripMenuItem,
+            this.exportAsxlsxFileToolStripMenuItem,
+            this.exportAstxtFileToolStripMenuItem,
+            this.exportGraphAsImageToolStripMenuItem});
+            this.exportDataToolStripMenuItem.Name = "exportDataToolStripMenuItem";
+            this.exportDataToolStripMenuItem.Size = new System.Drawing.Size(204, 32);
+            this.exportDataToolStripMenuItem.Text = "Export Data";
+            // 
+            // exportAspssessionFileToolStripMenuItem
+            // 
+            this.exportAspssessionFileToolStripMenuItem.Name = "exportAspssessionFileToolStripMenuItem";
+            this.exportAspssessionFileToolStripMenuItem.Size = new System.Drawing.Size(304, 32);
+            this.exportAspssessionFileToolStripMenuItem.Text = "Export as .pssession File";
+            // 
+            // exportAsxlsxFileToolStripMenuItem
+            // 
+            this.exportAsxlsxFileToolStripMenuItem.Name = "exportAsxlsxFileToolStripMenuItem";
+            this.exportAsxlsxFileToolStripMenuItem.Size = new System.Drawing.Size(304, 32);
+            this.exportAsxlsxFileToolStripMenuItem.Text = "Export as .xlsx File";
+            // 
+            // exportAstxtFileToolStripMenuItem
+            // 
+            this.exportAstxtFileToolStripMenuItem.Name = "exportAstxtFileToolStripMenuItem";
+            this.exportAstxtFileToolStripMenuItem.Size = new System.Drawing.Size(304, 32);
+            this.exportAstxtFileToolStripMenuItem.Text = "Export as .txt File";
+            // 
+            // exportGraphAsImageToolStripMenuItem
+            // 
+            this.exportGraphAsImageToolStripMenuItem.Name = "exportGraphAsImageToolStripMenuItem";
+            this.exportGraphAsImageToolStripMenuItem.Size = new System.Drawing.Size(304, 32);
+            this.exportGraphAsImageToolStripMenuItem.Text = "Export Graph as Image";
+            // 
             // measurementToolStripMenuItem
             // 
+            this.measurementToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.downloadMeasurementDataToolStripMenuItem,
+            this.saveMeasurementDaaToLocalStorageToolStripMenuItem,
+            this.startWithNewPlotToolStripMenuItem});
             this.measurementToolStripMenuItem.Name = "measurementToolStripMenuItem";
             this.measurementToolStripMenuItem.Size = new System.Drawing.Size(145, 32);
             this.measurementToolStripMenuItem.Text = "Measurement";
             // 
+            // downloadMeasurementDataToolStripMenuItem
+            // 
+            this.downloadMeasurementDataToolStripMenuItem.Name = "downloadMeasurementDataToolStripMenuItem";
+            this.downloadMeasurementDataToolStripMenuItem.Size = new System.Drawing.Size(273, 32);
+            this.downloadMeasurementDataToolStripMenuItem.Text = "Start Measurement";
+            // 
+            // saveMeasurementDaaToLocalStorageToolStripMenuItem
+            // 
+            this.saveMeasurementDaaToLocalStorageToolStripMenuItem.Name = "saveMeasurementDaaToLocalStorageToolStripMenuItem";
+            this.saveMeasurementDaaToLocalStorageToolStripMenuItem.Size = new System.Drawing.Size(273, 32);
+            this.saveMeasurementDaaToLocalStorageToolStripMenuItem.Text = "Abort Measurement";
+            // 
+            // startWithNewPlotToolStripMenuItem
+            // 
+            this.startWithNewPlotToolStripMenuItem.Name = "startWithNewPlotToolStripMenuItem";
+            this.startWithNewPlotToolStripMenuItem.Size = new System.Drawing.Size(273, 32);
+            this.startWithNewPlotToolStripMenuItem.Text = "Start with New Plot";
+            // 
             // plotToolStripMenuItem1
             // 
+            this.plotToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.smoothCurveToolStripMenuItem1,
+            this.peakDetectionToolStripMenuItem});
             this.plotToolStripMenuItem1.Name = "plotToolStripMenuItem1";
             this.plotToolStripMenuItem1.Size = new System.Drawing.Size(61, 32);
             this.plotToolStripMenuItem1.Text = "Plot";
             // 
-            // eISPlotToolStripMenuItem
+            // smoothCurveToolStripMenuItem1
             // 
-            this.eISPlotToolStripMenuItem.Name = "eISPlotToolStripMenuItem";
-            this.eISPlotToolStripMenuItem.Size = new System.Drawing.Size(92, 32);
-            this.eISPlotToolStripMenuItem.Text = "EIS Plot";
+            this.smoothCurveToolStripMenuItem1.Name = "smoothCurveToolStripMenuItem1";
+            this.smoothCurveToolStripMenuItem1.Size = new System.Drawing.Size(228, 32);
+            this.smoothCurveToolStripMenuItem1.Text = "Smooth Curve";
+            // 
+            // peakDetectionToolStripMenuItem
+            // 
+            this.peakDetectionToolStripMenuItem.Name = "peakDetectionToolStripMenuItem";
+            this.peakDetectionToolStripMenuItem.Size = new System.Drawing.Size(228, 32);
+            this.peakDetectionToolStripMenuItem.Text = "Peak Detection";
             // 
             // statusStrip1
             // 
@@ -640,8 +756,8 @@
             this.plotToolStripMenuItem,
             this.clearToolStripMenuItem,
             this.filterToolStripMenuItem,
-            this.exportsToolStripMenuItem,
-            this.TSMILoadPeakLOD});
+            this.TSMILoadPeakLOD,
+            this.exportsToolStripMenuItem});
             this.PlotSettings.Location = new System.Drawing.Point(0, 0);
             this.PlotSettings.Name = "PlotSettings";
             this.PlotSettings.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
@@ -653,25 +769,16 @@
             // plotToolStripMenuItem
             // 
             this.plotToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.loadMeasureToolStripMenuItem,
             this.smoothCurveToolStripMenuItem,
-            this.detectPeaksToolStripMenuItem,
-            this.averageBaselineToolStripMenuItem,
-            this.subtractBaselineToolStripMenuItem});
+            this.detectPeaksToolStripMenuItem});
             this.plotToolStripMenuItem.Name = "plotToolStripMenuItem";
             this.plotToolStripMenuItem.Size = new System.Drawing.Size(59, 29);
             this.plotToolStripMenuItem.Text = "Plot";
             // 
-            // loadMeasureToolStripMenuItem
-            // 
-            this.loadMeasureToolStripMenuItem.Name = "loadMeasureToolStripMenuItem";
-            this.loadMeasureToolStripMenuItem.Size = new System.Drawing.Size(297, 30);
-            this.loadMeasureToolStripMenuItem.Text = "Load Measure For Excel";
-            // 
             // smoothCurveToolStripMenuItem
             // 
             this.smoothCurveToolStripMenuItem.Name = "smoothCurveToolStripMenuItem";
-            this.smoothCurveToolStripMenuItem.Size = new System.Drawing.Size(297, 30);
+            this.smoothCurveToolStripMenuItem.Size = new System.Drawing.Size(217, 30);
             this.smoothCurveToolStripMenuItem.Text = "Smooth Curve";
             // 
             // detectPeaksToolStripMenuItem
@@ -679,7 +786,7 @@
             this.detectPeaksToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.allPlotsToolStripMenuItem});
             this.detectPeaksToolStripMenuItem.Name = "detectPeaksToolStripMenuItem";
-            this.detectPeaksToolStripMenuItem.Size = new System.Drawing.Size(297, 30);
+            this.detectPeaksToolStripMenuItem.Size = new System.Drawing.Size(217, 30);
             this.detectPeaksToolStripMenuItem.Text = "Detect Peaks";
             // 
             // allPlotsToolStripMenuItem
@@ -688,20 +795,6 @@
             this.allPlotsToolStripMenuItem.Size = new System.Drawing.Size(166, 30);
             this.allPlotsToolStripMenuItem.Text = "All Plots";
             this.allPlotsToolStripMenuItem.Click += new System.EventHandler(this.allPlotsToolStripMenuItem_Click);
-            // 
-            // averageBaselineToolStripMenuItem
-            // 
-            this.averageBaselineToolStripMenuItem.Name = "averageBaselineToolStripMenuItem";
-            this.averageBaselineToolStripMenuItem.Size = new System.Drawing.Size(297, 30);
-            this.averageBaselineToolStripMenuItem.Text = "Average Baseline";
-            this.averageBaselineToolStripMenuItem.Click += new System.EventHandler(this.averageBaselineToolStripMenuItem_Click);
-            // 
-            // subtractBaselineToolStripMenuItem
-            // 
-            this.subtractBaselineToolStripMenuItem.Name = "subtractBaselineToolStripMenuItem";
-            this.subtractBaselineToolStripMenuItem.Size = new System.Drawing.Size(297, 30);
-            this.subtractBaselineToolStripMenuItem.Text = "Subtract Baseline";
-            this.subtractBaselineToolStripMenuItem.Click += new System.EventHandler(this.subtractBaselineToolStripMenuItem_Click);
             // 
             // clearToolStripMenuItem
             // 
@@ -733,46 +826,58 @@
             this.filterToolStripMenuItem.Size = new System.Drawing.Size(73, 29);
             this.filterToolStripMenuItem.Text = "Filter ";
             // 
+            // TSMILoadPeakLOD
+            // 
+            this.TSMILoadPeakLOD.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.importFrompssessionFileToolStripMenuItem,
+            this.importFromxlsxFileToolStripMenuItem});
+            this.TSMILoadPeakLOD.Name = "TSMILoadPeakLOD";
+            this.TSMILoadPeakLOD.Size = new System.Drawing.Size(90, 29);
+            this.TSMILoadPeakLOD.Text = "Imports";
+            // 
+            // importFrompssessionFileToolStripMenuItem
+            // 
+            this.importFrompssessionFileToolStripMenuItem.Name = "importFrompssessionFileToolStripMenuItem";
+            this.importFrompssessionFileToolStripMenuItem.Size = new System.Drawing.Size(325, 30);
+            this.importFrompssessionFileToolStripMenuItem.Text = "Import From .pssession File";
+            this.importFrompssessionFileToolStripMenuItem.Click += new System.EventHandler(this.importFrompssessionFileToolStripMenuItem_Click);
+            // 
+            // importFromxlsxFileToolStripMenuItem
+            // 
+            this.importFromxlsxFileToolStripMenuItem.Name = "importFromxlsxFileToolStripMenuItem";
+            this.importFromxlsxFileToolStripMenuItem.Size = new System.Drawing.Size(325, 30);
+            this.importFromxlsxFileToolStripMenuItem.Text = "Load Data From .xlsx File";
+            this.importFromxlsxFileToolStripMenuItem.Click += new System.EventHandler(this.importFromxlsxFileToolStripMenuItem_Click);
+            // 
             // exportsToolStripMenuItem
             // 
             this.exportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.imageGraphExport,
+            this.pssessionExport,
             this.xlsxFileToolStripMenuItem,
-            this.graphTxtExport,
             this.exportGraphToolStripMenuItem});
             this.exportsToolStripMenuItem.Name = "exportsToolStripMenuItem";
             this.exportsToolStripMenuItem.Size = new System.Drawing.Size(88, 29);
             this.exportsToolStripMenuItem.Text = "Exports";
             // 
-            // imageGraphExport
+            // pssessionExport
             // 
-            this.imageGraphExport.Name = "imageGraphExport";
-            this.imageGraphExport.Size = new System.Drawing.Size(291, 30);
-            this.imageGraphExport.Text = ".pssession File";
+            this.pssessionExport.Name = "pssessionExport";
+            this.pssessionExport.Size = new System.Drawing.Size(291, 30);
+            this.pssessionExport.Text = ".pssession File";
+            this.pssessionExport.Click += new System.EventHandler(this.pssessionExport_Click);
             // 
             // xlsxFileToolStripMenuItem
             // 
             this.xlsxFileToolStripMenuItem.Name = "xlsxFileToolStripMenuItem";
             this.xlsxFileToolStripMenuItem.Size = new System.Drawing.Size(291, 30);
             this.xlsxFileToolStripMenuItem.Text = ".xlsx File";
-            // 
-            // graphTxtExport
-            // 
-            this.graphTxtExport.Name = "graphTxtExport";
-            this.graphTxtExport.Size = new System.Drawing.Size(291, 30);
-            this.graphTxtExport.Text = ".txt File";
+            this.xlsxFileToolStripMenuItem.Click += new System.EventHandler(this.xlsxFileToolStripMenuItem_Click);
             // 
             // exportGraphToolStripMenuItem
             // 
             this.exportGraphToolStripMenuItem.Name = "exportGraphToolStripMenuItem";
             this.exportGraphToolStripMenuItem.Size = new System.Drawing.Size(291, 30);
             this.exportGraphToolStripMenuItem.Text = "Export Graph As Image";
-            // 
-            // TSMILoadPeakLOD
-            // 
-            this.TSMILoadPeakLOD.Name = "TSMILoadPeakLOD";
-            this.TSMILoadPeakLOD.Size = new System.Drawing.Size(234, 29);
-            this.TSMILoadPeakLOD.Text = "Load Peaks for LOD & LOQ";
             // 
             // flowLayoutPanel4
             // 
@@ -1331,7 +1436,6 @@
         private System.Windows.Forms.ToolStripMenuItem dataToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem measurementToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem plotToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem eISPlotToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel status_statusbar;
         private System.Windows.Forms.ToolStripStatusLabel potential_statusbar;
@@ -1372,14 +1476,12 @@
         private System.Windows.Forms.Panel cv_dp_plot;
         private System.Windows.Forms.MenuStrip PlotSettings;
         private System.Windows.Forms.ToolStripMenuItem plotToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem loadMeasureToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clearToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clearPlotToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clearAllToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem filterToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem imageGraphExport;
-        private System.Windows.Forms.ToolStripMenuItem graphTxtExport;
+        private System.Windows.Forms.ToolStripMenuItem pssessionExport;
         private System.Windows.Forms.ToolStripMenuItem TSMILoadPeakLOD;
         private System.Windows.Forms.TabPage eisPlotArea;
         private System.Windows.Forms.TabPage dataArea;
@@ -1412,11 +1514,26 @@
         private System.Windows.Forms.CheckBox saveSettingsInInternalStorage;
         private SDKPlot.WinForms.Plot eisPlot;
         private System.Windows.Forms.ToolStripMenuItem smoothCurveToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem averageBaselineToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem subtractBaselineToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem detectPeaksToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem allPlotsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem xlsxFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportGraphToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem importFrompssessionFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem importFromxlsxFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveMethodAspssessionFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loadMethodFrompssessionFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem importDataToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem importFrompssessionFileToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem importFromxlsxFileToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem exportDataToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exportAspssessionFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exportAsxlsxFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exportAstxtFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exportGraphAsImageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem downloadMeasurementDataToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveMeasurementDaaToLocalStorageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem startWithNewPlotToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem smoothCurveToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem peakDetectionToolStripMenuItem;
     }
 }

@@ -56,9 +56,11 @@
             this.grpConnection.Controls.Add(this.cmbDevices);
             this.grpConnection.Controls.Add(this.btnRefresh);
             this.grpConnection.Controls.Add(this.btnConnect);
-            this.grpConnection.Location = new System.Drawing.Point(12, 12);
+            this.grpConnection.Location = new System.Drawing.Point(16, 15);
+            this.grpConnection.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.grpConnection.Name = "grpConnection";
-            this.grpConnection.Size = new System.Drawing.Size(277, 79);
+            this.grpConnection.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpConnection.Size = new System.Drawing.Size(369, 97);
             this.grpConnection.TabIndex = 5;
             this.grpConnection.TabStop = false;
             this.grpConnection.Text = "Connection";
@@ -69,16 +71,18 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbDevices.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDevices.FormattingEnabled = true;
-            this.cmbDevices.Location = new System.Drawing.Point(6, 19);
+            this.cmbDevices.Location = new System.Drawing.Point(8, 23);
+            this.cmbDevices.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbDevices.Name = "cmbDevices";
-            this.cmbDevices.Size = new System.Drawing.Size(261, 21);
+            this.cmbDevices.Size = new System.Drawing.Size(347, 24);
             this.cmbDevices.TabIndex = 0;
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(6, 46);
+            this.btnRefresh.Location = new System.Drawing.Point(8, 57);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh.Size = new System.Drawing.Size(100, 28);
             this.btnRefresh.TabIndex = 1;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
@@ -87,9 +91,10 @@
             // btnConnect
             // 
             this.btnConnect.Enabled = false;
-            this.btnConnect.Location = new System.Drawing.Point(86, 46);
+            this.btnConnect.Location = new System.Drawing.Point(115, 57);
+            this.btnConnect.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(75, 23);
+            this.btnConnect.Size = new System.Drawing.Size(100, 28);
             this.btnConnect.TabIndex = 2;
             this.btnConnect.Text = "Connect";
             this.btnConnect.UseVisualStyleBackColor = true;
@@ -101,9 +106,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grpConsole.Controls.Add(this.lbConsole);
-            this.grpConsole.Location = new System.Drawing.Point(12, 94);
+            this.grpConsole.Location = new System.Drawing.Point(16, 116);
+            this.grpConsole.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.grpConsole.Name = "grpConsole";
-            this.grpConsole.Size = new System.Drawing.Size(277, 306);
+            this.grpConsole.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpConsole.Size = new System.Drawing.Size(369, 377);
             this.grpConsole.TabIndex = 8;
             this.grpConsole.TabStop = false;
             this.grpConsole.Text = "Console";
@@ -115,17 +122,20 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbConsole.FormattingEnabled = true;
             this.lbConsole.HorizontalScrollbar = true;
-            this.lbConsole.Location = new System.Drawing.Point(7, 19);
+            this.lbConsole.ItemHeight = 16;
+            this.lbConsole.Location = new System.Drawing.Point(9, 23);
+            this.lbConsole.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lbConsole.Name = "lbConsole";
-            this.lbConsole.Size = new System.Drawing.Size(264, 277);
+            this.lbConsole.Size = new System.Drawing.Size(351, 340);
             this.lbConsole.TabIndex = 0;
             // 
             // btnListFiles
             // 
             this.btnListFiles.Enabled = false;
-            this.btnListFiles.Location = new System.Drawing.Point(6, 19);
+            this.btnListFiles.Location = new System.Drawing.Point(8, 23);
+            this.btnListFiles.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnListFiles.Name = "btnListFiles";
-            this.btnListFiles.Size = new System.Drawing.Size(75, 23);
+            this.btnListFiles.Size = new System.Drawing.Size(100, 28);
             this.btnListFiles.TabIndex = 3;
             this.btnListFiles.Text = "List Files";
             this.btnListFiles.UseVisualStyleBackColor = true;
@@ -143,9 +153,11 @@
             this.groupBox1.Controls.Add(this.btnOpen);
             this.groupBox1.Controls.Add(this.numUDTargetItem);
             this.groupBox1.Controls.Add(this.btnListFiles);
-            this.groupBox1.Location = new System.Drawing.Point(296, 12);
+            this.groupBox1.Location = new System.Drawing.Point(395, 15);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(302, 79);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(403, 97);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Internal Storage Commands";
@@ -153,9 +165,10 @@
             // btnOpen
             // 
             this.btnOpen.Enabled = false;
-            this.btnOpen.Location = new System.Drawing.Point(87, 46);
+            this.btnOpen.Location = new System.Drawing.Point(116, 57);
+            this.btnOpen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnOpen.Name = "btnOpen";
-            this.btnOpen.Size = new System.Drawing.Size(75, 23);
+            this.btnOpen.Size = new System.Drawing.Size(100, 28);
             this.btnOpen.TabIndex = 5;
             this.btnOpen.Text = "Open";
             this.btnOpen.UseVisualStyleBackColor = true;
@@ -164,9 +177,10 @@
             // numUDTargetItem
             // 
             this.numUDTargetItem.Enabled = false;
-            this.numUDTargetItem.Location = new System.Drawing.Point(6, 49);
+            this.numUDTargetItem.Location = new System.Drawing.Point(8, 60);
+            this.numUDTargetItem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.numUDTargetItem.Name = "numUDTargetItem";
-            this.numUDTargetItem.Size = new System.Drawing.Size(75, 20);
+            this.numUDTargetItem.Size = new System.Drawing.Size(100, 22);
             this.numUDTargetItem.TabIndex = 4;
             this.numUDTargetItem.Value = new decimal(new int[] {
             1,
@@ -180,9 +194,11 @@
             this.grpInternalStorage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grpInternalStorage.Controls.Add(this.lbInternalStorage);
-            this.grpInternalStorage.Location = new System.Drawing.Point(296, 94);
+            this.grpInternalStorage.Location = new System.Drawing.Point(395, 116);
+            this.grpInternalStorage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.grpInternalStorage.Name = "grpInternalStorage";
-            this.grpInternalStorage.Size = new System.Drawing.Size(302, 306);
+            this.grpInternalStorage.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpInternalStorage.Size = new System.Drawing.Size(403, 377);
             this.grpInternalStorage.TabIndex = 10;
             this.grpInternalStorage.TabStop = false;
             this.grpInternalStorage.Text = "Internal Storage";
@@ -193,24 +209,28 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbInternalStorage.FormattingEnabled = true;
-            this.lbInternalStorage.Location = new System.Drawing.Point(7, 19);
+            this.lbInternalStorage.ItemHeight = 16;
+            this.lbInternalStorage.Location = new System.Drawing.Point(9, 23);
+            this.lbInternalStorage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lbInternalStorage.Name = "lbInternalStorage";
-            this.lbInternalStorage.Size = new System.Drawing.Size(289, 277);
+            this.lbInternalStorage.Size = new System.Drawing.Size(384, 340);
             this.lbInternalStorage.TabIndex = 0;
             this.lbInternalStorage.SelectedIndexChanged += new System.EventHandler(this.lbInternalStorage_SelectedIndexChanged);
             this.lbInternalStorage.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbInternalStorage_MouseDoubleClick);
             // 
             // FrmInternalStorageBrowser
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(610, 409);
+            this.ClientSize = new System.Drawing.Size(813, 503);
             this.Controls.Add(this.grpInternalStorage);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.grpConsole);
             this.Controls.Add(this.grpConnection);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmInternalStorageBrowser";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.FrmInternalStorageBrowser_Load);
             this.grpConnection.ResumeLayout(false);
             this.grpConsole.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
