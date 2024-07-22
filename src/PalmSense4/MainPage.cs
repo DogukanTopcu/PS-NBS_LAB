@@ -199,7 +199,6 @@ namespace PalmSense4
             status_statusbar.Text = "Status: " + CurrentState.ToString();
 
             btnConnect.Enabled = CurrentState == PalmSens.Comm.CommManager.DeviceState.Idle;
-            regenerationStartButton.Text = CurrentState == PalmSens.Comm.CommManager.DeviceState.Idle ? "Start" : "Abort";
         }
 
         private void psCommSimpleWinForms_ReceiveStatus(object sender, PalmSens.Comm.StatusEventArgs e)
@@ -894,6 +893,11 @@ namespace PalmSense4
         private void importFromxlsxFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             btnLoad_Click(sender, e);
+        }
+
+        private void regeneration1_Load(object sender, EventArgs e)
+        {
+            regeneration1.generateFunction(lbConsole);
         }
     }
 }
