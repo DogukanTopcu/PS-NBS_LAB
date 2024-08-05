@@ -8,15 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using MathNet.Numerics.LinearAlgebra;
 
 namespace PalmSense4
 {
-    public partial class regression_analysis : Form
+    public partial class RegressionAnalysis : Form
     {
         List<double> xdata;
         List<double> ydata;
 
-        public regression_analysis()
+        public RegressionAnalysis()
         {
             InitializeComponent();
 
@@ -37,7 +38,7 @@ namespace PalmSense4
 
         private void regression_analysis_Load(object sender, EventArgs e)
         {
-            plotsPanel.Controls.Add(splitContainer1);
+            //plotsPanel.Controls.Add(splitContainer1);
         }
 
         private void calculateBtn_Click(object sender, EventArgs e)
@@ -45,9 +46,29 @@ namespace PalmSense4
             var M = Matrix<double>.Build;
             var V = Vector<double>.Build;
 
+            // Create xdata and ydata lists
+            // Also find the minimum and maximum values of xdata.
+            double minValue = 0.0;
+            double maxValue = 0.0;
 
+            var X = M.DenseOfColumnVectors(V.Dense(xdata.ToArray().Length, 1), V.Dense(xdata.ToArray()));
+            var Y = V.Dense(ydata.ToArray());
+            var P = X.QR().Solve(Y);
 
-            
+            double a = P[0];
+            double b = P[1];
+
+            // y = a + bx
+            List<double> xVals = new List<double>();
+            List<double> yVals = new List<double>();
+            for (double x = minValue; x < maxValue; x++)
+            {
+                double y = a + b * x;
+                xVals.Add(x);
+                yVals.Add(y);
+            }
+
+            plot1.AddData("", new List<double>(xVals).ToArray(), new List<double>(yVals).ToArray());
         }
     }
 }

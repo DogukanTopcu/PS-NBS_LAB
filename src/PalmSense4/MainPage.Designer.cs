@@ -83,6 +83,7 @@
             this.clearPlotToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.filterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.regressionAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMILoadPeakLOD = new System.Windows.Forms.ToolStripMenuItem();
             this.importFrompssessionFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importFromxlsxFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -125,7 +126,6 @@
             this.measurement_type = new System.Windows.Forms.ComboBox();
             this.rjDropdownMenu1 = new RJCodeAdvance.RJControls.RJDropdownMenu(this.components);
             this.psCommSimpleWinForms = new PalmSens.Core.Simplified.WinForms.PSCommSimpleWinForms(this.components);
-            this.regressionAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
@@ -684,6 +684,13 @@
             this.filterToolStripMenuItem.Size = new System.Drawing.Size(73, 29);
             this.filterToolStripMenuItem.Text = "Filter ";
             // 
+            // regressionAnalysisToolStripMenuItem
+            // 
+            this.regressionAnalysisToolStripMenuItem.Name = "regressionAnalysisToolStripMenuItem";
+            this.regressionAnalysisToolStripMenuItem.Size = new System.Drawing.Size(190, 29);
+            this.regressionAnalysisToolStripMenuItem.Text = "Regression Analysis";
+            this.regressionAnalysisToolStripMenuItem.Click += new System.EventHandler(this.regressionAnalysisToolStripMenuItem_Click);
+            // 
             // TSMILoadPeakLOD
             // 
             this.TSMILoadPeakLOD.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1232,12 +1239,6 @@
             this.psCommSimpleWinForms.SimpleCurveStartReceivingData += new PalmSens.Core.Simplified.PSCommSimple.SimpleCurveStartReceivingDataHandler(this.psCommSimpleWinForms_SimpleCurveStartReceivingData);
             this.psCommSimpleWinForms.StateChanged += new PalmSens.Comm.CommManager.StatusChangedEventHandler(this.psCommSimpleWinForms_StateChanged);
             this.psCommSimpleWinForms.Disconnected += new PalmSens.Core.Simplified.DisconnectedEventHandler(this.psCommSimpleWinForms_Disconnected);
-            // 
-            // regressionAnalysisToolStripMenuItem
-            // 
-            this.regressionAnalysisToolStripMenuItem.Name = "regressionAnalysisToolStripMenuItem";
-            this.regressionAnalysisToolStripMenuItem.Size = new System.Drawing.Size(190, 29);
-            this.regressionAnalysisToolStripMenuItem.Text = "Regression Analysis";
             // 
             // MainPage
             // 

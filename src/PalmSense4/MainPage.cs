@@ -899,5 +899,10 @@ namespace PalmSense4
         {
             regeneration1.generateFunction(lbConsole);
         }
+
+        private void regressionAnalysisToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new RegressionAnalysis().ShowDialog();
+        }
     }
 }
