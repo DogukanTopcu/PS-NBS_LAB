@@ -17,12 +17,16 @@ namespace PalmSense4
         List<double> xdata;
         List<double> ydata;
 
-        public RegressionAnalysis()
+        private Dictionary<string, List<List<double>>> _allMeasurements;
+
+        public RegressionAnalysis(Dictionary<string, List<List<double>>> _m)
         {
             InitializeComponent();
 
             xdata = new List<double>();
             ydata = new List<double>();
+
+            _allMeasurements = _m;
         }
 
         private void exportToolStripMenuItem_Click(object sender, EventArgs e)
@@ -39,6 +43,10 @@ namespace PalmSense4
         private void regression_analysis_Load(object sender, EventArgs e)
         {
             //plotsPanel.Controls.Add(splitContainer1);
+            foreach (var item in _allMeasurements)
+            {
+                plotsList.Items.Add(item.Key);
+            }
         }
 
         private void calculateBtn_Click(object sender, EventArgs e)

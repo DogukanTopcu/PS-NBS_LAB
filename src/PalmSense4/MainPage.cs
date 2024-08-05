@@ -1,4 +1,5 @@
 ﻿using Microsoft.Office.Interop.Excel;
+using Newtonsoft.Json.Linq;
 using OxyPlot;
 using PalmSens;
 using PalmSens.Comm;
@@ -854,6 +855,19 @@ namespace PalmSense4
                 {
                     number++;
                     plot.AddSimpleCurve(sc);
+                    InitDataGridView();
+                    for (int i = 0; i < sc.XAxisValues.Length; i++)
+                    {
+                        _measurementData.Add(new List<double> { (i + 1), sc.XAxisValues[i], sc.YAxisValues[i] });
+
+                        dgvMeasurement.Rows.Add(1);
+                        dgvMeasurement.Rows[i].Cells[0].Value = (i + 1).ToString();
+                        dgvMeasurement.Rows[i].Cells[1].Value = sc.XAxisValues[i].ToString("F2");
+                        dgvMeasurement.Rows[i].Cells[2].Value = sc.YAxisValues[i].ToString("E3");
+
+                    }
+                    _allMeasurements.Add(sc.FullTitle + _allMeasurements.Count.ToString(), new List<List<double>>(_measurementData));
+                    _measurementData.Clear();
 
                     string itemName = number + " " + sc.FullTitle;
 
@@ -902,7 +916,7 @@ namespace PalmSense4
 
         private void regressionAnalysisToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new RegressionAnalysis().ShowDialog();
+            new RegressionAnalysis(_allMeasurements).ShowDialog();
         }
     }
 }
