@@ -125,6 +125,7 @@
             this.measurement_type = new System.Windows.Forms.ComboBox();
             this.rjDropdownMenu1 = new RJCodeAdvance.RJControls.RJDropdownMenu(this.components);
             this.psCommSimpleWinForms = new PalmSens.Core.Simplified.WinForms.PSCommSimpleWinForms(this.components);
+            this.regressionAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
@@ -612,6 +613,7 @@
             this.plotToolStripMenuItem,
             this.clearToolStripMenuItem,
             this.filterToolStripMenuItem,
+            this.regressionAnalysisToolStripMenuItem,
             this.TSMILoadPeakLOD,
             this.exportsToolStripMenuItem});
             this.PlotSettings.Location = new System.Drawing.Point(0, 0);
@@ -1231,6 +1233,12 @@
             this.psCommSimpleWinForms.StateChanged += new PalmSens.Comm.CommManager.StatusChangedEventHandler(this.psCommSimpleWinForms_StateChanged);
             this.psCommSimpleWinForms.Disconnected += new PalmSens.Core.Simplified.DisconnectedEventHandler(this.psCommSimpleWinForms_Disconnected);
             // 
+            // regressionAnalysisToolStripMenuItem
+            // 
+            this.regressionAnalysisToolStripMenuItem.Name = "regressionAnalysisToolStripMenuItem";
+            this.regressionAnalysisToolStripMenuItem.Size = new System.Drawing.Size(190, 29);
+            this.regressionAnalysisToolStripMenuItem.Text = "Regression Analysis";
+            // 
             // MainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1378,5 +1386,6 @@
         private System.Windows.Forms.ToolStripMenuItem smoothCurveToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem peakDetectionToolStripMenuItem;
         private components.regeneration regeneration1;
+        private System.Windows.Forms.ToolStripMenuItem regressionAnalysisToolStripMenuItem;
     }
 }

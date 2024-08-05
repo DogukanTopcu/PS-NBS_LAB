@@ -19,6 +19,8 @@ namespace PalmSense4.components
         private DifferentialPulse _methodDLP;
         private ListBox lbConsole;
 
+        public static bool isRegeneration = false;
+
         public regeneration()
         {
             InitializeComponent();
@@ -33,12 +35,13 @@ namespace PalmSense4.components
         }
         private void regenerationStartButton_Click(object sender, EventArgs e)
         {
-            if (potantialRegeneration.Text == "" || timeRegeneration.Text == "")
+            if (potantialRegeneration.Texts == "" || timeRegeneration.Texts == "")
             {
                 //lbConsole.Items.Add("Regeneration Process couldn't start");
             }
             else
             {
+                isRegeneration = true;
                 try
                 {
                     double potantial = Double.Parse(potantialRegeneration.Text);
