@@ -291,7 +291,7 @@ namespace PalmSense4
         private void activeSimpleCurve_CurveFinished(object sender, EventArgs e)
         {
             SimpleCurve activeSimpleCurve = sender as SimpleCurve;
-            
+
             _allCurves.Add(activeSimpleCurve);
             _activeCurve = activeSimpleCurve;
 
@@ -867,6 +867,7 @@ namespace PalmSense4
 
                     }
                     _allMeasurements.Add(sc.FullTitle + _allMeasurements.Count.ToString(), new List<List<double>>(_measurementData));
+                    _allCurves.Add(sc);
                     _measurementData.Clear();
 
                     string itemName = number + " " + sc.FullTitle;
@@ -916,7 +917,7 @@ namespace PalmSense4
 
         private void regressionAnalysisToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new RegressionAnalysis(_allMeasurements).ShowDialog();
+            new RegressionAnalysis(_allCurves).ShowDialog();
         }
     }
 }

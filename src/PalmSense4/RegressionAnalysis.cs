@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using MathNet.Numerics.LinearAlgebra;
+using PalmSens.Core.Simplified.Data;
+using PalmSens.Plottables;
 
 namespace PalmSense4
 {
@@ -17,9 +19,11 @@ namespace PalmSense4
         List<double> xdata;
         List<double> ydata;
 
-        private Dictionary<string, List<List<double>>> _allMeasurements;
+        private List<SimpleCurve> _allMeasurements;
 
-        public RegressionAnalysis(Dictionary<string, List<List<double>>> _m)
+        private Dictionary<string, SimpleCurve> _allCurvesDict;
+
+        public RegressionAnalysis(List<SimpleCurve> _m)
         {
             InitializeComponent();
 
@@ -27,6 +31,13 @@ namespace PalmSense4
             ydata = new List<double>();
 
             _allMeasurements = _m;
+            _allCurvesDict = new Dictionary<string, SimpleCurve>();
+            int l = 0;
+            foreach (SimpleCurve item in _allMeasurements)
+            {
+                _allCurvesDict.Add(l.ToString() + ") " +item.FullTitle, item);
+                l++;
+            }
         }
 
         private void exportToolStripMenuItem_Click(object sender, EventArgs e)
@@ -43,7 +54,7 @@ namespace PalmSense4
         private void regression_analysis_Load(object sender, EventArgs e)
         {
             //plotsPanel.Controls.Add(splitContainer1);
-            foreach (var item in _allMeasurements)
+            foreach (var item in _allCurvesDict)
             {
                 plotsList.Items.Add(item.Key);
             }
@@ -51,32 +62,94 @@ namespace PalmSense4
 
 
         // Regression Analysis for all graph
+        //private void calculateBtn_Click(object sender, EventArgs e)
+        //{
+        //    plot1.ClearAll();
+
+        //    var M = Matrix<double>.Build;
+        //    var V = Vector<double>.Build;
+
+        //    // Create xdata and ydata lists
+        //    for (int j = 0; j < plotsList.CheckedItems.Count; j++)
+        //    {
+        //        string plotName = plotsList.SelectedItems[j].ToString();
+        //        List<List<double>> plotData = _allMeasurements[plotName];
+
+        //        foreach (List<double> data in plotData)
+        //        {
+        //            xdata.Add(data[1]);
+        //            ydata.Add(data[2]);
+        //        }
+
+        //        plot1.AddData(plotName, xdata.ToArray(), ydata.ToArray());
+        //    }
+        //    // Also find the minimum and maximum values of xdata.
+        //    double minValue = xdata[0];
+        //    double maxValue = xdata[xdata.Count - 1];
+
+        //    var X = M.DenseOfColumnVectors(V.Dense(xdata.ToArray().Length, 1), V.Dense(xdata.ToArray()));
+        //    var Y = V.Dense(ydata.ToArray());
+        //    var P = X.QR().Solve(Y);
+
+        //    double a = P[0];
+        //    double b = P[1];
+
+        //    // y = a + bx
+        //    List<double> xVals = new List<double>();
+        //    List<double> yVals = new List<double>();
+
+        //    foreach (double x in xdata)
+        //    {
+        //        double y = a + b * x;
+        //        xVals.Add(x);
+        //        yVals.Add(y);
+        //    }
+
+        //    plot1.AddData("", new List<double>(xVals).ToArray(), new List<double>(yVals).ToArray());
+        //}
+
+
         private void calculateBtn_Click(object sender, EventArgs e)
         {
             plot1.ClearAll();
+            tabControl1.SelectedTab = tabPage1;
 
             var M = Matrix<double>.Build;
             var V = Vector<double>.Build;
 
-            // Create xdata and ydata lists
-            Console.WriteLine(plotsList.SelectedItems.Count);
-            Console.WriteLine(plotsList.CheckedItems.Count);
+
+            // Take all peak data and
+            // fill these xdata and ydata lists
             for (int j = 0; j < plotsList.CheckedItems.Count; j++)
             {
-                string plotName = plotsList.SelectedItems[j].ToString();
-                List<List<double>> plotData = _allMeasurements[plotName];
+                string plotName = plotsList.CheckedItems[j].ToString();
+                SimpleCurve plotData = _allCurvesDict[plotName];
 
-                foreach (List<double> data in plotData)
+                // Peak Detection
+                if (plotData.FullTitle.Contains("DPV"))
                 {
-                    xdata.Add(data[1]);
-                    ydata.Add(data[2]);
+                    SimpleCurve _baselineCurve = plotData.MovingAverageBaseline();
+                    plotData = plotData.Subtract(_baselineCurve);
                 }
+                plotData.DetectPeaks();
 
-                plot1.AddData(plotName, xdata.ToArray(), ydata.ToArray());
+                for (int i = 0; i < plotData.Peaks.nPeaks; i++)
+                {
+                    xdata.Add(plotData.Peaks[i].PeakX);
+                    ydata.Add(plotData.Peaks[i].PeakValue);
+
+                    double[] x = new double[1];
+                    double[] y = new double[1];
+                    x[0] = plotData.Peaks[i].PeakX;
+                    y[0] = plotData.Peaks[i].PeakValue;
+                    plot1.AddData("", x, y);
+                }
             }
-            // Also find the minimum and maximum values of xdata.
-            double minValue = xdata[0];
-            double maxValue = xdata[xdata.Count - 1];
+
+            // Find the minimum and maximum values of xdata.
+            double minValue = xdata.Min();
+            double maxValue = xdata.Max();
+
 
             var X = M.DenseOfColumnVectors(V.Dense(xdata.ToArray().Length, 1), V.Dense(xdata.ToArray()));
             var Y = V.Dense(ydata.ToArray());
@@ -97,27 +170,28 @@ namespace PalmSense4
             }
 
             plot1.AddData("", new List<double>(xVals).ToArray(), new List<double>(yVals).ToArray());
+
         }
+
+
 
         private void plotsList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //List<double> tempXdata = new List<double>();
-            //List<double> tempYdata = new List<double>();
-            //plot1.ClearAll();
-            
-            //for (int j = 0; j < plotsList.SelectedItems.Count; j++)
-            //{
-            //    string plotName = plotsList.SelectedItems[j].ToString();
-            //    List<List<double>> plotData = _allMeasurements[plotName];
-
-            //    foreach (List<double> data in plotData)
-            //    {
-            //        tempXdata.Add(data[1]);
-            //        tempYdata.Add(data[2]);
-            //    }
-
-            //    plot1.AddData(plotName, xdata.ToArray(), ydata.ToArray());
-            //}
+            plot2.ClearAll();
+            tabControl1.SelectedTab = tabPage2;
+            string plotName = plotsList.SelectedItem.ToString();
+            try
+            {
+                SimpleCurve curve = _allCurvesDict[plotName];
+                if (curve.FullTitle.Contains("DPV"))
+                {
+                    SimpleCurve _baselineCurve = curve.MovingAverageBaseline();
+                    curve = curve.Subtract(_baselineCurve);
+                }
+                curve.DetectPeaks();
+                plot2.AddSimpleCurve(curve);
+            }
+            catch { }
         }
     }
 }

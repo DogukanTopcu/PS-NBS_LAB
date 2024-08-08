@@ -43,6 +43,8 @@
             this.plot1 = new SDKPlot.WinForms.Plot();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.rjButton1 = new RJCodeAdvance.RJControls.RJButton();
+            this.plot2 = new SDKPlot.WinForms.Plot();
+            this.lblManuelPeaks = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -51,6 +53,7 @@
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -106,6 +109,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lblManuelPeaks);
             this.panel1.Controls.Add(this.plotsList);
             this.panel1.Controls.Add(this.calculateBtn);
             this.panel1.Controls.Add(this.lblPlots);
@@ -124,7 +128,7 @@
             this.plotsList.FormattingEnabled = true;
             this.plotsList.Location = new System.Drawing.Point(18, 62);
             this.plotsList.Name = "plotsList";
-            this.plotsList.Size = new System.Drawing.Size(435, 529);
+            this.plotsList.Size = new System.Drawing.Size(435, 256);
             this.plotsList.TabIndex = 0;
             this.plotsList.SelectedIndexChanged += new System.EventHandler(this.plotsList_SelectedIndexChanged);
             // 
@@ -179,7 +183,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(725, 636);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.Text = "Analysis Result";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // plot1
@@ -203,12 +207,13 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.plot2);
             this.tabPage2.Location = new System.Drawing.Point(4, 34);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(725, 636);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.Text = "Plot Previewer";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // rjButton1
@@ -232,6 +237,35 @@
             this.rjButton1.UseVisualStyleBackColor = false;
             this.rjButton1.Click += new System.EventHandler(this.rjButton1_Click);
             // 
+            // plot2
+            // 
+            this.plot2.BackColor = System.Drawing.Color.White;
+            this.plot2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.plot2.Location = new System.Drawing.Point(3, 3);
+            this.plot2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.plot2.MarkerSize = 5;
+            this.plot2.MarkerType = OxyPlot.MarkerType.Circle;
+            this.plot2.Name = "plot2";
+            this.plot2.Size = new System.Drawing.Size(719, 630);
+            this.plot2.TabIndex = 0;
+            this.plot2.Title = null;
+            this.plot2.XAxisLabel = null;
+            this.plot2.XAxisType = SDKPlot.AxisType.Linear;
+            this.plot2.YAxisLabel = null;
+            this.plot2.YAxisSecondaryLabel = null;
+            this.plot2.YAxisSecondaryType = SDKPlot.AxisType.Linear;
+            this.plot2.YAxisType = SDKPlot.AxisType.Linear;
+            // 
+            // lblManuelPeaks
+            // 
+            this.lblManuelPeaks.AutoSize = true;
+            this.lblManuelPeaks.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblManuelPeaks.Location = new System.Drawing.Point(12, 335);
+            this.lblManuelPeaks.Name = "lblManuelPeaks";
+            this.lblManuelPeaks.Size = new System.Drawing.Size(215, 36);
+            this.lblManuelPeaks.TabIndex = 3;
+            this.lblManuelPeaks.Text = "Manuel Peaks";
+            // 
             // RegressionAnalysis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -253,6 +287,7 @@
             this.panel1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -274,5 +309,7 @@
         private System.Windows.Forms.Label lblPlots;
         private RJCodeAdvance.RJControls.RJButton calculateBtn;
         private System.Windows.Forms.CheckedListBox plotsList;
+        private SDKPlot.WinForms.Plot plot2;
+        private System.Windows.Forms.Label lblManuelPeaks;
     }
 }
