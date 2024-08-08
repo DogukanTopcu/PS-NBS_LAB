@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using MathNet.Numerics.LinearAlgebra;
 using PalmSens.Core.Simplified.Data;
 using PalmSens.Plottables;
+using PalmSense4.components;
 
 namespace PalmSense4
 {
@@ -23,12 +24,17 @@ namespace PalmSense4
 
         private Dictionary<string, SimpleCurve> _allCurvesDict;
 
+        private int manuelDataNumber = 0;
+        private List<manuelPeakDataView> manuelData;
+
         public RegressionAnalysis(List<SimpleCurve> _m)
         {
             InitializeComponent();
 
             xdata = new List<double>();
             ydata = new List<double>();
+
+            manuelData = new List<manuelPeakDataView>();
 
             _allMeasurements = _m;
             _allCurvesDict = new Dictionary<string, SimpleCurve>();
@@ -58,6 +64,8 @@ namespace PalmSense4
             {
                 plotsList.Items.Add(item.Key);
             }
+            decreaseBtn.Enabled = false;
+            decreaseBtn.BackgroundColor = Color.LightGray;
         }
 
 
@@ -144,6 +152,20 @@ namespace PalmSense4
                     y[0] = plotData.Peaks[i].PeakValue;
                     plot1.AddData("", x, y);
                 }
+
+                // Manuel Peaks:
+                foreach (manuelPeakDataView component in manuelData)
+                {
+                    xdata.Add(component.xValue);
+                    ydata.Add(component.yValue);
+
+                    double[] x = new double[1];
+                    double[] y = new double[1];
+                    x[0] = component.xValue;
+                    y[0] = component.yValue;
+                    plot1.AddData("", x, y);
+                }
+
             }
 
             // Find the minimum and maximum values of xdata.
@@ -192,6 +214,29 @@ namespace PalmSense4
                 plot2.AddSimpleCurve(curve);
             }
             catch { }
+        }
+
+        private void increaseBtn_Click(object sender, EventArgs e)
+        {
+            manuelDataNumber++;
+            decreaseBtn.Enabled = true;
+            decreaseBtn.BackgroundColor = Color.CornflowerBlue;
+
+            manuelPeakDataView component = new manuelPeakDataView("Plot " + manuelDataNumber + ":", manuelDataNumber);
+            manuelPeaks.Controls.Add(component);
+            manuelData.Add(component);
+        }
+
+        private void decreaseBtn_Click(object sender, EventArgs e)
+        {
+            manuelDataNumber--;
+            if (manuelDataNumber == 0)
+            {
+                decreaseBtn.Enabled = false;
+                decreaseBtn.BackgroundColor = Color.LightGray;
+            }
+            manuelPeaks.Controls.Remove(manuelPeaks.Controls[manuelPeaks.Controls.Count - 1]);
+            manuelData.Add(manuelData[manuelData.Count - 1]);
         }
     }
 }

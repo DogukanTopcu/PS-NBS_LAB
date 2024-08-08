@@ -45,6 +45,9 @@
             this.rjButton1 = new RJCodeAdvance.RJControls.RJButton();
             this.plot2 = new SDKPlot.WinForms.Plot();
             this.lblManuelPeaks = new System.Windows.Forms.Label();
+            this.manuelPeaks = new System.Windows.Forms.FlowLayoutPanel();
+            this.increaseBtn = new RJCodeAdvance.RJControls.RJButton();
+            this.decreaseBtn = new RJCodeAdvance.RJControls.RJButton();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -103,12 +106,15 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
             this.splitContainer1.Panel2.Controls.Add(this.rjButton1);
-            this.splitContainer1.Size = new System.Drawing.Size(1243, 674);
+            this.splitContainer1.Size = new System.Drawing.Size(1243, 761);
             this.splitContainer1.SplitterDistance = 464;
             this.splitContainer1.TabIndex = 1;
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.decreaseBtn);
+            this.panel1.Controls.Add(this.increaseBtn);
+            this.panel1.Controls.Add(this.manuelPeaks);
             this.panel1.Controls.Add(this.lblManuelPeaks);
             this.panel1.Controls.Add(this.plotsList);
             this.panel1.Controls.Add(this.calculateBtn);
@@ -116,19 +122,18 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(464, 674);
+            this.panel1.Size = new System.Drawing.Size(464, 761);
             this.panel1.TabIndex = 0;
             // 
             // plotsList
             // 
-            this.plotsList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.plotsList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.plotsList.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.plotsList.FormattingEnabled = true;
             this.plotsList.Location = new System.Drawing.Point(18, 62);
             this.plotsList.Name = "plotsList";
-            this.plotsList.Size = new System.Drawing.Size(435, 256);
+            this.plotsList.Size = new System.Drawing.Size(435, 319);
             this.plotsList.TabIndex = 0;
             this.plotsList.SelectedIndexChanged += new System.EventHandler(this.plotsList_SelectedIndexChanged);
             // 
@@ -144,7 +149,7 @@
             this.calculateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.calculateBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.calculateBtn.ForeColor = System.Drawing.Color.White;
-            this.calculateBtn.Location = new System.Drawing.Point(18, 622);
+            this.calculateBtn.Location = new System.Drawing.Point(18, 709);
             this.calculateBtn.Name = "calculateBtn";
             this.calculateBtn.Size = new System.Drawing.Size(435, 40);
             this.calculateBtn.TabIndex = 2;
@@ -172,7 +177,7 @@
             this.tabControl1.Location = new System.Drawing.Point(42, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(733, 674);
+            this.tabControl1.Size = new System.Drawing.Size(733, 761);
             this.tabControl1.TabIndex = 2;
             // 
             // tabPage1
@@ -211,7 +216,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 34);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(725, 636);
+            this.tabPage2.Size = new System.Drawing.Size(725, 723);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Plot Previewer";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -231,7 +236,7 @@
             this.rjButton1.ForeColor = System.Drawing.Color.White;
             this.rjButton1.Location = new System.Drawing.Point(0, 0);
             this.rjButton1.Name = "rjButton1";
-            this.rjButton1.Size = new System.Drawing.Size(42, 674);
+            this.rjButton1.Size = new System.Drawing.Size(42, 761);
             this.rjButton1.TabIndex = 1;
             this.rjButton1.TextColor = System.Drawing.Color.White;
             this.rjButton1.UseVisualStyleBackColor = false;
@@ -246,7 +251,7 @@
             this.plot2.MarkerSize = 5;
             this.plot2.MarkerType = OxyPlot.MarkerType.Circle;
             this.plot2.Name = "plot2";
-            this.plot2.Size = new System.Drawing.Size(719, 630);
+            this.plot2.Size = new System.Drawing.Size(719, 717);
             this.plot2.TabIndex = 0;
             this.plot2.Title = null;
             this.plot2.XAxisLabel = null;
@@ -260,17 +265,68 @@
             // 
             this.lblManuelPeaks.AutoSize = true;
             this.lblManuelPeaks.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblManuelPeaks.Location = new System.Drawing.Point(12, 335);
+            this.lblManuelPeaks.Location = new System.Drawing.Point(12, 403);
             this.lblManuelPeaks.Name = "lblManuelPeaks";
-            this.lblManuelPeaks.Size = new System.Drawing.Size(215, 36);
+            this.lblManuelPeaks.Size = new System.Drawing.Size(224, 36);
             this.lblManuelPeaks.TabIndex = 3;
-            this.lblManuelPeaks.Text = "Manuel Peaks";
+            this.lblManuelPeaks.Text = "Manuel Peaks:";
+            // 
+            // manuelPeaks
+            // 
+            this.manuelPeaks.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.manuelPeaks.AutoScroll = true;
+            this.manuelPeaks.Location = new System.Drawing.Point(18, 442);
+            this.manuelPeaks.Name = "manuelPeaks";
+            this.manuelPeaks.Size = new System.Drawing.Size(435, 261);
+            this.manuelPeaks.TabIndex = 4;
+            // 
+            // increaseBtn
+            // 
+            this.increaseBtn.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.increaseBtn.BackgroundColor = System.Drawing.Color.CornflowerBlue;
+            this.increaseBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.increaseBtn.BorderRadius = 0;
+            this.increaseBtn.BorderSize = 0;
+            this.increaseBtn.FlatAppearance.BorderSize = 0;
+            this.increaseBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.increaseBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.increaseBtn.ForeColor = System.Drawing.Color.White;
+            this.increaseBtn.Location = new System.Drawing.Point(405, 396);
+            this.increaseBtn.Name = "increaseBtn";
+            this.increaseBtn.Size = new System.Drawing.Size(48, 40);
+            this.increaseBtn.TabIndex = 5;
+            this.increaseBtn.Text = "+";
+            this.increaseBtn.TextColor = System.Drawing.Color.White;
+            this.increaseBtn.UseVisualStyleBackColor = false;
+            this.increaseBtn.Click += new System.EventHandler(this.increaseBtn_Click);
+            // 
+            // decreaseBtn
+            // 
+            this.decreaseBtn.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.decreaseBtn.BackgroundColor = System.Drawing.Color.CornflowerBlue;
+            this.decreaseBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.decreaseBtn.BorderRadius = 0;
+            this.decreaseBtn.BorderSize = 0;
+            this.decreaseBtn.FlatAppearance.BorderSize = 0;
+            this.decreaseBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.decreaseBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.decreaseBtn.ForeColor = System.Drawing.Color.White;
+            this.decreaseBtn.Location = new System.Drawing.Point(351, 396);
+            this.decreaseBtn.Name = "decreaseBtn";
+            this.decreaseBtn.Size = new System.Drawing.Size(48, 40);
+            this.decreaseBtn.TabIndex = 6;
+            this.decreaseBtn.Text = "-";
+            this.decreaseBtn.TextColor = System.Drawing.Color.White;
+            this.decreaseBtn.UseVisualStyleBackColor = false;
+            this.decreaseBtn.Click += new System.EventHandler(this.decreaseBtn_Click);
             // 
             // RegressionAnalysis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1243, 710);
+            this.ClientSize = new System.Drawing.Size(1243, 797);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -311,5 +367,8 @@
         private System.Windows.Forms.CheckedListBox plotsList;
         private SDKPlot.WinForms.Plot plot2;
         private System.Windows.Forms.Label lblManuelPeaks;
+        private System.Windows.Forms.FlowLayoutPanel manuelPeaks;
+        private RJCodeAdvance.RJControls.RJButton decreaseBtn;
+        private RJCodeAdvance.RJControls.RJButton increaseBtn;
     }
 }
