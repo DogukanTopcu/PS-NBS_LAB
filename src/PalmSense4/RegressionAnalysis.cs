@@ -49,15 +49,34 @@ namespace PalmSense4
             }
         }
 
+
+        // Regression Analysis for all graph
         private void calculateBtn_Click(object sender, EventArgs e)
         {
+            plot1.ClearAll();
+
             var M = Matrix<double>.Build;
             var V = Vector<double>.Build;
 
             // Create xdata and ydata lists
+            Console.WriteLine(plotsList.SelectedItems.Count);
+            Console.WriteLine(plotsList.CheckedItems.Count);
+            for (int j = 0; j < plotsList.CheckedItems.Count; j++)
+            {
+                string plotName = plotsList.SelectedItems[j].ToString();
+                List<List<double>> plotData = _allMeasurements[plotName];
+
+                foreach (List<double> data in plotData)
+                {
+                    xdata.Add(data[1]);
+                    ydata.Add(data[2]);
+                }
+
+                plot1.AddData(plotName, xdata.ToArray(), ydata.ToArray());
+            }
             // Also find the minimum and maximum values of xdata.
-            double minValue = 0.0;
-            double maxValue = 0.0;
+            double minValue = xdata[0];
+            double maxValue = xdata[xdata.Count - 1];
 
             var X = M.DenseOfColumnVectors(V.Dense(xdata.ToArray().Length, 1), V.Dense(xdata.ToArray()));
             var Y = V.Dense(ydata.ToArray());
@@ -69,7 +88,8 @@ namespace PalmSense4
             // y = a + bx
             List<double> xVals = new List<double>();
             List<double> yVals = new List<double>();
-            for (double x = minValue; x < maxValue; x++)
+
+            foreach (double x in xdata)
             {
                 double y = a + b * x;
                 xVals.Add(x);
@@ -77,6 +97,27 @@ namespace PalmSense4
             }
 
             plot1.AddData("", new List<double>(xVals).ToArray(), new List<double>(yVals).ToArray());
+        }
+
+        private void plotsList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //List<double> tempXdata = new List<double>();
+            //List<double> tempYdata = new List<double>();
+            //plot1.ClearAll();
+            
+            //for (int j = 0; j < plotsList.SelectedItems.Count; j++)
+            //{
+            //    string plotName = plotsList.SelectedItems[j].ToString();
+            //    List<List<double>> plotData = _allMeasurements[plotName];
+
+            //    foreach (List<double> data in plotData)
+            //    {
+            //        tempXdata.Add(data[1]);
+            //        tempYdata.Add(data[2]);
+            //    }
+
+            //    plot1.AddData(plotName, xdata.ToArray(), ydata.ToArray());
+            //}
         }
     }
 }
