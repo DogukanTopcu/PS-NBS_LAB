@@ -10,6 +10,7 @@ using PalmSens.Techniques;
 using PalmSense4.Business;
 using PalmSense4.components;
 using PalmSense4.data.Measurement_Settings;
+using RJCodeAdvance.RJControls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -69,6 +70,8 @@ namespace PalmSense4
 
         public static PSCommSimpleWinForms ps;
         public static System.Windows.Forms.ListBox lbox;
+        public static RJButton btnConn;
+        public static ToolStripSplitButton measureBtn;
 
 
         // CONSTRUCTORS *************************************************************************
@@ -100,6 +103,8 @@ namespace PalmSense4
 
             ps = psCommSimpleWinForms;
             lbox = lbConsole;
+            btnConn = btnConnect;
+            measureBtn = measurementBtn;
         }
 
         private void MainPage_Load(object sender, EventArgs e)
@@ -197,6 +202,8 @@ namespace PalmSense4
             connectionLabel.Text = psCommSimpleWinForms.Connected ? "Connected" : "No Connection";
             measurementBtn.Enabled = psCommSimpleWinForms.Connected;
             measurement_type.Enabled = psCommSimpleWinForms.Connected;
+
+            regeneration.startBtn.Enabled = psCommSimpleWinForms.Connected;
         }
 
         // CONNECTION ***************************************************************************
@@ -231,6 +238,7 @@ namespace PalmSense4
         private void psCommSimpleWinForms_Disconnected(object sender, Exception exception)
         {
             if (exception != null) lbConsole.Items.Add(exception.Message);
+            regeneration.startBtn.Enabled = psCommSimpleWinForms.Connected;
             lbConsole.Items.Add("Disconnected.");
         }
 
@@ -1071,6 +1079,18 @@ namespace PalmSense4
         private void exportGraphAsImageToolStripMenuItem_Click(object sender, EventArgs e)
         {
             exportGraphToolStripMenuItem_Click(sender, e);
+        }
+
+
+        // Measurement
+        private void downloadMeasurementDataToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            measurementBtn_ButtonClick(sender, e);
+        }
+
+        private void startWithNewPlotToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            newRunBtn_Click(sender, e);
         }
     }
 }

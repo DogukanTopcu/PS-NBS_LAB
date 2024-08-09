@@ -84,7 +84,7 @@
             this.tbNumberOfScan.BorderSize = 2;
             this.tbNumberOfScan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbNumberOfScan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tbNumberOfScan.Location = new System.Drawing.Point(179, 319);
+            this.tbNumberOfScan.Location = new System.Drawing.Point(203, 325);
             this.tbNumberOfScan.Margin = new System.Windows.Forms.Padding(4);
             this.tbNumberOfScan.Multiline = false;
             this.tbNumberOfScan.Name = "tbNumberOfScan";
@@ -92,7 +92,7 @@
             this.tbNumberOfScan.PasswordChar = false;
             this.tbNumberOfScan.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbNumberOfScan.PlaceholderText = "";
-            this.tbNumberOfScan.Size = new System.Drawing.Size(201, 35);
+            this.tbNumberOfScan.Size = new System.Drawing.Size(134, 35);
             this.tbNumberOfScan.TabIndex = 71;
             this.tbNumberOfScan.Texts = "";
             this.tbNumberOfScan.UnderlinedStyle = false;
@@ -102,7 +102,7 @@
             // 
             this.label41.AutoSize = true;
             this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label41.Location = new System.Drawing.Point(12, 325);
+            this.label41.Location = new System.Drawing.Point(35, 333);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(165, 25);
             this.label41.TabIndex = 70;
@@ -112,7 +112,7 @@
             // 
             this.label38.AutoSize = true;
             this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.Location = new System.Drawing.Point(387, 280);
+            this.label38.Location = new System.Drawing.Point(344, 288);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(42, 25);
             this.label38.TabIndex = 66;
@@ -127,7 +127,7 @@
             this.tbScanRate.BorderSize = 2;
             this.tbScanRate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbScanRate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tbScanRate.Location = new System.Drawing.Point(179, 276);
+            this.tbScanRate.Location = new System.Drawing.Point(203, 282);
             this.tbScanRate.Margin = new System.Windows.Forms.Padding(4);
             this.tbScanRate.Multiline = false;
             this.tbScanRate.Name = "tbScanRate";
@@ -135,7 +135,7 @@
             this.tbScanRate.PasswordChar = false;
             this.tbScanRate.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbScanRate.PlaceholderText = "";
-            this.tbScanRate.Size = new System.Drawing.Size(201, 35);
+            this.tbScanRate.Size = new System.Drawing.Size(134, 35);
             this.tbScanRate.TabIndex = 68;
             this.tbScanRate.Texts = "";
             this.tbScanRate.UnderlinedStyle = false;
@@ -145,7 +145,7 @@
             // 
             this.label39.AutoSize = true;
             this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label39.Location = new System.Drawing.Point(12, 286);
+            this.label39.Location = new System.Drawing.Point(35, 294);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(102, 25);
             this.label39.TabIndex = 67;
@@ -155,7 +155,7 @@
             // 
             this.label36.AutoSize = true;
             this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.Location = new System.Drawing.Point(387, 237);
+            this.label36.Location = new System.Drawing.Point(344, 245);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(26, 25);
             this.label36.TabIndex = 63;
@@ -170,7 +170,7 @@
             this.tbEStep.BorderSize = 2;
             this.tbEStep.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbEStep.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tbEStep.Location = new System.Drawing.Point(179, 233);
+            this.tbEStep.Location = new System.Drawing.Point(203, 239);
             this.tbEStep.Margin = new System.Windows.Forms.Padding(4);
             this.tbEStep.Multiline = false;
             this.tbEStep.Name = "tbEStep";
@@ -178,7 +178,7 @@
             this.tbEStep.PasswordChar = false;
             this.tbEStep.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbEStep.PlaceholderText = "";
-            this.tbEStep.Size = new System.Drawing.Size(201, 35);
+            this.tbEStep.Size = new System.Drawing.Size(134, 35);
             this.tbEStep.TabIndex = 65;
             this.tbEStep.Texts = "";
             this.tbEStep.UnderlinedStyle = false;
@@ -188,7 +188,7 @@
             // 
             this.label37.AutoSize = true;
             this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.Location = new System.Drawing.Point(12, 237);
+            this.label37.Location = new System.Drawing.Point(35, 245);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(73, 25);
             this.label37.TabIndex = 64;
@@ -198,7 +198,7 @@
             // 
             this.label34.AutoSize = true;
             this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.Location = new System.Drawing.Point(387, 194);
+            this.label34.Location = new System.Drawing.Point(344, 202);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(26, 25);
             this.label34.TabIndex = 60;
@@ -213,7 +213,7 @@
             this.tbEVertex2.BorderSize = 2;
             this.tbEVertex2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbEVertex2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tbEVertex2.Location = new System.Drawing.Point(179, 190);
+            this.tbEVertex2.Location = new System.Drawing.Point(203, 196);
             this.tbEVertex2.Margin = new System.Windows.Forms.Padding(4);
             this.tbEVertex2.Multiline = false;
             this.tbEVertex2.Name = "tbEVertex2";
@@ -221,7 +221,7 @@
             this.tbEVertex2.PasswordChar = false;
             this.tbEVertex2.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbEVertex2.PlaceholderText = "";
-            this.tbEVertex2.Size = new System.Drawing.Size(201, 35);
+            this.tbEVertex2.Size = new System.Drawing.Size(134, 35);
             this.tbEVertex2.TabIndex = 62;
             this.tbEVertex2.Texts = "";
             this.tbEVertex2.UnderlinedStyle = false;
@@ -231,7 +231,7 @@
             // 
             this.label35.AutoSize = true;
             this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.Location = new System.Drawing.Point(12, 194);
+            this.label35.Location = new System.Drawing.Point(35, 202);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(100, 25);
             this.label35.TabIndex = 61;
@@ -241,7 +241,7 @@
             // 
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(387, 151);
+            this.label32.Location = new System.Drawing.Point(344, 159);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(26, 25);
             this.label32.TabIndex = 57;
@@ -256,7 +256,7 @@
             this.tbEVertex1.BorderSize = 2;
             this.tbEVertex1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbEVertex1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tbEVertex1.Location = new System.Drawing.Point(179, 147);
+            this.tbEVertex1.Location = new System.Drawing.Point(203, 153);
             this.tbEVertex1.Margin = new System.Windows.Forms.Padding(4);
             this.tbEVertex1.Multiline = false;
             this.tbEVertex1.Name = "tbEVertex1";
@@ -264,7 +264,7 @@
             this.tbEVertex1.PasswordChar = false;
             this.tbEVertex1.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbEVertex1.PlaceholderText = "";
-            this.tbEVertex1.Size = new System.Drawing.Size(201, 35);
+            this.tbEVertex1.Size = new System.Drawing.Size(134, 35);
             this.tbEVertex1.TabIndex = 59;
             this.tbEVertex1.Texts = "";
             this.tbEVertex1.UnderlinedStyle = false;
@@ -274,7 +274,7 @@
             // 
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.Location = new System.Drawing.Point(12, 151);
+            this.label33.Location = new System.Drawing.Point(35, 159);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(100, 25);
             this.label33.TabIndex = 58;
@@ -284,7 +284,7 @@
             // 
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(387, 108);
+            this.label30.Location = new System.Drawing.Point(344, 116);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(26, 25);
             this.label30.TabIndex = 54;
@@ -299,7 +299,7 @@
             this.tbEBegin.BorderSize = 2;
             this.tbEBegin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbEBegin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tbEBegin.Location = new System.Drawing.Point(179, 104);
+            this.tbEBegin.Location = new System.Drawing.Point(203, 110);
             this.tbEBegin.Margin = new System.Windows.Forms.Padding(4);
             this.tbEBegin.Multiline = false;
             this.tbEBegin.Name = "tbEBegin";
@@ -307,7 +307,7 @@
             this.tbEBegin.PasswordChar = false;
             this.tbEBegin.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbEBegin.PlaceholderText = "";
-            this.tbEBegin.Size = new System.Drawing.Size(201, 35);
+            this.tbEBegin.Size = new System.Drawing.Size(134, 35);
             this.tbEBegin.TabIndex = 56;
             this.tbEBegin.Texts = "";
             this.tbEBegin.UnderlinedStyle = false;
@@ -317,7 +317,7 @@
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(12, 108);
+            this.label31.Location = new System.Drawing.Point(35, 116);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(84, 25);
             this.label31.TabIndex = 55;
@@ -327,7 +327,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(387, 64);
+            this.label3.Location = new System.Drawing.Point(344, 72);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(22, 25);
             this.label3.TabIndex = 51;
@@ -342,7 +342,7 @@
             this.tbTEq.BorderSize = 2;
             this.tbTEq.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbTEq.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tbTEq.Location = new System.Drawing.Point(179, 60);
+            this.tbTEq.Location = new System.Drawing.Point(203, 68);
             this.tbTEq.Margin = new System.Windows.Forms.Padding(4);
             this.tbTEq.Multiline = false;
             this.tbTEq.Name = "tbTEq";
@@ -350,7 +350,7 @@
             this.tbTEq.PasswordChar = false;
             this.tbTEq.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbTEq.PlaceholderText = "";
-            this.tbTEq.Size = new System.Drawing.Size(201, 35);
+            this.tbTEq.Size = new System.Drawing.Size(134, 35);
             this.tbTEq.TabIndex = 53;
             this.tbTEq.Texts = "";
             this.tbTEq.UnderlinedStyle = false;
@@ -360,7 +360,7 @@
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(12, 64);
+            this.label29.Location = new System.Drawing.Point(35, 72);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(132, 25);
             this.label29.TabIndex = 52;

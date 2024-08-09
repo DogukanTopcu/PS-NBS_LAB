@@ -2,6 +2,7 @@
 using PalmSens.Core.Simplified.WinForms;
 using PalmSens.Techniques;
 using PalmSense4.data.Measurement_Settings;
+using RJCodeAdvance.RJControls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,14 +21,18 @@ namespace PalmSense4.components
         private DifferentialPulse _methodDLP;
         private ListBox lbConsole;
 
+        public static Button startBtn;
+
         public static bool isRegeneration = false;
 
         public regeneration()
         {
             InitializeComponent();
-
+            regenerationStartButton.Enabled = false;
             _methodDLP = new DifferentialPulse();
             _dpSettings = new DifferentialPulse_Settings(_methodDLP);
+
+            startBtn = regenerationStartButton;
         }
 
         public void generateFunction(ListBox lb)
@@ -103,6 +108,8 @@ namespace PalmSense4.components
         private void psCommSimpleWinForms2_MeasurementStarted(object sender, EventArgs e)
         {
             lbConsole.Items.Add("Regeneration started.");
+            MainPage.btnConn.Enabled = false;
+            MainPage.measureBtn.Enabled = false;
         }
         private async void psCommSimpleWinForms2_MeasurementEnded(object sender, Exception e)
         {
@@ -112,6 +119,9 @@ namespace PalmSense4.components
             await psCommSimpleWinForms2.DisconnectAsync();
             MainPage.ps.Connect(MainPage.connectedDevice);
             MainPage.lbox.Items.Add("Connected");
+            MainPage.btnConn.Enabled = true;
+            MainPage.measureBtn.Enabled = true;
+            regenerationStartButton.Enabled = true;
         }
         
     }

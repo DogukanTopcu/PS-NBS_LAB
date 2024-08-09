@@ -44,7 +44,6 @@
             this.exportGraphAsImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.measurementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.downloadMeasurementDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveMeasurementDaaToLocalStorageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.startWithNewPlotToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.status_statusbar = new System.Windows.Forms.ToolStripStatusLabel();
@@ -175,14 +174,14 @@
             // saveMethodAspssessionFileToolStripMenuItem
             // 
             this.saveMethodAspssessionFileToolStripMenuItem.Name = "saveMethodAspssessionFileToolStripMenuItem";
-            this.saveMethodAspssessionFileToolStripMenuItem.Size = new System.Drawing.Size(224, 32);
+            this.saveMethodAspssessionFileToolStripMenuItem.Size = new System.Drawing.Size(216, 32);
             this.saveMethodAspssessionFileToolStripMenuItem.Text = "Save Method";
             this.saveMethodAspssessionFileToolStripMenuItem.Click += new System.EventHandler(this.saveMethodAspssessionFileToolStripMenuItem_Click);
             // 
             // loadMethodFrompssessionFileToolStripMenuItem
             // 
             this.loadMethodFrompssessionFileToolStripMenuItem.Name = "loadMethodFrompssessionFileToolStripMenuItem";
-            this.loadMethodFrompssessionFileToolStripMenuItem.Size = new System.Drawing.Size(224, 32);
+            this.loadMethodFrompssessionFileToolStripMenuItem.Size = new System.Drawing.Size(216, 32);
             this.loadMethodFrompssessionFileToolStripMenuItem.Text = "Load Method";
             this.loadMethodFrompssessionFileToolStripMenuItem.Click += new System.EventHandler(this.loadMethodFrompssessionFileToolStripMenuItem_Click);
             // 
@@ -253,7 +252,6 @@
             // 
             this.measurementToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.downloadMeasurementDataToolStripMenuItem,
-            this.saveMeasurementDaaToLocalStorageToolStripMenuItem,
             this.startWithNewPlotToolStripMenuItem});
             this.measurementToolStripMenuItem.Name = "measurementToolStripMenuItem";
             this.measurementToolStripMenuItem.Size = new System.Drawing.Size(145, 32);
@@ -264,18 +262,14 @@
             this.downloadMeasurementDataToolStripMenuItem.Name = "downloadMeasurementDataToolStripMenuItem";
             this.downloadMeasurementDataToolStripMenuItem.Size = new System.Drawing.Size(273, 32);
             this.downloadMeasurementDataToolStripMenuItem.Text = "Start Measurement";
-            // 
-            // saveMeasurementDaaToLocalStorageToolStripMenuItem
-            // 
-            this.saveMeasurementDaaToLocalStorageToolStripMenuItem.Name = "saveMeasurementDaaToLocalStorageToolStripMenuItem";
-            this.saveMeasurementDaaToLocalStorageToolStripMenuItem.Size = new System.Drawing.Size(273, 32);
-            this.saveMeasurementDaaToLocalStorageToolStripMenuItem.Text = "Abort Measurement";
+            this.downloadMeasurementDataToolStripMenuItem.Click += new System.EventHandler(this.downloadMeasurementDataToolStripMenuItem_Click);
             // 
             // startWithNewPlotToolStripMenuItem
             // 
             this.startWithNewPlotToolStripMenuItem.Name = "startWithNewPlotToolStripMenuItem";
             this.startWithNewPlotToolStripMenuItem.Size = new System.Drawing.Size(273, 32);
-            this.startWithNewPlotToolStripMenuItem.Text = "Start with New Plot";
+            this.startWithNewPlotToolStripMenuItem.Text = "Start with Blank Plot";
+            this.startWithNewPlotToolStripMenuItem.Click += new System.EventHandler(this.startWithNewPlotToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -1355,7 +1349,6 @@
         private System.Windows.Forms.ToolStripMenuItem exportAsxlsxFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportGraphAsImageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem downloadMeasurementDataToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveMeasurementDaaToLocalStorageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem startWithNewPlotToolStripMenuItem;
         private components.regeneration regeneration1;
         private System.Windows.Forms.ToolStripMenuItem regressionAnalysisToolStripMenuItem;
