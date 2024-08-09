@@ -41,15 +41,11 @@
             this.exportDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportAspssessionFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportAsxlsxFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exportAstxtFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportGraphAsImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.measurementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.downloadMeasurementDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveMeasurementDaaToLocalStorageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.startWithNewPlotToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.plotToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.smoothCurveToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.peakDetectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.status_statusbar = new System.Windows.Forms.ToolStripStatusLabel();
             this.potential_statusbar = new System.Windows.Forms.ToolStripStatusLabel();
@@ -160,8 +156,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.methodToolStripMenuItem,
             this.dataToolStripMenuItem,
-            this.measurementToolStripMenuItem,
-            this.plotToolStripMenuItem1});
+            this.measurementToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1632, 36);
@@ -180,14 +175,16 @@
             // saveMethodAspssessionFileToolStripMenuItem
             // 
             this.saveMethodAspssessionFileToolStripMenuItem.Name = "saveMethodAspssessionFileToolStripMenuItem";
-            this.saveMethodAspssessionFileToolStripMenuItem.Size = new System.Drawing.Size(393, 32);
-            this.saveMethodAspssessionFileToolStripMenuItem.Text = "Save Method as .pssession File";
+            this.saveMethodAspssessionFileToolStripMenuItem.Size = new System.Drawing.Size(224, 32);
+            this.saveMethodAspssessionFileToolStripMenuItem.Text = "Save Method";
+            this.saveMethodAspssessionFileToolStripMenuItem.Click += new System.EventHandler(this.saveMethodAspssessionFileToolStripMenuItem_Click);
             // 
             // loadMethodFrompssessionFileToolStripMenuItem
             // 
             this.loadMethodFrompssessionFileToolStripMenuItem.Name = "loadMethodFrompssessionFileToolStripMenuItem";
-            this.loadMethodFrompssessionFileToolStripMenuItem.Size = new System.Drawing.Size(393, 32);
-            this.loadMethodFrompssessionFileToolStripMenuItem.Text = "Load Method From .pssession File";
+            this.loadMethodFrompssessionFileToolStripMenuItem.Size = new System.Drawing.Size(224, 32);
+            this.loadMethodFrompssessionFileToolStripMenuItem.Text = "Load Method";
+            this.loadMethodFrompssessionFileToolStripMenuItem.Click += new System.EventHandler(this.loadMethodFrompssessionFileToolStripMenuItem_Click);
             // 
             // dataToolStripMenuItem
             // 
@@ -212,19 +209,20 @@
             this.importFrompssessionFileToolStripMenuItem1.Name = "importFrompssessionFileToolStripMenuItem1";
             this.importFrompssessionFileToolStripMenuItem1.Size = new System.Drawing.Size(335, 32);
             this.importFrompssessionFileToolStripMenuItem1.Text = "Import From .pssession File";
+            this.importFrompssessionFileToolStripMenuItem1.Click += new System.EventHandler(this.importFrompssessionFileToolStripMenuItem1_Click);
             // 
             // importFromxlsxFileToolStripMenuItem1
             // 
             this.importFromxlsxFileToolStripMenuItem1.Name = "importFromxlsxFileToolStripMenuItem1";
             this.importFromxlsxFileToolStripMenuItem1.Size = new System.Drawing.Size(335, 32);
             this.importFromxlsxFileToolStripMenuItem1.Text = "Import From .xlsx File";
+            this.importFromxlsxFileToolStripMenuItem1.Click += new System.EventHandler(this.importFromxlsxFileToolStripMenuItem1_Click);
             // 
             // exportDataToolStripMenuItem
             // 
             this.exportDataToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.exportAspssessionFileToolStripMenuItem,
             this.exportAsxlsxFileToolStripMenuItem,
-            this.exportAstxtFileToolStripMenuItem,
             this.exportGraphAsImageToolStripMenuItem});
             this.exportDataToolStripMenuItem.Name = "exportDataToolStripMenuItem";
             this.exportDataToolStripMenuItem.Size = new System.Drawing.Size(204, 32);
@@ -235,24 +233,21 @@
             this.exportAspssessionFileToolStripMenuItem.Name = "exportAspssessionFileToolStripMenuItem";
             this.exportAspssessionFileToolStripMenuItem.Size = new System.Drawing.Size(304, 32);
             this.exportAspssessionFileToolStripMenuItem.Text = "Export as .pssession File";
+            this.exportAspssessionFileToolStripMenuItem.Click += new System.EventHandler(this.exportAspssessionFileToolStripMenuItem_Click);
             // 
             // exportAsxlsxFileToolStripMenuItem
             // 
             this.exportAsxlsxFileToolStripMenuItem.Name = "exportAsxlsxFileToolStripMenuItem";
             this.exportAsxlsxFileToolStripMenuItem.Size = new System.Drawing.Size(304, 32);
             this.exportAsxlsxFileToolStripMenuItem.Text = "Export as .xlsx File";
-            // 
-            // exportAstxtFileToolStripMenuItem
-            // 
-            this.exportAstxtFileToolStripMenuItem.Name = "exportAstxtFileToolStripMenuItem";
-            this.exportAstxtFileToolStripMenuItem.Size = new System.Drawing.Size(304, 32);
-            this.exportAstxtFileToolStripMenuItem.Text = "Export as .txt File";
+            this.exportAsxlsxFileToolStripMenuItem.Click += new System.EventHandler(this.exportAsxlsxFileToolStripMenuItem_Click);
             // 
             // exportGraphAsImageToolStripMenuItem
             // 
             this.exportGraphAsImageToolStripMenuItem.Name = "exportGraphAsImageToolStripMenuItem";
             this.exportGraphAsImageToolStripMenuItem.Size = new System.Drawing.Size(304, 32);
             this.exportGraphAsImageToolStripMenuItem.Text = "Export Graph as Image";
+            this.exportGraphAsImageToolStripMenuItem.Click += new System.EventHandler(this.exportGraphAsImageToolStripMenuItem_Click);
             // 
             // measurementToolStripMenuItem
             // 
@@ -281,27 +276,6 @@
             this.startWithNewPlotToolStripMenuItem.Name = "startWithNewPlotToolStripMenuItem";
             this.startWithNewPlotToolStripMenuItem.Size = new System.Drawing.Size(273, 32);
             this.startWithNewPlotToolStripMenuItem.Text = "Start with New Plot";
-            // 
-            // plotToolStripMenuItem1
-            // 
-            this.plotToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.smoothCurveToolStripMenuItem1,
-            this.peakDetectionToolStripMenuItem});
-            this.plotToolStripMenuItem1.Name = "plotToolStripMenuItem1";
-            this.plotToolStripMenuItem1.Size = new System.Drawing.Size(61, 32);
-            this.plotToolStripMenuItem1.Text = "Plot";
-            // 
-            // smoothCurveToolStripMenuItem1
-            // 
-            this.smoothCurveToolStripMenuItem1.Name = "smoothCurveToolStripMenuItem1";
-            this.smoothCurveToolStripMenuItem1.Size = new System.Drawing.Size(228, 32);
-            this.smoothCurveToolStripMenuItem1.Text = "Smooth Curve";
-            // 
-            // peakDetectionToolStripMenuItem
-            // 
-            this.peakDetectionToolStripMenuItem.Name = "peakDetectionToolStripMenuItem";
-            this.peakDetectionToolStripMenuItem.Size = new System.Drawing.Size(228, 32);
-            this.peakDetectionToolStripMenuItem.Text = "Peak Detection";
             // 
             // statusStrip1
             // 
@@ -404,17 +378,17 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(425, 30);
+            this.panel3.Size = new System.Drawing.Size(425, 36);
             this.panel3.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(7, 2);
+            this.label1.Location = new System.Drawing.Point(7, 3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 26);
+            this.label1.Size = new System.Drawing.Size(103, 29);
             this.label1.TabIndex = 0;
             this.label1.Text = "Console";
             // 
@@ -448,10 +422,10 @@
             // connectionLabel
             // 
             this.connectionLabel.AutoSize = true;
-            this.connectionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.connectionLabel.Location = new System.Drawing.Point(5, 87);
+            this.connectionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.connectionLabel.Location = new System.Drawing.Point(7, 83);
             this.connectionLabel.Name = "connectionLabel";
-            this.connectionLabel.Size = new System.Drawing.Size(119, 20);
+            this.connectionLabel.Size = new System.Drawing.Size(142, 25);
             this.connectionLabel.TabIndex = 6;
             this.connectionLabel.Text = "No Connection";
             // 
@@ -467,7 +441,7 @@
             this.btnConnect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConnect.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConnect.ForeColor = System.Drawing.Color.Black;
-            this.btnConnect.Location = new System.Drawing.Point(300, 42);
+            this.btnConnect.Location = new System.Drawing.Point(300, 48);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(122, 32);
             this.btnConnect.TabIndex = 13;
@@ -488,7 +462,7 @@
             this.btnBluetooth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBluetooth.ForeColor = System.Drawing.Color.White;
             this.btnBluetooth.Image = ((System.Drawing.Image)(resources.GetObject("btnBluetooth.Image")));
-            this.btnBluetooth.Location = new System.Drawing.Point(47, 42);
+            this.btnBluetooth.Location = new System.Drawing.Point(47, 48);
             this.btnBluetooth.Name = "btnBluetooth";
             this.btnBluetooth.Size = new System.Drawing.Size(32, 32);
             this.btnBluetooth.TabIndex = 13;
@@ -508,7 +482,7 @@
             this.btnRefresh.FlatAppearance.BorderSize = 0;
             this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRefresh.ForeColor = System.Drawing.Color.White;
-            this.btnRefresh.Location = new System.Drawing.Point(9, 42);
+            this.btnRefresh.Location = new System.Drawing.Point(9, 48);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(32, 32);
             this.btnRefresh.TabIndex = 12;
@@ -523,17 +497,17 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(425, 30);
+            this.panel4.Size = new System.Drawing.Size(425, 36);
             this.panel4.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(3, 3);
+            this.label2.Location = new System.Drawing.Point(3, 4);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(166, 26);
+            this.label2.Size = new System.Drawing.Size(182, 29);
             this.label2.TabIndex = 0;
             this.label2.Text = "Connect Device";
             // 
@@ -541,7 +515,7 @@
             // 
             this.cmbDevices.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbDevices.FormattingEnabled = true;
-            this.cmbDevices.Location = new System.Drawing.Point(85, 42);
+            this.cmbDevices.Location = new System.Drawing.Point(85, 48);
             this.cmbDevices.Name = "cmbDevices";
             this.cmbDevices.Size = new System.Drawing.Size(209, 33);
             this.cmbDevices.TabIndex = 4;
@@ -743,6 +717,7 @@
             this.exportGraphToolStripMenuItem.Name = "exportGraphToolStripMenuItem";
             this.exportGraphToolStripMenuItem.Size = new System.Drawing.Size(291, 30);
             this.exportGraphToolStripMenuItem.Text = "Export Graph As Image";
+            this.exportGraphToolStripMenuItem.Click += new System.EventHandler(this.exportGraphToolStripMenuItem_Click);
             // 
             // flowLayoutPanel4
             // 
@@ -1296,7 +1271,6 @@
         private System.Windows.Forms.ToolStripMenuItem methodToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dataToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem measurementToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem plotToolStripMenuItem1;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel status_statusbar;
         private System.Windows.Forms.ToolStripStatusLabel potential_statusbar;
@@ -1379,13 +1353,10 @@
         private System.Windows.Forms.ToolStripMenuItem exportDataToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportAspssessionFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportAsxlsxFileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exportAstxtFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportGraphAsImageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem downloadMeasurementDataToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveMeasurementDaaToLocalStorageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem startWithNewPlotToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem smoothCurveToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem peakDetectionToolStripMenuItem;
         private components.regeneration regeneration1;
         private System.Windows.Forms.ToolStripMenuItem regressionAnalysisToolStripMenuItem;
     }

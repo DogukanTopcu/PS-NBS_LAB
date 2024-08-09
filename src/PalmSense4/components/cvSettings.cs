@@ -1,4 +1,6 @@
 ﻿using Microsoft.Win32;
+using PalmSens;
+using PalmSens.Techniques;
 using PalmSense4.data.Measurement_Settings;
 using System;
 using System.Collections.Generic;
@@ -346,6 +348,31 @@ namespace PalmSense4.components
                     key.SetValue("cv_nEqScans", _numberOfScans);
                 }
             }
+        }
+
+
+        public void LoadData(CyclicVoltammetry m)
+        {
+            tbTEq.Texts = m.EquilibrationTime.ToString();
+            _cvSettings.TimeEquilibrium.Method.EquilibrationTime = m.EquilibrationTime;
+
+            tbEBegin.Texts = m.BeginPotential.ToString();
+            _cvSettings.EBegin.Method.BeginPotential = m.BeginPotential;
+
+            tbEVertex1.Texts = m.Vtx1Potential.ToString();
+            _cvSettings.EVertex1.Method.Vtx1Potential = m.Vtx1Potential;
+
+            tbEVertex2.Texts = m.Vtx2Potential.ToString();
+            _cvSettings.EVertex2.Method.Vtx2Potential = m.Vtx2Potential;
+
+            tbEStep.Texts = m.StepPotential.ToString();
+            _cvSettings.EStep.Method.StepPotential = m.StepPotential;
+
+            tbScanRate.Texts = m.Scanrate.ToString();
+            _cvSettings.ScanRate.Method.Scanrate = m.Scanrate;
+
+            tbNumberOfScan.Texts = m.nScans.ToString();
+            _cvSettings.NumbersOfScan.Method.nScans = m.nScans;
         }
     }
 }

@@ -77,6 +77,7 @@ namespace PalmSense4
             InitializeComponent();
             this._connectedDevices = new Device[0];
 
+            lbConsole.Items.Add("");
             DiscoverConnectedDevices();
             InitPlot();
 
@@ -114,6 +115,7 @@ namespace PalmSense4
             measurement_type.Items.Add(DifferentialPulse.Name);
             measurement_type.Items.Add(ImpedimetricMethod.Name);
             measurement_type.SelectedIndex = 0;
+
 
             if (_allCurves.Count == 0)
             {
@@ -828,6 +830,35 @@ namespace PalmSense4
             }
         }
 
+        // Export as Graph
+        private void exportGraphToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+
+            folderBrowserDialog.RootFolder = Environment.SpecialFolder.Desktop;
+            folderBrowserDialog.Description = "Save Image";
+
+            try
+            {
+                if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+                {
+                    folderName = folderBrowserDialog.SelectedPath;
+                    string fn = "Graph (" + DateTime.Now.ToString("MM-dd-yyyy-h-mm-tt") + ").png";
+                    string filePathName = Path.Combine(folderName, fn);
+
+                    Bitmap bitmap = new Bitmap(plot.Width, plot.Height);
+                    plot.DrawToBitmap(bitmap, new System.Drawing.Rectangle(0, 0, plot.Width, plot.Height));
+                    bitmap.Save(filePathName, System.Drawing.Imaging.ImageFormat.Png);
+                    bitmap.Dispose();
+                    lbConsole.Items.Add($"Graph exported as {filePathName}");
+                }
+            }
+            catch
+            {
+                lbConsole.Items.Add($"Graph couldn't export as .png format");
+            }
+        }
+
         private void importFrompssessionFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -844,13 +875,13 @@ namespace PalmSense4
 
                 if (_simpleMeasurements != null)
                 {
-                    lbConsole.Items.Add("Example.pssession successfully loaded.");
+                    lbConsole.Items.Add(".pssession file successfully loaded.");
                     DisplayPssessionLoadedData(sender, e);
                 }
                 else
                 {
-                    lbConsole.Items.Add("Example file empty...");
-                    lbConsole.Items.Add("Please make sure the Example.pssession file is present in the project folder.");
+                    lbConsole.Items.Add("File empty...");
+                    lbConsole.Items.Add("Please make sure the .pssession file is present in the project folder.");
                 }
             }
         }
@@ -927,6 +958,119 @@ namespace PalmSense4
         private void regressionAnalysisToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new RegressionAnalysis(_allCurves).ShowDialog();
+        }
+
+
+
+        // Method Saving and Loading ###############################################################
+        private void saveMethodAspssessionFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+
+            folderBrowserDialog.RootFolder = Environment.SpecialFolder.Desktop;
+            folderBrowserDialog.Description = "Save Method";
+
+            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+            {
+                folderName = folderBrowserDialog.SelectedPath;
+                string fileName = "PalmSens4 Method (" + DateTime.Now.ToString("MM-dd-yyyy-h-mm-tt") + ").psmethod";
+                string filePathName = Path.Combine(folderName, fileName);
+
+                if (_fileIO.SaveMethodAsPssessionFile(filePathName, _selectedMethod))
+                {
+                    lbConsole.Items.Add($"Method successfully saved to {filePathName}");
+                }
+                else
+                {
+                    lbConsole.Items.Add("An error occurred when saving method");
+                }
+            }
+        }
+
+        private void loadMethodFrompssessionFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Psmethod Files (*.psmethod)|*.psmethod";
+            openFileDialog.Title = "Load Method";
+            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePathName = openFileDialog.FileName;
+
+                _selectedMethod = _fileIO.LoadMethodAsPsssessionFile(filePathName);
+
+                if (_selectedMethod != null)
+                {
+                    lbConsole.Items.Add(".psmethod file successfully loaded.");
+                    SetupSettingsWithLoadedMethod();
+                }
+                else
+                {
+                    lbConsole.Items.Add("File is empty...");
+                    lbConsole.Items.Add("Please make sure the .psmethod file is present in the project folder.");
+                }
+            }
+        }
+
+
+        private void SetupSettingsWithLoadedMethod()
+        {
+            if (_selectedMethod.ToString() == _methodCLV.ToString())
+            {
+                measurement_type.SelectedIndex = 0;
+                measurement_type.SelectedItem = CyclicVoltammetry.Name;
+                
+                pretreatmentSettings1.loadCLVPretreatmentSettings(_selectedMethod);
+                currentRangeSettings1.loadCLVCurrentRange(_selectedMethod);
+
+                cvSettings1.LoadData((CyclicVoltammetry) _selectedMethod);
+            }
+            else if (_selectedMethod.ToString() == _methodDLP.ToString())
+            {
+                Console.WriteLine(_selectedMethod);
+                measurement_type.SelectedIndex = 1;
+                measurement_type.SelectedItem = DifferentialPulse.Name;
+
+                pretreatmentSettings1.loadDPPretreatmentSettings(_selectedMethod);
+                currentRangeSettings1.loadDPCurrentRange(_selectedMethod);
+
+                dpSettings1.LoadData((DifferentialPulse) _selectedMethod);
+            }
+            else if (_selectedMethod == _methodIMM)
+            {
+                // YAPMA
+            }
+        }
+
+        // #########################################################################################
+
+
+
+        // Statusbar:
+        private void importFrompssessionFileToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            importFrompssessionFileToolStripMenuItem_Click(sender, e);
+        }
+
+        private void importFromxlsxFileToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            btnLoad_Click(sender, e);
+        }
+
+        private void exportAspssessionFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pssessionExport_Click(sender, e);
+        }
+
+        private void exportAsxlsxFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            xlsxFileToolStripMenuItem_Click(sender, e);
+        }
+
+        private void exportGraphAsImageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            exportGraphToolStripMenuItem_Click(sender, e);
         }
     }
 }

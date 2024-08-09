@@ -112,6 +112,36 @@ namespace PalmSense4.data.Measurement_Settings
             }
         }
 
+        public int GetPositionByCurrentRanges(string c)
+        {
+            Console.WriteLine(c);
+            switch (c)
+            {
+                case "100 pA":
+                    return 1;
+                case "1 nA":
+                    return 2;
+                case "10 nA":
+                    return 3;
+                case "100 nA":
+                    return 4;
+                case "1 uA":
+                    return 5;
+                case "10 uA":
+                    return 6;
+                case "100 uA":
+                    return 7;
+                case "1 mA":
+                    return 8;
+                case "10 mA":
+                    return 9;
+                case "100 mA":
+                    return 10;
+                default:
+                    return 1;
+            }
+        }
+
         public int GetPositionByFrequency(float freq)
         {
             switch(freq)

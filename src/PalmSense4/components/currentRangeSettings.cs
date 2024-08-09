@@ -111,16 +111,32 @@ namespace PalmSense4.components
                 }
                 else
                 {
-                    start = _cvSettings.StartCurrent.Value;
-                    max = _cvSettings.MaxCurrent.GetPositionByFrequency(_cvSettings.MaxCurrent.Method.PretLimitMaxValue);
-                    min = _cvSettings.MinCurrent.GetPositionByFrequency(_cvSettings.MinCurrent.Method.PretLimitMinValue);
+                    start = _cvSettings.StartCurrent.GetPositionByCurrentRanges(_cvSettings.StartCurrent.Method.Ranging.CurrentRange.ToString());
+                    max = _cvSettings.MaxCurrent.GetPositionByCurrentRanges(_cvSettings.MaxCurrent.Method.Ranging.MaximumCurrentRange.ToString());
+                    min = _cvSettings.MinCurrent.GetPositionByCurrentRanges(_cvSettings.MinCurrent.Method.Ranging.MinimumCurrentRange.ToString());
 
                 }
 
                 btnUI(start, max, min);
             }
-
         }
+        public void loadCLVCurrentRange(Method m)
+        {
+            currentRangeBtns.Visible = true;
+
+            start = _cvSettings.StartCurrent.GetPositionByCurrentRanges(m.Ranging.CurrentRange.ToString());
+            max = _cvSettings.MaxCurrent.GetPositionByCurrentRanges(m.Ranging.MaximumCurrentRange.ToString());
+            min = _cvSettings.MinCurrent.GetPositionByCurrentRanges(m.Ranging.MinimumCurrentRange.ToString());
+
+            _cvSettings.StartCurrent.Method.Ranging.CurrentRange = m.Ranging.CurrentRange;
+            _cvSettings.MaxCurrent.Method.Ranging.MaximumCurrentRange = m.Ranging.MaximumCurrentRange;
+            _cvSettings.MinCurrent.Method.Ranging.MinimumCurrentRange = m.Ranging.MinimumCurrentRange;
+
+            btnUI(start, max, min);
+        }
+
+
+
         public void loadDPCurrentRange()
         {
             currentRangeBtns.Visible = true;
@@ -135,14 +151,31 @@ namespace PalmSense4.components
                 }
                 else
                 {
-                    start = _dpSettings.StartCurrent.Value;
-                    max = _dpSettings.MaxCurrent.GetPositionByFrequency(_dpSettings.MaxCurrent.Method.PretLimitMaxValue);
-                    min = _dpSettings.MinCurrent.GetPositionByFrequency(_dpSettings.MinCurrent.Method.PretLimitMinValue);
+                    start = _dpSettings.StartCurrent.GetPositionByCurrentRanges(_dpSettings.StartCurrent.Method.Ranging.CurrentRange.ToString());
+                    max = _dpSettings.MaxCurrent.GetPositionByCurrentRanges(_dpSettings.MaxCurrent.Method.Ranging.MaximumCurrentRange.ToString());
+                    min = _dpSettings.MinCurrent.GetPositionByCurrentRanges(_dpSettings.MinCurrent.Method.Ranging.MinimumCurrentRange.ToString());
                 }
 
                 btnUI(start, max, min);
             }
         }
+        public void loadDPCurrentRange(Method m)
+        {
+            currentRangeBtns.Visible = true;
+
+            start = _dpSettings.StartCurrent.GetPositionByCurrentRanges(m.Ranging.CurrentRange.ToString());
+            max = _dpSettings.MaxCurrent.GetPositionByCurrentRanges(m.Ranging.MaximumCurrentRange.ToString());
+            min = _dpSettings.MinCurrent.GetPositionByCurrentRanges(m.Ranging.MinimumCurrentRange.ToString());
+
+            _dpSettings.StartCurrent.Method.Ranging.CurrentRange = m.Ranging.CurrentRange;
+            _dpSettings.MaxCurrent.Method.Ranging.MaximumCurrentRange = m.Ranging.MaximumCurrentRange;
+            _dpSettings.MinCurrent.Method.Ranging.MinimumCurrentRange = m.Ranging.MinimumCurrentRange;
+
+            btnUI(start, max, min);
+        }
+
+
+
         public void loadISCurrentRange()
         {
             currentRangeBtns.Visible = false;

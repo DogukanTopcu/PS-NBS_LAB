@@ -1,5 +1,6 @@
 ﻿using Microsoft.Win32;
 using Org.BouncyCastle.Utilities;
+using PalmSens;
 using PalmSens.Techniques;
 using PalmSense4.data.Measurement_Settings;
 using System;
@@ -77,8 +78,20 @@ namespace PalmSense4.components
                     tbTDeposition.Texts = _cvSettings.TDeposition.Method.DepositionTime.ToString();
                 }
             }
-
         }
+        public void loadCLVPretreatmentSettings(Method m)
+        {
+            tbECondition.Texts = m.ConditioningPotential.ToString();
+            tbTCondition.Texts = m.ConditioningTime.ToString();
+            tbEDeposition.Texts = m.DepositionPotential.ToString();
+            tbTDeposition.Texts = m.DepositionTime.ToString();
+
+            _cvSettings.ECondition.Method.ConditioningPotential = m.ConditioningPotential;
+            _cvSettings.TCondition.Method.ConditioningTime = m.ConditioningTime;
+            _cvSettings.EDeposition.Method.DepositionPotential = m.DepositionPotential;
+            _cvSettings.TDeposition.Method.DepositionTime = m.DepositionTime;
+        }
+
         public void loadDPPretreatmentSettings()
         {
             string keyPath = @"SOFTWARE\PalmSense";
@@ -103,6 +116,20 @@ namespace PalmSense4.components
             }
 
         }
+        public void loadDPPretreatmentSettings(Method m)
+        {
+            tbECondition.Texts = m.ConditioningPotential.ToString();
+            tbTCondition.Texts = m.ConditioningTime.ToString();
+            tbEDeposition.Texts = m.DepositionPotential.ToString();
+            tbTDeposition.Texts = m.DepositionTime.ToString();
+
+            _dpSettings.ECondition.Method.ConditioningPotential = m.ConditioningPotential;
+            _dpSettings.TCondition.Method.ConditioningTime = m.ConditioningTime;
+            _dpSettings.EDeposition.Method.DepositionPotential = m.DepositionPotential;
+            _dpSettings.TDeposition.Method.DepositionTime = m.DepositionTime;
+        }
+
+
         public void loadIMMPretreatmentSettings()
         {
             string keyPath = @"SOFTWARE\PalmSense";

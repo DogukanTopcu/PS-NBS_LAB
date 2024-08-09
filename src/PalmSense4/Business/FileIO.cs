@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Office.Interop.Excel;
+using PalmSens;
 using PalmSens.Core.Simplified.Data;
 using PalmSens.Core.Simplified.WinForms;
 
@@ -119,6 +120,22 @@ namespace PalmSense4.Business
         public void SaveImageOfPlot(string filePath, DataView data) 
         { 
             
+        }
+
+
+        public bool SaveMethodAsPssessionFile(string filePath, Method method)
+        {
+            try
+            {
+                SimpleLoadSaveFunctions.SaveMethod(method, filePath);
+                return true;
+            }
+            catch { return false; }
+        }
+
+        public Method LoadMethodAsPsssessionFile(string filePath)
+        {
+            return SimpleLoadSaveFunctions.LoadMethod(filePath);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using PalmSens.Techniques;
 using PalmSense4.data.Measurement_Settings;
 using RJCodeAdvance.RJControls;
 using System;
@@ -338,6 +339,31 @@ namespace PalmSense4.components
                     key.SetValue("dp_Scanrate", _scanRate);
                 }
             }
+        }
+
+
+        public void LoadData(DifferentialPulse m)
+        {
+            tbTEq.Texts = m.EquilibrationTime.ToString();
+            _dpSettings.TimeEquilibrium.Method.EquilibrationTime = m.EquilibrationTime;
+
+            tbEBegin.Texts = m.BeginPotential.ToString();
+            _dpSettings.EBegin.Method.BeginPotential = m.BeginPotential;
+
+            tbEEnd.Texts = m.EndPotential.ToString();
+            _dpSettings.EEnd.Method.EndPotential = m.EndPotential;
+
+            tbEStep.Texts = m.StepPotential.ToString();
+            _dpSettings.EStep.Method.StepPotential = m.StepPotential;
+
+            tbScanRate.Texts = m.Scanrate.ToString();
+            _dpSettings.ScanRate.Method.Scanrate = m.Scanrate;
+
+            tbEPulse.Texts = m.PulsePotential.ToString();
+            _dpSettings.EPulse.Method.PulsePotential = m.PulsePotential;
+
+            tbTPulse.Texts = m.PulseTime.ToString();
+            _dpSettings.TPulse.Method.PulseTime = m.PulseTime;
         }
 
     }
