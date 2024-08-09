@@ -1,4 +1,5 @@
-﻿using PalmSens.Core.Simplified.WinForms;
+﻿using PalmSens.Core.Simplified.Data;
+using PalmSens.Core.Simplified.WinForms;
 using PalmSens.Techniques;
 using PalmSense4.data.Measurement_Settings;
 using System;
@@ -33,24 +34,27 @@ namespace PalmSense4.components
         {
             lbConsole = lb;
         }
-        private void regenerationStartButton_Click(object sender, EventArgs e)
+        private async void regenerationStartButton_Click(object sender, EventArgs e)
         {
             if (potantialRegeneration.Texts == "" || timeRegeneration.Texts == "")
             {
-                //lbConsole.Items.Add("Regeneration Process couldn't start");
+                MainPage.lbox.Items.Add("Regeneration Process couldn't start");
             }
             else
             {
+                MainPage.ps.Disconnect();
+                psCommSimpleWinForms2.Connect(MainPage.connectedDevice);
+
                 isRegeneration = true;
                 try
                 {
-                    double potantial = Double.Parse(potantialRegeneration.Text);
-                    double time = Double.Parse(timeRegeneration.Text);
+                    double potential = Double.Parse(potantialRegeneration.Texts);
+                    double time = Double.Parse(timeRegeneration.Texts);
 
                     float tempECondition = _dpSettings.ECondition.Method.ConditioningPotential;
                     float tempTCondition = _dpSettings.TCondition.Method.ConditioningTime;
 
-                    _dpSettings.ECondition.Method.ConditioningPotential = (float)potantial;
+                    _dpSettings.ECondition.Method.ConditioningPotential = (float)potential;
                     _dpSettings.TCondition.Method.ConditioningTime = (float)time;
 
                     if (psCommSimpleWinForms2.DeviceState == PalmSens.Comm.CommManager.DeviceState.Idle)
@@ -61,7 +65,7 @@ namespace PalmSense4.components
                         }
                         catch (Exception ex)
                         {
-                            //lbConsole.Items.Add(ex.Message);
+                            MainPage.lbox.Items.Add(ex.Message);
                         }
                     }
                     else
@@ -69,13 +73,13 @@ namespace PalmSense4.components
                         try
                         {
                             if (psCommSimpleWinForms2.EnableBluetooth)
-                                psCommSimpleWinForms2.AbortMeasurementAsync();
+                                await psCommSimpleWinForms2.AbortMeasurementAsync();
                             else
                                 psCommSimpleWinForms2.AbortMeasurement(); //Abort the active measurement
                         }
                         catch (Exception ex)
                         {
-                            //lbConsole.Items.Add(ex.Message);
+                            MainPage.lbox.Items.Add(ex.Message);
                         }
                     }
 
@@ -86,13 +90,29 @@ namespace PalmSense4.components
                 }
                 catch
                 {
-                    //lbConsole.Items.Add("Regeneration Process is not done");
+                    MainPage.lbox.Items.Add("Regeneration Process is not done");
+                    await psCommSimpleWinForms2.DisconnectAsync();
+                    MainPage.ps.Connect(MainPage.connectedDevice);
+                    return;
                 }
-
-
-                //lbConsole.Items.Add("Regeneration Process is done successfully");
-
             }
         }
+
+
+
+        private void psCommSimpleWinForms2_MeasurementStarted(object sender, EventArgs e)
+        {
+            lbConsole.Items.Add("Regeneration started.");
+        }
+        private async void psCommSimpleWinForms2_MeasurementEnded(object sender, Exception e)
+        {
+            MainPage.lbox.Items.Add("Regeneration Process is done successfully");
+
+            lbConsole.Items.Add("Regeneration ended.");
+            await psCommSimpleWinForms2.DisconnectAsync();
+            MainPage.ps.Connect(MainPage.connectedDevice);
+            MainPage.lbox.Items.Add("Connected");
+        }
+        
     }
 }

@@ -189,6 +189,9 @@
             // 
             this.psCommSimpleWinForms2.EnableBluetooth = false;
             this.psCommSimpleWinForms2.EnableSerialPort = false;
+            this.psCommSimpleWinForms2.Parent = this;
+            this.psCommSimpleWinForms2.MeasurementStarted += new System.EventHandler(this.psCommSimpleWinForms2_MeasurementStarted);
+            this.psCommSimpleWinForms2.MeasurementEnded += new System.EventHandler<System.Exception>(this.psCommSimpleWinForms2_MeasurementEnded);
             // 
             // regeneration
             // 

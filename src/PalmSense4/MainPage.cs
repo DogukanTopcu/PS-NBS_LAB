@@ -30,6 +30,7 @@ namespace PalmSense4
     {
         // Attributes
         private Device[] _connectedDevices;
+        public static Device connectedDevice;
         private SimpleMeasurement _activeMeasurement;
 
         public static CyclicVoltammetry _methodCLV = new CyclicVoltammetry();
@@ -66,6 +67,10 @@ namespace PalmSense4
         private SimpleCurve _baselineCurve;
 
 
+        public static PSCommSimpleWinForms ps;
+        public static System.Windows.Forms.ListBox lbox;
+
+
         // CONSTRUCTORS *************************************************************************
         public MainPage()
         {
@@ -91,6 +96,9 @@ namespace PalmSense4
             plotNumber = 1;
 
             _fileIO = new FileIO();
+
+            ps = psCommSimpleWinForms;
+            lbox = lbConsole;
         }
 
         private void MainPage_Load(object sender, EventArgs e)
@@ -165,6 +173,7 @@ namespace PalmSense4
                 try
                 {
                     psCommSimpleWinForms.Connect(_connectedDevices[cmbDevices.SelectedIndex]);
+                    connectedDevice = _connectedDevices[cmbDevices.SelectedIndex];
                     lbConsole.Items.Add($"Connected to {psCommSimpleWinForms.ConnectedDevice.ToString()}");
                     measurement_type.SelectedIndex = 0;
                 }
@@ -427,7 +436,7 @@ namespace PalmSense4
                 try
                 {
                     if (psCommSimpleWinForms.EnableBluetooth)
-                        psCommSimpleWinForms.AbortMeasurementAsync();
+                        psCommSimpleWinForms.AbortMeasurement();
                     else
                         psCommSimpleWinForms.AbortMeasurement(); //Abort the active measurement
                 }
