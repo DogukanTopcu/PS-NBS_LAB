@@ -97,8 +97,6 @@
             this.rjButton28 = new RJCodeAdvance.RJControls.RJButton();
             this.rjButton29 = new RJCodeAdvance.RJControls.RJButton();
             this.rjButton30 = new RJCodeAdvance.RJControls.RJButton();
-            this.eisPlotArea = new System.Windows.Forms.TabPage();
-            this.eisPlot = new SDKPlot.WinForms.Plot();
             this.dataArea = new System.Windows.Forms.TabPage();
             this.dgvMeasurement = new System.Windows.Forms.DataGridView();
             this.btnDataViewSave = new System.Windows.Forms.Button();
@@ -137,7 +135,6 @@
             this.cv_dp_plot.SuspendLayout();
             this.PlotSettings.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
-            this.eisPlotArea.SuspendLayout();
             this.dataArea.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMeasurement)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -520,7 +517,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl2.Controls.Add(this.PlotArea);
-            this.tabControl2.Controls.Add(this.eisPlotArea);
             this.tabControl2.Controls.Add(this.dataArea);
             this.tabControl2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl2.Location = new System.Drawing.Point(43, 5);
@@ -598,13 +594,13 @@
             this.smoothCurveToolStripMenuItem,
             this.detectPeaksToolStripMenuItem});
             this.plotToolStripMenuItem.Name = "plotToolStripMenuItem";
-            this.plotToolStripMenuItem.Size = new System.Drawing.Size(59, 29);
-            this.plotToolStripMenuItem.Text = "Plot";
+            this.plotToolStripMenuItem.Size = new System.Drawing.Size(65, 29);
+            this.plotToolStripMenuItem.Text = "Peak";
             // 
             // smoothCurveToolStripMenuItem
             // 
             this.smoothCurveToolStripMenuItem.Name = "smoothCurveToolStripMenuItem";
-            this.smoothCurveToolStripMenuItem.Size = new System.Drawing.Size(217, 30);
+            this.smoothCurveToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
             this.smoothCurveToolStripMenuItem.Text = "Smooth Curve";
             // 
             // detectPeaksToolStripMenuItem
@@ -612,7 +608,7 @@
             this.detectPeaksToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.allPlotsToolStripMenuItem});
             this.detectPeaksToolStripMenuItem.Name = "detectPeaksToolStripMenuItem";
-            this.detectPeaksToolStripMenuItem.Size = new System.Drawing.Size(217, 30);
+            this.detectPeaksToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
             this.detectPeaksToolStripMenuItem.Text = "Detect Peaks";
             // 
             // allPlotsToolStripMenuItem
@@ -910,37 +906,6 @@
             this.rjButton30.TextColor = System.Drawing.Color.White;
             this.rjButton30.UseVisualStyleBackColor = false;
             // 
-            // eisPlotArea
-            // 
-            this.eisPlotArea.Controls.Add(this.eisPlot);
-            this.eisPlotArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.eisPlotArea.Location = new System.Drawing.Point(4, 34);
-            this.eisPlotArea.Name = "eisPlotArea";
-            this.eisPlotArea.Padding = new System.Windows.Forms.Padding(3);
-            this.eisPlotArea.Size = new System.Drawing.Size(633, 815);
-            this.eisPlotArea.TabIndex = 1;
-            this.eisPlotArea.Text = "EIS Plot";
-            this.eisPlotArea.UseVisualStyleBackColor = true;
-            // 
-            // eisPlot
-            // 
-            this.eisPlot.BackColor = System.Drawing.Color.White;
-            this.eisPlot.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.eisPlot.Location = new System.Drawing.Point(3, 3);
-            this.eisPlot.Margin = new System.Windows.Forms.Padding(6);
-            this.eisPlot.MarkerSize = 5;
-            this.eisPlot.MarkerType = OxyPlot.MarkerType.Circle;
-            this.eisPlot.Name = "eisPlot";
-            this.eisPlot.Size = new System.Drawing.Size(627, 809);
-            this.eisPlot.TabIndex = 0;
-            this.eisPlot.Title = null;
-            this.eisPlot.XAxisLabel = null;
-            this.eisPlot.XAxisType = SDKPlot.AxisType.Linear;
-            this.eisPlot.YAxisLabel = null;
-            this.eisPlot.YAxisSecondaryLabel = null;
-            this.eisPlot.YAxisSecondaryType = SDKPlot.AxisType.Linear;
-            this.eisPlot.YAxisType = SDKPlot.AxisType.Linear;
-            // 
             // dataArea
             // 
             this.dataArea.Controls.Add(this.dgvMeasurement);
@@ -1219,7 +1184,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Name = "MainPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MainPage";
+            this.Text = "PalmSens4";
             this.Load += new System.EventHandler(this.MainPage_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -1244,7 +1209,6 @@
             this.PlotSettings.ResumeLayout(false);
             this.PlotSettings.PerformLayout();
             this.flowLayoutPanel4.ResumeLayout(false);
-            this.eisPlotArea.ResumeLayout(false);
             this.dataArea.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMeasurement)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -1292,53 +1256,16 @@
         private System.Windows.Forms.ToolStripMenuItem overlayRunBtn;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
-        private System.Windows.Forms.TabControl tabControl2;
-        private System.Windows.Forms.TabPage PlotArea;
-        private System.Windows.Forms.Panel cv_dp_plot;
-        private System.Windows.Forms.MenuStrip PlotSettings;
-        private System.Windows.Forms.ToolStripMenuItem plotToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem clearToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem clearPlotToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem clearAllToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem filterToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exportsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pssessionExport;
-        private System.Windows.Forms.ToolStripMenuItem TSMILoadPeakLOD;
-        private System.Windows.Forms.TabPage eisPlotArea;
-        private System.Windows.Forms.TabPage dataArea;
-        private System.Windows.Forms.DataGridView dgvMeasurement;
-        private System.Windows.Forms.Button btnDataViewSave;
-        private System.Windows.Forms.Button btnLoad;
         private RJCodeAdvance.RJControls.RJDropdownMenu rjDropdownMenu1;
-        private SDKPlot.WinForms.Plot plot;
         private RJCodeAdvance.RJControls.RJButton btnBluetooth;
         private PalmSens.Core.Simplified.WinForms.PSCommSimpleWinForms psCommSimpleWinForms;
         private components.cvSettings cvSettings1;
         private components.dpSettings dpSettings1;
         private components.isSettings isSettings1;
         private components.pretreatmentSettings pretreatmentSettings1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
-        private RJCodeAdvance.RJControls.RJButton rjButton2;
-        private RJCodeAdvance.RJControls.RJButton rjButton22;
-        private RJCodeAdvance.RJControls.RJButton rjButton23;
-        private RJCodeAdvance.RJControls.RJButton rjButton24;
-        private RJCodeAdvance.RJControls.RJButton rjButton25;
-        private RJCodeAdvance.RJControls.RJButton rjButton26;
-        private RJCodeAdvance.RJControls.RJButton rjButton27;
-        private RJCodeAdvance.RJControls.RJButton rjButton28;
-        private RJCodeAdvance.RJControls.RJButton rjButton29;
-        private RJCodeAdvance.RJControls.RJButton rjButton30;
         private components.currentRangeSettings currentRangeSettings1;
         private components.calculators calculators1;
         private System.Windows.Forms.CheckBox saveSettingsInInternalStorage;
-        private SDKPlot.WinForms.Plot eisPlot;
-        private System.Windows.Forms.ToolStripMenuItem smoothCurveToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem detectPeaksToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem allPlotsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem xlsxFileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exportGraphToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem importFrompssessionFileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem importFromxlsxFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveMethodAspssessionFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loadMethodFrompssessionFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem importDataToolStripMenuItem;
@@ -1351,6 +1278,41 @@
         private System.Windows.Forms.ToolStripMenuItem downloadMeasurementDataToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem startWithNewPlotToolStripMenuItem;
         private components.regeneration regeneration1;
+        private System.Windows.Forms.TabControl tabControl2;
+        private System.Windows.Forms.TabPage PlotArea;
+        private System.Windows.Forms.Panel cv_dp_plot;
+        private SDKPlot.WinForms.Plot plot;
+        private System.Windows.Forms.MenuStrip PlotSettings;
+        private System.Windows.Forms.ToolStripMenuItem plotToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem smoothCurveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem detectPeaksToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem allPlotsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clearToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clearPlotToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clearAllToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem filterToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem regressionAnalysisToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem TSMILoadPeakLOD;
+        private System.Windows.Forms.ToolStripMenuItem importFrompssessionFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem importFromxlsxFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exportsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pssessionExport;
+        private System.Windows.Forms.ToolStripMenuItem xlsxFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exportGraphToolStripMenuItem;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
+        private RJCodeAdvance.RJControls.RJButton rjButton2;
+        private RJCodeAdvance.RJControls.RJButton rjButton22;
+        private RJCodeAdvance.RJControls.RJButton rjButton23;
+        private RJCodeAdvance.RJControls.RJButton rjButton24;
+        private RJCodeAdvance.RJControls.RJButton rjButton25;
+        private RJCodeAdvance.RJControls.RJButton rjButton26;
+        private RJCodeAdvance.RJControls.RJButton rjButton27;
+        private RJCodeAdvance.RJControls.RJButton rjButton28;
+        private RJCodeAdvance.RJControls.RJButton rjButton29;
+        private RJCodeAdvance.RJControls.RJButton rjButton30;
+        private System.Windows.Forms.TabPage dataArea;
+        private System.Windows.Forms.DataGridView dgvMeasurement;
+        private System.Windows.Forms.Button btnDataViewSave;
+        private System.Windows.Forms.Button btnLoad;
     }
 }

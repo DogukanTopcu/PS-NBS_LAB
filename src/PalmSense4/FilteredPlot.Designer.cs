@@ -36,12 +36,11 @@
             this.subtractBaselineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.detectPeaksToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.plot1 = new SDKPlot.WinForms.Plot();
             this.pssessionFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xlsxFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportAsImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.regressionAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.plot1 = new SDKPlot.WinForms.Plot();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,8 +51,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
             this.plotToolStripMenuItem,
-            this.exportToolStripMenuItem,
-            this.regressionAnalysisToolStripMenuItem});
+            this.exportToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1110, 36);
@@ -73,8 +71,8 @@
             this.subtractBaselineToolStripMenuItem,
             this.detectPeaksToolStripMenuItem1});
             this.plotToolStripMenuItem.Name = "plotToolStripMenuItem";
-            this.plotToolStripMenuItem.Size = new System.Drawing.Size(61, 32);
-            this.plotToolStripMenuItem.Text = "Plot";
+            this.plotToolStripMenuItem.Size = new System.Drawing.Size(66, 32);
+            this.plotToolStripMenuItem.Text = "Peak";
             // 
             // smoothCurveToolStripMenuItem
             // 
@@ -115,6 +113,32 @@
             this.exportToolStripMenuItem.Size = new System.Drawing.Size(83, 32);
             this.exportToolStripMenuItem.Text = "Export";
             // 
+            // pssessionFileToolStripMenuItem
+            // 
+            this.pssessionFileToolStripMenuItem.Name = "pssessionFileToolStripMenuItem";
+            this.pssessionFileToolStripMenuItem.Size = new System.Drawing.Size(296, 32);
+            this.pssessionFileToolStripMenuItem.Text = ".pssession File";
+            this.pssessionFileToolStripMenuItem.Click += new System.EventHandler(this.pssessionFileToolStripMenuItem_Click);
+            // 
+            // xlsxFileToolStripMenuItem
+            // 
+            this.xlsxFileToolStripMenuItem.Name = "xlsxFileToolStripMenuItem";
+            this.xlsxFileToolStripMenuItem.Size = new System.Drawing.Size(296, 32);
+            this.xlsxFileToolStripMenuItem.Text = ".xlsx File";
+            this.xlsxFileToolStripMenuItem.Click += new System.EventHandler(this.xlsxFileToolStripMenuItem_Click);
+            // 
+            // txtFileToolStripMenuItem
+            // 
+            this.txtFileToolStripMenuItem.Name = "txtFileToolStripMenuItem";
+            this.txtFileToolStripMenuItem.Size = new System.Drawing.Size(296, 32);
+            this.txtFileToolStripMenuItem.Text = ".txt File";
+            // 
+            // exportAsImageToolStripMenuItem
+            // 
+            this.exportAsImageToolStripMenuItem.Name = "exportAsImageToolStripMenuItem";
+            this.exportAsImageToolStripMenuItem.Size = new System.Drawing.Size(296, 32);
+            this.exportAsImageToolStripMenuItem.Text = "Export Graph as Image";
+            // 
             // plot1
             // 
             this.plot1.BackColor = System.Drawing.Color.White;
@@ -133,38 +157,6 @@
             this.plot1.YAxisSecondaryLabel = null;
             this.plot1.YAxisSecondaryType = SDKPlot.AxisType.Linear;
             this.plot1.YAxisType = SDKPlot.AxisType.Linear;
-            // 
-            // pssessionFileToolStripMenuItem
-            // 
-            this.pssessionFileToolStripMenuItem.Name = "pssessionFileToolStripMenuItem";
-            this.pssessionFileToolStripMenuItem.Size = new System.Drawing.Size(296, 32);
-            this.pssessionFileToolStripMenuItem.Text = ".pssession File";
-            this.pssessionFileToolStripMenuItem.Click += new System.EventHandler(this.pssessionFileToolStripMenuItem_Click);
-            // 
-            // xlsxFileToolStripMenuItem
-            // 
-            this.xlsxFileToolStripMenuItem.Name = "xlsxFileToolStripMenuItem";
-            this.xlsxFileToolStripMenuItem.Size = new System.Drawing.Size(296, 32);
-            this.xlsxFileToolStripMenuItem.Text = ".xlsx File";
-            this.xlsxFileToolStripMenuItem.Click += new System.EventHandler(this.xlsxFileToolStripMenuItem_Click);
-            // 
-            // txtFileToolStripMenuItem
-            // 
-            this.txtFileToolStripMenuItem.Name = "txtFileToolStripMenuItem";
-            this.txtFileToolStripMenuItem.Size = new System.Drawing.Size(237, 32);
-            this.txtFileToolStripMenuItem.Text = ".txt File";
-            // 
-            // exportAsImageToolStripMenuItem
-            // 
-            this.exportAsImageToolStripMenuItem.Name = "exportAsImageToolStripMenuItem";
-            this.exportAsImageToolStripMenuItem.Size = new System.Drawing.Size(296, 32);
-            this.exportAsImageToolStripMenuItem.Text = "Export Graph as Image";
-            // 
-            // regressionAnalysisToolStripMenuItem
-            // 
-            this.regressionAnalysisToolStripMenuItem.Name = "regressionAnalysisToolStripMenuItem";
-            this.regressionAnalysisToolStripMenuItem.Size = new System.Drawing.Size(195, 32);
-            this.regressionAnalysisToolStripMenuItem.Text = "Regression Analysis";
             // 
             // FilteredPlot
             // 
@@ -199,6 +191,5 @@
         private System.Windows.Forms.ToolStripMenuItem xlsxFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem txtFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportAsImageToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem regressionAnalysisToolStripMenuItem;
     }
 }

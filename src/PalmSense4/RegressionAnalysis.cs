@@ -26,6 +26,8 @@ namespace PalmSense4
 
         private int manuelDataNumber = 0;
         private List<manuelPeakDataView> manuelData;
+        public static List<autoPeakDataView> autoPeakData = new List<autoPeakDataView>();
+        public static FlowLayoutPanel autoPeakDataflp;
 
         public RegressionAnalysis(List<SimpleCurve> _m)
         {
@@ -38,6 +40,9 @@ namespace PalmSense4
 
             _allMeasurements = _m;
             _allCurvesDict = new Dictionary<string, SimpleCurve>();
+
+            autoPeakDataflp = autoDetectedPlots;
+
             int l = 0;
             foreach (SimpleCurve item in _allMeasurements)
             {
@@ -69,54 +74,6 @@ namespace PalmSense4
         }
 
 
-        // Regression Analysis for all graph
-        //private void calculateBtn_Click(object sender, EventArgs e)
-        //{
-        //    plot1.ClearAll();
-
-        //    var M = Matrix<double>.Build;
-        //    var V = Vector<double>.Build;
-
-        //    // Create xdata and ydata lists
-        //    for (int j = 0; j < plotsList.CheckedItems.Count; j++)
-        //    {
-        //        string plotName = plotsList.SelectedItems[j].ToString();
-        //        List<List<double>> plotData = _allMeasurements[plotName];
-
-        //        foreach (List<double> data in plotData)
-        //        {
-        //            xdata.Add(data[1]);
-        //            ydata.Add(data[2]);
-        //        }
-
-        //        plot1.AddData(plotName, xdata.ToArray(), ydata.ToArray());
-        //    }
-        //    // Also find the minimum and maximum values of xdata.
-        //    double minValue = xdata[0];
-        //    double maxValue = xdata[xdata.Count - 1];
-
-        //    var X = M.DenseOfColumnVectors(V.Dense(xdata.ToArray().Length, 1), V.Dense(xdata.ToArray()));
-        //    var Y = V.Dense(ydata.ToArray());
-        //    var P = X.QR().Solve(Y);
-
-        //    double a = P[0];
-        //    double b = P[1];
-
-        //    // y = a + bx
-        //    List<double> xVals = new List<double>();
-        //    List<double> yVals = new List<double>();
-
-        //    foreach (double x in xdata)
-        //    {
-        //        double y = a + b * x;
-        //        xVals.Add(x);
-        //        yVals.Add(y);
-        //    }
-
-        //    plot1.AddData("", new List<double>(xVals).ToArray(), new List<double>(yVals).ToArray());
-        //}
-
-
         private void calculateBtn_Click(object sender, EventArgs e)
         {
             plot1.ClearAll();
@@ -128,33 +85,29 @@ namespace PalmSense4
 
             // Take all peak data and
             // fill these xdata and ydata lists
-            for (int j = 0; j < plotsList.CheckedItems.Count; j++)
+
+            // Peak Detection
+            foreach (autoPeakDataView item in autoPeakData)
             {
-                string plotName = plotsList.CheckedItems[j].ToString();
-                SimpleCurve plotData = _allCurvesDict[plotName];
-
-                // Peak Detection
-                if (plotData.FullTitle.Contains("DPV"))
+                if (item.CheckIsValid())
                 {
-                    SimpleCurve _baselineCurve = plotData.MovingAverageBaseline();
-                    plotData = plotData.Subtract(_baselineCurve);
-                }
-                plotData.DetectPeaks();
-
-                for (int i = 0; i < plotData.Peaks.nPeaks; i++)
-                {
-                    xdata.Add(plotData.Peaks[i].PeakX);
-                    ydata.Add(plotData.Peaks[i].PeakValue);
+                    double c = Double.Parse(item.concentration.Texts);
+                    double cur = item.peaks[item.current.SelectedIndex];
+                    xdata.Add(c);
+                    ydata.Add(cur);
 
                     double[] x = new double[1];
                     double[] y = new double[1];
-                    x[0] = plotData.Peaks[i].PeakX;
-                    y[0] = plotData.Peaks[i].PeakValue;
+                    x[0] = c;
+                    y[0] = cur;
                     plot1.AddData("", x, y);
                 }
+            }
 
-                // Manuel Peaks:
-                foreach (manuelPeakDataView component in manuelData)
+            // Manuel Peaks:
+            foreach (manuelPeakDataView component in manuelData)
+            {
+                if (component.CheckIsValid())
                 {
                     xdata.Add(component.xValue);
                     ydata.Add(component.yValue);
@@ -165,8 +118,8 @@ namespace PalmSense4
                     y[0] = component.yValue;
                     plot1.AddData("", x, y);
                 }
-
             }
+
 
             // Find the minimum and maximum values of xdata.
             double minValue = xdata.Min();
@@ -179,6 +132,8 @@ namespace PalmSense4
 
             double a = P[0];
             double b = P[1];
+            
+            formul.Text = $"y = {b.ToString("F4")}x + {a.ToString("F4")}";
 
             // y = a + bx
             List<double> xVals = new List<double>();
@@ -193,8 +148,10 @@ namespace PalmSense4
 
             plot1.AddData("", new List<double>(xVals).ToArray(), new List<double>(yVals).ToArray());
 
-        }
 
+            plot1.YAxisLabel = "Current (µA)";
+            plot1.XAxisLabel = "Concentration (M)";
+        }
 
 
         private void plotsList_SelectedIndexChanged(object sender, EventArgs e)
@@ -214,6 +171,65 @@ namespace PalmSense4
                 plot2.AddSimpleCurve(curve);
             }
             catch { }
+
+
+            for (int j = 0; j < autoPeakData.Count; j++)
+            {
+                autoPeakDataView item = autoPeakData[j];
+                bool isExists = false;
+                for (int i = 0; i < plotsList.CheckedItems.Count; i++)
+                {
+                    string pName = plotsList.CheckedItems[i].ToString();
+                    if (item.name == pName)
+                    {
+                        isExists = true;
+                        break;
+                    }
+                }
+                if (!isExists)
+                {
+                    autoPeakData.Remove(item);
+                    autoDetectedPlots.Controls.Remove(item);
+                    j--;
+                }
+            }
+
+            for (int i = 0; i < plotsList.CheckedItems.Count; i++)
+            {
+                string pName = plotsList.CheckedItems[i].ToString();
+                bool isExists = false;
+                foreach (autoPeakDataView item in autoPeakData)
+                {
+                    if (item.name == pName)
+                    {
+                        isExists = true;
+                        break;
+                    }
+                }
+                if (isExists)
+                {
+                    continue;
+                }
+                SimpleCurve plotData = _allCurvesDict[pName];
+
+                // Peak Detection
+                if (plotData.FullTitle.Contains("DPV"))
+                {
+                    SimpleCurve _baselineCurve = plotData.MovingAverageBaseline();
+                    plotData = plotData.Subtract(_baselineCurve);
+                }
+                plotData.DetectPeaks();
+
+                List<double> peaks = new List<double>();
+                for (int j = 0; j < plotData.Peaks.nPeaks; j++)
+                {
+                    peaks.Add(plotData.Peaks[j].PeakValue);
+                }
+
+                autoPeakDataView component = new autoPeakDataView(pName, peaks, false);
+                autoDetectedPlots.Controls.Add(component);
+                autoPeakData.Add(component);
+            }
         }
 
         private void increaseBtn_Click(object sender, EventArgs e)

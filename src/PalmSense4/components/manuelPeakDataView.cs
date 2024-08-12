@@ -57,5 +57,15 @@ namespace PalmSense4.components
                 MessageBox.Show("Please enter a floating point or integer number.");
             }
         }
+
+
+        public bool CheckIsValid()
+        {
+            if (xValInput.Texts == "" || yValInput.Texts == "")
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }

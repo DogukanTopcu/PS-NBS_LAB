@@ -21,8 +21,10 @@ namespace PalmSense4.components
         private DifferentialPulse _methodDLP;
         private ListBox lbConsole;
 
-        public static Button startBtn;
+        private Loading loadingPage;
 
+        public static Button startBtn;
+        public static PSCommSimpleWinForms psRegeneration;
         public static bool isRegeneration = false;
 
         public regeneration()
@@ -32,6 +34,9 @@ namespace PalmSense4.components
             _methodDLP = new DifferentialPulse();
             _dpSettings = new DifferentialPulse_Settings(_methodDLP);
 
+            loadingPage = new Loading();
+
+            psRegeneration = psCommSimpleWinForms2;
             startBtn = regenerationStartButton;
         }
 
@@ -50,7 +55,6 @@ namespace PalmSense4.components
                 MainPage.ps.Disconnect();
                 psCommSimpleWinForms2.Connect(MainPage.connectedDevice);
 
-                isRegeneration = true;
                 try
                 {
                     double potential = Double.Parse(potantialRegeneration.Texts);
@@ -108,6 +112,9 @@ namespace PalmSense4.components
         private void psCommSimpleWinForms2_MeasurementStarted(object sender, EventArgs e)
         {
             lbConsole.Items.Add("Regeneration started.");
+            isRegeneration = true;
+            loadingPage.ShowDialog();
+
             MainPage.btnConn.Enabled = false;
             MainPage.measureBtn.Enabled = false;
         }
@@ -116,6 +123,9 @@ namespace PalmSense4.components
             MainPage.lbox.Items.Add("Regeneration Process is done successfully");
 
             lbConsole.Items.Add("Regeneration ended.");
+            isRegeneration = false;
+            loadingPage.Close();
+
             await psCommSimpleWinForms2.DisconnectAsync();
             MainPage.ps.Connect(MainPage.connectedDevice);
             MainPage.lbox.Items.Add("Connected");

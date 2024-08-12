@@ -144,6 +144,12 @@
     <Compile Include="Business\PH_POH_Calculator.cs" />
     <Compile Include="Business\PpmCalculator.cs" />
     <Compile Include="Business\SolutionDiluationCalc.cs" />
+    <Compile Include="components\autoPeakDataView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="components\autoPeakDataView.Designer.cs">
+      <DependentUpon>autoPeakDataView.cs</DependentUpon>
+    </Compile>
     <Compile Include="components\calculators.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -218,6 +224,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Loading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Loading.Designer.cs">
+      <DependentUpon>Loading.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -250,6 +262,9 @@
     <Compile Include="RegressionAnalysis.Designer.cs">
       <DependentUpon>RegressionAnalysis.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="components\autoPeakDataView.resx">
+      <DependentUpon>autoPeakDataView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="components\calculators.resx">
       <DependentUpon>calculators.cs</DependentUpon>
     </EmbeddedResource>
@@ -282,6 +297,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Loading.resx">
+      <DependentUpon>Loading.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>

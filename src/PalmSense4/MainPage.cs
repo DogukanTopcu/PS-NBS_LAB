@@ -118,7 +118,6 @@ namespace PalmSense4
 
             measurement_type.Items.Add(CyclicVoltammetry.Name);
             measurement_type.Items.Add(DifferentialPulse.Name);
-            measurement_type.Items.Add(ImpedimetricMethod.Name);
             measurement_type.SelectedIndex = 0;
 
 
@@ -266,16 +265,9 @@ namespace PalmSense4
             clearAllToolStripMenuItem.Enabled = false;
             filterToolStripMenuItem.Enabled = false;
 
-            if (_selectedMethod == _methodIMM)
-            {
-                eisPlot.AddSimpleCurve(activeSimpleCurve);
-            }
-            else
-            {
-                plot.AddSimpleCurve(activeSimpleCurve);
-                plot.XAxisLabel = "Potential/V";
-                plot.YAxisLabel = "Current/µA";
-            }
+            plot.AddSimpleCurve(activeSimpleCurve);
+            plot.XAxisLabel = "Potential/V";
+            plot.YAxisLabel = "Current/µA";
 
             activeSimpleCurve.CurveFinished += activeSimpleCurve_CurveFinished;
 
@@ -456,14 +448,7 @@ namespace PalmSense4
                 }
             }
 
-            if (_selectedMethod == _methodIMM)
-            {
-                tabControl2.SelectedTab = eisPlotArea;
-            }
-            else
-            {
-                tabControl2.SelectedTab = PlotArea;
-            }
+            tabControl2.SelectedTab = PlotArea;
         }
 
         private void overlayRunBtn_Click(object sender, EventArgs e)
@@ -581,7 +566,6 @@ namespace PalmSense4
         {
             InitDataGridView();
             plot.ClearAll();
-            eisPlot.ClearAll();
             List<double> potentials = new List<double>();
             List<double> currents = new List<double>();
 

@@ -51,20 +51,20 @@
             this.xVal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xVal.Location = new System.Drawing.Point(78, 18);
             this.xVal.Name = "xVal";
-            this.xVal.Size = new System.Drawing.Size(26, 25);
+            this.xVal.Size = new System.Drawing.Size(33, 25);
             this.xVal.TabIndex = 1;
-            this.xVal.Text = "X";
+            this.xVal.Text = "C:";
             this.xVal.Click += new System.EventHandler(this.xVal_Click);
             // 
             // yVal
             // 
             this.yVal.AutoSize = true;
             this.yVal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.yVal.Location = new System.Drawing.Point(223, 18);
+            this.yVal.Location = new System.Drawing.Point(226, 18);
             this.yVal.Name = "yVal";
-            this.yVal.Size = new System.Drawing.Size(63, 25);
+            this.yVal.Size = new System.Drawing.Size(50, 25);
             this.yVal.TabIndex = 2;
-            this.yVal.Text = "Value";
+            this.yVal.Text = "Cur:";
             // 
             // xValInput
             // 
@@ -98,7 +98,7 @@
             this.yValInput.BorderSize = 2;
             this.yValInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.yValInput.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.yValInput.Location = new System.Drawing.Point(283, 13);
+            this.yValInput.Location = new System.Drawing.Point(279, 13);
             this.yValInput.Margin = new System.Windows.Forms.Padding(4);
             this.yValInput.Multiline = false;
             this.yValInput.Name = "yValInput";
