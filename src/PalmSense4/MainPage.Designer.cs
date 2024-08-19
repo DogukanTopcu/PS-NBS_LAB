@@ -51,12 +51,10 @@
             this.current_statusbar = new System.Windows.Forms.ToolStripStatusLabel();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.regeneration1 = new PalmSense4.components.regeneration();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.lbConsole = new System.Windows.Forms.ListBox();
-            this.calculators1 = new PalmSense4.components.calculators();
             this.panel1 = new System.Windows.Forms.Panel();
             this.connectionLabel = new System.Windows.Forms.Label();
             this.btnConnect = new RJCodeAdvance.RJControls.RJButton();
@@ -104,15 +102,9 @@
             this.section2_btn = new RJCodeAdvance.RJControls.RJButton();
             this.section1_btn = new RJCodeAdvance.RJControls.RJButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.pwm_duration1 = new PalmSense4.components.pwm_duration();
             this.saveSettingsInInternalStorage = new System.Windows.Forms.CheckBox();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.pretreatmentSettings1 = new PalmSense4.components.pretreatmentSettings();
-            this.isSettings1 = new PalmSense4.components.isSettings();
-            this.dpSettings1 = new PalmSense4.components.dpSettings();
-            this.cvSettings1 = new PalmSense4.components.cvSettings();
             this.label5 = new System.Windows.Forms.Label();
-            this.currentRangeSettings1 = new PalmSense4.components.currentRangeSettings();
             this.btnRun = new System.Windows.Forms.ToolStrip();
             this.measurementBtn = new System.Windows.Forms.ToolStripSplitButton();
             this.newRunBtn = new System.Windows.Forms.ToolStripMenuItem();
@@ -120,6 +112,14 @@
             this.measurement_type = new System.Windows.Forms.ComboBox();
             this.rjDropdownMenu1 = new RJCodeAdvance.RJControls.RJDropdownMenu(this.components);
             this.psCommSimpleWinForms = new PalmSens.Core.Simplified.WinForms.PSCommSimpleWinForms(this.components);
+            this.regeneration1 = new PalmSense4.components.regeneration();
+            this.calculators1 = new PalmSense4.components.calculators();
+            this.pwm_duration1 = new PalmSense4.components.pwm_duration();
+            this.pretreatmentSettings1 = new PalmSense4.components.pretreatmentSettings();
+            this.isSettings1 = new PalmSense4.components.isSettings();
+            this.dpSettings1 = new PalmSense4.components.dpSettings();
+            this.cvSettings1 = new PalmSense4.components.cvSettings();
+            this.currentRangeSettings1 = new PalmSense4.components.currentRangeSettings();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
@@ -335,14 +335,6 @@
             this.panel5.Size = new System.Drawing.Size(425, 776);
             this.panel5.TabIndex = 14;
             // 
-            // regeneration1
-            // 
-            this.regeneration1.Location = new System.Drawing.Point(0, 396);
-            this.regeneration1.Name = "regeneration1";
-            this.regeneration1.Size = new System.Drawing.Size(425, 171);
-            this.regeneration1.TabIndex = 27;
-            this.regeneration1.Load += new System.EventHandler(this.regeneration1_Load);
-            // 
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -388,13 +380,6 @@
             this.lbConsole.Name = "lbConsole";
             this.lbConsole.Size = new System.Drawing.Size(425, 176);
             this.lbConsole.TabIndex = 1;
-            // 
-            // calculators1
-            // 
-            this.calculators1.Location = new System.Drawing.Point(0, 0);
-            this.calculators1.Name = "calculators1";
-            this.calculators1.Size = new System.Drawing.Size(425, 398);
-            this.calculators1.TabIndex = 26;
             // 
             // panel1
             // 
@@ -1028,13 +1013,6 @@
             this.splitContainer1.SplitterDistance = 1155;
             this.splitContainer1.TabIndex = 14;
             // 
-            // pwm_duration1
-            // 
-            this.pwm_duration1.Location = new System.Drawing.Point(3, 16);
-            this.pwm_duration1.Name = "pwm_duration1";
-            this.pwm_duration1.Size = new System.Drawing.Size(469, 92);
-            this.pwm_duration1.TabIndex = 31;
-            // 
             // saveSettingsInInternalStorage
             // 
             this.saveSettingsInInternalStorage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -1057,55 +1035,20 @@
             this.flowLayoutPanel3.Controls.Add(this.isSettings1);
             this.flowLayoutPanel3.Controls.Add(this.dpSettings1);
             this.flowLayoutPanel3.Controls.Add(this.cvSettings1);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 333);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 362);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(467, 497);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(467, 468);
             this.flowLayoutPanel3.TabIndex = 27;
-            // 
-            // pretreatmentSettings1
-            // 
-            this.pretreatmentSettings1.Location = new System.Drawing.Point(3, 3);
-            this.pretreatmentSettings1.Name = "pretreatmentSettings1";
-            this.pretreatmentSettings1.Size = new System.Drawing.Size(435, 331);
-            this.pretreatmentSettings1.TabIndex = 11;
-            // 
-            // isSettings1
-            // 
-            this.isSettings1.Location = new System.Drawing.Point(3, 340);
-            this.isSettings1.Name = "isSettings1";
-            this.isSettings1.Size = new System.Drawing.Size(435, 460);
-            this.isSettings1.TabIndex = 11;
-            // 
-            // dpSettings1
-            // 
-            this.dpSettings1.Location = new System.Drawing.Point(3, 806);
-            this.dpSettings1.Name = "dpSettings1";
-            this.dpSettings1.Size = new System.Drawing.Size(435, 380);
-            this.dpSettings1.TabIndex = 11;
-            // 
-            // cvSettings1
-            // 
-            this.cvSettings1.Location = new System.Drawing.Point(3, 1192);
-            this.cvSettings1.Name = "cvSettings1";
-            this.cvSettings1.Size = new System.Drawing.Size(435, 380);
-            this.cvSettings1.TabIndex = 28;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(6, 131);
+            this.label5.Location = new System.Drawing.Point(4, 164);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(111, 25);
             this.label5.TabIndex = 21;
             this.label5.Text = "Technique:";
-            // 
-            // currentRangeSettings1
-            // 
-            this.currentRangeSettings1.Location = new System.Drawing.Point(1, 177);
-            this.currentRangeSettings1.Name = "currentRangeSettings1";
-            this.currentRangeSettings1.Size = new System.Drawing.Size(469, 150);
-            this.currentRangeSettings1.TabIndex = 29;
             // 
             // btnRun
             // 
@@ -1115,7 +1058,7 @@
             this.btnRun.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.btnRun.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.measurementBtn});
-            this.btnRun.Location = new System.Drawing.Point(358, 129);
+            this.btnRun.Location = new System.Drawing.Point(356, 162);
             this.btnRun.Name = "btnRun";
             this.btnRun.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.btnRun.Size = new System.Drawing.Size(87, 32);
@@ -1156,7 +1099,7 @@
             this.measurement_type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.measurement_type.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.measurement_type.FormattingEnabled = true;
-            this.measurement_type.Location = new System.Drawing.Point(123, 128);
+            this.measurement_type.Location = new System.Drawing.Point(121, 161);
             this.measurement_type.Name = "measurement_type";
             this.measurement_type.Size = new System.Drawing.Size(232, 33);
             this.measurement_type.TabIndex = 7;
@@ -1183,6 +1126,63 @@
             this.psCommSimpleWinForms.SimpleCurveStartReceivingData += new PalmSens.Core.Simplified.PSCommSimple.SimpleCurveStartReceivingDataHandler(this.psCommSimpleWinForms_SimpleCurveStartReceivingData);
             this.psCommSimpleWinForms.StateChanged += new PalmSens.Comm.CommManager.StatusChangedEventHandler(this.psCommSimpleWinForms_StateChanged);
             this.psCommSimpleWinForms.Disconnected += new PalmSens.Core.Simplified.DisconnectedEventHandler(this.psCommSimpleWinForms_Disconnected);
+            // 
+            // regeneration1
+            // 
+            this.regeneration1.Location = new System.Drawing.Point(0, 396);
+            this.regeneration1.Name = "regeneration1";
+            this.regeneration1.Size = new System.Drawing.Size(425, 171);
+            this.regeneration1.TabIndex = 27;
+            this.regeneration1.Load += new System.EventHandler(this.regeneration1_Load);
+            // 
+            // calculators1
+            // 
+            this.calculators1.Location = new System.Drawing.Point(0, 0);
+            this.calculators1.Name = "calculators1";
+            this.calculators1.Size = new System.Drawing.Size(425, 398);
+            this.calculators1.TabIndex = 26;
+            // 
+            // pwm_duration1
+            // 
+            this.pwm_duration1.Location = new System.Drawing.Point(9, 16);
+            this.pwm_duration1.Name = "pwm_duration1";
+            this.pwm_duration1.Size = new System.Drawing.Size(461, 128);
+            this.pwm_duration1.TabIndex = 31;
+            // 
+            // pretreatmentSettings1
+            // 
+            this.pretreatmentSettings1.Location = new System.Drawing.Point(3, 3);
+            this.pretreatmentSettings1.Name = "pretreatmentSettings1";
+            this.pretreatmentSettings1.Size = new System.Drawing.Size(435, 331);
+            this.pretreatmentSettings1.TabIndex = 11;
+            // 
+            // isSettings1
+            // 
+            this.isSettings1.Location = new System.Drawing.Point(3, 340);
+            this.isSettings1.Name = "isSettings1";
+            this.isSettings1.Size = new System.Drawing.Size(435, 460);
+            this.isSettings1.TabIndex = 11;
+            // 
+            // dpSettings1
+            // 
+            this.dpSettings1.Location = new System.Drawing.Point(3, 806);
+            this.dpSettings1.Name = "dpSettings1";
+            this.dpSettings1.Size = new System.Drawing.Size(435, 380);
+            this.dpSettings1.TabIndex = 11;
+            // 
+            // cvSettings1
+            // 
+            this.cvSettings1.Location = new System.Drawing.Point(3, 1192);
+            this.cvSettings1.Name = "cvSettings1";
+            this.cvSettings1.Size = new System.Drawing.Size(435, 380);
+            this.cvSettings1.TabIndex = 28;
+            // 
+            // currentRangeSettings1
+            // 
+            this.currentRangeSettings1.Location = new System.Drawing.Point(1, 212);
+            this.currentRangeSettings1.Name = "currentRangeSettings1";
+            this.currentRangeSettings1.Size = new System.Drawing.Size(469, 150);
+            this.currentRangeSettings1.TabIndex = 29;
             // 
             // MainPage
             // 

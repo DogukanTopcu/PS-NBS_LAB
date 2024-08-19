@@ -36,15 +36,16 @@
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.refr = new RJCodeAdvance.RJControls.RJButton();
             this.cbPorts = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 15);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(139, 25);
+            this.label1.Size = new System.Drawing.Size(169, 29);
             this.label1.TabIndex = 0;
             this.label1.Text = "Pump Settings";
             // 
@@ -59,7 +60,7 @@
             this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjButton1.ForeColor = System.Drawing.Color.White;
-            this.rjButton1.Location = new System.Drawing.Point(162, 50);
+            this.rjButton1.Location = new System.Drawing.Point(161, 82);
             this.rjButton1.Name = "rjButton1";
             this.rjButton1.Size = new System.Drawing.Size(120, 32);
             this.rjButton1.TabIndex = 1;
@@ -79,7 +80,7 @@
             this.rjButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjButton2.ForeColor = System.Drawing.Color.White;
-            this.rjButton2.Location = new System.Drawing.Point(288, 50);
+            this.rjButton2.Location = new System.Drawing.Point(287, 82);
             this.rjButton2.Name = "rjButton2";
             this.rjButton2.Size = new System.Drawing.Size(120, 32);
             this.rjButton2.TabIndex = 2;
@@ -100,7 +101,7 @@
             this.refr.FlatAppearance.BorderSize = 0;
             this.refr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.refr.ForeColor = System.Drawing.Color.White;
-            this.refr.Location = new System.Drawing.Point(425, 14);
+            this.refr.Location = new System.Drawing.Point(424, 46);
             this.refr.Name = "refr";
             this.refr.Size = new System.Drawing.Size(32, 32);
             this.refr.TabIndex = 13;
@@ -112,23 +113,34 @@
             // 
             this.cbPorts.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbPorts.FormattingEnabled = true;
-            this.cbPorts.Location = new System.Drawing.Point(162, 12);
+            this.cbPorts.Location = new System.Drawing.Point(161, 44);
             this.cbPorts.Name = "cbPorts";
             this.cbPorts.Size = new System.Drawing.Size(246, 33);
             this.cbPorts.TabIndex = 14;
             this.cbPorts.SelectedIndexChanged += new System.EventHandler(this.cbPorts_SelectedIndexChanged);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(48, 47);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(107, 25);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "Select Port";
+            // 
             // pwm_duration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.cbPorts);
             this.Controls.Add(this.refr);
             this.Controls.Add(this.rjButton2);
             this.Controls.Add(this.rjButton1);
             this.Controls.Add(this.label1);
             this.Name = "pwm_duration";
-            this.Size = new System.Drawing.Size(469, 94);
+            this.Size = new System.Drawing.Size(469, 127);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -142,5 +154,6 @@
         private System.IO.Ports.SerialPort serialPort1;
         private RJCodeAdvance.RJControls.RJButton refr;
         private System.Windows.Forms.ComboBox cbPorts;
+        private System.Windows.Forms.Label label2;
     }
 }
