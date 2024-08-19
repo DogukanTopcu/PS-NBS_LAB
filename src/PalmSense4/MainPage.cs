@@ -78,9 +78,10 @@ namespace PalmSense4
         public MainPage()
         {
             InitializeComponent();
-            this._connectedDevices = new Device[0];
+            FormClosing += MainPage_Colsing;
 
-            lbConsole.Items.Add("");
+            this._connectedDevices = new Device[0];
+            
             DiscoverConnectedDevices();
             InitPlot();
 
@@ -127,6 +128,11 @@ namespace PalmSense4
                 detectPeaksToolStripMenuItem.Enabled = false;
                 clearPlotToolStripMenuItem.Enabled = false;
             }
+        }
+        private void MainPage_Colsing(object sender, EventArgs e)
+        {
+            Console.WriteLine("Form Closinngg");
+            if (pwm_duration.serialPort.IsOpen) pwm_duration.serialPort.Close();
         }
         // CONSTRUCTORS *************************************************************************
 

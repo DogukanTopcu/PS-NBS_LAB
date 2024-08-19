@@ -52,11 +52,11 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.panel5 = new System.Windows.Forms.Panel();
             this.regeneration1 = new PalmSense4.components.regeneration();
-            this.calculators1 = new PalmSense4.components.calculators();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.lbConsole = new System.Windows.Forms.ListBox();
+            this.calculators1 = new PalmSense4.components.calculators();
             this.panel1 = new System.Windows.Forms.Panel();
             this.connectionLabel = new System.Windows.Forms.Label();
             this.btnConnect = new RJCodeAdvance.RJControls.RJButton();
@@ -104,6 +104,7 @@
             this.section2_btn = new RJCodeAdvance.RJControls.RJButton();
             this.section1_btn = new RJCodeAdvance.RJControls.RJButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.pwm_duration1 = new PalmSense4.components.pwm_duration();
             this.saveSettingsInInternalStorage = new System.Windows.Forms.CheckBox();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.pretreatmentSettings1 = new PalmSense4.components.pretreatmentSettings();
@@ -312,7 +313,6 @@
             // splitContainer2.Panel1
             // 
             this.splitContainer2.Panel1.Controls.Add(this.panel5);
-            this.splitContainer2.Panel1.Controls.Add(this.panel2);
             this.splitContainer2.Panel1.Controls.Add(this.panel1);
             // 
             // splitContainer2.Panel2
@@ -327,39 +327,33 @@
             // panel5
             // 
             this.panel5.Controls.Add(this.regeneration1);
+            this.panel5.Controls.Add(this.panel2);
             this.panel5.Controls.Add(this.calculators1);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 115);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(425, 571);
+            this.panel5.Size = new System.Drawing.Size(425, 776);
             this.panel5.TabIndex = 14;
             // 
             // regeneration1
             // 
-            this.regeneration1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
             this.regeneration1.Location = new System.Drawing.Point(0, 396);
             this.regeneration1.Name = "regeneration1";
-            this.regeneration1.Size = new System.Drawing.Size(425, 172);
+            this.regeneration1.Size = new System.Drawing.Size(425, 171);
             this.regeneration1.TabIndex = 27;
             this.regeneration1.Load += new System.EventHandler(this.regeneration1_Load);
             // 
-            // calculators1
-            // 
-            this.calculators1.Location = new System.Drawing.Point(0, 0);
-            this.calculators1.Name = "calculators1";
-            this.calculators1.Size = new System.Drawing.Size(425, 398);
-            this.calculators1.TabIndex = 26;
-            // 
             // panel2
             // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel2.AutoSize = true;
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.lbConsole);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 686);
+            this.panel2.Location = new System.Drawing.Point(0, 567);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(425, 205);
+            this.panel2.Size = new System.Drawing.Size(428, 215);
             this.panel2.TabIndex = 13;
             // 
             // panel3
@@ -369,7 +363,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(425, 36);
+            this.panel3.Size = new System.Drawing.Size(428, 36);
             this.panel3.TabIndex = 2;
             // 
             // label1
@@ -385,14 +379,22 @@
             // 
             // lbConsole
             // 
+            this.lbConsole.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.lbConsole.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lbConsole.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lbConsole.FormattingEnabled = true;
             this.lbConsole.ItemHeight = 16;
-            this.lbConsole.Location = new System.Drawing.Point(0, 29);
+            this.lbConsole.Location = new System.Drawing.Point(0, 36);
             this.lbConsole.Name = "lbConsole";
             this.lbConsole.Size = new System.Drawing.Size(425, 176);
             this.lbConsole.TabIndex = 1;
+            // 
+            // calculators1
+            // 
+            this.calculators1.Location = new System.Drawing.Point(0, 0);
+            this.calculators1.Name = "calculators1";
+            this.calculators1.Size = new System.Drawing.Size(425, 398);
+            this.calculators1.TabIndex = 26;
             // 
             // panel1
             // 
@@ -600,7 +602,7 @@
             // smoothCurveToolStripMenuItem
             // 
             this.smoothCurveToolStripMenuItem.Name = "smoothCurveToolStripMenuItem";
-            this.smoothCurveToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
+            this.smoothCurveToolStripMenuItem.Size = new System.Drawing.Size(217, 30);
             this.smoothCurveToolStripMenuItem.Text = "Smooth Curve";
             // 
             // detectPeaksToolStripMenuItem
@@ -608,7 +610,7 @@
             this.detectPeaksToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.allPlotsToolStripMenuItem});
             this.detectPeaksToolStripMenuItem.Name = "detectPeaksToolStripMenuItem";
-            this.detectPeaksToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
+            this.detectPeaksToolStripMenuItem.Size = new System.Drawing.Size(217, 30);
             this.detectPeaksToolStripMenuItem.Text = "Detect Peaks";
             // 
             // allPlotsToolStripMenuItem
@@ -1015,6 +1017,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.pwm_duration1);
             this.splitContainer1.Panel2.Controls.Add(this.saveSettingsInInternalStorage);
             this.splitContainer1.Panel2.Controls.Add(this.flowLayoutPanel3);
             this.splitContainer1.Panel2.Controls.Add(this.label5);
@@ -1024,6 +1027,13 @@
             this.splitContainer1.Size = new System.Drawing.Size(1632, 891);
             this.splitContainer1.SplitterDistance = 1155;
             this.splitContainer1.TabIndex = 14;
+            // 
+            // pwm_duration1
+            // 
+            this.pwm_duration1.Location = new System.Drawing.Point(3, 16);
+            this.pwm_duration1.Name = "pwm_duration1";
+            this.pwm_duration1.Size = new System.Drawing.Size(469, 92);
+            this.pwm_duration1.TabIndex = 31;
             // 
             // saveSettingsInInternalStorage
             // 
@@ -1047,9 +1057,9 @@
             this.flowLayoutPanel3.Controls.Add(this.isSettings1);
             this.flowLayoutPanel3.Controls.Add(this.dpSettings1);
             this.flowLayoutPanel3.Controls.Add(this.cvSettings1);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 262);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 333);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(467, 568);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(467, 497);
             this.flowLayoutPanel3.TabIndex = 27;
             // 
             // pretreatmentSettings1
@@ -1084,7 +1094,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(7, 28);
+            this.label5.Location = new System.Drawing.Point(6, 131);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(111, 25);
             this.label5.TabIndex = 21;
@@ -1092,7 +1102,7 @@
             // 
             // currentRangeSettings1
             // 
-            this.currentRangeSettings1.Location = new System.Drawing.Point(2, 87);
+            this.currentRangeSettings1.Location = new System.Drawing.Point(1, 177);
             this.currentRangeSettings1.Name = "currentRangeSettings1";
             this.currentRangeSettings1.Size = new System.Drawing.Size(469, 150);
             this.currentRangeSettings1.TabIndex = 29;
@@ -1105,7 +1115,7 @@
             this.btnRun.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.btnRun.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.measurementBtn});
-            this.btnRun.Location = new System.Drawing.Point(359, 26);
+            this.btnRun.Location = new System.Drawing.Point(358, 129);
             this.btnRun.Name = "btnRun";
             this.btnRun.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.btnRun.Size = new System.Drawing.Size(87, 32);
@@ -1146,7 +1156,7 @@
             this.measurement_type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.measurement_type.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.measurement_type.FormattingEnabled = true;
-            this.measurement_type.Location = new System.Drawing.Point(124, 25);
+            this.measurement_type.Location = new System.Drawing.Point(123, 128);
             this.measurement_type.Name = "measurement_type";
             this.measurement_type.Size = new System.Drawing.Size(232, 33);
             this.measurement_type.TabIndex = 7;
@@ -1195,6 +1205,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -1314,5 +1325,6 @@
         private System.Windows.Forms.DataGridView dgvMeasurement;
         private System.Windows.Forms.Button btnDataViewSave;
         private System.Windows.Forms.Button btnLoad;
+        private components.pwm_duration pwm_duration1;
     }
 }

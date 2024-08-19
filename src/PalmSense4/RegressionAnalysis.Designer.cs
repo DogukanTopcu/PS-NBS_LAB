@@ -46,11 +46,11 @@
             this.lblPlots = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.formul = new System.Windows.Forms.Label();
             this.plot1 = new SDKPlot.WinForms.Plot();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.plot2 = new SDKPlot.WinForms.Plot();
             this.rjButton1 = new RJCodeAdvance.RJControls.RJButton();
-            this.formul = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -281,6 +281,17 @@
             this.tabPage1.Text = "Analysis Result";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // formul
+            // 
+            this.formul.AutoSize = true;
+            this.formul.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.formul.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.formul.Location = new System.Drawing.Point(3, 691);
+            this.formul.Name = "formul";
+            this.formul.Size = new System.Drawing.Size(121, 29);
+            this.formul.TabIndex = 1;
+            this.formul.Text = "y = mx + b";
+            // 
             // plot1
             // 
             this.plot1.BackColor = System.Drawing.Color.White;
@@ -350,17 +361,6 @@
             this.rjButton1.TextColor = System.Drawing.Color.White;
             this.rjButton1.UseVisualStyleBackColor = false;
             this.rjButton1.Click += new System.EventHandler(this.rjButton1_Click);
-            // 
-            // formul
-            // 
-            this.formul.AutoSize = true;
-            this.formul.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.formul.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.formul.Location = new System.Drawing.Point(3, 691);
-            this.formul.Name = "formul";
-            this.formul.Size = new System.Drawing.Size(121, 29);
-            this.formul.TabIndex = 1;
-            this.formul.Text = "y = mx + b";
             // 
             // RegressionAnalysis
             // 

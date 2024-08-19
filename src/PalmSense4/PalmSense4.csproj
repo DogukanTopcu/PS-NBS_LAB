@@ -113,6 +113,7 @@
     <Reference Include="System.Drawing.Common, Version=4.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\..\packages\System.Drawing.Common.4.7.3\lib\net461\System.Drawing.Common.dll</HintPath>
     </Reference>
+    <Reference Include="System.Management" />
     <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
     </Reference>
@@ -191,6 +192,12 @@
     </Compile>
     <Compile Include="components\pretreatmentSettings.Designer.cs">
       <DependentUpon>pretreatmentSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="components\pwm_duration.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="components\pwm_duration.Designer.cs">
+      <DependentUpon>pwm_duration.cs</DependentUpon>
     </Compile>
     <Compile Include="components\regeneration.cs">
       <SubType>UserControl</SubType>
@@ -285,6 +292,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="components\pretreatmentSettings.resx">
       <DependentUpon>pretreatmentSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="components\pwm_duration.resx">
+      <DependentUpon>pwm_duration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="components\regeneration.resx">
       <DependentUpon>regeneration.cs</DependentUpon>
