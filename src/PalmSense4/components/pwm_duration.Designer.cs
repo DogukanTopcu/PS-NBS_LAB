@@ -61,11 +61,11 @@
             this.rjButton1.BorderSize = 0;
             this.rjButton1.FlatAppearance.BorderSize = 0;
             this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rjButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjButton1.ForeColor = System.Drawing.Color.White;
             this.rjButton1.Location = new System.Drawing.Point(161, 82);
             this.rjButton1.Name = "rjButton1";
-            this.rjButton1.Size = new System.Drawing.Size(120, 32);
+            this.rjButton1.Size = new System.Drawing.Size(120, 42);
             this.rjButton1.TabIndex = 1;
             this.rjButton1.Text = "Low";
             this.rjButton1.TextColor = System.Drawing.Color.White;
@@ -81,11 +81,11 @@
             this.rjButton2.BorderSize = 0;
             this.rjButton2.FlatAppearance.BorderSize = 0;
             this.rjButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rjButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjButton2.ForeColor = System.Drawing.Color.White;
             this.rjButton2.Location = new System.Drawing.Point(287, 82);
             this.rjButton2.Name = "rjButton2";
-            this.rjButton2.Size = new System.Drawing.Size(120, 32);
+            this.rjButton2.Size = new System.Drawing.Size(120, 42);
             this.rjButton2.TabIndex = 2;
             this.rjButton2.Text = "High";
             this.rjButton2.TextColor = System.Drawing.Color.White;
@@ -147,7 +147,7 @@
             this.panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.panel1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 122);
+            this.panel1.Location = new System.Drawing.Point(0, 130);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(469, 5);
             this.panel1.TabIndex = 17;
@@ -164,7 +164,7 @@
             this.Controls.Add(this.rjButton1);
             this.Controls.Add(this.panel16);
             this.Name = "pwm_duration";
-            this.Size = new System.Drawing.Size(469, 127);
+            this.Size = new System.Drawing.Size(469, 135);
             this.panel16.ResumeLayout(false);
             this.panel16.PerformLayout();
             this.ResumeLayout(false);

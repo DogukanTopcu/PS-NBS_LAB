@@ -51,10 +51,12 @@
             this.current_statusbar = new System.Windows.Forms.ToolStripStatusLabel();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.regeneration1 = new PalmSense4.components.regeneration();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.lbConsole = new System.Windows.Forms.ListBox();
+            this.calculators1 = new PalmSense4.components.calculators();
             this.panel1 = new System.Windows.Forms.Panel();
             this.connectionLabel = new System.Windows.Forms.Label();
             this.btnConnect = new RJCodeAdvance.RJControls.RJButton();
@@ -66,6 +68,7 @@
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.PlotArea = new System.Windows.Forms.TabPage();
             this.cv_dp_plot = new System.Windows.Forms.Panel();
+            this.plot = new SDKPlot.WinForms.Plot();
             this.PlotSettings = new System.Windows.Forms.MenuStrip();
             this.plotToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.smoothCurveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -104,30 +107,29 @@
             this.rjButton29 = new RJCodeAdvance.RJControls.RJButton();
             this.rjButton30 = new RJCodeAdvance.RJControls.RJButton();
             this.dataArea = new System.Windows.Forms.TabPage();
+            this.dataTabControl = new System.Windows.Forms.TabControl();
+            this.empty = new System.Windows.Forms.TabPage();
             this.dgvMeasurement = new System.Windows.Forms.DataGridView();
             this.btnDataViewSave = new System.Windows.Forms.Button();
             this.btnLoad = new System.Windows.Forms.Button();
             this.section2_btn = new RJCodeAdvance.RJControls.RJButton();
             this.section1_btn = new RJCodeAdvance.RJControls.RJButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.pwm_duration1 = new PalmSense4.components.pwm_duration();
             this.saveSettingsInInternalStorage = new System.Windows.Forms.CheckBox();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.pretreatmentSettings1 = new PalmSense4.components.pretreatmentSettings();
+            this.isSettings1 = new PalmSense4.components.isSettings();
+            this.dpSettings1 = new PalmSense4.components.dpSettings();
+            this.cvSettings1 = new PalmSense4.components.cvSettings();
             this.label5 = new System.Windows.Forms.Label();
+            this.currentRangeSettings1 = new PalmSense4.components.currentRangeSettings();
             this.btnRun = new System.Windows.Forms.ToolStrip();
             this.measurementBtn = new System.Windows.Forms.ToolStripSplitButton();
             this.newRunBtn = new System.Windows.Forms.ToolStripMenuItem();
             this.overlayRunBtn = new System.Windows.Forms.ToolStripMenuItem();
             this.measurement_type = new System.Windows.Forms.ComboBox();
             this.rjDropdownMenu1 = new RJCodeAdvance.RJControls.RJDropdownMenu(this.components);
-            this.regeneration1 = new PalmSense4.components.regeneration();
-            this.calculators1 = new PalmSense4.components.calculators();
-            this.plot = new SDKPlot.WinForms.Plot();
-            this.pwm_duration1 = new PalmSense4.components.pwm_duration();
-            this.pretreatmentSettings1 = new PalmSense4.components.pretreatmentSettings();
-            this.isSettings1 = new PalmSense4.components.isSettings();
-            this.dpSettings1 = new PalmSense4.components.dpSettings();
-            this.cvSettings1 = new PalmSense4.components.cvSettings();
-            this.currentRangeSettings1 = new PalmSense4.components.currentRangeSettings();
             this.psCommSimpleWinForms = new PalmSens.Core.Simplified.WinForms.PSCommSimpleWinForms(this.components);
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -146,6 +148,8 @@
             this.PlotSettings.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
             this.dataArea.SuspendLayout();
+            this.dataTabControl.SuspendLayout();
+            this.empty.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMeasurement)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -344,6 +348,14 @@
             this.panel5.Size = new System.Drawing.Size(425, 776);
             this.panel5.TabIndex = 14;
             // 
+            // regeneration1
+            // 
+            this.regeneration1.Location = new System.Drawing.Point(0, 396);
+            this.regeneration1.Name = "regeneration1";
+            this.regeneration1.Size = new System.Drawing.Size(425, 171);
+            this.regeneration1.TabIndex = 27;
+            this.regeneration1.Load += new System.EventHandler(this.regeneration1_Load);
+            // 
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -389,6 +401,13 @@
             this.lbConsole.Name = "lbConsole";
             this.lbConsole.Size = new System.Drawing.Size(425, 176);
             this.lbConsole.TabIndex = 1;
+            // 
+            // calculators1
+            // 
+            this.calculators1.Location = new System.Drawing.Point(0, 0);
+            this.calculators1.Name = "calculators1";
+            this.calculators1.Size = new System.Drawing.Size(425, 398);
+            this.calculators1.TabIndex = 26;
             // 
             // panel1
             // 
@@ -544,6 +563,25 @@
             this.cv_dp_plot.Name = "cv_dp_plot";
             this.cv_dp_plot.Size = new System.Drawing.Size(627, 809);
             this.cv_dp_plot.TabIndex = 1;
+            // 
+            // plot
+            // 
+            this.plot.BackColor = System.Drawing.Color.White;
+            this.plot.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.plot.Location = new System.Drawing.Point(0, 33);
+            this.plot.Margin = new System.Windows.Forms.Padding(9);
+            this.plot.MarkerSize = 5;
+            this.plot.MarkerType = OxyPlot.MarkerType.Circle;
+            this.plot.Name = "plot";
+            this.plot.Size = new System.Drawing.Size(627, 776);
+            this.plot.TabIndex = 10;
+            this.plot.Title = null;
+            this.plot.XAxisLabel = null;
+            this.plot.XAxisType = SDKPlot.AxisType.Linear;
+            this.plot.YAxisLabel = null;
+            this.plot.YAxisSecondaryLabel = null;
+            this.plot.YAxisSecondaryType = SDKPlot.AxisType.Linear;
+            this.plot.YAxisType = SDKPlot.AxisType.Linear;
             // 
             // PlotSettings
             // 
@@ -942,7 +980,7 @@
             // 
             // dataArea
             // 
-            this.dataArea.Controls.Add(this.dgvMeasurement);
+            this.dataArea.Controls.Add(this.dataTabControl);
             this.dataArea.Controls.Add(this.btnDataViewSave);
             this.dataArea.Controls.Add(this.btnLoad);
             this.dataArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -954,20 +992,41 @@
             this.dataArea.Text = "Data";
             this.dataArea.UseVisualStyleBackColor = true;
             // 
+            // dataTabControl
+            // 
+            this.dataTabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataTabControl.Controls.Add(this.empty);
+            this.dataTabControl.Location = new System.Drawing.Point(3, 33);
+            this.dataTabControl.Name = "dataTabControl";
+            this.dataTabControl.SelectedIndex = 0;
+            this.dataTabControl.Size = new System.Drawing.Size(627, 712);
+            this.dataTabControl.TabIndex = 11;
+            // 
+            // empty
+            // 
+            this.empty.Controls.Add(this.dgvMeasurement);
+            this.empty.Location = new System.Drawing.Point(4, 34);
+            this.empty.Name = "empty";
+            this.empty.Size = new System.Drawing.Size(619, 674);
+            this.empty.TabIndex = 0;
+            this.empty.Text = "Empty Data View";
+            this.empty.UseVisualStyleBackColor = true;
+            // 
             // dgvMeasurement
             // 
-            this.dgvMeasurement.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvMeasurement.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvMeasurement.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMeasurement.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvMeasurement.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvMeasurement.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dgvMeasurement.Location = new System.Drawing.Point(4, 73);
+            this.dgvMeasurement.Location = new System.Drawing.Point(0, 0);
             this.dgvMeasurement.Margin = new System.Windows.Forms.Padding(4);
             this.dgvMeasurement.Name = "dgvMeasurement";
             this.dgvMeasurement.RowHeadersVisible = false;
             this.dgvMeasurement.RowHeadersWidth = 51;
-            this.dgvMeasurement.Size = new System.Drawing.Size(622, 639);
+            this.dgvMeasurement.Size = new System.Drawing.Size(619, 674);
             this.dgvMeasurement.TabIndex = 8;
             // 
             // btnDataViewSave
@@ -1060,6 +1119,13 @@
             this.splitContainer1.SplitterDistance = 1155;
             this.splitContainer1.TabIndex = 14;
             // 
+            // pwm_duration1
+            // 
+            this.pwm_duration1.Location = new System.Drawing.Point(1, 0);
+            this.pwm_duration1.Name = "pwm_duration1";
+            this.pwm_duration1.Size = new System.Drawing.Size(469, 136);
+            this.pwm_duration1.TabIndex = 31;
+            // 
             // saveSettingsInInternalStorage
             // 
             this.saveSettingsInInternalStorage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -1087,15 +1153,50 @@
             this.flowLayoutPanel3.Size = new System.Drawing.Size(467, 468);
             this.flowLayoutPanel3.TabIndex = 27;
             // 
+            // pretreatmentSettings1
+            // 
+            this.pretreatmentSettings1.Location = new System.Drawing.Point(3, 3);
+            this.pretreatmentSettings1.Name = "pretreatmentSettings1";
+            this.pretreatmentSettings1.Size = new System.Drawing.Size(435, 331);
+            this.pretreatmentSettings1.TabIndex = 11;
+            // 
+            // isSettings1
+            // 
+            this.isSettings1.Location = new System.Drawing.Point(3, 340);
+            this.isSettings1.Name = "isSettings1";
+            this.isSettings1.Size = new System.Drawing.Size(435, 460);
+            this.isSettings1.TabIndex = 11;
+            // 
+            // dpSettings1
+            // 
+            this.dpSettings1.Location = new System.Drawing.Point(3, 806);
+            this.dpSettings1.Name = "dpSettings1";
+            this.dpSettings1.Size = new System.Drawing.Size(435, 380);
+            this.dpSettings1.TabIndex = 11;
+            // 
+            // cvSettings1
+            // 
+            this.cvSettings1.Location = new System.Drawing.Point(3, 1192);
+            this.cvSettings1.Name = "cvSettings1";
+            this.cvSettings1.Size = new System.Drawing.Size(435, 380);
+            this.cvSettings1.TabIndex = 28;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(5, 153);
+            this.label5.Location = new System.Drawing.Point(5, 159);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(111, 25);
             this.label5.TabIndex = 21;
             this.label5.Text = "Technique:";
+            // 
+            // currentRangeSettings1
+            // 
+            this.currentRangeSettings1.Location = new System.Drawing.Point(1, 206);
+            this.currentRangeSettings1.Name = "currentRangeSettings1";
+            this.currentRangeSettings1.Size = new System.Drawing.Size(469, 150);
+            this.currentRangeSettings1.TabIndex = 29;
             // 
             // btnRun
             // 
@@ -1105,7 +1206,7 @@
             this.btnRun.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.btnRun.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.measurementBtn});
-            this.btnRun.Location = new System.Drawing.Point(357, 151);
+            this.btnRun.Location = new System.Drawing.Point(357, 157);
             this.btnRun.Name = "btnRun";
             this.btnRun.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.btnRun.Size = new System.Drawing.Size(87, 32);
@@ -1146,7 +1247,7 @@
             this.measurement_type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.measurement_type.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.measurement_type.FormattingEnabled = true;
-            this.measurement_type.Location = new System.Drawing.Point(122, 150);
+            this.measurement_type.Location = new System.Drawing.Point(122, 156);
             this.measurement_type.Name = "measurement_type";
             this.measurement_type.Size = new System.Drawing.Size(232, 33);
             this.measurement_type.TabIndex = 7;
@@ -1161,82 +1262,6 @@
             this.rjDropdownMenu1.Name = "rjDropdownMenu1";
             this.rjDropdownMenu1.PrimaryColor = System.Drawing.Color.Empty;
             this.rjDropdownMenu1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // regeneration1
-            // 
-            this.regeneration1.Location = new System.Drawing.Point(0, 396);
-            this.regeneration1.Name = "regeneration1";
-            this.regeneration1.Size = new System.Drawing.Size(425, 171);
-            this.regeneration1.TabIndex = 27;
-            this.regeneration1.Load += new System.EventHandler(this.regeneration1_Load);
-            // 
-            // calculators1
-            // 
-            this.calculators1.Location = new System.Drawing.Point(0, 0);
-            this.calculators1.Name = "calculators1";
-            this.calculators1.Size = new System.Drawing.Size(425, 398);
-            this.calculators1.TabIndex = 26;
-            // 
-            // plot
-            // 
-            this.plot.BackColor = System.Drawing.Color.White;
-            this.plot.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.plot.Location = new System.Drawing.Point(0, 33);
-            this.plot.Margin = new System.Windows.Forms.Padding(9);
-            this.plot.MarkerSize = 5;
-            this.plot.MarkerType = OxyPlot.MarkerType.Circle;
-            this.plot.Name = "plot";
-            this.plot.Size = new System.Drawing.Size(627, 776);
-            this.plot.TabIndex = 10;
-            this.plot.Title = null;
-            this.plot.XAxisLabel = null;
-            this.plot.XAxisType = SDKPlot.AxisType.Linear;
-            this.plot.YAxisLabel = null;
-            this.plot.YAxisSecondaryLabel = null;
-            this.plot.YAxisSecondaryType = SDKPlot.AxisType.Linear;
-            this.plot.YAxisType = SDKPlot.AxisType.Linear;
-            // 
-            // pwm_duration1
-            // 
-            this.pwm_duration1.Location = new System.Drawing.Point(1, 0);
-            this.pwm_duration1.Name = "pwm_duration1";
-            this.pwm_duration1.Size = new System.Drawing.Size(469, 136);
-            this.pwm_duration1.TabIndex = 31;
-            // 
-            // pretreatmentSettings1
-            // 
-            this.pretreatmentSettings1.Location = new System.Drawing.Point(3, 3);
-            this.pretreatmentSettings1.Name = "pretreatmentSettings1";
-            this.pretreatmentSettings1.Size = new System.Drawing.Size(435, 331);
-            this.pretreatmentSettings1.TabIndex = 11;
-            // 
-            // isSettings1
-            // 
-            this.isSettings1.Location = new System.Drawing.Point(3, 340);
-            this.isSettings1.Name = "isSettings1";
-            this.isSettings1.Size = new System.Drawing.Size(435, 460);
-            this.isSettings1.TabIndex = 11;
-            // 
-            // dpSettings1
-            // 
-            this.dpSettings1.Location = new System.Drawing.Point(3, 806);
-            this.dpSettings1.Name = "dpSettings1";
-            this.dpSettings1.Size = new System.Drawing.Size(435, 380);
-            this.dpSettings1.TabIndex = 11;
-            // 
-            // cvSettings1
-            // 
-            this.cvSettings1.Location = new System.Drawing.Point(3, 1192);
-            this.cvSettings1.Name = "cvSettings1";
-            this.cvSettings1.Size = new System.Drawing.Size(435, 380);
-            this.cvSettings1.TabIndex = 28;
-            // 
-            // currentRangeSettings1
-            // 
-            this.currentRangeSettings1.Location = new System.Drawing.Point(1, 206);
-            this.currentRangeSettings1.Name = "currentRangeSettings1";
-            this.currentRangeSettings1.Size = new System.Drawing.Size(469, 150);
-            this.currentRangeSettings1.TabIndex = 29;
             // 
             // psCommSimpleWinForms
             // 
@@ -1287,6 +1312,8 @@
             this.PlotSettings.PerformLayout();
             this.flowLayoutPanel4.ResumeLayout(false);
             this.dataArea.ResumeLayout(false);
+            this.dataTabControl.ResumeLayout(false);
+            this.empty.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMeasurement)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -1401,5 +1428,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem7;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem8;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem9;
+        private System.Windows.Forms.TabControl dataTabControl;
+        private System.Windows.Forms.TabPage empty;
     }
 }

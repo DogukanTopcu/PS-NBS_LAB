@@ -62,6 +62,8 @@ namespace PalmSense4
 
         private List<SimpleCurve> _allCurves;
 
+        private DataGridView currentDGV;
+
 
         // SimpleCurve data
         private SimpleCurve _activeCurve;
@@ -106,6 +108,8 @@ namespace PalmSense4
             lbox = lbConsole;
             btnConn = btnConnect;
             measureBtn = measurementBtn;
+
+            currentDGV = dgvMeasurement;
         }
 
         private void MainPage_Load(object sender, EventArgs e)
@@ -235,8 +239,8 @@ namespace PalmSense4
             CurrentRange cr = status.CurrentReading.CurrentRange;
 
             status_statusbar.Text = "Status: Idle";
-            potential_statusbar.Text = "Potential: " + potential.ToString("F3");
-            current_statusbar.Text = "Current: " + currentInRange.ToString("F3");
+            potential_statusbar.Text = "Potential: " + potential.ToString("F4");
+            current_statusbar.Text = "Current: " + currentInRange.ToString("F4");
         }
 
 
@@ -263,6 +267,34 @@ namespace PalmSense4
 
         private void psCommSimpleWinForms_SimpleCurveStartReceivingData(object sender, SimpleCurve activeSimpleCurve)
         {
+            if (_allMeasurements.Count != 0)
+            {
+                dataTabControl.TabPages.Add(activeSimpleCurve.FullTitle);
+                TabPage newTabPage = dataTabControl.TabPages[plotNumber - 1];
+
+                // Create dataGridView
+                DataGridView dgv = new DataGridView();
+                dgv.Dock = DockStyle.Fill;
+                dgv.BackgroundColor = SystemColors.Control;
+                dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+                dgv.EditMode = DataGridViewEditMode.EditProgrammatically;
+                dgv.Location = new System.Drawing.Point(3, 3);
+                dgv.Margin = new Padding(4);
+                dgv.Name = activeSimpleCurve.FullTitle;
+                dgv.RowHeadersVisible = false;
+                dgv.RowHeadersWidth = 51;
+
+                newTabPage.Controls.Add(dgv);
+
+                currentDGV = dgv;
+            }
+            else
+            {
+                dataTabControl.TabPages[0].Text = activeSimpleCurve.FullTitle;
+            }
+
+            InitDataGridView();
+
             //Subscribe to the curve's events to receive updates when new data is available and when it iss finished receiving data
             activeSimpleCurve.NewDataAdded += activeSimpleCurve_NewDataAdded;
             smoothCurveToolStripMenuItem.Enabled = false;
@@ -293,16 +325,13 @@ namespace PalmSense4
             {
                 double xValue = activeSimpleCurve.XAxisValue(i); //Get the value on Curve's X-Axis (potential) at the specified index
                 double yValue = activeSimpleCurve.YAxisValue(i); //Get the value on Curve's Y-Axis (current) at the specified index
-                dgvMeasurement.Rows.Add(1);
-                dgvMeasurement.Rows[i].Cells[0].Value = (i + 1).ToString();
-                dgvMeasurement.Rows[i].Cells[1].Value = xValue.ToString("F2");
-                dgvMeasurement.Rows[i].Cells[2].Value = yValue.ToString("E3");
+                currentDGV.Rows.Add(1);
+                currentDGV.Rows[i].Cells[0].Value = (i + 1).ToString();
+                currentDGV.Rows[i].Cells[1].Value = xValue.ToString("F4");
+                currentDGV.Rows[i].Cells[2].Value = yValue.ToString("E4");
 
                 _measurementData.Add(new List<double> { (i + 1), xValue, yValue });
             }
-
-            //tbPotential.Text = activeSimpleCurve.XAxisValue(startIndex + count - 1).ToString("F3");
-            //tbCurrent.Text = activeSimpleCurve.YAxisValue(startIndex + count - 1).ToString("F3");
         }
 
         private void activeSimpleCurve_CurveFinished(object sender, EventArgs e)
@@ -429,7 +458,6 @@ namespace PalmSense4
             if (psCommSimpleWinForms.DeviceState == PalmSens.Comm.CommManager.DeviceState.Idle)
             {
                 _measurementData.Clear();
-                InitDataGridView();
                 try
                 {
                     _activeMeasurement = psCommSimpleWinForms.Measure(_selectedMethod);
@@ -487,9 +515,6 @@ namespace PalmSense4
         // MEASUREMENT DATA GRID
         private void InitDataGridView()
         {
-            dgvMeasurement.Rows.Clear();
-            dgvMeasurement.Columns.Clear();
-
             DataGridViewTextBoxColumn dgvColID = new DataGridViewTextBoxColumn();
             dgvColID.HeaderText = "ID";
             dgvColID.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
@@ -505,9 +530,9 @@ namespace PalmSense4
             dgvColCurrent.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvColCurrent.ReadOnly = true;
 
-            dgvMeasurement.Columns.Add(dgvColID);
-            dgvMeasurement.Columns.Add(dgvColPotential);
-            dgvMeasurement.Columns.Add(dgvColCurrent);
+            currentDGV.Columns.Add(dgvColID);
+            currentDGV.Columns.Add(dgvColPotential);
+            currentDGV.Columns.Add(dgvColCurrent);
         }
 
 

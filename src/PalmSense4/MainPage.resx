@@ -124,6 +124,25 @@
     <value>581, 29</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="section2_btn.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACiSURBVEhL7Zax
+        CoNAEAUv5j/iFwQLu4j/X6cIaUQQuyRYxA+4zMIKR7xCcmuqG5hGlnlWoovhvT/hFXus9LEdRG+48ES7
+        EWIFPqQcYD5ywbeUAyas9SQdYnlkO8TyyHaI/WWkwe+REQs9SYNQi7NUAwZMHyASe3v5tJz15HeI5Pga
+        Ijm+hsiu8SO+pBhgExcIHfAuVcUuvkCwRPlt6dLizn0AB9tPjkoDvbUAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="section1_btn.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vAAADrwBlbxySQAAAPBJREFUSEutlrEKwkAQRGP8D/0CsbBT/P/aQmxEEDsVC+1zzoZwZO/mkuxdFh6T
+        nSwzqcTKOVfCpmmaKzjheR28a4kMAxL+hLaD5wtkAdSdWgyocBnsb8gSqFu1TISFfyEHEN1HxgimcIGa
+        CczhAjUJWeECNQOywwVq9igKF6jZURwuUBPMEi4ws0bYHeoH+w9yBOx+EGZKwQPqJ/frBWqCHUI/UD9d
+        yR6w+yTU7JilhJo9ikuoGVBUQk1Cdgk1E2SVUHMAcwk1RzCVRMZEtgh9Qf1gl5+WGqhbtRhRJXg+Q6K7
+        yDAiJTcgf1tWwTvgqj+kqS1m1M3AuwAAAABJRU5ErkJggg==
+</value>
+  </data>
   <data name="btnBluetooth.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
@@ -158,25 +177,9 @@
   <metadata name="PlotSettings.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>833, 29</value>
   </metadata>
-  <data name="section2_btn.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACiSURBVEhL7Zax
-        CoNAEAUv5j/iFwQLu4j/X6cIaUQQuyRYxA+4zMIKR7xCcmuqG5hGlnlWoovhvT/hFXus9LEdRG+48ES7
-        EWIFPqQcYD5ywbeUAyas9SQdYnlkO8TyyHaI/WWkwe+REQs9SYNQi7NUAwZMHyASe3v5tJz15HeI5Pga
-        Ijm+hsiu8SO+pBhgExcIHfAuVcUuvkCwRPlt6dLizn0AB9tPjkoDvbUAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="section1_btn.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vAAADrwBlbxySQAAAPBJREFUSEutlrEKwkAQRGP8D/0CsbBT/P/aQmxEEDsVC+1zzoZwZO/mkuxdFh6T
-        nSwzqcTKOVfCpmmaKzjheR28a4kMAxL+hLaD5wtkAdSdWgyocBnsb8gSqFu1TISFfyEHEN1HxgimcIGa
-        CczhAjUJWeECNQOywwVq9igKF6jZURwuUBPMEi4ws0bYHeoH+w9yBOx+EGZKwQPqJ/frBWqCHUI/UD9d
-        yR6w+yTU7JilhJo9ikuoGVBUQk1Cdgk1E2SVUHMAcwk1RzCVRMZEtgh9Qf1gl5+WGqhbtRhRJXg+Q6K7
-        yDAiJTcgf1tWwTvgqj+kqS1m1M3AuwAAAABJRU5ErkJggg==
-</value>
-  </data>
+  <metadata name="PlotSettings.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>833, 29</value>
+  </metadata>
   <metadata name="btnRun.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>707, 29</value>
   </metadata>
