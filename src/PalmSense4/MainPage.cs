@@ -1082,5 +1082,24 @@ namespace PalmSense4
         {
             newRunBtn_Click(sender, e);
         }
+
+        private void exportsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TSMILoadPeakLOD_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PlotSettings_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+        }
+
+        private void calculators1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

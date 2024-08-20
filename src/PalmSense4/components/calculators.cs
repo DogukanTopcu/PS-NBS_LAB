@@ -61,7 +61,11 @@ namespace PalmSense4.components
                 tbInitConc,
                 tbInitVol,
                 tbFinConc,
-                tbFinVol
+                tbFinVol,
+                initialConc_sd,
+                finalConc_sd,
+                initialVol_sd,
+                finalVol_sd
             );
         }
 
@@ -76,6 +80,32 @@ namespace PalmSense4.components
             comboBox_molarity_unit.Items.Add("nM");
             comboBox_ppm_unit.SelectedIndex = 0;
             comboBox_molarity_unit.SelectedIndex = 0;
+
+            // Solution Dilution Calculator
+            initialConc_sd.Items.Add("M");
+            initialConc_sd.Items.Add("mM");
+            initialConc_sd.Items.Add("μM");
+            initialConc_sd.Items.Add("nM");
+            initialConc_sd.Items.Add("pM");
+            initialConc_sd.Items.Add("fM");
+            finalConc_sd.Items.Add("M");
+            finalConc_sd.Items.Add("mM");
+            finalConc_sd.Items.Add("μM");
+            finalConc_sd.Items.Add("nM");
+            finalConc_sd.Items.Add("pM");
+            finalConc_sd.Items.Add("fM");
+
+            initialVol_sd.Items.Add("L");
+            initialVol_sd.Items.Add("mL");
+            initialVol_sd.Items.Add("μL");
+            finalVol_sd.Items.Add("L");
+            finalVol_sd.Items.Add("mL");
+            finalVol_sd.Items.Add("μL");
+
+            initialConc_sd.SelectedIndex = 0;
+            initialVol_sd.SelectedIndex = 0;
+            finalVol_sd.SelectedIndex = 0;
+            finalConc_sd.SelectedIndex = 0;
         }
 
 
@@ -114,10 +144,15 @@ namespace PalmSense4.components
         private void rbInitVol_CheckedChanged(object sender, EventArgs e) => solDiluationCalc.rbInitVol_CheckedChanged();
         private void rbFinConc_CheckedChanged(object sender, EventArgs e) => solDiluationCalc.rbFinConc_CheckedChanged();
         private void rbFinVol_CheckedChanged(object sender, EventArgs e) => solDiluationCalc.rbFinVol_CheckedChanged();
-        private void tbInitConc__TextChanged(object sender, EventArgs e) => solDiluationCalc.SolDilCalc();
-        private void tbInitVol__TextChanged(object sender, EventArgs e) => solDiluationCalc.SolDilCalc();
-        private void tbFinConc__TextChanged(object sender, EventArgs e) => solDiluationCalc.SolDilCalc();
-        private void tbFinVol__TextChanged(object sender, EventArgs e) => solDiluationCalc.SolDilCalc();
+        private void tbInitConc__TextChanged(object sender, EventArgs e) => solDiluationCalc.SolDilCalc(initialConc_sd.SelectedItem?.ToString(), initialVol_sd.SelectedItem?.ToString(), finalConc_sd.SelectedItem?.ToString(), finalVol_sd.SelectedItem?.ToString());
+        private void tbInitVol__TextChanged(object sender, EventArgs e) => solDiluationCalc.SolDilCalc(initialConc_sd.SelectedItem?.ToString(), initialVol_sd.SelectedItem?.ToString(), finalConc_sd.SelectedItem?.ToString(), finalVol_sd.SelectedItem?.ToString());
+        private void tbFinConc__TextChanged(object sender, EventArgs e) => solDiluationCalc.SolDilCalc(initialConc_sd.SelectedItem?.ToString(), initialVol_sd.SelectedItem?.ToString(), finalConc_sd.SelectedItem?.ToString(), finalVol_sd.SelectedItem?.ToString());
+        private void tbFinVol__TextChanged(object sender, EventArgs e) => solDiluationCalc.SolDilCalc(initialConc_sd.SelectedItem?.ToString(), initialVol_sd.SelectedItem?.ToString(), finalConc_sd.SelectedItem?.ToString(), finalVol_sd.SelectedItem?.ToString());
+        private void finalConc_sd_SelectedIndexChanged(object sender, EventArgs e) => solDiluationCalc.SolDilCalc(initialConc_sd.SelectedItem?.ToString(), initialVol_sd.SelectedItem?.ToString(), finalConc_sd.SelectedItem?.ToString(), finalVol_sd.SelectedItem?.ToString());
+        private void finalVol_sd_SelectedIndexChanged(object sender, EventArgs e) => solDiluationCalc.SolDilCalc(initialConc_sd.SelectedItem?.ToString(), initialVol_sd.SelectedItem?.ToString(), finalConc_sd.SelectedItem?.ToString(), finalVol_sd.SelectedItem?.ToString());
+        private void initialConc_sd_SelectedIndexChanged(object sender, EventArgs e) => solDiluationCalc.SolDilCalc(initialConc_sd.SelectedItem?.ToString(), initialVol_sd.SelectedItem?.ToString(), finalConc_sd.SelectedItem?.ToString(), finalVol_sd.SelectedItem?.ToString());
+        private void initialVol_sd_SelectedIndexChanged(object sender, EventArgs e) => solDiluationCalc.SolDilCalc(initialConc_sd.SelectedItem?.ToString(), initialVol_sd.SelectedItem?.ToString(), finalConc_sd.SelectedItem?.ToString(), finalVol_sd.SelectedItem?.ToString());
+
         private void soldiluationResetBtn_Click(object sender, EventArgs e) => solDiluationCalc.soldiluationResetBtn_Click();
 
 

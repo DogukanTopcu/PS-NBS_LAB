@@ -75,6 +75,10 @@
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.soldiluationResetBtn = new System.Windows.Forms.Button();
             this.panel13 = new System.Windows.Forms.Panel();
+            this.finalConc_sd = new System.Windows.Forms.ComboBox();
+            this.finalVol_sd = new System.Windows.Forms.ComboBox();
+            this.initialVol_sd = new System.Windows.Forms.ComboBox();
+            this.initialConc_sd = new System.Windows.Forms.ComboBox();
             this.tbFinVol = new RJCodeAdvance.RJControls.RJTextBox();
             this.tbFinConc = new RJCodeAdvance.RJControls.RJTextBox();
             this.tbInitVol = new RJCodeAdvance.RJControls.RJTextBox();
@@ -377,7 +381,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 29);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(417, 338);
+            this.tabPage3.Size = new System.Drawing.Size(417, 331);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "pH - pOH Calculator";
             // 
@@ -578,7 +582,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 29);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(417, 338);
+            this.tabPage4.Size = new System.Drawing.Size(417, 331);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "ppm Calculator";
             // 
@@ -750,9 +754,9 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 29);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(417, 338);
+            this.tabPage5.Size = new System.Drawing.Size(417, 331);
             this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "Solution Diluation Calculator";
+            this.tabPage5.Text = "Solution Dilution Calculator";
             // 
             // soldiluationResetBtn
             // 
@@ -768,6 +772,10 @@
             // 
             // panel13
             // 
+            this.panel13.Controls.Add(this.finalConc_sd);
+            this.panel13.Controls.Add(this.finalVol_sd);
+            this.panel13.Controls.Add(this.initialVol_sd);
+            this.panel13.Controls.Add(this.initialConc_sd);
             this.panel13.Controls.Add(this.tbFinVol);
             this.panel13.Controls.Add(this.tbFinConc);
             this.panel13.Controls.Add(this.tbInitVol);
@@ -780,6 +788,50 @@
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(405, 264);
             this.panel13.TabIndex = 28;
+            // 
+            // finalConc_sd
+            // 
+            this.finalConc_sd.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.finalConc_sd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.finalConc_sd.FormattingEnabled = true;
+            this.finalConc_sd.Location = new System.Drawing.Point(343, 149);
+            this.finalConc_sd.Name = "finalConc_sd";
+            this.finalConc_sd.Size = new System.Drawing.Size(59, 33);
+            this.finalConc_sd.TabIndex = 34;
+            this.finalConc_sd.SelectedIndexChanged += new System.EventHandler(this.finalConc_sd_SelectedIndexChanged);
+            // 
+            // finalVol_sd
+            // 
+            this.finalVol_sd.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.finalVol_sd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.finalVol_sd.FormattingEnabled = true;
+            this.finalVol_sd.Location = new System.Drawing.Point(343, 217);
+            this.finalVol_sd.Name = "finalVol_sd";
+            this.finalVol_sd.Size = new System.Drawing.Size(59, 33);
+            this.finalVol_sd.TabIndex = 33;
+            this.finalVol_sd.SelectedIndexChanged += new System.EventHandler(this.finalVol_sd_SelectedIndexChanged);
+            // 
+            // initialVol_sd
+            // 
+            this.initialVol_sd.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.initialVol_sd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.initialVol_sd.FormattingEnabled = true;
+            this.initialVol_sd.Location = new System.Drawing.Point(343, 83);
+            this.initialVol_sd.Name = "initialVol_sd";
+            this.initialVol_sd.Size = new System.Drawing.Size(59, 33);
+            this.initialVol_sd.TabIndex = 32;
+            this.initialVol_sd.SelectedIndexChanged += new System.EventHandler(this.initialVol_sd_SelectedIndexChanged);
+            // 
+            // initialConc_sd
+            // 
+            this.initialConc_sd.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.initialConc_sd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.initialConc_sd.FormattingEnabled = true;
+            this.initialConc_sd.Location = new System.Drawing.Point(343, 15);
+            this.initialConc_sd.Name = "initialConc_sd";
+            this.initialConc_sd.Size = new System.Drawing.Size(59, 33);
+            this.initialConc_sd.TabIndex = 31;
+            this.initialConc_sd.SelectedIndexChanged += new System.EventHandler(this.initialConc_sd_SelectedIndexChanged);
             // 
             // tbFinVol
             // 
@@ -799,7 +851,7 @@
             this.tbFinVol.PasswordChar = false;
             this.tbFinVol.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbFinVol.PlaceholderText = "";
-            this.tbFinVol.Size = new System.Drawing.Size(165, 35);
+            this.tbFinVol.Size = new System.Drawing.Size(103, 35);
             this.tbFinVol.TabIndex = 30;
             this.tbFinVol.Texts = "";
             this.tbFinVol.UnderlinedStyle = false;
@@ -823,7 +875,7 @@
             this.tbFinConc.PasswordChar = false;
             this.tbFinConc.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbFinConc.PlaceholderText = "";
-            this.tbFinConc.Size = new System.Drawing.Size(165, 35);
+            this.tbFinConc.Size = new System.Drawing.Size(103, 35);
             this.tbFinConc.TabIndex = 29;
             this.tbFinConc.Texts = "";
             this.tbFinConc.UnderlinedStyle = false;
@@ -847,7 +899,7 @@
             this.tbInitVol.PasswordChar = false;
             this.tbInitVol.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbInitVol.PlaceholderText = "";
-            this.tbInitVol.Size = new System.Drawing.Size(165, 35);
+            this.tbInitVol.Size = new System.Drawing.Size(103, 35);
             this.tbInitVol.TabIndex = 28;
             this.tbInitVol.Texts = "";
             this.tbInitVol.UnderlinedStyle = false;
@@ -871,7 +923,7 @@
             this.tbInitConc.PasswordChar = false;
             this.tbInitConc.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbInitConc.PlaceholderText = "";
-            this.tbInitConc.Size = new System.Drawing.Size(165, 35);
+            this.tbInitConc.Size = new System.Drawing.Size(103, 35);
             this.tbInitConc.TabIndex = 11;
             this.tbInitConc.Texts = "";
             this.tbInitConc.UnderlinedStyle = false;
@@ -1016,5 +1068,9 @@
         private System.Windows.Forms.RadioButton rbFinConc;
         private System.Windows.Forms.RadioButton rbInitVol;
         private System.Windows.Forms.RadioButton rbInitConc;
+        public System.Windows.Forms.ComboBox initialVol_sd;
+        public System.Windows.Forms.ComboBox initialConc_sd;
+        public System.Windows.Forms.ComboBox finalConc_sd;
+        public System.Windows.Forms.ComboBox finalVol_sd;
     }
 }

@@ -66,7 +66,6 @@
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.PlotArea = new System.Windows.Forms.TabPage();
             this.cv_dp_plot = new System.Windows.Forms.Panel();
-            this.plot = new SDKPlot.WinForms.Plot();
             this.PlotSettings = new System.Windows.Forms.MenuStrip();
             this.plotToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.smoothCurveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -84,6 +83,15 @@
             this.pssessionExport = new System.Windows.Forms.ToolStripMenuItem();
             this.xlsxFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportGraphToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.rjButton2 = new RJCodeAdvance.RJControls.RJButton();
             this.rjButton22 = new RJCodeAdvance.RJControls.RJButton();
@@ -111,15 +119,16 @@
             this.overlayRunBtn = new System.Windows.Forms.ToolStripMenuItem();
             this.measurement_type = new System.Windows.Forms.ComboBox();
             this.rjDropdownMenu1 = new RJCodeAdvance.RJControls.RJDropdownMenu(this.components);
-            this.psCommSimpleWinForms = new PalmSens.Core.Simplified.WinForms.PSCommSimpleWinForms(this.components);
             this.regeneration1 = new PalmSense4.components.regeneration();
             this.calculators1 = new PalmSense4.components.calculators();
+            this.plot = new SDKPlot.WinForms.Plot();
             this.pwm_duration1 = new PalmSense4.components.pwm_duration();
             this.pretreatmentSettings1 = new PalmSense4.components.pretreatmentSettings();
             this.isSettings1 = new PalmSense4.components.isSettings();
             this.dpSettings1 = new PalmSense4.components.dpSettings();
             this.cvSettings1 = new PalmSense4.components.cvSettings();
             this.currentRangeSettings1 = new PalmSense4.components.currentRangeSettings();
+            this.psCommSimpleWinForms = new PalmSens.Core.Simplified.WinForms.PSCommSimpleWinForms(this.components);
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
@@ -536,25 +545,6 @@
             this.cv_dp_plot.Size = new System.Drawing.Size(627, 809);
             this.cv_dp_plot.TabIndex = 1;
             // 
-            // plot
-            // 
-            this.plot.BackColor = System.Drawing.Color.White;
-            this.plot.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.plot.Location = new System.Drawing.Point(0, 33);
-            this.plot.Margin = new System.Windows.Forms.Padding(9);
-            this.plot.MarkerSize = 5;
-            this.plot.MarkerType = OxyPlot.MarkerType.Circle;
-            this.plot.Name = "plot";
-            this.plot.Size = new System.Drawing.Size(627, 776);
-            this.plot.TabIndex = 10;
-            this.plot.Title = null;
-            this.plot.XAxisLabel = null;
-            this.plot.XAxisType = SDKPlot.AxisType.Linear;
-            this.plot.YAxisLabel = null;
-            this.plot.YAxisSecondaryLabel = null;
-            this.plot.YAxisSecondaryType = SDKPlot.AxisType.Linear;
-            this.plot.YAxisType = SDKPlot.AxisType.Linear;
-            // 
             // PlotSettings
             // 
             this.PlotSettings.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -566,7 +556,16 @@
             this.filterToolStripMenuItem,
             this.regressionAnalysisToolStripMenuItem,
             this.TSMILoadPeakLOD,
-            this.exportsToolStripMenuItem});
+            this.exportsToolStripMenuItem,
+            this.toolStripMenuItem1,
+            this.toolStripMenuItem2,
+            this.toolStripMenuItem3,
+            this.toolStripMenuItem4,
+            this.toolStripMenuItem5,
+            this.toolStripMenuItem6,
+            this.toolStripMenuItem7,
+            this.toolStripMenuItem8,
+            this.toolStripMenuItem9});
             this.PlotSettings.Location = new System.Drawing.Point(0, 0);
             this.PlotSettings.Name = "PlotSettings";
             this.PlotSettings.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
@@ -574,6 +573,7 @@
             this.PlotSettings.Size = new System.Drawing.Size(627, 33);
             this.PlotSettings.TabIndex = 9;
             this.PlotSettings.Text = "menuStrip2";
+            this.PlotSettings.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.PlotSettings_ItemClicked);
             // 
             // plotToolStripMenuItem
             // 
@@ -648,8 +648,9 @@
             this.importFrompssessionFileToolStripMenuItem,
             this.importFromxlsxFileToolStripMenuItem});
             this.TSMILoadPeakLOD.Name = "TSMILoadPeakLOD";
-            this.TSMILoadPeakLOD.Size = new System.Drawing.Size(90, 29);
-            this.TSMILoadPeakLOD.Text = "Imports";
+            this.TSMILoadPeakLOD.Size = new System.Drawing.Size(82, 29);
+            this.TSMILoadPeakLOD.Text = "Import";
+            this.TSMILoadPeakLOD.Click += new System.EventHandler(this.TSMILoadPeakLOD_Click);
             // 
             // importFrompssessionFileToolStripMenuItem
             // 
@@ -672,8 +673,9 @@
             this.xlsxFileToolStripMenuItem,
             this.exportGraphToolStripMenuItem});
             this.exportsToolStripMenuItem.Name = "exportsToolStripMenuItem";
-            this.exportsToolStripMenuItem.Size = new System.Drawing.Size(88, 29);
-            this.exportsToolStripMenuItem.Text = "Exports";
+            this.exportsToolStripMenuItem.Size = new System.Drawing.Size(80, 29);
+            this.exportsToolStripMenuItem.Text = "Export";
+            this.exportsToolStripMenuItem.Click += new System.EventHandler(this.exportsToolStripMenuItem_Click);
             // 
             // pssessionExport
             // 
@@ -695,6 +697,51 @@
             this.exportGraphToolStripMenuItem.Size = new System.Drawing.Size(291, 30);
             this.exportGraphToolStripMenuItem.Text = "Export Graph As Image";
             this.exportGraphToolStripMenuItem.Click += new System.EventHandler(this.exportGraphToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(14, 29);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(14, 29);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(14, 29);
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(14, 29);
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(14, 29);
+            // 
+            // toolStripMenuItem6
+            // 
+            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(14, 29);
+            // 
+            // toolStripMenuItem7
+            // 
+            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(14, 29);
+            // 
+            // toolStripMenuItem8
+            // 
+            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(14, 29);
+            // 
+            // toolStripMenuItem9
+            // 
+            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(14, 29);
             // 
             // flowLayoutPanel4
             // 
@@ -1044,7 +1091,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(4, 164);
+            this.label5.Location = new System.Drawing.Point(5, 153);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(111, 25);
             this.label5.TabIndex = 21;
@@ -1058,7 +1105,7 @@
             this.btnRun.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.btnRun.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.measurementBtn});
-            this.btnRun.Location = new System.Drawing.Point(356, 162);
+            this.btnRun.Location = new System.Drawing.Point(357, 151);
             this.btnRun.Name = "btnRun";
             this.btnRun.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.btnRun.Size = new System.Drawing.Size(87, 32);
@@ -1099,7 +1146,7 @@
             this.measurement_type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.measurement_type.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.measurement_type.FormattingEnabled = true;
-            this.measurement_type.Location = new System.Drawing.Point(121, 161);
+            this.measurement_type.Location = new System.Drawing.Point(122, 150);
             this.measurement_type.Name = "measurement_type";
             this.measurement_type.Size = new System.Drawing.Size(232, 33);
             this.measurement_type.TabIndex = 7;
@@ -1114,18 +1161,6 @@
             this.rjDropdownMenu1.Name = "rjDropdownMenu1";
             this.rjDropdownMenu1.PrimaryColor = System.Drawing.Color.Empty;
             this.rjDropdownMenu1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // psCommSimpleWinForms
-            // 
-            this.psCommSimpleWinForms.EnableBluetooth = false;
-            this.psCommSimpleWinForms.EnableSerialPort = false;
-            this.psCommSimpleWinForms.Parent = this;
-            this.psCommSimpleWinForms.ReceiveStatus += new PalmSens.Comm.StatusEventHandler(this.psCommSimpleWinForms_ReceiveStatus);
-            this.psCommSimpleWinForms.MeasurementStarted += new System.EventHandler(this.psCommSimpleWinForms_MeasurementStarted);
-            this.psCommSimpleWinForms.MeasurementEnded += new System.EventHandler<System.Exception>(this.psCommSimpleWinForms_MeasurementEnded);
-            this.psCommSimpleWinForms.SimpleCurveStartReceivingData += new PalmSens.Core.Simplified.PSCommSimple.SimpleCurveStartReceivingDataHandler(this.psCommSimpleWinForms_SimpleCurveStartReceivingData);
-            this.psCommSimpleWinForms.StateChanged += new PalmSens.Comm.CommManager.StatusChangedEventHandler(this.psCommSimpleWinForms_StateChanged);
-            this.psCommSimpleWinForms.Disconnected += new PalmSens.Core.Simplified.DisconnectedEventHandler(this.psCommSimpleWinForms_Disconnected);
             // 
             // regeneration1
             // 
@@ -1142,11 +1177,30 @@
             this.calculators1.Size = new System.Drawing.Size(425, 398);
             this.calculators1.TabIndex = 26;
             // 
+            // plot
+            // 
+            this.plot.BackColor = System.Drawing.Color.White;
+            this.plot.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.plot.Location = new System.Drawing.Point(0, 33);
+            this.plot.Margin = new System.Windows.Forms.Padding(9);
+            this.plot.MarkerSize = 5;
+            this.plot.MarkerType = OxyPlot.MarkerType.Circle;
+            this.plot.Name = "plot";
+            this.plot.Size = new System.Drawing.Size(627, 776);
+            this.plot.TabIndex = 10;
+            this.plot.Title = null;
+            this.plot.XAxisLabel = null;
+            this.plot.XAxisType = SDKPlot.AxisType.Linear;
+            this.plot.YAxisLabel = null;
+            this.plot.YAxisSecondaryLabel = null;
+            this.plot.YAxisSecondaryType = SDKPlot.AxisType.Linear;
+            this.plot.YAxisType = SDKPlot.AxisType.Linear;
+            // 
             // pwm_duration1
             // 
-            this.pwm_duration1.Location = new System.Drawing.Point(9, 16);
+            this.pwm_duration1.Location = new System.Drawing.Point(1, 0);
             this.pwm_duration1.Name = "pwm_duration1";
-            this.pwm_duration1.Size = new System.Drawing.Size(461, 128);
+            this.pwm_duration1.Size = new System.Drawing.Size(469, 136);
             this.pwm_duration1.TabIndex = 31;
             // 
             // pretreatmentSettings1
@@ -1179,10 +1233,22 @@
             // 
             // currentRangeSettings1
             // 
-            this.currentRangeSettings1.Location = new System.Drawing.Point(1, 212);
+            this.currentRangeSettings1.Location = new System.Drawing.Point(1, 206);
             this.currentRangeSettings1.Name = "currentRangeSettings1";
             this.currentRangeSettings1.Size = new System.Drawing.Size(469, 150);
             this.currentRangeSettings1.TabIndex = 29;
+            // 
+            // psCommSimpleWinForms
+            // 
+            this.psCommSimpleWinForms.EnableBluetooth = false;
+            this.psCommSimpleWinForms.EnableSerialPort = false;
+            this.psCommSimpleWinForms.Parent = this;
+            this.psCommSimpleWinForms.ReceiveStatus += new PalmSens.Comm.StatusEventHandler(this.psCommSimpleWinForms_ReceiveStatus);
+            this.psCommSimpleWinForms.MeasurementStarted += new System.EventHandler(this.psCommSimpleWinForms_MeasurementStarted);
+            this.psCommSimpleWinForms.MeasurementEnded += new System.EventHandler<System.Exception>(this.psCommSimpleWinForms_MeasurementEnded);
+            this.psCommSimpleWinForms.SimpleCurveStartReceivingData += new PalmSens.Core.Simplified.PSCommSimple.SimpleCurveStartReceivingDataHandler(this.psCommSimpleWinForms_SimpleCurveStartReceivingData);
+            this.psCommSimpleWinForms.StateChanged += new PalmSens.Comm.CommManager.StatusChangedEventHandler(this.psCommSimpleWinForms_StateChanged);
+            this.psCommSimpleWinForms.Disconnected += new PalmSens.Core.Simplified.DisconnectedEventHandler(this.psCommSimpleWinForms_Disconnected);
             // 
             // MainPage
             // 
@@ -1326,5 +1392,14 @@
         private System.Windows.Forms.Button btnDataViewSave;
         private System.Windows.Forms.Button btnLoad;
         private components.pwm_duration pwm_duration1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem7;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem8;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem9;
     }
 }

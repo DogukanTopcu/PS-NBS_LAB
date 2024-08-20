@@ -37,13 +37,16 @@
             this.refr = new RJCodeAdvance.RJControls.RJButton();
             this.cbPorts = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel16.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Location = new System.Drawing.Point(11, 4);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(169, 29);
             this.label1.TabIndex = 0;
@@ -129,18 +132,41 @@
             this.label2.TabIndex = 15;
             this.label2.Text = "Select Port";
             // 
+            // panel16
+            // 
+            this.panel16.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel16.Controls.Add(this.label1);
+            this.panel16.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel16.Location = new System.Drawing.Point(0, 0);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(469, 36);
+            this.panel16.TabIndex = 16;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.panel1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 122);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(469, 5);
+            this.panel1.TabIndex = 17;
+            // 
             // pwm_duration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cbPorts);
             this.Controls.Add(this.refr);
             this.Controls.Add(this.rjButton2);
             this.Controls.Add(this.rjButton1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.panel16);
             this.Name = "pwm_duration";
             this.Size = new System.Drawing.Size(469, 127);
+            this.panel16.ResumeLayout(false);
+            this.panel16.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -155,5 +181,7 @@
         private RJCodeAdvance.RJControls.RJButton refr;
         private System.Windows.Forms.ComboBox cbPorts;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel16;
+        private System.Windows.Forms.Panel panel1;
     }
 }
