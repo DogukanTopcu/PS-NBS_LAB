@@ -6,6 +6,7 @@ using PalmSens.Comm;
 using PalmSens.Core.Simplified.Data;
 using PalmSens.Core.Simplified.WinForms;
 using PalmSens.Devices;
+using PalmSens.Plottables;
 using PalmSens.Techniques;
 using PalmSense4.Business;
 using PalmSense4.components;
@@ -799,7 +800,7 @@ namespace PalmSense4
         {
             if (filteredCurve != null && plot.ContainsSimpleCurve(filteredCurve))
             {
-                new FilteredPlot(filteredCurve, measurement).ShowDialog();
+                new FilteredPlot(filteredCurve, measurement, new List<List<double>>(_measurementData)).ShowDialog();
             }
         }
 

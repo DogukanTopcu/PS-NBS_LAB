@@ -23,21 +23,32 @@ namespace PalmSense4
         
         private FileIO _fileIO;
         private List<SimpleMeasurement> _activeMeasurement;
+        SimpleMeasurement a;
+        List<List<double>> md;
+        Dictionary<string, List<List<double>>> _measurementData;
 
-        public FilteredPlot(SimpleCurve activeCurve, SimpleMeasurement activeMeasurement)
+        public FilteredPlot(SimpleCurve activeCurve, SimpleMeasurement activeMeasurement, List<List<double>> measurementData)
         {
             InitializeComponent();
             _activeCurve = activeCurve;
             
             _fileIO = new FileIO();
+            
             _activeMeasurement = new List<SimpleMeasurement>();
-            _activeMeasurement.Add(activeMeasurement);
+            a = activeMeasurement;
+            
+            _measurementData = new Dictionary<string, List<List<double>>>();
+            md = measurementData;
         }
 
         private void FilteredPlot_Load(object sender, EventArgs e)
         {
             plot1.AddSimpleCurve(_activeCurve);
             this.Text = _activeCurve.FullTitle;
+            
+            _activeMeasurement.Add(a);
+            _measurementData.Add(_activeCurve.Title, md);
+
 
             if (_activeCurve.Title == "DPV i vs E" || _activeCurve.Title == "DPV i vs E, smooth level High")
             {
@@ -110,7 +121,29 @@ namespace PalmSense4
 
         private void xlsxFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Console.WriteLine(_measurementData.Keys);
+            Console.WriteLine(_measurementData.Values);
+            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
 
+            folderBrowserDialog.RootFolder = Environment.SpecialFolder.Desktop;
+            folderBrowserDialog.Description = "Save Excel File";
+
+
+            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+            {
+                folderName = folderBrowserDialog.SelectedPath;
+                string fileName = "PalmSens4 Measurement (" + DateTime.Now.ToString("MM-dd-yyyy-h-mm-tt") + ").xlsx";
+                string filePathName = Path.Combine(folderName, fileName);
+
+                if (_fileIO.SaveDataToExcel(filePathName, _measurementData))
+                {
+                    MainPage.lbox.Items.Add($"Measurements successfuly saved to {filePathName}");
+                }
+                else
+                {
+                    MainPage.lbox.Items.Add("An error occured when saving measurements");
+                }
+            }
         }
 
         private void exportAsImageToolStripMenuItem_Click(object sender, EventArgs e)
