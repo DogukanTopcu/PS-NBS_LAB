@@ -1,6 +1,7 @@
 ﻿using Microsoft.Office.Interop.Excel;
 using Newtonsoft.Json.Linq;
 using OxyPlot;
+using OxyPlot.Series;
 using PalmSens;
 using PalmSens.Comm;
 using PalmSens.Core.Simplified.Data;
@@ -20,6 +21,7 @@ using System.Drawing;
 using System.Drawing.Text;
 using System.IO;
 using System.Linq;
+using System.Runtime.Remoting.Channels;
 using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
@@ -57,6 +59,7 @@ namespace PalmSense4
         // Measurement Data 
         private List<List<double>> _measurementData;
         private Dictionary<string, List<List<double>>> _allMeasurements;
+        Dictionary<string, List<List<double>>> _importedMeasurements;
         private List<SimpleMeasurement> _simpleMeasurements;
         private int plotNumber;
         private FileIO _fileIO;
@@ -99,6 +102,7 @@ namespace PalmSense4
 
             _measurementData = new List<List<double>>();
             _allMeasurements = new Dictionary<string, List<List<double>>>();
+            _importedMeasurements = new Dictionary<string, List<List<double>>>();
             _allCurves = new List<SimpleCurve>();
             _simpleMeasurements = new List<SimpleMeasurement>();
             plotNumber = 1;
@@ -580,50 +584,93 @@ namespace PalmSense4
             {
                 string filePathName = openFileDialog.FileName;
 
-                _allMeasurements.Clear();
-                _allMeasurements = _fileIO.LoadDataFromExcel(filePathName);
+                _importedMeasurements.Clear();
+                _importedMeasurements = _fileIO.LoadDataFromExcel(filePathName);
 
-                if (_allMeasurements == null)
+                if (_importedMeasurements == null)
                 {
-                    _allMeasurements = new Dictionary<string, List<List<double>>>();
                     lbConsole.Items.Add("An error occured while the file loading.");
                 }
                 else
                 {
                     lbConsole.Items.Add("File loaded successfully.");
-                    DisplayLoadedData();
+                    DisplayLoadedData(sender, e);
                     lbConsole.Items.Add("Data table created.");
                 }
 
             }
         }
 
-        private void DisplayLoadedData()
+        private void DisplayLoadedData(object sender, EventArgs e)
         {
-            InitDataGridView();
-            plot.ClearAll();
             List<double> potentials = new List<double>();
             List<double> currents = new List<double>();
 
-            bool isFirst = true;
-            foreach (var item in _allMeasurements)
+            foreach (var item in _importedMeasurements)
             {
+                if (_allMeasurements.Count != 0)
+                {
+                    dataTabControl.TabPages.Add(item.Key);
+                    TabPage newTabPage = dataTabControl.TabPages[plotNumber - 1];
+
+                    // Create dataGridView
+                    DataGridView dgv = new DataGridView();
+                    dgv.Dock = DockStyle.Fill;
+                    dgv.BackgroundColor = SystemColors.Control;
+                    dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+                    dgv.EditMode = DataGridViewEditMode.EditProgrammatically;
+                    dgv.Location = new System.Drawing.Point(3, 3);
+                    dgv.Margin = new Padding(4);
+                    dgv.Name = item.Key;
+                    dgv.RowHeadersVisible = false;
+                    dgv.RowHeadersWidth = 51;
+
+                    newTabPage.Controls.Add(dgv);
+
+                    currentDGV = dgv;
+                }
+                else
+                {
+                    dataTabControl.TabPages[0].Text = item.Key;
+                }
+                InitDataGridView();
+
+
                 for (int i = 0; i < item.Value.Count; i++)
                 {
-                    if (isFirst)
-                    {
-                        dgvMeasurement.Rows.Add(1);
-                        dgvMeasurement.Rows[i].Cells[0].Value = item.Value[i][0].ToString();
-                        dgvMeasurement.Rows[i].Cells[1].Value = item.Value[i][1].ToString("F2");
-                        dgvMeasurement.Rows[i].Cells[2].Value = item.Value[i][2].ToString("E3");
-                    }
+                    currentDGV.Rows.Add(1);
+                    currentDGV.Rows[i].Cells[0].Value = item.Value[i][0].ToString();
+                    currentDGV.Rows[i].Cells[1].Value = item.Value[i][1].ToString("F2");
+                    currentDGV.Rows[i].Cells[2].Value = item.Value[i][2].ToString("E3");
 
                     potentials.Add(item.Value[i][1]);
                     currents.Add(item.Value[i][2]);
                 }
 
-                plot.AddData(item.Key, new List<double>(potentials).ToArray(), new List<double>(currents).ToArray());
-                isFirst = false;
+                
+                LineSeries data = plot.AddData(item.Key, new List<double>(potentials).ToArray(), new List<double>(currents).ToArray());
+                Console.WriteLine(data.ToString());
+
+                try
+                {
+                    _allMeasurements.Add(item.Key, item.Value);
+                }
+                catch (Exception ex)
+                {
+                    string name = item.Key + " [" + plotNumber.ToString() + "]";
+                    _allMeasurements.Add(name, item.Value);
+                }
+                plotNumber++;
+
+                // Clear Plot
+                clearPlotToolStripMenuItem.Enabled = true;
+                clearAllToolStripMenuItem.Enabled = true;
+                clearPlotToolStripMenuItem.DropDownItems.Add(item.Key, null, (sender4, e4) =>
+                {
+                    clearXlsxPlot(sender, e, item.Key, data);
+                });
+
+
                 potentials.Clear();
                 currents.Clear();
             }
@@ -783,13 +830,41 @@ namespace PalmSense4
             lbConsole.Items.Add("Plot Removed: " + name);
         }
 
+        private void clearXlsxPlot(object sender, EventArgs e, string name, LineSeries data)
+        {
+            plot.RemoveData(data);
+        }
+
         private void clearAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
             plot.ClearAll();
             _allCurves.Clear();
+            _allMeasurements.Clear();
+
+            // Clear Tabpages
+            dataTabControl.TabPages.Clear();
+            dataTabControl.TabPages.Add("Empty Data View");
+            TabPage newTabPage = dataTabControl.TabPages[0];
+            DataGridView dgv = new DataGridView();
+            dgv.Dock = DockStyle.Fill;
+            dgv.BackgroundColor = SystemColors.Control;
+            dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgv.EditMode = DataGridViewEditMode.EditProgrammatically;
+            dgv.Location = new System.Drawing.Point(3, 3);
+            dgv.Margin = new Padding(4);
+            dgv.Name = "Empty Data View";
+            dgv.RowHeadersVisible = false;
+            dgv.RowHeadersWidth = 51;
+            newTabPage.Controls.Add(dgv);
+            currentDGV = dgv;
+
+            plotNumber = 1;
+
+
             detectPeaksToolStripMenuItem.DropDownItems.Clear();
             smoothCurveToolStripMenuItem.DropDownItems.Clear();
             clearPlotToolStripMenuItem.DropDownItems.Clear();
+            filterToolStripMenuItem.DropDownItems.Clear();
 
             smoothCurveToolStripMenuItem.Enabled = false;
             detectPeaksToolStripMenuItem.Enabled = false;
@@ -923,17 +998,45 @@ namespace PalmSense4
                 {
                     number++;
                     plot.AddSimpleCurve(sc);
+
+                    if (_allMeasurements.Count != 0)
+                    {
+                        dataTabControl.TabPages.Add(sc.FullTitle);
+                        TabPage newTabPage = dataTabControl.TabPages[plotNumber - 1];
+
+                        // Create dataGridView
+                        DataGridView dgv = new DataGridView();
+                        dgv.Dock = DockStyle.Fill;
+                        dgv.BackgroundColor = SystemColors.Control;
+                        dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+                        dgv.EditMode = DataGridViewEditMode.EditProgrammatically;
+                        dgv.Location = new System.Drawing.Point(3, 3);
+                        dgv.Margin = new Padding(4);
+                        dgv.Name = sc.FullTitle;
+                        dgv.RowHeadersVisible = false;
+                        dgv.RowHeadersWidth = 51;
+
+                        newTabPage.Controls.Add(dgv);
+
+                        currentDGV = dgv;
+                    }
+                    else
+                    {
+                        dataTabControl.TabPages[0].Text = sc.FullTitle;
+                    }
+
                     InitDataGridView();
                     for (int i = 0; i < sc.XAxisValues.Length; i++)
                     {
                         _measurementData.Add(new List<double> { (i + 1), sc.XAxisValues[i], sc.YAxisValues[i] });
 
-                        dgvMeasurement.Rows.Add(1);
-                        dgvMeasurement.Rows[i].Cells[0].Value = (i + 1).ToString();
-                        dgvMeasurement.Rows[i].Cells[1].Value = sc.XAxisValues[i].ToString("F2");
-                        dgvMeasurement.Rows[i].Cells[2].Value = sc.YAxisValues[i].ToString("E3");
+                        currentDGV.Rows.Add(1);
+                        currentDGV.Rows[i].Cells[0].Value = (i + 1).ToString();
+                        currentDGV.Rows[i].Cells[1].Value = sc.XAxisValues[i].ToString("F2");
+                        currentDGV.Rows[i].Cells[2].Value = sc.YAxisValues[i].ToString("E3");
 
                     }
+                    plotNumber++;
                     _allMeasurements.Add(sc.FullTitle + _allMeasurements.Count.ToString(), new List<List<double>>(_measurementData));
                     _allCurves.Add(sc);
                     _measurementData.Clear();
