@@ -148,7 +148,30 @@ namespace PalmSense4
 
         private void exportAsImageToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
 
+            folderBrowserDialog.RootFolder = Environment.SpecialFolder.Desktop;
+            folderBrowserDialog.Description = "Save Image";
+
+            try
+            {
+                if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+                {
+                    folderName = folderBrowserDialog.SelectedPath;
+                    string fn = "Graph (" + DateTime.Now.ToString("MM-dd-yyyy-h-mm-tt") + ").png";
+                    string filePathName = Path.Combine(folderName, fn);
+
+                    Bitmap bitmap = new Bitmap(plot1.Width, plot1.Height);
+                    plot1.DrawToBitmap(bitmap, new System.Drawing.Rectangle(0, 0, plot1.Width, plot1.Height));
+                    bitmap.Save(filePathName, System.Drawing.Imaging.ImageFormat.Png);
+                    bitmap.Dispose();
+                    MainPage.lbox.Items.Add($"Graph exported as {filePathName}");
+                }
+            }
+            catch
+            {
+                MainPage.lbox.Items.Add($"Graph couldn't export as .png format");
+            }
         }
     }
 }
