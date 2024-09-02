@@ -367,6 +367,10 @@
     <Content Include="assets\play-24.png" />
     <Content Include="assets\refresh-24.png" />
     <Content Include="assets\refresh-32.png" />
+    <None Include="Resources\play-button-arrowhead.png" />
+    <None Include="Resources\play.png" />
+    <None Include="Resources\pause.png" />
+    <None Include="Resources\pauseIcon.png" />
     <None Include="Resources\down%285%29.png" />
     <None Include="Resources\down%284%29.png" />
     <None Include="Resources\down%283%29.png" />

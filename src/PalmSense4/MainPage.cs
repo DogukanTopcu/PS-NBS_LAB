@@ -228,6 +228,9 @@ namespace PalmSense4
             status_statusbar.Text = "Status: " + CurrentState.ToString();
 
             btnConnect.Enabled = CurrentState == PalmSens.Comm.CommManager.DeviceState.Idle;
+            measurementBtn.Text = CurrentState == PalmSens.Comm.CommManager.DeviceState.Idle ? "Run" : "Abort";
+            measurementBtn.Image = CurrentState == PalmSens.Comm.CommManager.DeviceState.Idle ? PalmSense4.Properties.Resources.play_button_arrowhead : PalmSense4.Properties.Resources.pause;
+            measurementBtn.DropDown.Enabled = CurrentState == PalmSens.Comm.CommManager.DeviceState.Idle ? true : false;
         }
 
         private void psCommSimpleWinForms_ReceiveStatus(object sender, PalmSens.Comm.StatusEventArgs e)
