@@ -337,6 +337,7 @@ namespace PalmSense4
         private void activeSimpleCurve_CurveFinished(object sender, EventArgs e)
         {
             SimpleCurve activeSimpleCurve = sender as SimpleCurve;
+            SimpleMeasurement measurement = sender as SimpleMeasurement;
 
             _allCurves.Add(activeSimpleCurve);
             _activeCurve = activeSimpleCurve;
@@ -347,7 +348,7 @@ namespace PalmSense4
             smoothCurveToolStripMenuItem.Enabled = true;
             smoothCurveToolStripMenuItem.DropDownItems.Add(itemName, null, (sender2, e2) =>
             {
-                smoothCurve(sender, e, activeSimpleCurve, itemName);
+                smoothCurve(sender, e, activeSimpleCurve, measurement, itemName);
             });
 
             // Detect Peek
@@ -370,7 +371,7 @@ namespace PalmSense4
             filterToolStripMenuItem.Enabled = true;
             filterToolStripMenuItem.DropDownItems.Add(itemName, null, (sender5, e5) =>
             {
-                filterPlot(sender, e, activeSimpleCurve);
+                filterPlot(sender, e, activeSimpleCurve, measurement);
             });
 
 
@@ -626,7 +627,7 @@ namespace PalmSense4
         }
 
         
-        private void smoothCurve(object sender, EventArgs e, SimpleCurve activeCurve, string name)
+        private void smoothCurve(object sender, EventArgs e, SimpleCurve activeCurve, SimpleMeasurement measurement, string name)
         {
             plot.RemoveSimpleCurve(activeCurve);
             SimpleCurve smoothedCurve = activeCurve.Smooth(SmoothLevel.High);
@@ -675,7 +676,7 @@ namespace PalmSense4
                             filterToolStripMenuItem.DropDownItems.Remove(filterItem);
                             filterToolStripMenuItem.DropDownItems.Add(item.Text, null, (sender3, e3) =>
                             {
-                                filterPlot(sender, e, smoothedCurve);
+                                filterPlot(sender, e, smoothedCurve, measurement);
                             });
                             break;
                         }
@@ -794,11 +795,11 @@ namespace PalmSense4
         }
 
 
-        private void filterPlot(object sender, EventArgs e, SimpleCurve filteredCurve)
+        private void filterPlot(object sender, EventArgs e, SimpleCurve filteredCurve, SimpleMeasurement measurement)
         {
             if (filteredCurve != null && plot.ContainsSimpleCurve(filteredCurve))
             {
-                new FilteredPlot(filteredCurve).ShowDialog();
+                new FilteredPlot(filteredCurve, measurement).ShowDialog();
             }
         }
 
@@ -939,7 +940,7 @@ namespace PalmSense4
                     smoothCurveToolStripMenuItem.Enabled = true;
                     smoothCurveToolStripMenuItem.DropDownItems.Add(itemName, null, (sender2, e2) =>
                     {
-                        smoothCurve(sender, e, sc, itemName);
+                        smoothCurve(sender, e, sc, sm, itemName);
                     });
 
                     // Detect Peek
@@ -962,7 +963,7 @@ namespace PalmSense4
                     filterToolStripMenuItem.Enabled = true;
                     filterToolStripMenuItem.DropDownItems.Add(itemName, null, (sender5, e5) =>
                     {
-                        filterPlot(sender, e, sc);
+                        filterPlot(sender, e, sc, sm);
                     });
                 }
             }

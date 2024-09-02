@@ -1,11 +1,14 @@
 ﻿using Microsoft.Office.Interop.Excel;
 using PalmSens;
+using PalmSens.Comm;
 using PalmSens.Core.Simplified.Data;
+using PalmSense4.Business;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,11 +20,18 @@ namespace PalmSense4
     {
         private SimpleCurve _activeCurve;
         private SimpleCurve _baselineCurve;
+        
+        private FileIO _fileIO;
+        private List<SimpleMeasurement> _activeMeasurement;
 
-        public FilteredPlot(SimpleCurve activeCurve)
+        public FilteredPlot(SimpleCurve activeCurve, SimpleMeasurement activeMeasurement)
         {
             InitializeComponent();
             _activeCurve = activeCurve;
+            
+            _fileIO = new FileIO();
+            _activeMeasurement = new List<SimpleMeasurement>();
+            _activeMeasurement.Add(activeMeasurement);
         }
 
         private void FilteredPlot_Load(object sender, EventArgs e)
@@ -39,7 +49,6 @@ namespace PalmSense4
                 averageBaselineToolStripMenuItem.Enabled = false;
                 subtractBaselineToolStripMenuItem.Enabled = false;
             }
-
 
         }
 
@@ -71,12 +80,40 @@ namespace PalmSense4
             _activeCurve.DetectPeaks();
         }
 
+
+
+        // Export Process
+        string folderName = null;
         private void pssessionFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+
+            folderBrowserDialog.RootFolder = Environment.SpecialFolder.Desktop;
+            folderBrowserDialog.Description = "Save Measurement";
+
+            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+            {
+                folderName = folderBrowserDialog.SelectedPath;
+                string fileName = "PalmSens4 Measurement (" + DateTime.Now.ToString("MM-dd-yyyy-h-mm-tt") + ").pssession";
+                string filePathName = Path.Combine(folderName, fileName);
+
+                if (_fileIO.SaveDataToPssession(filePathName, _activeMeasurement))
+                {
+                    MainPage.lbox.Items.Add($"Measurements successfully saved to {filePathName}");
+                }
+                else
+                {
+                    MainPage.lbox.Items.Add("An error occurred when saving measurements");
+                }
+            }
+        }
+
+        private void xlsxFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void xlsxFileToolStripMenuItem_Click(object sender, EventArgs e)
+        private void exportAsImageToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }

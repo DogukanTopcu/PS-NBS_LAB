@@ -133,6 +133,10 @@ namespace PalmSense4.components
             MainPage.measureBtn.Enabled = true;
             regenerationStartButton.Enabled = true;
         }
-        
+
+        private void panel20_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

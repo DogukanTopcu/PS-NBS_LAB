@@ -38,7 +38,6 @@
             this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pssessionFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xlsxFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.txtFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportAsImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.plot1 = new SDKPlot.WinForms.Plot();
             this.menuStrip1.SuspendLayout();
@@ -107,7 +106,6 @@
             this.exportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.pssessionFileToolStripMenuItem,
             this.xlsxFileToolStripMenuItem,
-            this.txtFileToolStripMenuItem,
             this.exportAsImageToolStripMenuItem});
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
             this.exportToolStripMenuItem.Size = new System.Drawing.Size(83, 32);
@@ -127,17 +125,12 @@
             this.xlsxFileToolStripMenuItem.Text = ".xlsx File";
             this.xlsxFileToolStripMenuItem.Click += new System.EventHandler(this.xlsxFileToolStripMenuItem_Click);
             // 
-            // txtFileToolStripMenuItem
-            // 
-            this.txtFileToolStripMenuItem.Name = "txtFileToolStripMenuItem";
-            this.txtFileToolStripMenuItem.Size = new System.Drawing.Size(296, 32);
-            this.txtFileToolStripMenuItem.Text = ".txt File";
-            // 
             // exportAsImageToolStripMenuItem
             // 
             this.exportAsImageToolStripMenuItem.Name = "exportAsImageToolStripMenuItem";
             this.exportAsImageToolStripMenuItem.Size = new System.Drawing.Size(296, 32);
             this.exportAsImageToolStripMenuItem.Text = "Export Graph as Image";
+            this.exportAsImageToolStripMenuItem.Click += new System.EventHandler(this.exportAsImageToolStripMenuItem_Click);
             // 
             // plot1
             // 
@@ -189,7 +182,6 @@
         private System.Windows.Forms.ToolStripMenuItem detectPeaksToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem pssessionFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem xlsxFileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem txtFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportAsImageToolStripMenuItem;
     }
 }

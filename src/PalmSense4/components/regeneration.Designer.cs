@@ -60,6 +60,7 @@
             this.panel20.Name = "panel20";
             this.panel20.Size = new System.Drawing.Size(425, 172);
             this.panel20.TabIndex = 13;
+            this.panel20.Paint += new System.Windows.Forms.PaintEventHandler(this.panel20_Paint);
             // 
             // timeRegeneration
             // 
