@@ -514,6 +514,7 @@ namespace PalmSense4
                 {
                     lbConsole.Items.Add(ex.Message);
                 }
+                regeneration.startBtn.Enabled = true;
             }
 
             tabControl2.SelectedTab = PlotArea;
@@ -1134,10 +1135,6 @@ namespace PalmSense4
             btnLoad_Click(sender, e);
         }
 
-        private void regeneration1_Load(object sender, EventArgs e)
-        {
-            regeneration1.generateFunction(lbConsole);
-        }
 
         private void regressionAnalysisToolStripMenuItem_Click(object sender, EventArgs e)
         {

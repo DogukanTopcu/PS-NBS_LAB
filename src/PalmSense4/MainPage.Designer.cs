@@ -354,7 +354,6 @@
             this.regeneration1.Name = "regeneration1";
             this.regeneration1.Size = new System.Drawing.Size(425, 171);
             this.regeneration1.TabIndex = 27;
-            this.regeneration1.Load += new System.EventHandler(this.regeneration1_Load);
             // 
             // panel2
             // 

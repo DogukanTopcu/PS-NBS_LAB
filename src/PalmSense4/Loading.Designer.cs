@@ -28,19 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label1 = new System.Windows.Forms.Label();
             this.rjButton1 = new RJCodeAdvance.RJControls.RJButton();
-            this.label2 = new System.Windows.Forms.Label();
+            this.psCommSimpleWinForms1 = new PalmSens.Core.Simplified.WinForms.PSCommSimpleWinForms(this.components);
             this.SuspendLayout();
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(12, 83);
+            this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.progressBar1.Location = new System.Drawing.Point(12, 77);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(381, 30);
+            this.progressBar1.Size = new System.Drawing.Size(561, 30);
             this.progressBar1.TabIndex = 0;
-            this.progressBar1.Click += new System.EventHandler(this.progressBar1_Click);
             // 
             // label1
             // 
@@ -48,12 +50,13 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(7, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(253, 29);
+            this.label1.Size = new System.Drawing.Size(422, 29);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Regeneration Process";
+            this.label1.Text = "Regeneration process is proceeding...";
             // 
             // rjButton1
             // 
+            this.rjButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.rjButton1.BackColor = System.Drawing.Color.LightBlue;
             this.rjButton1.BackgroundColor = System.Drawing.Color.LightBlue;
             this.rjButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
@@ -63,7 +66,7 @@
             this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjButton1.ForeColor = System.Drawing.Color.Black;
-            this.rjButton1.Location = new System.Drawing.Point(304, 138);
+            this.rjButton1.Location = new System.Drawing.Point(484, 128);
             this.rjButton1.Name = "rjButton1";
             this.rjButton1.Size = new System.Drawing.Size(89, 31);
             this.rjButton1.TabIndex = 2;
@@ -72,23 +75,20 @@
             this.rjButton1.UseVisualStyleBackColor = false;
             this.rjButton1.Click += new System.EventHandler(this.rjButton1_Click);
             // 
-            // label2
+            // psCommSimpleWinForms1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(7, 38);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(178, 29);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "is proceeding...";
+            this.psCommSimpleWinForms1.EnableBluetooth = false;
+            this.psCommSimpleWinForms1.EnableSerialPort = false;
+            this.psCommSimpleWinForms1.Parent = this;
+            this.psCommSimpleWinForms1.MeasurementStarted += new System.EventHandler(this.psCommSimpleWinForms1_MeasurementStarted);
+            this.psCommSimpleWinForms1.MeasurementEnded += new System.EventHandler<System.Exception>(this.psCommSimpleWinForms1_MeasurementEnded);
             // 
             // Loading
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(405, 181);
+            this.ClientSize = new System.Drawing.Size(581, 167);
             this.ControlBox = false;
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.rjButton1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.progressBar1);
@@ -111,6 +111,6 @@
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label label1;
         private RJCodeAdvance.RJControls.RJButton rjButton1;
-        private System.Windows.Forms.Label label2;
+        private PalmSens.Core.Simplified.WinForms.PSCommSimpleWinForms psCommSimpleWinForms1;
     }
 }

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.panel20 = new System.Windows.Forms.Panel();
             this.timeRegeneration = new RJCodeAdvance.RJControls.RJTextBox();
             this.potantialRegeneration = new RJCodeAdvance.RJControls.RJTextBox();
@@ -39,7 +38,6 @@
             this.regenerationStartButton = new System.Windows.Forms.Button();
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.psCommSimpleWinForms2 = new PalmSens.Core.Simplified.WinForms.PSCommSimpleWinForms(this.components);
             this.panel20.SuspendLayout();
             this.panel21.SuspendLayout();
             this.SuspendLayout();
@@ -186,14 +184,6 @@
             this.label20.TabIndex = 3;
             this.label20.Text = "Potantial:";
             // 
-            // psCommSimpleWinForms2
-            // 
-            this.psCommSimpleWinForms2.EnableBluetooth = false;
-            this.psCommSimpleWinForms2.EnableSerialPort = false;
-            this.psCommSimpleWinForms2.Parent = this;
-            this.psCommSimpleWinForms2.MeasurementStarted += new System.EventHandler(this.psCommSimpleWinForms2_MeasurementStarted);
-            this.psCommSimpleWinForms2.MeasurementEnded += new System.EventHandler<System.Exception>(this.psCommSimpleWinForms2_MeasurementEnded);
-            // 
             // regeneration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -221,6 +211,5 @@
         private System.Windows.Forms.Button regenerationStartButton;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label20;
-        private PalmSens.Core.Simplified.WinForms.PSCommSimpleWinForms psCommSimpleWinForms2;
     }
 }
