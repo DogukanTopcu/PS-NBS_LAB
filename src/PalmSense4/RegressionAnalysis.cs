@@ -64,6 +64,9 @@ namespace PalmSense4
 
         private void regression_analysis_Load(object sender, EventArgs e)
         {
+            lod_label.Text = "";
+            loq_label.Text = "";
+            formul.Text = "";
             //plotsPanel.Controls.Add(splitContainer1);
             foreach (var item in _allCurvesDict)
             {
@@ -151,6 +154,16 @@ namespace PalmSense4
 
             plot1.YAxisLabel = "Current (µA)";
             plot1.XAxisLabel = "Concentration (M)";
+
+            if (ydata.Count > 2)
+            {
+                double sd = CalculateStandardError(ydata, yVals);
+                double lod = 3.3 * (sd / a);
+                double loq = 10 * (sd / a);
+
+                lod_label.Text = "LOD: " + lod.ToString("F4");
+                loq_label.Text = "LOQ: " + loq.ToString("F4");
+            }
         }
 
 
@@ -253,6 +266,27 @@ namespace PalmSense4
             }
             manuelPeaks.Controls.Remove(manuelPeaks.Controls[manuelPeaks.Controls.Count - 1]);
             manuelData.Add(manuelData[manuelData.Count - 1]);
+        }
+
+
+        private double CalculateStandardError(List<double> actualValues, List<double> predictedValues)
+        {
+            if (actualValues.Count != predictedValues.Count)
+                throw new ArgumentException("The lists must have the same number of elements.");
+
+            int n = actualValues.Count;
+
+            // Calculate residuals (errors)
+            double sumOfSquaredResiduals = 0;
+            for (int i = 0; i < n; i++)
+            {
+                double residual = actualValues[i] - predictedValues[i];
+                sumOfSquaredResiduals += Math.Pow(residual, 2);
+            }
+
+            // Calculate the standard error of the regression
+            double standardError = Math.Sqrt(sumOfSquaredResiduals / (n - 2));
+            return standardError;
         }
     }
 }

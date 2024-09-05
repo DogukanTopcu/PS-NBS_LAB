@@ -610,7 +610,6 @@
             this.PlotSettings.Size = new System.Drawing.Size(627, 33);
             this.PlotSettings.TabIndex = 9;
             this.PlotSettings.Text = "menuStrip2";
-            this.PlotSettings.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.PlotSettings_ItemClicked);
             // 
             // plotToolStripMenuItem
             // 
@@ -687,7 +686,6 @@
             this.TSMILoadPeakLOD.Name = "TSMILoadPeakLOD";
             this.TSMILoadPeakLOD.Size = new System.Drawing.Size(82, 29);
             this.TSMILoadPeakLOD.Text = "Import";
-            this.TSMILoadPeakLOD.Click += new System.EventHandler(this.TSMILoadPeakLOD_Click);
             // 
             // importFrompssessionFileToolStripMenuItem
             // 
@@ -712,7 +710,6 @@
             this.exportsToolStripMenuItem.Name = "exportsToolStripMenuItem";
             this.exportsToolStripMenuItem.Size = new System.Drawing.Size(80, 29);
             this.exportsToolStripMenuItem.Text = "Export";
-            this.exportsToolStripMenuItem.Click += new System.EventHandler(this.exportsToolStripMenuItem_Click);
             // 
             // pssessionExport
             // 

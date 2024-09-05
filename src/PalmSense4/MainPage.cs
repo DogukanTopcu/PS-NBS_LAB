@@ -43,7 +43,6 @@ namespace PalmSense4
         public static ImpedimetricMethod _methodIMM = new ImpedimetricMethod();
         public static Method _selectedMethod;
 
-        private Measurement_Settings _measurementSettings;
         private CyclicVoltammetry_Settings _cvSettings;
         private DifferentialPulse_Settings _dpSettings;
         private ImpedimetricMethod_Settings _impSettings;
@@ -97,7 +96,6 @@ namespace PalmSense4
             _cvSettings = new CyclicVoltammetry_Settings(_methodCLV);
             _dpSettings = new DifferentialPulse_Settings(_methodDLP);
             _impSettings = new ImpedimetricMethod_Settings(_methodIMM);
-            _measurementSettings = new Measurement_Settings(_cvSettings, _dpSettings, _impSettings);
             saveInternalStorage = saveSettingsInInternalStorage.Checked;
 
 
@@ -1254,7 +1252,6 @@ namespace PalmSense4
             exportGraphToolStripMenuItem_Click(sender, e);
         }
 
-
         // Measurement
         private void downloadMeasurementDataToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1266,23 +1263,5 @@ namespace PalmSense4
             newRunBtn_Click(sender, e);
         }
 
-        private void exportsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TSMILoadPeakLOD_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void PlotSettings_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-        }
-
-        private void calculators1_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
