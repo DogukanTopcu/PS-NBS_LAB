@@ -27,6 +27,9 @@ namespace PalmSense4
         List<List<double>> md;
         Dictionary<string, List<List<double>>> _measurementData;
 
+        private bool isCurve = false;
+        private string plotName = "";
+
         public FilteredPlot(SimpleCurve activeCurve, SimpleMeasurement activeMeasurement, List<List<double>> measurementData)
         {
             InitializeComponent();
@@ -39,26 +42,61 @@ namespace PalmSense4
             
             _measurementData = new Dictionary<string, List<List<double>>>();
             md = measurementData;
+
+            isCurve = true;
+        }
+        public FilteredPlot(List<List<double>> measurementData, string name)
+        {
+            InitializeComponent();
+            _measurementData = new Dictionary<string, List<List<double>>>();
+            _fileIO = new FileIO();
+
+            md  = measurementData;
+            this.plotName = name;
+            isCurve = false;
         }
 
         private void FilteredPlot_Load(object sender, EventArgs e)
         {
-            plot1.AddSimpleCurve(_activeCurve);
-            this.Text = _activeCurve.FullTitle;
-            
-            _activeMeasurement.Add(a);
-            _measurementData.Add(_activeCurve.Title, md);
-
-
-            if (_activeCurve.Title == "DPV i vs E" || _activeCurve.Title == "DPV i vs E, smooth level High")
+            if (isCurve)
             {
-                averageBaselineToolStripMenuItem.Enabled = true;
-                subtractBaselineToolStripMenuItem.Enabled = true;
+                plot1.AddSimpleCurve(_activeCurve);
+                this.Text = _activeCurve.FullTitle;
+
+                _activeMeasurement.Add(a);
+                _measurementData.Add(_activeCurve.Title, md);
+
+                plotToolStripMenuItem.Enabled = true;
+                pssessionFileToolStripMenuItem.Enabled = true;
+
+                if (_activeCurve.Title == "DPV i vs E" || _activeCurve.Title == "DPV i vs E, smooth level High")
+                {
+                    averageBaselineToolStripMenuItem.Enabled = true;
+                    subtractBaselineToolStripMenuItem.Enabled = true;
+                }
+                else
+                {
+                    averageBaselineToolStripMenuItem.Enabled = false;
+                    subtractBaselineToolStripMenuItem.Enabled = false;
+                }
             }
             else
             {
-                averageBaselineToolStripMenuItem.Enabled = false;
-                subtractBaselineToolStripMenuItem.Enabled = false;
+                List<double> potentials = new List<double>();
+                List<double> currents = new List<double>();
+
+                for (int i = 0; i < md.Count; i++)
+                {
+                    potentials.Add(md[i][1]);
+                    currents.Add(md[i][2]);
+                }
+
+                plot1.AddData(plotName, new List<double>(potentials).ToArray(), new List<double>(currents).ToArray());
+
+                _measurementData.Add(plotName, new List<List<double>>(md));
+
+                plotToolStripMenuItem.Enabled = false;
+                pssessionFileToolStripMenuItem.Enabled = false;
             }
 
         }
@@ -121,8 +159,6 @@ namespace PalmSense4
 
         private void xlsxFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Console.WriteLine(_measurementData.Keys);
-            Console.WriteLine(_measurementData.Values);
             FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
 
             folderBrowserDialog.RootFolder = Environment.SpecialFolder.Desktop;

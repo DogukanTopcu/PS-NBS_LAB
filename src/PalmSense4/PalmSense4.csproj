@@ -143,6 +143,7 @@
     <Compile Include="Business\FileIO.cs" />
     <Compile Include="Business\InitializeData.cs" />
     <Compile Include="Business\PH_POH_Calculator.cs" />
+    <Compile Include="Business\PlotObj.cs" />
     <Compile Include="Business\PpmCalculator.cs" />
     <Compile Include="Business\SolutionDiluationCalc.cs" />
     <Compile Include="components\autoPeakDataView.cs">

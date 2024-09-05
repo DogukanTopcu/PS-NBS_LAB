@@ -1219,7 +1219,7 @@
             this.newRunBtn,
             this.overlayRunBtn});
             this.measurementBtn.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.measurementBtn.Image = global::PalmSense4.Properties.Resources.play_button_arrowhead;
+            this.measurementBtn.Image = ((System.Drawing.Image)(resources.GetObject("measurementBtn.Image")));
             this.measurementBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.measurementBtn.Name = "measurementBtn";
             this.measurementBtn.Size = new System.Drawing.Size(84, 29);

@@ -32,6 +32,10 @@ namespace PalmSens.Core.Simplified.Data
             InitSimpleCurveCollection();
         }
 
+        public SimpleMeasurement()
+        {
+        }
+
         #region Properties
         /// <summary>
         /// Gets or sets the title of the measurement.

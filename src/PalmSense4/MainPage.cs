@@ -18,6 +18,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Design;
 using System.Drawing.Text;
 using System.IO;
 using System.Linq;
@@ -57,8 +58,8 @@ namespace PalmSense4
 
 
         // Measurement Data 
+        private List<PlotObj> _allPlots;
         private List<List<double>> _measurementData;
-        private Dictionary<string, List<List<double>>> _allMeasurements;
         Dictionary<string, List<List<double>>> _importedMeasurements;
         private List<SimpleMeasurement> _simpleMeasurements;
         private int plotNumber;
@@ -100,8 +101,8 @@ namespace PalmSense4
             saveInternalStorage = saveSettingsInInternalStorage.Checked;
 
 
+            _allPlots = new List<PlotObj>();
             _measurementData = new List<List<double>>();
-            _allMeasurements = new Dictionary<string, List<List<double>>>();
             _importedMeasurements = new Dictionary<string, List<List<double>>>();
             _allCurves = new List<SimpleCurve>();
             _simpleMeasurements = new List<SimpleMeasurement>();
@@ -266,16 +267,14 @@ namespace PalmSense4
         private void psCommSimpleWinForms_MeasurementEnded(object sender, Exception e)
         {
             lbConsole.Items.Add("Measurement ended.");
-            
-
-            _allMeasurements.Add($"plot{plotNumber}", new List<List<double>>(_measurementData));
             plotNumber++;
+            
         }
 
 
         private void psCommSimpleWinForms_SimpleCurveStartReceivingData(object sender, SimpleCurve activeSimpleCurve)
         {
-            if (_allMeasurements.Count != 0)
+            if (_allPlots.Count != 0)
             {
                 dataTabControl.TabPages.Add(activeSimpleCurve.FullTitle);
                 TabPage newTabPage = dataTabControl.TabPages[plotNumber - 1];
@@ -344,6 +343,7 @@ namespace PalmSense4
 
         private void activeSimpleCurve_CurveFinished(object sender, EventArgs e)
         {
+
             SimpleCurve activeSimpleCurve = sender as SimpleCurve;
             SimpleMeasurement measurement = sender as SimpleMeasurement;
 
@@ -352,35 +352,60 @@ namespace PalmSense4
 
             string itemName = plotNumber + " " + activeSimpleCurve.FullTitle;
 
+
+            PlotObj plotO = new PlotObj(
+                id: plotNumber,
+                tabIndex: plotNumber,
+                tabPage: dataTabControl.TabPages[dataTabControl.TabPages.Count - 1],
+                name: _activeCurve.FullTitle,
+                toolstripname: itemName,
+                isImported: false,
+                isImportedAsXlsx: false,
+                curve: activeSimpleCurve,
+                data: new List<List<double>>(_measurementData),
+                smoothItem: null,
+                detectItem: null,
+                filterItem: null,
+                clearItem: null,
+                ls: null
+
+            );
+            _allPlots.Add(plotO);
+
+
             // Smooth Curve
             smoothCurveToolStripMenuItem.Enabled = true;
             smoothCurveToolStripMenuItem.DropDownItems.Add(itemName, null, (sender2, e2) =>
             {
-                smoothCurve(sender, e, activeSimpleCurve, measurement, itemName);
+                smoothCurve(sender, e, activeSimpleCurve, measurement, itemName, plotO);
             });
+            plotO.SmoothItem = smoothCurveToolStripMenuItem.DropDownItems[smoothCurveToolStripMenuItem.DropDownItems.Count - 1];
 
             // Detect Peek
             detectPeaksToolStripMenuItem.Enabled = true;
             detectPeaksToolStripMenuItem.DropDownItems.Add(itemName, null, (sender3, e3) =>
             {
-                detectPeek(sender, e, activeSimpleCurve, itemName);
+                detectPeek(sender, e, itemName, plotO);
             });
+            plotO.DetectItem = detectPeaksToolStripMenuItem.DropDownItems[detectPeaksToolStripMenuItem.DropDownItems.Count - 1];
 
             // Clear Plot
             clearPlotToolStripMenuItem.Enabled = true;
             clearAllToolStripMenuItem.Enabled = true;
             clearPlotToolStripMenuItem.DropDownItems.Add(itemName, null, (sender4, e4) =>
             {
-                clearPlot(sender, e, itemName, activeSimpleCurve);
+                clearPlot(sender, e, itemName, plotO);
             });
+            plotO.ClearItem = clearPlotToolStripMenuItem.DropDownItems[clearPlotToolStripMenuItem.DropDownItems.Count - 1];
 
 
             // Filter Plot
             filterToolStripMenuItem.Enabled = true;
             filterToolStripMenuItem.DropDownItems.Add(itemName, null, (sender5, e5) =>
             {
-                filterPlot(sender, e, activeSimpleCurve, measurement);
+                filterPlot(sender, e, measurement, plotO);
             });
+            plotO.FilterItem = filterToolStripMenuItem.DropDownItems[filterToolStripMenuItem.DropDownItems.Count - 1];
 
 
             //Unsubscribe from the curves events to avoid memory leaks
@@ -510,6 +535,7 @@ namespace PalmSense4
                 {
                     plot.ClearAll();
                     _measurementData.Clear();
+                    _allPlots.Clear();
                     measurementBtn_ButtonClick(sender, e);
                 }
             }
@@ -561,6 +587,11 @@ namespace PalmSense4
                 string fileName = "PalmSens4 Measurement (" + DateTime.Now.ToString("MM-dd-yyyy-h-mm-tt") + ").xlsx";
                 string filePathName = Path.Combine(folderName, fileName);
 
+                Dictionary<string, List<List<double>>> _allMeasurements = new Dictionary<string, List<List<double>>>();
+                foreach(PlotObj plot in _allPlots)
+                {
+                    _allMeasurements.Add(plot.Id.ToString() + plot.Name, plot.Data);
+                }
                 if (_fileIO.SaveDataToExcel(filePathName, _allMeasurements))
                 {
                     lbConsole.Items.Add($"Measurements successfuly saved to {filePathName}");
@@ -608,7 +639,7 @@ namespace PalmSense4
 
             foreach (var item in _importedMeasurements)
             {
-                if (_allMeasurements.Count != 0)
+                if (_allPlots.Count != 0)
                 {
                     dataTabControl.TabPages.Add(item.Key);
                     TabPage newTabPage = dataTabControl.TabPages[plotNumber - 1];
@@ -648,18 +679,25 @@ namespace PalmSense4
                 }
 
                 
-                LineSeries data = plot.AddData(item.Key, new List<double>(potentials).ToArray(), new List<double>(currents).ToArray());
-                Console.WriteLine(data.ToString());
+                LineSeries l = plot.AddData(item.Key, new List<double>(potentials).ToArray(), new List<double>(currents).ToArray());
 
-                try
-                {
-                    _allMeasurements.Add(item.Key, item.Value);
-                }
-                catch (Exception ex)
-                {
-                    string name = item.Key + " [" + plotNumber.ToString() + "]";
-                    _allMeasurements.Add(name, item.Value);
-                }
+                PlotObj plotO = new PlotObj(
+                    id: plotNumber,
+                    tabIndex: plotNumber,
+                    tabPage: dataTabControl.TabPages[dataTabControl.TabPages.Count - 1],
+                    name: item.Key,
+                    toolstripname: item.Key,
+                    isImported: true,
+                    isImportedAsXlsx: true,
+                    curve: null,
+                    data: item.Value,
+                    smoothItem: null,
+                    detectItem: null,
+                    filterItem: null,
+                    clearItem: null,
+                    ls: l
+                );
+                _allPlots.Add(plotO);
                 plotNumber++;
 
                 // Clear Plot
@@ -667,9 +705,17 @@ namespace PalmSense4
                 clearAllToolStripMenuItem.Enabled = true;
                 clearPlotToolStripMenuItem.DropDownItems.Add(item.Key, null, (sender4, e4) =>
                 {
-                    clearXlsxPlot(sender, e, item.Key, data);
+                    clearXlsxPlot(sender, e, item.Key, plotO);
                 });
+                plotO.ClearItem = clearPlotToolStripMenuItem.DropDownItems[clearPlotToolStripMenuItem.DropDownItems.Count - 1];
 
+                // Filter Item
+                filterToolStripMenuItem.Enabled = true;
+                filterToolStripMenuItem.DropDownItems.Add(item.Key, null, (sender5, e5) =>
+                {
+                    filterPlotXlsx(sender, e, plotO);
+                });
+                plotO.FilterItem = filterToolStripMenuItem.DropDownItems[filterToolStripMenuItem.DropDownItems.Count - 1];
 
                 potentials.Clear();
                 currents.Clear();
@@ -678,7 +724,7 @@ namespace PalmSense4
         }
 
         
-        private void smoothCurve(object sender, EventArgs e, SimpleCurve activeCurve, SimpleMeasurement measurement, string name)
+        private void smoothCurve(object sender, EventArgs e, SimpleCurve activeCurve, SimpleMeasurement measurement, string name, PlotObj plotO)
         {
             plot.RemoveSimpleCurve(activeCurve);
             SimpleCurve smoothedCurve = activeCurve.Smooth(SmoothLevel.High);
@@ -689,52 +735,18 @@ namespace PalmSense4
             _allCurves.Remove(activeCurve);
             _allCurves.Add(smoothedCurve);
 
-            foreach (ToolStripMenuItem item in smoothCurveToolStripMenuItem.DropDownItems)
-            {
-                if (item.Text == name)
-                {
-                    item.Enabled = false;
-                    item.Text = name + " (Smoothed)";
-                    
-                    foreach (ToolStripMenuItem peakItem in detectPeaksToolStripMenuItem.DropDownItems)
-                    {
-                        if (peakItem.Text == name || peakItem.Text == name + " (Detected)")
-                        {
-                            detectPeaksToolStripMenuItem.DropDownItems.Remove(peakItem);
-                            detectPeaksToolStripMenuItem.DropDownItems.Add(item.Text, null, (sender3, e3) =>
-                            {
-                                detectPeek(sender, e, smoothedCurve, item.Text);
-                            });
-                            break;
-                        }
-                    }
-                    foreach (ToolStripMenuItem removeItem in clearPlotToolStripMenuItem.DropDownItems)
-                    {
-                        if (removeItem.Text == name)
-                        {
-                            clearPlotToolStripMenuItem.DropDownItems.Remove(removeItem);
-                            clearPlotToolStripMenuItem.DropDownItems.Add(item.Text, null, (sender3, e3) =>
-                            {
-                                clearPlot(sender, e, item.Text, smoothedCurve);
-                            });
-                            break;
-                        }
-                    }
-                    foreach (ToolStripMenuItem filterItem in filterToolStripMenuItem.DropDownItems)
-                    {
-                        if (filterItem.Text == name)
-                        {
-                            filterToolStripMenuItem.DropDownItems.Remove(filterItem);
-                            filterToolStripMenuItem.DropDownItems.Add(item.Text, null, (sender3, e3) =>
-                            {
-                                filterPlot(sender, e, smoothedCurve, measurement);
-                            });
-                            break;
-                        }
-                    }
-                    break;
-                }
-            }
+            string newName = name + " (Smoothed)";
+
+            plotO.Curve = smoothedCurve;
+            plotO.IsSmoothed = true;
+            plotO.Toolstripname = newName;
+            plotO.TabPage.Text = newName;
+            plotO.SmoothItem.Text = newName;
+            plotO.SmoothItem.Enabled = false;
+
+            plotO.FilterItem.Text = newName;
+            plotO.ClearItem.Text = newName;
+            plotO.DetectItem.Text = newName;
         }
 
         private void averageBaselineToolStripMenuItem_Click(object sender, EventArgs e)
@@ -755,91 +767,123 @@ namespace PalmSense4
         }
 
         
-        private void detectPeek(object sender, EventArgs e, SimpleCurve activeCurve, string name)
+        private void detectPeek(object sender, EventArgs e, string name, PlotObj plotO)
         {
-            activeCurve.DetectPeaks();
-            foreach (ToolStripMenuItem item in detectPeaksToolStripMenuItem.DropDownItems)
-            {
-                if (item.Text == name || item.Text == name + " (Smoothed)")
-                {
-                    item.Enabled = false;
-                    item.Text = name + " (Detected)";
-                }
-            }
+            plotO.Curve.DetectPeaks();
+
+            string newName = name + " (Detected)";
+
+            plotO.IsDetected = true;
+            plotO.Toolstripname = newName;
+            plotO.TabPage.Text = newName;
+            plotO.DetectItem.Text = newName;
+            plotO.DetectItem.Enabled = false;
+
+            plotO.SmoothItem.Text = newName;
+            plotO.ClearItem.Text= newName;
+            plotO.FilterItem.Text = newName;
+
             lbConsole.Items.Add("Peak Detected: " + name);
         }
+
         private void allPlotsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            foreach (SimpleCurve curve in _allCurves)
+            foreach (PlotObj plot in _allPlots)
             {
-                curve.DetectPeaks();
+                if (!plot.IsImportedAsXlsx)
+                {
+                    plot.Curve.DetectPeaks();
+                    plot.DetectItem.Text += " (Detected)";
+                    plot.DetectItem.Enabled = false;
+
+                    plot.FilterItem.Text += " (Detected)";
+                    plot.ClearItem.Text += " (Detected)";
+                    plot.SmoothItem.Text += " (Detected)";
+                }
             }
 
-            bool isfirst = true;
-            foreach (ToolStripMenuItem item in detectPeaksToolStripMenuItem.DropDownItems)
-            {
-                if (isfirst) { isfirst = false; continue; }
-                item.Enabled = false;
-                item.Text += " (Detected)";
-            }
             lbConsole.Items.Add("All Peaks Detected");
         }
 
-        private void clearPlot(object sender, EventArgs e, string name, SimpleCurve removingCurve)
+        private void clearPlot(object sender, EventArgs e, string name, PlotObj plotO)
         {
-            foreach (ToolStripMenuItem item in clearPlotToolStripMenuItem.DropDownItems)
-            {
-                if (item.Text == name || item.Text == name + " (Smoothed)")
-                {
-                    plot.RemoveSimpleCurve(removingCurve);
-                    _allCurves.Remove(removingCurve);
-                    clearPlotToolStripMenuItem.DropDownItems.Remove(item);
+            plot.RemoveSimpleCurve(plotO.Curve);
+            _allCurves.Remove(plotO.Curve);
 
-                    foreach (ToolStripMenuItem peakItem in detectPeaksToolStripMenuItem.DropDownItems)
-                    {
-                        if (peakItem.Text == name || peakItem.Text == name + " (Detected)")
-                        {
-                            detectPeaksToolStripMenuItem.DropDownItems.Remove(peakItem);
-                            if (detectPeaksToolStripMenuItem.DropDownItems.Count == 1) detectPeaksToolStripMenuItem.Enabled = false;
-                            break;
-                        }
-                    }
-                    foreach (ToolStripMenuItem smooothItem in smoothCurveToolStripMenuItem.DropDownItems)
-                    {
-                        if (smooothItem.Text == name)
-                        {
-                            smoothCurveToolStripMenuItem.DropDownItems.Remove(smooothItem);
-                            if (smoothCurveToolStripMenuItem.DropDownItems.Count == 0) smoothCurveToolStripMenuItem.Enabled = false;
-                            break;
-                        }
-                    }
-                    foreach (ToolStripMenuItem filteredItem in filterToolStripMenuItem.DropDownItems)
-                    {
-                        if (filteredItem.Text == name)
-                        {
-                            filterToolStripMenuItem.DropDownItems.Remove(filteredItem);
-                            if (filterToolStripMenuItem.DropDownItems.Count == 0) filterToolStripMenuItem.Enabled = false;
-                            break;
-                        }
-                    }
-                    if (clearPlotToolStripMenuItem.DropDownItems.Count == 0) { clearPlotToolStripMenuItem.Enabled = false; clearAllToolStripMenuItem.Enabled = false; filterToolStripMenuItem.Enabled = false; }
-                    break;
-                }
+            clearPlotToolStripMenuItem.DropDownItems.Remove(plotO.ClearItem);
+            dataTabControl.TabPages.Remove(plotO.TabPage);
+
+            if (dataTabControl.TabPages.Count == 0)
+            {
+                dataTabControl.TabPages.Add("Empty Data View");
+                TabPage newTabPage = dataTabControl.TabPages[0];
+                DataGridView dgv = new DataGridView();
+                dgv.Dock = DockStyle.Fill;
+                dgv.BackgroundColor = SystemColors.Control;
+                dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+                dgv.EditMode = DataGridViewEditMode.EditProgrammatically;
+                dgv.Location = new System.Drawing.Point(3, 3);
+                dgv.Margin = new Padding(4);
+                dgv.Name = "Empty Data View";
+                dgv.RowHeadersVisible = false;
+                dgv.RowHeadersWidth = 51;
+                newTabPage.Controls.Add(dgv);
+                currentDGV = dgv;
+                InitDataGridView();
             }
+            detectPeaksToolStripMenuItem.DropDownItems.Remove(plotO.DetectItem);
+            smoothCurveToolStripMenuItem.DropDownItems.Remove(plotO.SmoothItem);
+            filterToolStripMenuItem.DropDownItems.Remove(plotO.FilterItem);
+            if (detectPeaksToolStripMenuItem.DropDownItems.Count == 1) detectPeaksToolStripMenuItem.Enabled = false;
+            if (smoothCurveToolStripMenuItem.DropDownItems.Count == 0) smoothCurveToolStripMenuItem.Enabled = false;
+            if (filterToolStripMenuItem.DropDownItems.Count == 0) filterToolStripMenuItem.Enabled = false;
+            if (clearPlotToolStripMenuItem.DropDownItems.Count == 0) { clearPlotToolStripMenuItem.Enabled = false; clearAllToolStripMenuItem.Enabled = false; filterToolStripMenuItem.Enabled = false; }
+
+            plotNumber--;
+            _allPlots.Remove(plotO);
 
             lbConsole.Items.Add("Plot Removed: " + name);
         }
 
-        private void clearXlsxPlot(object sender, EventArgs e, string name, LineSeries data)
+        private void clearXlsxPlot(object sender, EventArgs e, string name, PlotObj data)
         {
-            plot.RemoveData(data);
+            plot.RemoveData(data.Ls);
+            data.Ls.IsVisible = false;
+            plot.Invalidate(true);
+
+            dataTabControl.TabPages.Remove(data.TabPage);
+            filterToolStripMenuItem.DropDownItems.Remove(data.FilterItem);
+            clearPlotToolStripMenuItem.DropDownItems.Remove(data.ClearItem);
+            if (filterToolStripMenuItem.DropDownItems.Count == 0) filterToolStripMenuItem.Enabled = false;
+            if (clearPlotToolStripMenuItem.DropDownItems.Count == 0) { clearPlotToolStripMenuItem.Enabled = false; clearAllToolStripMenuItem.Enabled = false; filterToolStripMenuItem.Enabled = false; }
+            if (dataTabControl.TabPages.Count == 0)
+            {
+                dataTabControl.TabPages.Add("Empty Data View");
+                TabPage newTabPage = dataTabControl.TabPages[0];
+                DataGridView dgv = new DataGridView();
+                dgv.Dock = DockStyle.Fill;
+                dgv.BackgroundColor = SystemColors.Control;
+                dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+                dgv.EditMode = DataGridViewEditMode.EditProgrammatically;
+                dgv.Location = new System.Drawing.Point(3, 3);
+                dgv.Margin = new Padding(4);
+                dgv.Name = "Empty Data View";
+                dgv.RowHeadersVisible = false;
+                dgv.RowHeadersWidth = 51;
+                newTabPage.Controls.Add(dgv);
+                currentDGV = dgv;
+                InitDataGridView();
+            }
+
+            plotNumber--;
+            _allPlots.Remove(data);
         }
 
         private void clearAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
             plot.ClearAll();
             _allCurves.Clear();
-            _allMeasurements.Clear();
+            _allPlots.Clear();
 
             // Clear Tabpages
             dataTabControl.TabPages.Clear();
@@ -874,39 +918,23 @@ namespace PalmSense4
         }
 
 
-        private void filterPlot(object sender, EventArgs e, SimpleCurve filteredCurve, SimpleMeasurement measurement)
+        private void filterPlot(object sender, EventArgs e, SimpleMeasurement measurement, PlotObj plotO)
         {
-            if (filteredCurve != null && plot.ContainsSimpleCurve(filteredCurve))
+            if (plotO.Curve != null && plot.ContainsSimpleCurve(plotO.Curve))
             {
-                new FilteredPlot(filteredCurve, measurement, new List<List<double>>(_measurementData)).ShowDialog();
+                new FilteredPlot(plotO.Curve, measurement, new List<List<double>>(plotO.Data)).ShowDialog();
             }
+        }
+        private void filterPlotXlsx(object sender, EventArgs e, PlotObj plotO)
+        {
+            new FilteredPlot(new List<List<double>>(plotO.Data), plotO.Name).ShowDialog();
         }
 
 
         // Export Functions
         private void xlsxFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
-
-            folderBrowserDialog.RootFolder = Environment.SpecialFolder.Desktop;
-            folderBrowserDialog.Description = "Save Excel File";
-
-
-            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
-            {
-                folderName = folderBrowserDialog.SelectedPath;
-                string fileName = "PalmSens4 Measurement (" + DateTime.Now.ToString("MM-dd-yyyy-h-mm-tt") + ").xlsx";
-                string filePathName = Path.Combine(folderName, fileName);
-
-                if (_fileIO.SaveDataToExcel(filePathName, _allMeasurements))
-                {
-                    lbConsole.Items.Add($"Measurements successfuly saved to {filePathName}");
-                }
-                else
-                {
-                    lbConsole.Items.Add("An error occured when saving measurements");
-                }
-            }
+            btnDataViewSave_Click(sender, e);
         }
 
         private void pssessionExport_Click(object sender, EventArgs e)
@@ -999,7 +1027,7 @@ namespace PalmSense4
                     number++;
                     plot.AddSimpleCurve(sc);
 
-                    if (_allMeasurements.Count != 0)
+                    if (_allPlots.Count != 0)
                     {
                         dataTabControl.TabPages.Add(sc.FullTitle);
                         TabPage newTabPage = dataTabControl.TabPages[plotNumber - 1];
@@ -1037,41 +1065,66 @@ namespace PalmSense4
 
                     }
                     plotNumber++;
-                    _allMeasurements.Add(sc.FullTitle + _allMeasurements.Count.ToString(), new List<List<double>>(_measurementData));
+
+
+                    string itemName = number + " " + sc.FullTitle;
+
+                    PlotObj plotO = new PlotObj(
+                        id: plotNumber,
+                        tabIndex: plotNumber,
+                        tabPage: dataTabControl.TabPages[dataTabControl.TabPages.Count - 1],
+                        name: sc.FullTitle,
+                        toolstripname: itemName,
+                        isImported: true,
+                        isImportedAsXlsx: false,
+                        curve: sc,
+                        data: new List<List<double>>(_measurementData),
+                        smoothItem: null,
+                        detectItem: null,
+                        filterItem: null,
+                        clearItem: null,
+                        ls: null
+                    );
+                    _allPlots.Add(plotO);
                     _allCurves.Add(sc);
                     _measurementData.Clear();
 
-                    string itemName = number + " " + sc.FullTitle;
 
                     // Smooth Curve
                     smoothCurveToolStripMenuItem.Enabled = true;
                     smoothCurveToolStripMenuItem.DropDownItems.Add(itemName, null, (sender2, e2) =>
                     {
-                        smoothCurve(sender, e, sc, sm, itemName);
+                        smoothCurve(sender, e, sc, sm, itemName, plotO);
                     });
+                    plotO.SmoothItem = smoothCurveToolStripMenuItem.DropDownItems[smoothCurveToolStripMenuItem.DropDownItems.Count - 1];
+
 
                     // Detect Peek
                     detectPeaksToolStripMenuItem.Enabled = true;
                     detectPeaksToolStripMenuItem.DropDownItems.Add(itemName, null, (sender3, e3) =>
                     {
-                        detectPeek(sender, e, sc, itemName);
+                        detectPeek(sender, e, itemName, plotO);
                     });
+                    plotO.DetectItem = detectPeaksToolStripMenuItem.DropDownItems[detectPeaksToolStripMenuItem.DropDownItems.Count - 1];
+
 
                     // Clear Plot
                     clearPlotToolStripMenuItem.Enabled = true;
                     clearAllToolStripMenuItem.Enabled = true;
                     clearPlotToolStripMenuItem.DropDownItems.Add(itemName, null, (sender4, e4) =>
                     {
-                        clearPlot(sender, e, itemName, sc);
+                        clearPlot(sender, e, itemName, plotO);
                     });
+                    plotO.ClearItem = clearPlotToolStripMenuItem.DropDownItems[clearPlotToolStripMenuItem.DropDownItems.Count - 1];
 
 
                     // Filter Plot
                     filterToolStripMenuItem.Enabled = true;
                     filterToolStripMenuItem.DropDownItems.Add(itemName, null, (sender5, e5) =>
                     {
-                        filterPlot(sender, e, sc, sm);
+                        filterPlot(sender, e, sm, plotO);
                     });
+                    plotO.FilterItem = filterToolStripMenuItem.DropDownItems[filterToolStripMenuItem.DropDownItems.Count - 1];
                 }
             }
         }
