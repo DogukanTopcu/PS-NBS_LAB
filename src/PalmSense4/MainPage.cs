@@ -1,6 +1,7 @@
 ﻿using Microsoft.Office.Interop.Excel;
 using Newtonsoft.Json.Linq;
 using OxyPlot;
+using OxyPlot.Axes;
 using OxyPlot.Series;
 using PalmSens;
 using PalmSens.Comm;
@@ -114,6 +115,8 @@ namespace PalmSense4
             measureBtn = measurementBtn;
 
             currentDGV = dgvMeasurement;
+
+
         }
 
         private void MainPage_Load(object sender, EventArgs e)
