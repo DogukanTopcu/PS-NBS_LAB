@@ -1117,9 +1117,9 @@
             // 
             // pwm_duration1
             // 
-            this.pwm_duration1.Location = new System.Drawing.Point(1, 0);
+            this.pwm_duration1.Location = new System.Drawing.Point(6, 0);
             this.pwm_duration1.Name = "pwm_duration1";
-            this.pwm_duration1.Size = new System.Drawing.Size(469, 136);
+            this.pwm_duration1.Size = new System.Drawing.Size(464, 136);
             this.pwm_duration1.TabIndex = 31;
             // 
             // saveSettingsInInternalStorage

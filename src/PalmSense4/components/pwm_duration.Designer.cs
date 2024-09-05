@@ -63,7 +63,7 @@
             this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjButton1.ForeColor = System.Drawing.Color.White;
-            this.rjButton1.Location = new System.Drawing.Point(161, 82);
+            this.rjButton1.Location = new System.Drawing.Point(141, 80);
             this.rjButton1.Name = "rjButton1";
             this.rjButton1.Size = new System.Drawing.Size(120, 42);
             this.rjButton1.TabIndex = 1;
@@ -83,7 +83,7 @@
             this.rjButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjButton2.ForeColor = System.Drawing.Color.White;
-            this.rjButton2.Location = new System.Drawing.Point(287, 82);
+            this.rjButton2.Location = new System.Drawing.Point(267, 80);
             this.rjButton2.Name = "rjButton2";
             this.rjButton2.Size = new System.Drawing.Size(120, 42);
             this.rjButton2.TabIndex = 2;
@@ -104,7 +104,7 @@
             this.refr.FlatAppearance.BorderSize = 0;
             this.refr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.refr.ForeColor = System.Drawing.Color.White;
-            this.refr.Location = new System.Drawing.Point(424, 46);
+            this.refr.Location = new System.Drawing.Point(404, 44);
             this.refr.Name = "refr";
             this.refr.Size = new System.Drawing.Size(32, 32);
             this.refr.TabIndex = 13;
@@ -116,7 +116,7 @@
             // 
             this.cbPorts.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbPorts.FormattingEnabled = true;
-            this.cbPorts.Location = new System.Drawing.Point(161, 44);
+            this.cbPorts.Location = new System.Drawing.Point(141, 42);
             this.cbPorts.Name = "cbPorts";
             this.cbPorts.Size = new System.Drawing.Size(246, 33);
             this.cbPorts.TabIndex = 14;
@@ -126,7 +126,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(48, 47);
+            this.label2.Location = new System.Drawing.Point(3, 45);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(107, 25);
             this.label2.TabIndex = 15;
@@ -139,7 +139,7 @@
             this.panel16.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel16.Location = new System.Drawing.Point(0, 0);
             this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(469, 36);
+            this.panel16.Size = new System.Drawing.Size(445, 36);
             this.panel16.TabIndex = 16;
             // 
             // panel1
@@ -149,7 +149,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 130);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(469, 5);
+            this.panel1.Size = new System.Drawing.Size(445, 5);
             this.panel1.TabIndex = 17;
             // 
             // pwm_duration
@@ -164,7 +164,7 @@
             this.Controls.Add(this.rjButton1);
             this.Controls.Add(this.panel16);
             this.Name = "pwm_duration";
-            this.Size = new System.Drawing.Size(469, 135);
+            this.Size = new System.Drawing.Size(445, 135);
             this.panel16.ResumeLayout(false);
             this.panel16.PerformLayout();
             this.ResumeLayout(false);
