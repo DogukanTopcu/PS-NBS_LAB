@@ -50,6 +50,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.plot2 = new SDKPlot.WinForms.Plot();
             this.rjButton1 = new RJCodeAdvance.RJControls.RJButton();
+            this.rSquare_label = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -76,7 +77,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
             this.splitContainer1.Panel2.Controls.Add(this.rjButton1);
-            this.splitContainer1.Size = new System.Drawing.Size(1243, 797);
+            this.splitContainer1.Size = new System.Drawing.Size(1290, 797);
             this.splitContainer1.SplitterDistance = 464;
             this.splitContainer1.TabIndex = 1;
             // 
@@ -233,7 +234,7 @@
             this.tabControl1.Location = new System.Drawing.Point(42, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(733, 797);
+            this.tabControl1.Size = new System.Drawing.Size(780, 797);
             this.tabControl1.TabIndex = 2;
             // 
             // tabPage1
@@ -243,20 +244,21 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 34);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(725, 759);
+            this.tabPage1.Size = new System.Drawing.Size(772, 759);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Analysis Result";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.rSquare_label);
             this.panel2.Controls.Add(this.formul);
             this.panel2.Controls.Add(this.lod_label);
             this.panel2.Controls.Add(this.loq_label);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(3, 711);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(719, 45);
+            this.panel2.Size = new System.Drawing.Size(766, 45);
             this.panel2.TabIndex = 4;
             // 
             // formul
@@ -275,7 +277,7 @@
             this.lod_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lod_label.AutoSize = true;
             this.lod_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lod_label.Location = new System.Drawing.Point(289, 5);
+            this.lod_label.Location = new System.Drawing.Point(254, 5);
             this.lod_label.Name = "lod_label";
             this.lod_label.Size = new System.Drawing.Size(145, 29);
             this.lod_label.TabIndex = 2;
@@ -286,7 +288,7 @@
             this.loq_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.loq_label.AutoSize = true;
             this.loq_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loq_label.Location = new System.Drawing.Point(489, 5);
+            this.loq_label.Location = new System.Drawing.Point(428, 5);
             this.loq_label.Name = "loq_label";
             this.loq_label.Size = new System.Drawing.Size(147, 29);
             this.loq_label.TabIndex = 3;
@@ -303,7 +305,7 @@
             this.plot1.MarkerSize = 5;
             this.plot1.MarkerType = OxyPlot.MarkerType.Circle;
             this.plot1.Name = "plot1";
-            this.plot1.Size = new System.Drawing.Size(719, 701);
+            this.plot1.Size = new System.Drawing.Size(766, 701);
             this.plot1.TabIndex = 0;
             this.plot1.Title = null;
             this.plot1.XAxisLabel = null;
@@ -364,11 +366,22 @@
             this.rjButton1.UseVisualStyleBackColor = false;
             this.rjButton1.Click += new System.EventHandler(this.rjButton1_Click);
             // 
+            // rSquare_label
+            // 
+            this.rSquare_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.rSquare_label.AutoSize = true;
+            this.rSquare_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rSquare_label.Location = new System.Drawing.Point(603, 5);
+            this.rSquare_label.Name = "rSquare_label";
+            this.rSquare_label.Size = new System.Drawing.Size(126, 29);
+            this.rSquare_label.TabIndex = 4;
+            this.rSquare_label.Text = "R2: 0.1234";
+            // 
             // RegressionAnalysis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1243, 797);
+            this.ClientSize = new System.Drawing.Size(1290, 797);
             this.Controls.Add(this.splitContainer1);
             this.Name = "RegressionAnalysis";
             this.Text = "regression_analysis";
@@ -410,5 +423,6 @@
         private System.Windows.Forms.Label loq_label;
         private System.Windows.Forms.Label lod_label;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label rSquare_label;
     }
 }

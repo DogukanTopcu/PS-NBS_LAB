@@ -67,6 +67,7 @@ namespace PalmSense4
             lod_label.Text = "";
             loq_label.Text = "";
             formul.Text = "";
+            rSquare_label.Text = "";
             //plotsPanel.Controls.Add(splitContainer1);
             foreach (var item in _allCurvesDict)
             {
@@ -160,6 +161,9 @@ namespace PalmSense4
                 double sd = CalculateStandardError(ydata, yVals);
                 double lod = 3.3 * (sd / a);
                 double loq = 10 * (sd / a);
+
+                double rSquared = RSquareCalculator(ydata, yVals);
+                rSquare_label.Text = "R2: " + rSquared.ToString("F4");
 
                 lod_label.Text = "LOD: " + lod.ToString("F4");
                 loq_label.Text = "LOQ: " + loq.ToString("F4");
@@ -287,6 +291,15 @@ namespace PalmSense4
             // Calculate the standard error of the regression
             double standardError = Math.Sqrt(sumOfSquaredResiduals / (n - 2));
             return standardError;
+        }
+
+        private double RSquareCalculator(List<double> actualValues, List<double> predictedValues)
+        {
+            double ssTotal = actualValues.Select(y => Math.Pow(y - actualValues.Average(), 2)).Sum();
+            double ssResidual = actualValues.Zip(predictedValues, (y, yHat) => Math.Pow(y - yHat, 2)).Sum();
+
+            double rSquared = 1 - (ssResidual / ssTotal);
+            return rSquared;
         }
     }
 }

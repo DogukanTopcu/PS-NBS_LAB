@@ -397,9 +397,9 @@
             this.panel11.Controls.Add(this.radioButton_OH);
             this.panel11.Controls.Add(this.label14);
             this.panel11.Controls.Add(this.radioButton_H);
-            this.panel11.Location = new System.Drawing.Point(8, 29);
+            this.panel11.Location = new System.Drawing.Point(4, 29);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(393, 222);
+            this.panel11.Size = new System.Drawing.Size(411, 222);
             this.panel11.TabIndex = 21;
             // 
             // textBox_pOH
@@ -530,7 +530,7 @@
             // 
             this.radioButton_OH.AutoSize = true;
             this.radioButton_OH.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton_OH.Location = new System.Drawing.Point(9, 130);
+            this.radioButton_OH.Location = new System.Drawing.Point(10, 130);
             this.radioButton_OH.Name = "radioButton_OH";
             this.radioButton_OH.Size = new System.Drawing.Size(82, 29);
             this.radioButton_OH.TabIndex = 14;
@@ -553,7 +553,7 @@
             // 
             this.radioButton_H.AutoSize = true;
             this.radioButton_H.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton_H.Location = new System.Drawing.Point(9, 21);
+            this.radioButton_H.Location = new System.Drawing.Point(10, 21);
             this.radioButton_H.Name = "radioButton_H";
             this.radioButton_H.Size = new System.Drawing.Size(71, 29);
             this.radioButton_H.TabIndex = 11;
@@ -566,7 +566,7 @@
             // 
             this.pHpOHResetBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pHpOHResetBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pHpOHResetBtn.Location = new System.Drawing.Point(6, 293);
+            this.pHpOHResetBtn.Location = new System.Drawing.Point(6, 286);
             this.pHpOHResetBtn.Name = "pHpOHResetBtn";
             this.pHpOHResetBtn.Size = new System.Drawing.Size(104, 39);
             this.pHpOHResetBtn.TabIndex = 3;
@@ -738,7 +738,7 @@
             // 
             this.button_reset_ppm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button_reset_ppm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_reset_ppm.Location = new System.Drawing.Point(6, 293);
+            this.button_reset_ppm.Location = new System.Drawing.Point(6, 286);
             this.button_reset_ppm.Name = "button_reset_ppm";
             this.button_reset_ppm.Size = new System.Drawing.Size(104, 39);
             this.button_reset_ppm.TabIndex = 4;
@@ -762,7 +762,7 @@
             // 
             this.soldiluationResetBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.soldiluationResetBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.soldiluationResetBtn.Location = new System.Drawing.Point(6, 293);
+            this.soldiluationResetBtn.Location = new System.Drawing.Point(6, 286);
             this.soldiluationResetBtn.Name = "soldiluationResetBtn";
             this.soldiluationResetBtn.Size = new System.Drawing.Size(104, 39);
             this.soldiluationResetBtn.TabIndex = 29;

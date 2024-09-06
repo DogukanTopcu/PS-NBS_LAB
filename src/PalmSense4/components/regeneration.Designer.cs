@@ -69,7 +69,7 @@
             this.timeRegeneration.BorderSize = 2;
             this.timeRegeneration.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timeRegeneration.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.timeRegeneration.Location = new System.Drawing.Point(165, 86);
+            this.timeRegeneration.Location = new System.Drawing.Point(139, 86);
             this.timeRegeneration.Margin = new System.Windows.Forms.Padding(4);
             this.timeRegeneration.Multiline = false;
             this.timeRegeneration.Name = "timeRegeneration";
@@ -77,7 +77,7 @@
             this.timeRegeneration.PasswordChar = false;
             this.timeRegeneration.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.timeRegeneration.PlaceholderText = "";
-            this.timeRegeneration.Size = new System.Drawing.Size(123, 35);
+            this.timeRegeneration.Size = new System.Drawing.Size(149, 35);
             this.timeRegeneration.TabIndex = 39;
             this.timeRegeneration.Texts = "";
             this.timeRegeneration.UnderlinedStyle = false;
@@ -91,7 +91,7 @@
             this.potantialRegeneration.BorderSize = 2;
             this.potantialRegeneration.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.potantialRegeneration.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.potantialRegeneration.Location = new System.Drawing.Point(165, 43);
+            this.potantialRegeneration.Location = new System.Drawing.Point(139, 43);
             this.potantialRegeneration.Margin = new System.Windows.Forms.Padding(4);
             this.potantialRegeneration.Multiline = false;
             this.potantialRegeneration.Name = "potantialRegeneration";
@@ -99,7 +99,7 @@
             this.potantialRegeneration.PasswordChar = false;
             this.potantialRegeneration.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.potantialRegeneration.PlaceholderText = "";
-            this.potantialRegeneration.Size = new System.Drawing.Size(123, 35);
+            this.potantialRegeneration.Size = new System.Drawing.Size(149, 35);
             this.potantialRegeneration.TabIndex = 38;
             this.potantialRegeneration.Texts = "";
             this.potantialRegeneration.UnderlinedStyle = false;
@@ -152,9 +152,9 @@
             this.regenerationStartButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.regenerationStartButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.regenerationStartButton.Location = new System.Drawing.Point(165, 128);
+            this.regenerationStartButton.Location = new System.Drawing.Point(139, 128);
             this.regenerationStartButton.Name = "regenerationStartButton";
-            this.regenerationStartButton.Size = new System.Drawing.Size(123, 35);
+            this.regenerationStartButton.Size = new System.Drawing.Size(149, 35);
             this.regenerationStartButton.TabIndex = 22;
             this.regenerationStartButton.Text = "Start";
             this.regenerationStartButton.UseVisualStyleBackColor = true;
@@ -166,7 +166,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(94, 96);
+            this.label21.Location = new System.Drawing.Point(17, 96);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(62, 25);
             this.label21.TabIndex = 7;
@@ -178,7 +178,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(65, 49);
+            this.label20.Location = new System.Drawing.Point(17, 49);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(93, 25);
             this.label20.TabIndex = 3;
