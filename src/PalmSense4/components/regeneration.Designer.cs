@@ -182,7 +182,7 @@
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(93, 25);
             this.label20.TabIndex = 3;
-            this.label20.Text = "Potantial:";
+            this.label20.Text = "Potential:";
             // 
             // regeneration
             // 

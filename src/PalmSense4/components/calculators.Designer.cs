@@ -129,9 +129,9 @@
             this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label7.Location = new System.Drawing.Point(3, 4);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(133, 29);
+            this.label7.Size = new System.Drawing.Size(121, 29);
             this.label7.TabIndex = 0;
-            this.label7.Text = "Calculators";
+            this.label7.Text = "Calculator";
             // 
             // tabControl1
             // 
@@ -142,9 +142,11 @@
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(0, 37);
+            this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(425, 364);
+            this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tabControl1.TabIndex = 3;
             // 
             // tabPage2
@@ -153,10 +155,10 @@
             this.tabPage2.Controls.Add(this.btnReset_GramsToMoleCalc);
             this.tabPage2.Controls.Add(this.panel10);
             this.tabPage2.Controls.Add(this.panel9);
-            this.tabPage2.Location = new System.Drawing.Point(4, 29);
+            this.tabPage2.Location = new System.Drawing.Point(4, 54);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(417, 331);
+            this.tabPage2.Size = new System.Drawing.Size(417, 306);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Grams to Mole Calculator";
             // 
@@ -164,7 +166,7 @@
             // 
             this.btnReset_GramsToMoleCalc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnReset_GramsToMoleCalc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReset_GramsToMoleCalc.Location = new System.Drawing.Point(6, 286);
+            this.btnReset_GramsToMoleCalc.Location = new System.Drawing.Point(6, 261);
             this.btnReset_GramsToMoleCalc.Name = "btnReset_GramsToMoleCalc";
             this.btnReset_GramsToMoleCalc.Size = new System.Drawing.Size(104, 39);
             this.btnReset_GramsToMoleCalc.TabIndex = 2;
@@ -378,10 +380,10 @@
             this.tabPage3.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.tabPage3.Controls.Add(this.panel11);
             this.tabPage3.Controls.Add(this.pHpOHResetBtn);
-            this.tabPage3.Location = new System.Drawing.Point(4, 29);
+            this.tabPage3.Location = new System.Drawing.Point(4, 54);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(417, 331);
+            this.tabPage3.Size = new System.Drawing.Size(417, 306);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "pH - pOH Calculator";
             // 
@@ -566,7 +568,7 @@
             // 
             this.pHpOHResetBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pHpOHResetBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pHpOHResetBtn.Location = new System.Drawing.Point(6, 286);
+            this.pHpOHResetBtn.Location = new System.Drawing.Point(6, 261);
             this.pHpOHResetBtn.Name = "pHpOHResetBtn";
             this.pHpOHResetBtn.Size = new System.Drawing.Size(104, 39);
             this.pHpOHResetBtn.TabIndex = 3;
@@ -579,10 +581,10 @@
             this.tabPage4.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.tabPage4.Controls.Add(this.panel12);
             this.tabPage4.Controls.Add(this.button_reset_ppm);
-            this.tabPage4.Location = new System.Drawing.Point(4, 29);
+            this.tabPage4.Location = new System.Drawing.Point(4, 54);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(417, 331);
+            this.tabPage4.Size = new System.Drawing.Size(417, 306);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "ppm Calculator";
             // 
@@ -738,7 +740,7 @@
             // 
             this.button_reset_ppm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button_reset_ppm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_reset_ppm.Location = new System.Drawing.Point(6, 286);
+            this.button_reset_ppm.Location = new System.Drawing.Point(6, 261);
             this.button_reset_ppm.Name = "button_reset_ppm";
             this.button_reset_ppm.Size = new System.Drawing.Size(104, 39);
             this.button_reset_ppm.TabIndex = 4;
@@ -751,10 +753,10 @@
             this.tabPage5.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.tabPage5.Controls.Add(this.soldiluationResetBtn);
             this.tabPage5.Controls.Add(this.panel13);
-            this.tabPage5.Location = new System.Drawing.Point(4, 29);
+            this.tabPage5.Location = new System.Drawing.Point(4, 54);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(417, 331);
+            this.tabPage5.Size = new System.Drawing.Size(417, 306);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Solution Dilution Calculator";
             // 
@@ -762,7 +764,7 @@
             // 
             this.soldiluationResetBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.soldiluationResetBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.soldiluationResetBtn.Location = new System.Drawing.Point(6, 286);
+            this.soldiluationResetBtn.Location = new System.Drawing.Point(6, 261);
             this.soldiluationResetBtn.Name = "soldiluationResetBtn";
             this.soldiluationResetBtn.Size = new System.Drawing.Size(104, 39);
             this.soldiluationResetBtn.TabIndex = 29;
