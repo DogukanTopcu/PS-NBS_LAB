@@ -142,7 +142,7 @@ namespace PalmSense4.components
                         key.SetValue("dp_MinCurrent", "a");
                     }
 
-                    if (key.GetValue("cv_StartCurrent").ToString() == "a")
+                    if (key.GetValue("cv_StartCurrent").ToString() != "a")
                     {
                         start = (int) key.GetValue("cv_StartCurrent");
                     }
@@ -151,7 +151,7 @@ namespace PalmSense4.components
                         start = _cvSettings.StartCurrent.GetPositionByCurrentRanges(_cvSettings.StartCurrent.Method.Ranging.CurrentRange.ToString());
                     }
 
-                    if (key.GetValue("cv_MaxCurrent").ToString() == "a")
+                    if (key.GetValue("cv_MaxCurrent").ToString() != "a")
                     {
                         max = (int) key.GetValue("cv_MaxCurrent");
                     }
@@ -160,7 +160,7 @@ namespace PalmSense4.components
                         max = _cvSettings.MaxCurrent.GetPositionByCurrentRanges(_cvSettings.MaxCurrent.Method.Ranging.MaximumCurrentRange.ToString());
                     }
 
-                    if (key.GetValue("cv_MinCurrent").ToString() == "a")
+                    if (key.GetValue("cv_MinCurrent").ToString() != "a")
                     {
                         min = (int) key.GetValue("cv_MinCurrent");
                     }
@@ -242,7 +242,7 @@ namespace PalmSense4.components
                         key.SetValue("dp_MinCurrent", "a");
                     }
 
-                    if (key.GetValue("dp_StartCurrent").ToString() == "a")
+                    if (key.GetValue("dp_StartCurrent").ToString() != "a")
                     {
                         start = (int)key.GetValue("dp_StartCurrent");
                     }
@@ -251,7 +251,7 @@ namespace PalmSense4.components
                         start = _dpSettings.StartCurrent.GetPositionByCurrentRanges(_dpSettings.StartCurrent.Method.Ranging.CurrentRange.ToString());
                     }
 
-                    if (key.GetValue("dp_MaxCurrent").ToString() == "a")
+                    if (key.GetValue("dp_MaxCurrent").ToString() != "a")
                     {
                         max = (int)key.GetValue("dp_MaxCurrent");
                     }
@@ -260,7 +260,7 @@ namespace PalmSense4.components
                         max = _dpSettings.MaxCurrent.GetPositionByCurrentRanges(_dpSettings.MaxCurrent.Method.Ranging.MaximumCurrentRange.ToString());
                     }
 
-                    if (key.GetValue("dp_MinCurrent").ToString() == "a")
+                    if (key.GetValue("dp_MinCurrent").ToString() != "a")
                     {
                         min = (int)key.GetValue("dp_MinCurrent");
                     }
