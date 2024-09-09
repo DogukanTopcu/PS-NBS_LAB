@@ -66,6 +66,19 @@ namespace PalmSense4.components
                         key.SetValue("cv_ConditioningTime", "a");
                         key.SetValue("cv_DepositionPotential", "a");
                         key.SetValue("cv_DepositionTime", "a");
+
+                        key.SetValue("dp_ConditioningPotential", "a");
+                        key.SetValue("dp_ConditioningTime", "a");
+                        key.SetValue("dp_DepositionPotential", "a");
+                        key.SetValue("dp_DepositionTime", "a");
+
+                        key.SetValue("cv_StartCurrent", "a");
+                        key.SetValue("cv_MaxCurrent", "a");
+                        key.SetValue("cv_MinCurrent", "a");
+
+                        key.SetValue("dp_StartCurrent", "a");
+                        key.SetValue("dp_MaxCurrent", "a");
+                        key.SetValue("dp_MinCurrent", "a");
                     }
 
                     // Equilibration Time

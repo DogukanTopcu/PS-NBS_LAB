@@ -136,6 +136,10 @@ namespace PalmSense4.components
                         key.SetValue("cv_StartCurrent", "a");
                         key.SetValue("cv_MaxCurrent", "a");
                         key.SetValue("cv_MinCurrent", "a");
+
+                        key.SetValue("dp_StartCurrent", "a");
+                        key.SetValue("dp_MaxCurrent", "a");
+                        key.SetValue("dp_MinCurrent", "a");
                     }
 
                     if (key.GetValue("cv_StartCurrent").ToString() == "a")
@@ -232,6 +236,10 @@ namespace PalmSense4.components
                         key.SetValue("cv_StartCurrent", "a");
                         key.SetValue("cv_MaxCurrent", "a");
                         key.SetValue("cv_MinCurrent", "a");
+
+                        key.SetValue("dp_StartCurrent", "a");
+                        key.SetValue("dp_MaxCurrent", "a");
+                        key.SetValue("dp_MinCurrent", "a");
                     }
 
                     if (key.GetValue("dp_StartCurrent").ToString() == "a")

@@ -93,6 +93,14 @@ namespace PalmSense4.components
                         key.SetValue("dp_ConditioningTime", "a");
                         key.SetValue("dp_DepositionPotential", "a");
                         key.SetValue("dp_DepositionTime", "a");
+
+                        key.SetValue("cv_StartCurrent", "a");
+                        key.SetValue("cv_MaxCurrent", "a");
+                        key.SetValue("cv_MinCurrent", "a");
+
+                        key.SetValue("dp_StartCurrent", "a");
+                        key.SetValue("dp_MaxCurrent", "a");
+                        key.SetValue("dp_MinCurrent", "a");
                     }
 
                     if (key.GetValue("cv_ConditioningPotential").ToString() != "a")
@@ -187,6 +195,14 @@ namespace PalmSense4.components
                         key.SetValue("dp_ConditioningTime", "a");
                         key.SetValue("dp_DepositionPotential", "a");
                         key.SetValue("dp_DepositionTime", "a");
+
+                        key.SetValue("cv_StartCurrent", "a");
+                        key.SetValue("cv_MaxCurrent", "a");
+                        key.SetValue("cv_MinCurrent", "a");
+
+                        key.SetValue("dp_StartCurrent", "a");
+                        key.SetValue("dp_MaxCurrent", "a");
+                        key.SetValue("dp_MinCurrent", "a");
                     }
 
                     if (key.GetValue("dp_ConditioningPotential").ToString() != "a")
