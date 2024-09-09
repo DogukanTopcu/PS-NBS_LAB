@@ -64,6 +64,8 @@ namespace PalmSense4
 
         private void regression_analysis_Load(object sender, EventArgs e)
         {
+            this.AutoScaleMode = AutoScaleMode.Dpi;
+
             lod_label.Text = "";
             loq_label.Text = "";
             formul.Text = "";

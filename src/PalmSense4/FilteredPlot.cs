@@ -58,6 +58,8 @@ namespace PalmSense4
 
         private void FilteredPlot_Load(object sender, EventArgs e)
         {
+            this.AutoScaleMode = AutoScaleMode.Dpi;
+
             if (isCurve)
             {
                 plot1.AddSimpleCurve(_activeCurve);
