@@ -127,7 +127,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label7.Location = new System.Drawing.Point(6, 3);
+            this.label7.Location = new System.Drawing.Point(3, 4);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(133, 29);
             this.label7.TabIndex = 0;
@@ -287,9 +287,9 @@
             this.panel9.Controls.Add(this.label10);
             this.panel9.Controls.Add(this.comboBox_Chemical);
             this.panel9.Controls.Add(this.label9);
-            this.panel9.Location = new System.Drawing.Point(11, 6);
+            this.panel9.Location = new System.Drawing.Point(8, 6);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(390, 147);
+            this.panel9.Size = new System.Drawing.Size(393, 147);
             this.panel9.TabIndex = 0;
             // 
             // textBox_MolarMass
