@@ -48,7 +48,6 @@ namespace PalmSense4.components
             {
                 if (key != null)
                 {
-                    Console.WriteLine(key.ValueCount);
                     if (key.ValueCount == 0)
                     {
                         key.SetValue("cv_EquilibrationTime", "a");
@@ -66,6 +65,11 @@ namespace PalmSense4.components
                         key.SetValue("dp_Scanrate", "a");
                         key.SetValue("dp_PulsePotential", "a");
                         key.SetValue("dp_PulseTime", "a");
+
+                        key.SetValue("cv_ConditioningPotential", "a");
+                        key.SetValue("cv_ConditioningTime", "a");
+                        key.SetValue("cv_DepositionPotential", "a");
+                        key.SetValue("cv_DepositionTime", "a");
                     }
                     // Equilibration Time
                     if (key.GetValue("dp_EquilibrationTime").ToString() != "a")

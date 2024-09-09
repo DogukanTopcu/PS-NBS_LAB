@@ -65,10 +65,71 @@ namespace PalmSense4.components
             {
                 if (key != null)
                 {
-                    tbECondition.Texts = key.GetValue("cv_ConditioningPotential").ToString();
-                    tbTCondition.Texts = key.GetValue("cv_ConditioningTime").ToString();
-                    tbEDeposition.Texts = key.GetValue("cv_DepositionPotential").ToString();
-                    tbTDeposition.Texts = key.GetValue("cv_DepositionTime").ToString();
+
+                    if (key.ValueCount == 0)
+                    {
+                        key.SetValue("cv_EquilibrationTime", "a");
+                        key.SetValue("cv_BeginPotential", "a");
+                        key.SetValue("cv_Vtx1Potential", "a");
+                        key.SetValue("cv_Vtx2Potential", "a");
+                        key.SetValue("cv_StepPotential", "a");
+                        key.SetValue("cv_Scanrate", "a");
+                        key.SetValue("cv_nEqScans", "a");
+
+                        key.SetValue("dp_EquilibrationTime", "a");
+                        key.SetValue("dp_BeginPotential", "a");
+                        key.SetValue("dp_EndPotential", "a");
+                        key.SetValue("dp_StepPotential", "a");
+                        key.SetValue("dp_Scanrate", "a");
+                        key.SetValue("dp_PulsePotential", "a");
+                        key.SetValue("dp_PulseTime", "a");
+
+                        key.SetValue("cv_ConditioningPotential", "a");
+                        key.SetValue("cv_ConditioningTime", "a");
+                        key.SetValue("cv_DepositionPotential", "a");
+                        key.SetValue("cv_DepositionTime", "a");
+
+                        key.SetValue("dp_ConditioningPotential", "a");
+                        key.SetValue("dp_ConditioningTime", "a");
+                        key.SetValue("dp_DepositionPotential", "a");
+                        key.SetValue("dp_DepositionTime", "a");
+                    }
+
+                    if (key.GetValue("cv_ConditioningPotential").ToString() != "a")
+                    {
+                        tbECondition.Texts = key.GetValue("cv_ConditioningPotential").ToString();    
+                    }
+                    else
+                    {
+                        tbECondition.Texts = _cvSettings.ECondition.Method.ConditioningPotential.ToString();
+                    }
+
+                    if (key.GetValue("cv_ConditioningTime").ToString() != "a")
+                    {
+                        tbTCondition.Texts = key.GetValue("cv_ConditioningTime").ToString();
+                    }
+                    else
+                    {
+                        tbTCondition.Texts = _cvSettings.TCondition.Method.ConditioningTime.ToString();
+                    }
+
+                    if (key.GetValue("cv_DepositionPotential").ToString() != "a")
+                    {
+                        tbEDeposition.Texts = key.GetValue("cv_DepositionPotential").ToString();
+                    }
+                    else
+                    {
+                        tbEDeposition.Texts = _cvSettings.EDeposition.Method.DepositionPotential.ToString();
+                    }
+
+                    if (key.GetValue("cv_DepositionTime").ToString() != "a")
+                    {
+                        tbTDeposition.Texts = key.GetValue("cv_DepositionTime").ToString();
+                    }
+                    else
+                    {
+                        tbTDeposition.Texts = _cvSettings.TDeposition.Method.DepositionTime.ToString();
+                    }
                 }
                 else
                 {
@@ -99,11 +160,70 @@ namespace PalmSense4.components
             {
                 if (key != null)
                 {
+                    if (key.ValueCount == 0)
+                    {
+                        key.SetValue("cv_EquilibrationTime", "a");
+                        key.SetValue("cv_BeginPotential", "a");
+                        key.SetValue("cv_Vtx1Potential", "a");
+                        key.SetValue("cv_Vtx2Potential", "a");
+                        key.SetValue("cv_StepPotential", "a");
+                        key.SetValue("cv_Scanrate", "a");
+                        key.SetValue("cv_nEqScans", "a");
 
-                    tbECondition.Texts = key.GetValue("dp_ConditioningPotential").ToString();
-                    tbTCondition.Texts = key.GetValue("dp_ConditioningTime").ToString();
-                    tbEDeposition.Texts = key.GetValue("dp_DepositionPotential").ToString();
-                    tbTDeposition.Texts = key.GetValue("dp_DepositionTime").ToString();
+                        key.SetValue("dp_EquilibrationTime", "a");
+                        key.SetValue("dp_BeginPotential", "a");
+                        key.SetValue("dp_EndPotential", "a");
+                        key.SetValue("dp_StepPotential", "a");
+                        key.SetValue("dp_Scanrate", "a");
+                        key.SetValue("dp_PulsePotential", "a");
+                        key.SetValue("dp_PulseTime", "a");
+
+                        key.SetValue("cv_ConditioningPotential", "a");
+                        key.SetValue("cv_ConditioningTime", "a");
+                        key.SetValue("cv_DepositionPotential", "a");
+                        key.SetValue("cv_DepositionTime", "a");
+
+                        key.SetValue("dp_ConditioningPotential", "a");
+                        key.SetValue("dp_ConditioningTime", "a");
+                        key.SetValue("dp_DepositionPotential", "a");
+                        key.SetValue("dp_DepositionTime", "a");
+                    }
+
+                    if (key.GetValue("dp_ConditioningPotential").ToString() != "a")
+                    {
+                        tbECondition.Texts = key.GetValue("dp_ConditioningPotential").ToString();
+                    }
+                    else
+                    {
+                        tbECondition.Texts = _dpSettings.ECondition.Method.ConditioningPotential.ToString();
+                    }
+
+                    if (key.GetValue("dp_ConditioningTime").ToString() != "a")
+                    {
+                        tbTCondition.Texts = key.GetValue("dp_ConditioningTime").ToString();
+                    }
+                    else
+                    {
+                        tbTCondition.Texts = _dpSettings.TCondition.Method.ConditioningTime.ToString();
+                    }
+
+                    if (key.GetValue("dp_DepositionPotential").ToString() != "a")
+                    {
+                        tbEDeposition.Texts = key.GetValue("dp_DepositionPotential").ToString();
+                    }
+                    else
+                    {
+                        tbEDeposition.Texts = _dpSettings.EDeposition.Method.DepositionPotential.ToString();
+                    }
+
+                    if (key.GetValue("dp_DepositionTime").ToString() != "a")
+                    {
+                        tbTDeposition.Texts = key.GetValue("dp_DepositionTime").ToString();
+                    }
+                    else
+                    {
+                        tbTDeposition.Texts = _dpSettings.TDeposition.Method.DepositionTime.ToString();
+                    }  
                 }
                 else
                 {

@@ -61,6 +61,11 @@ namespace PalmSense4.components
                         key.SetValue("dp_Scanrate", "a");
                         key.SetValue("dp_PulsePotential", "a");
                         key.SetValue("dp_PulseTime", "a");
+
+                        key.SetValue("cv_ConditioningPotential", "a");
+                        key.SetValue("cv_ConditioningTime", "a");
+                        key.SetValue("cv_DepositionPotential", "a");
+                        key.SetValue("cv_DepositionTime", "a");
                     }
 
                     // Equilibration Time
