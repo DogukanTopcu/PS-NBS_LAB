@@ -48,78 +48,104 @@ namespace PalmSense4.components
             {
                 if (key != null)
                 {
+                    Console.WriteLine(key.ValueCount);
+                    if (key.ValueCount == 0)
+                    {
+                        key.SetValue("cv_EquilibrationTime", "a");
+                        key.SetValue("cv_BeginPotential", "a");
+                        key.SetValue("cv_Vtx1Potential", "a");
+                        key.SetValue("cv_Vtx2Potential", "a");
+                        key.SetValue("cv_StepPotential", "a");
+                        key.SetValue("cv_Scanrate", "a");
+                        key.SetValue("cv_nEqScans", "a");
+
+                        key.SetValue("dp_EquilibrationTime", "a");
+                        key.SetValue("dp_BeginPotential", "a");
+                        key.SetValue("dp_EndPotential", "a");
+                        key.SetValue("dp_StepPotential", "a");
+                        key.SetValue("dp_Scanrate", "a");
+                        key.SetValue("dp_PulsePotential", "a");
+                        key.SetValue("dp_PulseTime", "a");
+                    }
                     // Equilibration Time
-                    try
+                    if (key.GetValue("dp_EquilibrationTime").ToString() != "a")
                     {
                         tbTEq.Texts = key.GetValue("dp_EquilibrationTime").ToString();
                         _dpSettings.TimeEquilibrium.Method.EquilibrationTime = this.CheckStringToFloat(key.GetValue("dp_EquilibrationTime").ToString());
-                    } catch
+                    }
+                    else
                     {
                         tbTEq.Texts = _dpSettings.TimeEquilibrium.Method.EquilibrationTime.ToString();
                         _dpSettings.TimeEquilibrium.Method.EquilibrationTime = this.CheckStringToFloat(_dpSettings.TimeEquilibrium.Method.EquilibrationTime.ToString());
                     }
 
                     // Begin Potential
-                    try
+                    if (key.GetValue("dp_BeginPotential").ToString() != "a")
                     {
                         tbEBegin.Texts = key.GetValue("dp_BeginPotential").ToString();
                         _dpSettings.EBegin.Method.BeginPotential = this.CheckStringToFloat(key.GetValue("dp_BeginPotential").ToString());
-                    } catch
+                    }
+                    else
                     {
                         tbEBegin.Texts = _dpSettings.EBegin.Method.BeginPotential.ToString();
                         _dpSettings.EBegin.Method.BeginPotential = this.CheckStringToFloat(_dpSettings.EBegin.Method.BeginPotential.ToString());
                     }
 
                     // End Potential
-                    try
+                    if (key.GetValue("dp_EndPotential").ToString() != "a")
                     {
                         tbEEnd.Texts = key.GetValue("dp_EndPotential").ToString();
                         _dpSettings.EEnd.Method.EndPotential = this.CheckStringToFloat(key.GetValue("dp_EndPotential").ToString());
-                    } catch
+                    }
+                    else
                     {
                         tbEEnd.Texts = _dpSettings.EEnd.Method.EndPotential.ToString();
                         _dpSettings.EEnd.Method.EndPotential = this.CheckStringToFloat(_dpSettings.EEnd.Method.EndPotential.ToString());
                     }
 
                     // Step Potential
-                    try
+                    if (key.GetValue("dp_StepPotential").ToString() != "a")
                     {
                         tbEStep.Texts = key.GetValue("dp_StepPotential").ToString();
                         _dpSettings.EStep.Method.StepPotential = this.CheckStringToFloat(key.GetValue("dp_StepPotential").ToString());
-                    } catch
+                    }
+                    else
                     {
                         tbEStep.Texts = _dpSettings.EStep.Method.StepPotential.ToString();
                         _dpSettings.EStep.Method.StepPotential = this.CheckStringToFloat(_dpSettings.EStep.Method.StepPotential.ToString());
                     }
 
                     // Scan Rate
-                    try
+                    if (key.GetValue("dp_Scanrate").ToString() != "a")
                     {
                         tbScanRate.Texts = key.GetValue("dp_Scanrate").ToString();
                         _dpSettings.ScanRate.Method.Scanrate = this.CheckStringToFloat(key.GetValue("dp_Scanrate").ToString());
-                    } catch
+                    }
+                    else
                     {
                         tbScanRate.Texts = _dpSettings.ScanRate.Method.Scanrate.ToString();
                         _dpSettings.ScanRate.Method.Scanrate = this.CheckStringToFloat(_dpSettings.ScanRate.Method.Scanrate.ToString());
                     }
 
                     // Pulse Potential
-                    try
+                    if (key.GetValue("dp_PulsePotential").ToString() != "a")
                     {
                         tbEPulse.Texts = key.GetValue("dp_PulsePotential").ToString();
                         _dpSettings.EPulse.Method.PulsePotential = this.CheckStringToFloat(key.GetValue("dp_PulsePotential").ToString());
-                    } catch
+                    }
+                    else
                     {
                         tbEPulse.Texts = _dpSettings.EPulse.Method.PulsePotential.ToString();
                         _dpSettings.EPulse.Method.PulsePotential = this.CheckStringToFloat(_dpSettings.EPulse.Method.PulsePotential.ToString());
                     }
 
                     // Pulse Time
-                    try
+                    if (key.GetValue("dp_PulseTime").ToString() != "a")
                     {
                         tbTPulse.Texts = key.GetValue("dp_PulseTime").ToString();
                         _dpSettings.TPulse.Method.PulseTime = this.CheckStringToFloat(key.GetValue("dp_PulseTime").ToString());
-                    } catch
+                    }
+                    else
                     {
                         tbTPulse.Texts = _dpSettings.TPulse.Method.PulseTime.ToString();
                         _dpSettings.TPulse.Method.PulseTime = this.CheckStringToFloat(_dpSettings.TPulse.Method.PulseTime.ToString());

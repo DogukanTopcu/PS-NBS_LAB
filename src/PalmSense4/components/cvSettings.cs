@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿using Microsoft.Office.Interop.Excel;
+using Microsoft.Win32;
 using PalmSens;
 using PalmSens.Techniques;
 using PalmSense4.data.Measurement_Settings;
@@ -43,79 +44,104 @@ namespace PalmSense4.components
             {
                 if (key != null)
                 {
+                    if (key.ValueCount == 0)
+                    {
+                        key.SetValue("cv_EquilibrationTime", "a");
+                        key.SetValue("cv_BeginPotential", "a");
+                        key.SetValue("cv_Vtx1Potential", "a");
+                        key.SetValue("cv_Vtx2Potential", "a");
+                        key.SetValue("cv_StepPotential", "a");
+                        key.SetValue("cv_Scanrate", "a");
+                        key.SetValue("cv_nEqScans", "a");
+
+                        key.SetValue("dp_EquilibrationTime", "a");
+                        key.SetValue("dp_BeginPotential", "a");
+                        key.SetValue("dp_EndPotential", "a");
+                        key.SetValue("dp_StepPotential", "a");
+                        key.SetValue("dp_Scanrate", "a");
+                        key.SetValue("dp_PulsePotential", "a");
+                        key.SetValue("dp_PulseTime", "a");
+                    }
+
                     // Equilibration Time
-                    try
+                    if (key.GetValue("cv_EquilibrationTime").ToString() != "a")
                     {
                         tbTEq.Texts = key.GetValue("cv_EquilibrationTime").ToString();
                         _cvSettings.TimeEquilibrium.Method.EquilibrationTime = this.CheckStringToFloat(key.GetValue("cv_EquilibrationTime").ToString());
-                    } catch
+                    }
+                    else
                     {
                         tbTEq.Texts = _cvSettings.TimeEquilibrium.Method.EquilibrationTime.ToString();
                         _cvSettings.TimeEquilibrium.Method.EquilibrationTime = this.CheckStringToFloat(_cvSettings.TimeEquilibrium.Method.EquilibrationTime.ToString());
                     }
 
                     // Begin Potential
-                    try
+                    if (key.GetValue("cv_BeginPotential").ToString() != "a")
                     {
                         tbEBegin.Texts = key.GetValue("cv_BeginPotential").ToString();
                         _cvSettings.EBegin.Method.BeginPotential = this.CheckStringToFloat(key.GetValue("cv_BeginPotential").ToString());
-                    } catch
+                    }
+                    else
                     {
                         tbEBegin.Texts = _cvSettings.EBegin.Method.BeginPotential.ToString();
                         _cvSettings.EBegin.Method.BeginPotential = this.CheckStringToFloat(_cvSettings.EBegin.Method.BeginPotential.ToString());
                     }
 
-
                     // Vertex 1
-                    try
+                    if (key.GetValue("cv_Vtx1Potential").ToString() != "a")
                     {
                         tbEVertex1.Texts = key.GetValue("cv_Vtx1Potential").ToString();
                         _cvSettings.EVertex1.Method.Vtx1Potential = this.CheckStringToFloat(key.GetValue("cv_Vtx1Potential").ToString());
-                    } catch
+                    }
+                    else
                     {
                         tbEVertex1.Texts = _cvSettings.EVertex1.Method.Vtx1Potential.ToString();
                         _cvSettings.EVertex1.Method.Vtx1Potential = this.CheckStringToFloat(_cvSettings.EVertex1.Method.Vtx1Potential.ToString());
                     }
 
                     // Vertex 2
-                    try
+                    if (key.GetValue("cv_Vtx2Potential").ToString() != "a")
                     {
                         tbEVertex2.Texts = key.GetValue("cv_Vtx2Potential").ToString();
                         _cvSettings.EVertex2.Method.Vtx2Potential = this.CheckStringToFloat(key.GetValue("cv_Vtx2Potential").ToString());
-                    } catch
+                    }
+                    else
                     {
                         tbEVertex2.Texts = _cvSettings.EVertex2.Method.Vtx2Potential.ToString();
                         _cvSettings.EVertex2.Method.Vtx2Potential = this.CheckStringToFloat(_cvSettings.EVertex2.Method.Vtx2Potential.ToString());
                     }
 
                     // Step Potential
-                    try
+                    if (key.GetValue("cv_StepPotential").ToString() != "a")
                     {
                         tbEStep.Texts = key.GetValue("cv_StepPotential").ToString();
                         _cvSettings.EStep.Method.StepPotential = this.CheckStringToFloat(key.GetValue("cv_StepPotential").ToString());
-                    } catch
+                    }
+                    else
                     {
                         tbEStep.Texts = _cvSettings.EStep.Method.StepPotential.ToString();
                         _cvSettings.EStep.Method.StepPotential = this.CheckStringToFloat(_cvSettings.EStep.Method.StepPotential.ToString());
                     }
 
                     // Scan Rate
-                    try
+                    if (key.GetValue("cv_Scanrate").ToString() != "a")
                     {
                         tbScanRate.Texts = key.GetValue("cv_Scanrate").ToString();
                         _cvSettings.ScanRate.Method.Scanrate = this.CheckStringToFloat(key.GetValue("cv_Scanrate").ToString());
-                    } catch
+                    }
+                    else
                     {
                         tbScanRate.Texts = _cvSettings.ScanRate.Method.Scanrate.ToString();
                         _cvSettings.ScanRate.Method.Scanrate = this.CheckStringToFloat(_cvSettings.ScanRate.Method.Scanrate.ToString());
                     }
 
                     // Number of Scan
-                    try
+                    if (key.GetValue("cv_nEqScans").ToString() != "a")
                     {
                         tbNumberOfScan.Texts = key.GetValue("cv_nEqScans").ToString();
                         _cvSettings.NumbersOfScan.Method.nScans = this.CheckStringToInt(key.GetValue("cv_nEqScans").ToString());
-                    } catch
+                    }
+                    else
                     {
                         tbNumberOfScan.Texts = _cvSettings.NumbersOfScan.Method.nScans.ToString();
                         _cvSettings.NumbersOfScan.Method.nScans = this.CheckStringToInt(_cvSettings.NumbersOfScan.Method.nScans.ToString());

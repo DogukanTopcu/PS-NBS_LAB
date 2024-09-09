@@ -435,7 +435,6 @@ namespace PalmSense4
                     
                     cvSettings1.Visible = true;
                     dpSettings1.Visible = false;
-                    isSettings1.Visible = false;
 
                     pretreatmentSettings1.loadCLVPretreatmentSettings();
                     currentRangeSettings1.loadCLVCurrentRange();
@@ -445,7 +444,6 @@ namespace PalmSense4
                     
                     cvSettings1.Visible = false;
                     dpSettings1.Visible = true;
-                    isSettings1.Visible = false;
 
                     pretreatmentSettings1.loadDPPretreatmentSettings();
                     currentRangeSettings1.loadDPCurrentRange();
@@ -455,7 +453,6 @@ namespace PalmSense4
 
                     cvSettings1.Visible = false;
                     dpSettings1.Visible = false;
-                    isSettings1.Visible = true;
 
                     pretreatmentSettings1.loadIMMPretreatmentSettings();
                     currentRangeSettings1.loadISCurrentRange();

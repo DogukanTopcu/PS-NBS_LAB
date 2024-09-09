@@ -46,7 +46,7 @@ namespace PalmSense4.components
 
 
             // High
-            serialPort1.WriteLine("51~60000");
+            serialPort1.WriteLine("177~60000");
             rjButton1.Enabled = false;
             rjButton2.Enabled = false;
         }
@@ -63,7 +63,7 @@ namespace PalmSense4.components
             serialPort1.Open();
 
             // Low
-            serialPort1.WriteLine("26~60000");
+            serialPort1.WriteLine("77~60000");
             rjButton1.Enabled = false;
             rjButton2.Enabled = false;
         }

@@ -119,7 +119,6 @@
             this.saveSettingsInInternalStorage = new System.Windows.Forms.CheckBox();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.pretreatmentSettings1 = new PalmSense4.components.pretreatmentSettings();
-            this.isSettings1 = new PalmSense4.components.isSettings();
             this.dpSettings1 = new PalmSense4.components.dpSettings();
             this.cvSettings1 = new PalmSense4.components.cvSettings();
             this.label5 = new System.Windows.Forms.Label();
@@ -1142,7 +1141,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel3.AutoScroll = true;
             this.flowLayoutPanel3.Controls.Add(this.pretreatmentSettings1);
-            this.flowLayoutPanel3.Controls.Add(this.isSettings1);
             this.flowLayoutPanel3.Controls.Add(this.dpSettings1);
             this.flowLayoutPanel3.Controls.Add(this.cvSettings1);
             this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 362);
@@ -1157,23 +1155,16 @@
             this.pretreatmentSettings1.Size = new System.Drawing.Size(435, 331);
             this.pretreatmentSettings1.TabIndex = 11;
             // 
-            // isSettings1
-            // 
-            this.isSettings1.Location = new System.Drawing.Point(3, 340);
-            this.isSettings1.Name = "isSettings1";
-            this.isSettings1.Size = new System.Drawing.Size(435, 460);
-            this.isSettings1.TabIndex = 11;
-            // 
             // dpSettings1
             // 
-            this.dpSettings1.Location = new System.Drawing.Point(3, 806);
+            this.dpSettings1.Location = new System.Drawing.Point(3, 340);
             this.dpSettings1.Name = "dpSettings1";
             this.dpSettings1.Size = new System.Drawing.Size(435, 380);
             this.dpSettings1.TabIndex = 11;
             // 
             // cvSettings1
             // 
-            this.cvSettings1.Location = new System.Drawing.Point(3, 1192);
+            this.cvSettings1.Location = new System.Drawing.Point(3, 726);
             this.cvSettings1.Name = "cvSettings1";
             this.cvSettings1.Size = new System.Drawing.Size(435, 380);
             this.cvSettings1.TabIndex = 28;
@@ -1363,7 +1354,6 @@
         private PalmSens.Core.Simplified.WinForms.PSCommSimpleWinForms psCommSimpleWinForms;
         private components.cvSettings cvSettings1;
         private components.dpSettings dpSettings1;
-        private components.isSettings isSettings1;
         private components.pretreatmentSettings pretreatmentSettings1;
         private components.currentRangeSettings currentRangeSettings1;
         private components.calculators calculators1;

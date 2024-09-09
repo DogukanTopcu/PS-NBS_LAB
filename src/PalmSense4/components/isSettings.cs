@@ -84,169 +84,23 @@ namespace PalmSense4.components
             {
                 if (key != null)
                 {
-                    // Equilibration Time
-                    try
-                    {
-                        tbTEq.Texts = key.GetValue("im_EquilibrationTime").ToString();
-                        _impSettings.TimeEquilibrium.Method.EquilibrationTime = this.CheckStringToFloat(key.GetValue("im_EquilibrationTime").ToString());
-                    }catch
-                    {
-                        tbTEq.Texts = _impSettings.TimeEquilibrium.Method.EquilibrationTime.ToString();
-                        _impSettings.TimeEquilibrium.Method.EquilibrationTime = this.CheckStringToFloat(_impSettings.TimeEquilibrium.Method.EquilibrationTime.ToString());
-                    }
 
-                    // Potential
-                    try
-                    {
-                        tbEDc.Texts = key.GetValue("im_Potential").ToString();
-                        _impSettings.Potential.Method.Potential = this.CheckStringToFloat(key.GetValue("im_Potential").ToString());
-                    } catch
-                    {
-                        tbEDc.Texts = _impSettings.Potential.Method.Potential.ToString();
-                        _impSettings.Potential.Method.Potential = this.CheckStringToFloat(_impSettings.Potential.Method.Potential.ToString());
-                    }
-
-                    // E AC
-                    try
-                    {
-                        tbEAc.Texts = key.GetValue("im_Eac").ToString();
-                        _impSettings.EAC.Method.Eac = this.CheckStringToFloat(key.GetValue("im_Eac").ToString());
-                    } catch
-                    {
-                        tbEAc.Texts = _impSettings.EAC.Method.Eac.ToString();
-                        _impSettings.EAC.Method.Eac = this.CheckStringToFloat(_impSettings.EAC.Method.Eac.ToString());
-                    }
-                    
-                    // Scan Type
-                    try
-                    {
-                        cbScanType.SelectedIndex = (int)key.GetValue("im_ScanType");
-                        _impSettings.ScanType.Method.ScanType = this.GetScanType((int)key.GetValue("im_ScanType"));
-                    } catch
-                    {
-                        cbScanType.SelectedIndex = (int)_impSettings.ScanType.Method.ScanType;
-                        _impSettings.ScanType.Method.ScanType = this.GetScanType((int)_impSettings.ScanType.Method.ScanType);
-                    }
-
-                    // Freq Type
-                    try
-                    {
-                        cbFreqType.SelectedIndex = (int)key.GetValue("im_FreqType");
-                        _impSettings.FrequencyType.Method.FreqType = this.GetFrequencyType((int)key.GetValue("im_FreqType"));
-                    } catch
-                    {
-                        cbFreqType.SelectedIndex = (int)_impSettings.FrequencyType.Method.FreqType;
-                        _impSettings.FrequencyType.Method.FreqType = this.GetFrequencyType((int)_impSettings.FrequencyType.Method.FreqType);
-                    }
-
-                    // N Frequencies
-                    try
-                    {
-                        tbNFreq.Texts = key.GetValue("im_nFrequencies").ToString();
-                        _impSettings.NFrequencies.Method.nFrequencies = this.CheckStringToInt(key.GetValue("im_nFrequencies").ToString());
-                    } catch
-                    {
-                        tbNFreq.Texts = _impSettings.NFrequencies.Method.nFrequencies.ToString();
-                        _impSettings.NFrequencies.Method.nFrequencies = this.CheckStringToInt(_impSettings.NFrequencies.Method.nFrequencies.ToString());
-                    }
-
-
-                    // Max Frequency
-                    try
-                    {
-                        tbMaxFreq.Texts = key.GetValue("im_MaxFrequency").ToString();
-                        _impSettings.MaxFrequency.Method.MaxFrequency = this.CheckStringToFloat(key.GetValue("im_MaxFrequency").ToString());
-                    } catch
-                    {
-                        tbMaxFreq.Texts = _impSettings.MaxFrequency.Method.MaxFrequency.ToString();
-                        _impSettings.MaxFrequency.Method.MaxFrequency = this.CheckStringToFloat(_impSettings.MaxFrequency.Method.MaxFrequency.ToString());
-                    }
-
-
-                    // Min Frequency
-                    try
-                    {
-                        tbMinFreq.Texts = key.GetValue("im_MinFrequency").ToString();
-                        _impSettings.MinFrequency.Method.MinFrequency = this.CheckStringToFloat(key.GetValue("im_MinFrequency").ToString());
-                    } catch
-                    {
-                        tbMinFreq.Texts = _impSettings.MinFrequency.Method.MinFrequency.ToString();
-                        _impSettings.MinFrequency.Method.MinFrequency = this.CheckStringToFloat(_impSettings.MinFrequency.Method.MinFrequency.ToString());
-                    }
-
+                    key.SetValue("im_FixedFrequency", "a");
 
                     // Fixed Frequency
-                    try
+                    if (key.GetValue("im_FixedFrequency").ToString() != "a")
                     {
                         tbFreq.Texts = key.GetValue("im_FixedFrequency").ToString();
                         _impSettings.Frequency.Method.FixedFrequency = this.CheckStringToFloat(key.GetValue("im_FixedFrequency").ToString());
                     }
-                    catch (NullReferenceException e)
+                    else
                     {
                         tbFreq.Texts = _impSettings.Frequency.Method.FixedFrequency.ToString();
                         _impSettings.Frequency.Method.FixedFrequency = this.CheckStringToFloat(_impSettings.Frequency.Method.FixedFrequency.ToString());
                     }
 
 
-                    // Run Time
-                    try
-                    {
-                        tbTRun.Texts = key.GetValue("im_RunTime").ToString();
-                        _impSettings.TRun.Method.RunTime = this.CheckStringToFloat(key.GetValue("im_RunTime").ToString());
-                    }
-                    catch (NullReferenceException e)
-                    {
-                        tbTRun.Texts = _impSettings.TRun.Method.RunTime.ToString();
-                        _impSettings.TRun.Method.RunTime = this.CheckStringToFloat(_impSettings.TRun.Method.RunTime.ToString());
-                    }
-
-
-                    // Interval Time
-                    try
-                    {
-                        tbTInterval.Texts = key.GetValue("im_IntervalTime").ToString();
-                        _impSettings.TInterval.Method.IntervalTime = this.CheckStringToFloat(key.GetValue("im_IntervalTime").ToString());
-                    } catch (NullReferenceException e)
-                    {
-                        tbTInterval.Texts = _impSettings.TInterval.Method.IntervalTime.ToString();
-                        _impSettings.TInterval.Method.IntervalTime = this.CheckStringToFloat(_impSettings.TInterval.Method.IntervalTime.ToString());
-                    }
-
-
-                    // Begin Potential
-                    try
-                    {
-                        tbEBegin.Texts = key.GetValue("im_BeginPotential").ToString();
-                        _impSettings.EBegin.Method.BeginPotential = this.CheckStringToFloat(key.GetValue("im_BeginPotential").ToString());
-                    } catch
-                    {
-                        tbEBegin.Texts = _impSettings.EBegin.Method.BeginPotential.ToString();
-                        _impSettings.EBegin.Method.BeginPotential = this.CheckStringToFloat(_impSettings.EBegin.Method.BeginPotential.ToString());
-                    }
-
-
-                    // Step Potential
-                    try
-                    {
-                        tbEStep.Texts = key.GetValue("im_StepPotential").ToString();
-                        _impSettings.EStep.Method.StepPotential = this.CheckStringToFloat(key.GetValue("im_StepPotential").ToString());
-                    } catch
-                    {
-                        tbEStep.Texts = _impSettings.EStep.Method.StepPotential.ToString();
-                        _impSettings.EStep.Method.StepPotential = this.CheckStringToFloat(_impSettings.EStep.Method.StepPotential.ToString());
-                    }
-
-
-                    // End Potential
-                    try
-                    {
-                        tbEEnd.Texts = key.GetValue("im_EndPotential").ToString();
-                        _impSettings.EEnd.Method.EndPotential = this.CheckStringToFloat(key.GetValue("im_EndPotential").ToString());
-                    } catch
-                    {
-                        tbEEnd.Texts = _impSettings.EEnd.Method.EndPotential.ToString();
-                        _impSettings.EEnd.Method.EndPotential = this.CheckStringToFloat(_impSettings.EEnd.Method.EndPotential.ToString());
-                    }
+                    
                     
                 }
                 else
