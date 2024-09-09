@@ -105,9 +105,65 @@ namespace PalmSense4.components
             {
                 if (key != null)
                 {
-                    start = (int) key.GetValue("cv_StartCurrent");
-                    max = (int) key.GetValue("cv_MaxCurrent");
-                    min = (int) key.GetValue("cv_MinCurrent");
+                    if (key.ValueCount == 0)
+                    {
+                        key.SetValue("cv_EquilibrationTime", "a");
+                        key.SetValue("cv_BeginPotential", "a");
+                        key.SetValue("cv_Vtx1Potential", "a");
+                        key.SetValue("cv_Vtx2Potential", "a");
+                        key.SetValue("cv_StepPotential", "a");
+                        key.SetValue("cv_Scanrate", "a");
+                        key.SetValue("cv_nEqScans", "a");
+
+                        key.SetValue("dp_EquilibrationTime", "a");
+                        key.SetValue("dp_BeginPotential", "a");
+                        key.SetValue("dp_EndPotential", "a");
+                        key.SetValue("dp_StepPotential", "a");
+                        key.SetValue("dp_Scanrate", "a");
+                        key.SetValue("dp_PulsePotential", "a");
+                        key.SetValue("dp_PulseTime", "a");
+
+                        key.SetValue("cv_ConditioningPotential", "a");
+                        key.SetValue("cv_ConditioningTime", "a");
+                        key.SetValue("cv_DepositionPotential", "a");
+                        key.SetValue("cv_DepositionTime", "a");
+
+                        key.SetValue("dp_ConditioningPotential", "a");
+                        key.SetValue("dp_ConditioningTime", "a");
+                        key.SetValue("dp_DepositionPotential", "a");
+                        key.SetValue("dp_DepositionTime", "a");
+
+                        key.SetValue("cv_StartCurrent", "a");
+                        key.SetValue("cv_MaxCurrent", "a");
+                        key.SetValue("cv_MinCurrent", "a");
+                    }
+
+                    if (key.GetValue("cv_StartCurrent").ToString() == "a")
+                    {
+                        start = (int) key.GetValue("cv_StartCurrent");
+                    }
+                    else
+                    {
+                        start = _cvSettings.StartCurrent.GetPositionByCurrentRanges(_cvSettings.StartCurrent.Method.Ranging.CurrentRange.ToString());
+                    }
+
+                    if (key.GetValue("cv_MaxCurrent").ToString() == "a")
+                    {
+                        max = (int) key.GetValue("cv_MaxCurrent");
+                    }
+                    else
+                    {
+                        max = _cvSettings.MaxCurrent.GetPositionByCurrentRanges(_cvSettings.MaxCurrent.Method.Ranging.MaximumCurrentRange.ToString());
+                    }
+
+                    if (key.GetValue("cv_MinCurrent").ToString() == "a")
+                    {
+                        min = (int) key.GetValue("cv_MinCurrent");
+                    }
+                    else
+                    {
+                        min = _cvSettings.MinCurrent.GetPositionByCurrentRanges(_cvSettings.MinCurrent.Method.Ranging.MinimumCurrentRange.ToString());
+                    }
                 }
                 else
                 {
@@ -145,9 +201,65 @@ namespace PalmSense4.components
             {
                 if (key != null)
                 {
-                    start = (int)key.GetValue("dp_StartCurrent");
-                    max = (int)key.GetValue("dp_MaxCurrent");
-                    min = (int)key.GetValue("dp_MinCurrent");
+                    if (key.ValueCount == 0)
+                    {
+                        key.SetValue("cv_EquilibrationTime", "a");
+                        key.SetValue("cv_BeginPotential", "a");
+                        key.SetValue("cv_Vtx1Potential", "a");
+                        key.SetValue("cv_Vtx2Potential", "a");
+                        key.SetValue("cv_StepPotential", "a");
+                        key.SetValue("cv_Scanrate", "a");
+                        key.SetValue("cv_nEqScans", "a");
+
+                        key.SetValue("dp_EquilibrationTime", "a");
+                        key.SetValue("dp_BeginPotential", "a");
+                        key.SetValue("dp_EndPotential", "a");
+                        key.SetValue("dp_StepPotential", "a");
+                        key.SetValue("dp_Scanrate", "a");
+                        key.SetValue("dp_PulsePotential", "a");
+                        key.SetValue("dp_PulseTime", "a");
+
+                        key.SetValue("cv_ConditioningPotential", "a");
+                        key.SetValue("cv_ConditioningTime", "a");
+                        key.SetValue("cv_DepositionPotential", "a");
+                        key.SetValue("cv_DepositionTime", "a");
+
+                        key.SetValue("dp_ConditioningPotential", "a");
+                        key.SetValue("dp_ConditioningTime", "a");
+                        key.SetValue("dp_DepositionPotential", "a");
+                        key.SetValue("dp_DepositionTime", "a");
+
+                        key.SetValue("cv_StartCurrent", "a");
+                        key.SetValue("cv_MaxCurrent", "a");
+                        key.SetValue("cv_MinCurrent", "a");
+                    }
+
+                    if (key.GetValue("dp_StartCurrent").ToString() == "a")
+                    {
+                        start = (int)key.GetValue("dp_StartCurrent");
+                    }
+                    else
+                    {
+                        start = _dpSettings.StartCurrent.GetPositionByCurrentRanges(_dpSettings.StartCurrent.Method.Ranging.CurrentRange.ToString());
+                    }
+
+                    if (key.GetValue("dp_MaxCurrent").ToString() == "a")
+                    {
+                        max = (int)key.GetValue("dp_MaxCurrent");
+                    }
+                    else
+                    {
+                        max = _dpSettings.MaxCurrent.GetPositionByCurrentRanges(_dpSettings.MaxCurrent.Method.Ranging.MaximumCurrentRange.ToString());
+                    }
+
+                    if (key.GetValue("dp_MinCurrent").ToString() == "a")
+                    {
+                        min = (int)key.GetValue("dp_MinCurrent");
+                    }
+                    else
+                    {
+                        min = _dpSettings.MinCurrent.GetPositionByCurrentRanges(_dpSettings.MinCurrent.Method.Ranging.MinimumCurrentRange.ToString());
+                    }
                 }
                 else
                 {
