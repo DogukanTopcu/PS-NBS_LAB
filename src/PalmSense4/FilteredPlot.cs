@@ -58,7 +58,7 @@ namespace PalmSense4
 
         private void FilteredPlot_Load(object sender, EventArgs e)
         {
-            this.AutoScaleMode = AutoScaleMode.Dpi;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
 
             if (isCurve)
             {

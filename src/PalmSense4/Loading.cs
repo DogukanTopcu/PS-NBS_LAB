@@ -39,7 +39,7 @@ namespace PalmSense4
 
         private void Loading_Load(object sender, EventArgs e)
         {
-            this.AutoScaleMode = AutoScaleMode.Dpi;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
 
             progressBar1.Style = ProgressBarStyle.Marquee;
             progressBar1.MarqueeAnimationSpeed = 2;

@@ -121,7 +121,7 @@ namespace PalmSense4
 
         private void MainPage_Load(object sender, EventArgs e)
         {
-            this.AutoScaleMode = AutoScaleMode.Dpi;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
 
             splitContainer2.IsSplitterFixed = true;
             splitContainer1.IsSplitterFixed = true;
