@@ -15,6 +15,11 @@ namespace PalmSense4
         [STAThread]
         static void Main()
         {
+            //if (Environment.OSVersion.Version.Major >= 6)
+            //{
+            //    SetProcessDpiAware();
+            //}
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainPage());

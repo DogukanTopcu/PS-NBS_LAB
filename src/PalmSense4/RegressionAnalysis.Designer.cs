@@ -43,6 +43,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.rSquare_label = new System.Windows.Forms.Label();
             this.formul = new System.Windows.Forms.Label();
             this.lod_label = new System.Windows.Forms.Label();
             this.loq_label = new System.Windows.Forms.Label();
@@ -50,7 +51,6 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.plot2 = new SDKPlot.WinForms.Plot();
             this.rjButton1 = new RJCodeAdvance.RJControls.RJButton();
-            this.rSquare_label = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -261,6 +261,17 @@
             this.panel2.Size = new System.Drawing.Size(766, 45);
             this.panel2.TabIndex = 4;
             // 
+            // rSquare_label
+            // 
+            this.rSquare_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.rSquare_label.AutoSize = true;
+            this.rSquare_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rSquare_label.Location = new System.Drawing.Point(603, 5);
+            this.rSquare_label.Name = "rSquare_label";
+            this.rSquare_label.Size = new System.Drawing.Size(126, 29);
+            this.rSquare_label.TabIndex = 4;
+            this.rSquare_label.Text = "R2: 0.1234";
+            // 
             // formul
             // 
             this.formul.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -321,7 +332,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 34);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(725, 759);
+            this.tabPage2.Size = new System.Drawing.Size(772, 759);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Plot Previewer";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -335,7 +346,7 @@
             this.plot2.MarkerSize = 5;
             this.plot2.MarkerType = OxyPlot.MarkerType.Circle;
             this.plot2.Name = "plot2";
-            this.plot2.Size = new System.Drawing.Size(719, 753);
+            this.plot2.Size = new System.Drawing.Size(766, 753);
             this.plot2.TabIndex = 0;
             this.plot2.Title = null;
             this.plot2.XAxisLabel = null;
@@ -366,21 +377,9 @@
             this.rjButton1.UseVisualStyleBackColor = false;
             this.rjButton1.Click += new System.EventHandler(this.rjButton1_Click);
             // 
-            // rSquare_label
-            // 
-            this.rSquare_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.rSquare_label.AutoSize = true;
-            this.rSquare_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rSquare_label.Location = new System.Drawing.Point(603, 5);
-            this.rSquare_label.Name = "rSquare_label";
-            this.rSquare_label.Size = new System.Drawing.Size(126, 29);
-            this.rSquare_label.TabIndex = 4;
-            this.rSquare_label.Text = "R2: 0.1234";
-            // 
             // RegressionAnalysis
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1290, 797);
             this.Controls.Add(this.splitContainer1);
             this.Name = "RegressionAnalysis";
